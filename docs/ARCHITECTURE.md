@@ -27,7 +27,7 @@
 | 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*` | 赏赐链路已有验证；内政并未全覆盖 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_activation_publish_v2*` | 一个真实游戏、固定 world、一旬通过；换 world 必须先撤回来源 |
-| A 本轮存档 | `checkpoint_fresh_save*` | 两请求核心通过组件测试；实际常驻 owner/保存来源接线正在补齐 |
+| A 本轮存档 | `checkpoint_fresh_save*` | 两请求核心及raw双槽Owner/Gate组合通过组件测试；仍需A实机配置、User槽协调、输入边界与Room接入 |
 | B 连续加载 | `checkpoint_task_completion*`, `checkpoint_task_native_*` | 两代组件验证；父任务及 Title 创建/启动等生产来源仍有缺口 |
 | Ready 输入等待 | `checkpoint_ready_input_gate*` | 覆盖三个消费入口；不是全输入锁，不能据此放行完整 Ready |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |

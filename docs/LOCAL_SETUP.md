@@ -34,6 +34,8 @@ Python 常见依赖：`pefile`、`capstone`、`cryptography`；执行归档机�
 
 具体被排除的本地生成输入见 [LOCAL_GENERATED_INPUTS.md](LOCAL_GENERATED_INPUTS.md)。
 
+已检查“直接从安装EXE生成保存profile”的可行性：支持版本文件SHA正确，但79个所需范围的磁盘字节均与已采集运行时字节不一致；两种独立PE映射结果一致，且这些范围没有重定位覆盖。因此当前不能把磁盘EXE直接映射后当作 `game-runtime-image.bin`。没有实现解包或放宽指纹。新的保存组合测试仍需外部私有 `checkpoint_push_profile.h`；准确命令见[该模块交接](../work/mod_research/checkpoint_fresh_save_session_handoff.md)。
+
 ## 提交与多电脑协作
 
 ```powershell

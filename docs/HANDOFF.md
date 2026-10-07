@@ -36,7 +36,7 @@
 
 优先完成“完整一旬”可测试链路，避免只增加彼此未接通的测试组件。
 
-1. **A 新存档生产接线。** `checkpoint_fresh_save.{h,cpp}`已有同一Driver两请求、原生Save binder `2FC750`、type0队列 `2DF990`、原生Save阶段/收尾、文件固定及两次native读取比对，26项组件测试过；业务函数与文件是替身，不是两份真实SAN存档。正在补实际 raw User/Save 桥和 `live_storage_binding::Api()` 的常驻组合，新模块将使用 `checkpoint_fresh_save_session*` 前缀。还要接真正的来源发布器和受控输入边界，才能实际导出新档。
+1. **A 新存档生产接线。** 旧 `checkpoint_fresh_save.{h,cpp}`两请求核心26项组件测试过。本轮新增的 `checkpoint_fresh_save_session*` 已将真正 raw User/Save 地址、专用两槽FINALLY汇编桥、HookSet槽发布、`live_storage_binding` / serialized Gate 与该Driver接起来，生产库编译、13个自有进程用例通过；同一Owner两次不同文件成功。仍是替身保存业务/文件，不是两份真实SAN存档。具体API和运行命令见[模块交接](../work/mod_research/checkpoint_fresh_save_session_handoff.md)。下一步不是再造一层抽象：实际构造A端绑定配置，协调现有User槽所有者与规划输入抑制，建立真正的输入排除和Room已排空边界，再受控实机导出两次。该Owner最多两请求，常驻不卸载，不自动放行Ready。
 2. **B 同进程连续加载两份不同档。** `checkpoint_task_completion*`已经把三处线程join与同一身份规划会话关联，6个两代用例过；`checkpoint_task_native_*`已有绑定/启动捕获。生产父任务收尾、Title创建与启动来源仍未全接通。不能用两次重新初始化一次性探针代替常驻两代验证。
 3. **准备后限制输入并排空命令。** `checkpoint_ready_input_gate*`覆盖主规划及另两个菜单消费点（12原生桥、2归档机器码、3Room拒绝用例）；其他子UI/消息/已锁存输入仍未覆盖，完整Ready依然不能放行。
 4. **收入增加348次的归因。** 上一轮纯转发696次，本轮1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
@@ -48,6 +48,8 @@
 - 新增 README、AGENTS、设计、本地配置、当前交接及公开验证摘要。
 - 换电脑检查入口已完成：`py -3 tools/dev_check.py`。原协议18个unittest通过，原房间自测17项检查通过（真实本机TCP/TLS，两种统计不相加成测试数）。仅复制必要源码到带空格的新目录也通过；无游戏、存档、dump或历史run依赖。默认缺capstone/pefile会准确报告，`--strict-env`可要求依赖/MSVC齐全；环境可用不等于原生编译或实机通过。
 - 本轮不需要用户操作游戏；仓库整理及新组件开发不触碰游戏。原始研究目录保留，后续开发以此Git工作区为主。
+- 初始基线已推送 `6770aa5`。本轮新增保存组合的13项测试及源码指纹摘要见[保存组件验证](evidence/2026-10-08-fresh-save-session.json)。新增源码和交接会单独提交，实际最新提交请用 `git log -1` 查看，避免文档自引用提交号失真。
+- 换电脑的明确限制：尝试用磁盘EXE生成保存校验profile，文件SHA虽与支持版本相符，但79个已知范围均与运行时资料不同；两种PE映射算法一致且无重定位覆盖，未放宽校验、未生成错误头。仍需私有运行时生成的 `checkpoint_push_profile.h`，不能把磁盘EXE直接当运行时镜像。没有进行解包或进程提取。
 
 ## 接手前五分钟
 

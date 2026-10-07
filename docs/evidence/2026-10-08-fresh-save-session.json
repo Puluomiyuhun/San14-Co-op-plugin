@@ -1,0 +1,115 @@
+{
+  "schema": "san14.public-fresh-save-session-summary.v1",
+  "date": "2026-10-08",
+  "result": "OWNED_PROCESS_COMPONENT_PASS",
+  "cases": [
+    {
+      "case": "success",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "suppress-original-refused",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "suppressed-no-return",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "entry-replaced-before-arm",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "stop-before-arm",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "stop-before-binder",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "stop-in-binder",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "stop-in-read",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "original-exception",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "save-exception",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "storage-generation-drift",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "native-bytes-mismatch",
+      "result": "PASS",
+      "exit": 0
+    },
+    {
+      "case": "phase-skip",
+      "result": "PASS",
+      "exit": 0
+    }
+  ],
+  "production_compiled": true,
+  "production_library_sha256": "a44550af4e0cc0653eaf0dcac68dbdfedc6207062201f449f1bdaebb06580f3d",
+  "fixture_sha256": "5bedae1a9a1b747d0cded063c9b37a5b8909c2f816e9765b37cade48158ab736",
+  "source_sha256": {
+    "checkpoint_fresh_save_session.cpp": "92691576c31ead9928dbe6d2190c93774bf2d6ed204ec4f7fbcd454767d533be",
+    "checkpoint_fresh_save_session.h": "4de3d19dde8d779b9be35aaf261c072fc31af36942dac054eaff6168af85bd8d",
+    "checkpoint_fresh_save_session_bridge.asm": "4da160f5d703d775078095f27e49b10174ae71a44f567b9a49048947adfd9ddc",
+    "checkpoint_fresh_save_session_bridge.cpp": "71cf68d1d253386500e92cf48633587484fb51a7e829cc69baac948a9d04843f",
+    "checkpoint_fresh_save_session_bridge.h": "1e97f6feeb7c8d7d69cdb2b20e429b4915a38f390a4c8c278cf2f340641916a7",
+    "checkpoint_fresh_save_session_fixture.asm": "003b344a9b754f800bfd3bcbd07b22dc7bd53c014b8f856018162fe0089d0b90",
+    "checkpoint_fresh_save_session_fixture.cpp": "772460af0266c65b9203edf6e08212cdbeae951625bcdf631153697e8c27aeb2",
+    "checkpoint_fresh_save_session_test.py": "3847323f5815d8865d3b3601e11b3dbb627e4d7ad99a7f290eea3e24289b0f80",
+    "checkpoint_fresh_save.h": "4fa1387dc12da6b51e280a41b7d27f490dbcaca3e14a6aac0ea7de461a6625f7",
+    "checkpoint_fresh_save.cpp": "22f421d8c7138829bc432a711867b84d99eae57015fbf65556a52cdc9da1b4aa",
+    "checkpoint_persistent_bridge.h": "44723865f8497bb7212be1e70e4709367251f26fe9c49720ddf37cdfb7396958",
+    "checkpoint_load_worker_bridge.h": "dceba69251643febb1933df3a97c839be6ea1a2b4d53f6730b25746e13b1212b",
+    "checkpoint_push_pilot.h": "dbf1e44d91453efe02f9f236130e79c53e3275d60880b6bf390a245e15ba4f02",
+    "checkpoint_live_storage_binding.h": "8cbe15fa2cc005c9425a09c5d4333bf11ac58859f0c749ac261760b470d8101e",
+    "checkpoint_live_storage_binding.cpp": "6dedc7baa966827305d120d6e323640bb2eff06ebd3f5356b017dd2e3744fff8",
+    "checkpoint_live_storage_binding_fixture.asm": "70b7b532ba3e3e58d1102cd0d494e441a864308e9de6ba91264d6430b616d915",
+    "checkpoint_serialized_storage_gate.h": "0afe68386137087a1f07eceb7676bf93ea3e103bb151d1843be19f8d3e639eb9",
+    "checkpoint_serialized_storage_gate.cpp": "6b2bad0bb07d9d792d5804aac69012db01bc05678aa3f094ff6b46b6272aea81",
+    "checkpoint_load_hook_set.h": "e0a4a4fb2b76d9813bc716a220f2318172cb67842ca0f9a495692289e9822a0b",
+    "checkpoint_load_hook_set.cpp": "a3e4622bc5dbc10dddb3a9e3ca40ddf3e4308b52888cb225fa918e6ccad71ce7",
+    "native_storage_read_core.h": "65f12ea568ce6f9a48b847e572ab841771014c24ff1a59c6f93599b556dc264f",
+    "native_storage_read_core.cpp": "aca7c7e97f3e614b08dd8c7d85cf0188d53014f262207245e9aa961b7d4c3835"
+  },
+  "private_input_hash_only": {
+    "checkpoint_push_profile.h": "8b221226843ed047fe24b3599c9141219c48bbe101191e7c0c4dc1f01a2497ed"
+  },
+  "private_raw_result_sha256": "0080873221b2a5121d63727bd11cf4431ec12a1811fe46bca67ecd4b26c297f7",
+  "independent_review_sha256": "9ad91dd84baffb93e2a9870ee40698bd0a1c71e8e934a71cffbe051a4579dee3",
+  "game_access": false,
+  "steam_access": false,
+  "actual_game_saves_generated": false,
+  "room_ready": false,
+  "all_input_held": false,
+  "full_world": false,
+  "limits": [
+    "Two requests maximum per retained Owner; not indefinite rounds",
+    "Real game business and Steam file functions are explicit fixture doubles",
+    "Production requires actual A configuration, raw User slot ownership, input exclusion and Room publication integration"
+  ]
+}
