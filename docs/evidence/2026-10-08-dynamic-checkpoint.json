@@ -1,0 +1,138 @@
+{
+  "schema": "san14.public-dynamic-checkpoint-summary.v1",
+  "date": "2026-10-08",
+  "scope": "Offline owned-process integration. No SAN14 or Steam access; not a two-game match.",
+  "game_access": false,
+  "actual_two_games": false,
+  "complete_game_pipeline_validated": false,
+  "native_gameplay_enabled": false,
+  "full_world_verified": false,
+  "user_actions_pending": false,
+  "dynamic_entry": {
+    "run": ".local/dynamic-save/20261008-022735-648613",
+    "result": "PASS",
+    "result_sha256": "fb6d0fb0407c1fd74ad209fb0417ffd14a300bbd0bbac1b25425103cb839c7fe"
+  },
+  "a_pipe_build": {
+    "run": "a_save_ipc_runs\\20261008-022735-721766",
+    "result": "PASS",
+    "result_sha256": "9ae1f730119407837a79cf17e2e667a4d5fdc1fdf66c7b336f950d04a08303ba",
+    "production_sha256": "a86c0bc9cf132fb86160dfd8337b24150ecb3725afa7f7173d827e906d1370fb",
+    "fixture_sha256": "6087ce559de1d344fe1c3acc016c64e8a7373249f28554aa29090ce48c13e08b",
+    "sources_unchanged": true
+  },
+  "a_dynamic_flow": {
+    "run": "a_save_ipc_flow_runs\\20261008-022742-518431",
+    "result": "PASS",
+    "result_sha256": "60416fa8457e97333175f8d5e2095b20f4a0f86fbcf74a94dfbcbe4c0c15014b",
+    "unittest_cases": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "dynamic_order": [
+      "ROOM_RESERVE",
+      "NATIVE_PIPE_SUBMIT",
+      "OWNER_COPY_ARTIFACT",
+      "ROOM_PUBLISH",
+      "TLS_DOWNLOAD",
+      "SQLITE_STAGE_REOPEN"
+    ],
+    "native_owner_count": 1,
+    "native_requests": 2,
+    "packets_precreated": false,
+    "native_save_business": "TEST_DOUBLES",
+    "world_observation": "MODEL_ONLY",
+    "guest_load_receipt": "MODEL_ONLY"
+  },
+  "a_input_source": {
+    "run": "a_save_input_runs/20261008-021122-993826",
+    "result": "PASS",
+    "result_sha256": "856dd8f78ee95f91bbb2f6f2c7e32718ecdd6163c1a0f51d7b78ba9b6e9baa28",
+    "native_scenarios": 15,
+    "production_sha256": "462ad2135b1a85a5f32807f6f889bfc58e0598c71426dd0a58d95374a775ae45",
+    "fixture_sha256": "933378f639a13cb8e90a3765077a0625c1b274a7500436745528d5c96541047c",
+    "actual_vtable_publication": true,
+    "all_input_held": false,
+    "save_authorized": false,
+    "room_ready": false
+  },
+  "a_input_coverage": {
+    "run": "a_save_input_sources_runs\\20261008-021002-757265",
+    "result": "PASS",
+    "result_sha256": "54ad047d2b4cbb87a432e0cc5122dc7327701ef794812d11585925c13e01ec06",
+    "uncovered_anchors_checked": 19
+  },
+  "b_title590": {
+    "run": "b_reload_title590_runs/20261008-022152-474574",
+    "result": "PASS",
+    "result_sha256": "b0262258f05a33b1a8730ef587979ae0a7bc40705c5438fc9c5446d96c388f73",
+    "native_scenarios": 12,
+    "fixture_sha256": "0d79e219bb2fc2986f69e7cbec89170502af1213c02497c7aa4d858cc2b8de1f",
+    "production_objects": {
+      "b_reload_title_bridge": "1eee84499bcef6cb8aef5fa00e4d076cb5a00410dc1a469717cd846354ede4c6",
+      "b_reload_title590_router": "4f8212a39c834a2d25645b0e5c1000172eeec63c44c4c229851763bd9a94634d",
+      "b_reload_title590_publish": "be38daf06df03e908f5da4acbf9a8c628d301245876f184c3e33ce315d1240bb",
+      "b_reload_title590_ports": "2f5cfd9bdf41378d37281c7a2ac58cb471df1535bfb2120b08f1deeca19742d8",
+      "b_reload_title_source_v2": "888bc123984cc596525048037cbbaab934a0ce553904859ace601702c99b2c53"
+    },
+    "actual_title590_start_context": true,
+    "actual_title590_wait_before_publication": true,
+    "title590_automatic_worker_begin": true,
+    "title520_fixture_manual_begin": true,
+    "parent_sources_installed": false,
+    "load_finalize_source_installed": false,
+    "real_game_reload": false
+  },
+  "failures_preserved": [
+    {
+      "run": "a_save_ipc_flow_runs\\20261008-021608-978703",
+      "result_sha256": "321feee66178e2a5eb35a206f3c794a7fa23965f55a14862e5f3100ebc93b638",
+      "result": "FAIL",
+      "tests_run": 9,
+      "errors": 2,
+      "reason": "Immediate DisconnectNamedPipe could discard unread Stop response; fixed with bounded terminal observation."
+    }
+  ],
+  "reviewed_fixes": [
+    "Check peer/shutdown again after full request and permit, before native Submit.",
+    "A fixed terminal deadline retains Stop reply until peer EOF or deadline; no infinite extension.",
+    "Current owner lifecycle accompanies Copy; old immutable Complete artifact cannot replace it."
+  ],
+  "remaining": [
+    "A full input/business write exclusion, trusted native permit and live configuration/installer.",
+    "B parent scheduler sources, Load Finalize, Title +520 activation and two real successive reloads.",
+    "Revoke/drain old-world human rules then rebind new world, real observations and command drain.",
+    "Two-PC deployment/version/profile/network setup; no-command two-period live test has not run.",
+    "Income-call count delta analysis; subsequent command/event coverage and map waiting presentation."
+  ],
+  "sources_sha256": {
+    "tools/check_dynamic_save.py": "fe2e2801c120080f44961f6447f6ecc24dc5c46fc758f605578d5800e8652a34",
+    "work/mod_research/a_save_input.cpp": "04392c43ee46204aaea65862a9730880e7787269ef5c00e73295fecfeae752b7",
+    "work/mod_research/a_save_input.h": "c3b7099a38fa7f4c6ea9104b6fae6debdf45553ad62e06909c4f39ce2bc6b8ba",
+    "work/mod_research/a_save_input_bridge.asm": "e2c128dfdf314153959d2e823c20cbe7ecdd501b7f5fff7ad049cb97acbf256b",
+    "work/mod_research/a_save_input_bridge.cpp": "bd06d7a125c436818e45e9b02ae1c7e5b514c620ac26d8a4a2321e7ccc1a41db",
+    "work/mod_research/a_save_input_bridge.h": "1d36bb250667cdc44b5f3639cf6c38b15d048d9dc4bec5a3ad52e193047d71ac",
+    "work/mod_research/a_save_input_fixture.asm": "9d19267bb64fae91cab0ba41ceb94505afa3e8f6b2deed9b92433fa64f29a74e",
+    "work/mod_research/a_save_input_fixture.cpp": "e1d7e87fa53d41356c5d80fa2ffc83887ddd1d1daef0405c4216882caae55767",
+    "work/mod_research/a_save_input_sources.py": "113025760655840956cfb1fbdb467fc5ba251a7d5ddbae6b63c75541e3f9d825",
+    "work/mod_research/a_save_input_test.py": "afb97e9c1058b14e3c190d350f430b59dfbe6c5a70307c82b3e453ce2a554c12",
+    "work/mod_research/a_save_ipc.cpp": "f854efcc7abc5cf2f03b7f51ba6e73da84a0affccc3a628ecb49856f54818e83",
+    "work/mod_research/a_save_ipc.h": "e753a612bf1b7712e12178975f4f3b1ccd7efc5621f6efbc41f8e432903b676a",
+    "work/mod_research/a_save_ipc_client.py": "8f7e90f3e2adefb71c2c7825476eb389c41beaa4c4338e1c6c985ca59fa3cae4",
+    "work/mod_research/a_save_ipc_fixture.cpp": "d2b537f443f7a10546266a93b8497e38ccd84f977d9165b305f723428f77fc0f",
+    "work/mod_research/a_save_ipc_flow_test.py": "b2175c0d3d0a6ef2174c25339ecbe55fd1da70157a1e636bf01840765a834661",
+    "work/mod_research/a_save_ipc_test_build.py": "712427bc89896b1855b79124be9569606dde277b10bb754af691de26b00711f4",
+    "work/mod_research/b_reload_title590_ports.cpp": "a051bc9a273b8cc347843fa02aed2c2a2e08d68f9ecf35cd0dae72b1d0961a3d",
+    "work/mod_research/b_reload_title590_ports.h": "057cdca37e98d9db732a7aaa3f778fa1898e0c05a4741c5608ffe766850079af",
+    "work/mod_research/b_reload_title590_publish.cpp": "8738da75a46978dc72ed596572c15013eaeb0a9eaed3eca0d0ed8ac222618f30",
+    "work/mod_research/b_reload_title590_publish.h": "640a460bfd1c470e562763d2229af12de45e0c68f23d2293bc785ebd4265fb7e",
+    "work/mod_research/b_reload_title590_router.cpp": "ed9ea4ea43f0bc60ed9363ef7a18150b2354ff26917d26a513e69da22a58d44a",
+    "work/mod_research/b_reload_title590_router.h": "455d7a8ae7ae7a0c137ede5681cdeb45308459a426f9b9f405db5583acf143db",
+    "work/mod_research/b_reload_title590_test.py": "b24d322748f5be23ddd54ec3663ed0cc040a7e53f58296f28db6501108d6c30b",
+    "work/mod_research/b_reload_title_bridge.asm": "bd65595f8d64f0a4d7d379a5ff1a260515b3d78b23082876b947ea73508e8601",
+    "work/mod_research/b_reload_title_bridge.cpp": "2192fc38fd282c1a336392396b533e8249efb2b0a73a9332f05f614b54e0a54d",
+    "work/mod_research/b_reload_title_bridge.h": "351b0f07b965bd2058ea20618e4e10464bf1513c3f27a83f6af693ad36979069",
+    "work/mod_research/b_reload_title_source_v2.cpp": "89912fdc8eee8e39028b981d6ecefbfc29ce81063752d328be9a0c48b1280fc3",
+    "work/mod_research/b_reload_title_source_v2.h": "6c36de28cd51979f94a34913e9c976048f01ebd930adcaf15bba1f1028600f6f"
+  }
+}

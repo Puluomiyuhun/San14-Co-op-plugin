@@ -80,6 +80,43 @@ Each stage is reported separately. Even a successful summary always keeps
 `complete_game_pipeline_validated: false` and `actual_two_games: false`.
 This is an offline development check, not a playable multiplayer launcher.
 
+## Dynamic A save request check (Windows)
+
+```powershell
+py -3 tools/check_dynamic_save.py --fixture-root "D:\SAN14 private research\mod_research"
+```
+
+This newer entry explicitly builds `a_save_ipc_test_build.py`, then passes that
+exact successful build to `a_save_ipc_flow_test.py --build-run`. It checks current
+source and executable fingerprints, uses an owned native child, and creates each
+diagnostic file **after** its Room reservation and actual named-pipe Submit.
+The same retained Owner handles two requests; the existing TLS download and
+SQLite journal consume the resulting bytes. Packets are not pre-generated.
+
+The client authenticates the kernel pipe server PID and creation time. The
+server pins its allowed local client process, limits its ACL to the current
+user, and rejects remote pipe clients. Lost Submit replies never cause replay;
+Stop and faults revoke Room downloads. Tests also exercise stop during the
+native admission callback, stale completed bytes, and malformed/replayed frames.
+
+This needs the private `checkpoint_push_profile.h`, Windows x64 MSVC and Python
+`cryptography`. The tool does not attach to any game, operate a window, discover
+processes or call historical live installers. Its saved files are 32-byte
+fixture data, **not SAN14 saves**. Real game business functions, world snapshots
+and B load receipts remain test doubles/models. A production launcher and a
+trusted complete input/write-exclusion permit are still missing. Passing this
+check does not enable Ready, grant save permission, or prove native B loading.
+
+The combined report is saved to ignored `.local/dynamic-save/<timestamp>/`.
+Build/flow logs are preserved separately, including failures. It always reports
+`complete_game_pipeline_validated: false` and `actual_two_games: false`.
+
+Separate source checks are documented in
+`work/mod_research/a_save_input_handoff.md` and
+`work/mod_research/b_reload_title590_handoff.md`. They exercise the A global-UI
+source and B Title +590 worker source, respectively; neither is a full input
+lock or a complete native save/load pipeline.
+
 ## Private fixture paths
 
 Private inputs are unnecessary for the protocol checks. To diagnose their location without reading their contents, copy `private-fixtures.example.json` to an ignored local config and edit the root:
