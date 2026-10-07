@@ -1,0 +1,37 @@
+{
+  "schema": "san14.public-fresh-clone-check.v1",
+  "date": "2026-10-08",
+  "cloned_from": "https://github.com/Puluomiyuhun/San14-Co-op-plugin.git",
+  "tested_commit": "8f95d0513a8d5739cf45181ffc71bd8b5f928128",
+  "clone_path_had_spaces": true,
+  "same_physical_host": true,
+  "original_private_python_deps_used": false,
+  "private_fixture_configured": false,
+  "protocol": {
+    "modules": [
+      "test_protocol",
+      "test_timeline_protocol"
+    ],
+    "tests_discovered": 18,
+    "tests_run": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "transport": "real TCP on ephemeral 127.0.0.1 ports"
+  },
+  "room_tls": {
+    "status": "PASS",
+    "checks": 17,
+    "note": "Named checks from original lobby selftest; not extra unittest test cases."
+  },
+  "development_environment": "INCOMPLETE",
+  "dependency_status": {
+    "capstone": "MISSING",
+    "pefile": "MISSING",
+    "cryptography": "AVAILABLE"
+  },
+  "game_access": false,
+  "native_tests_run": false,
+  "result": "PROTOCOL_AND_TLS_PASS_ENVIRONMENT_LIMITS_REPORTED"
+}

@@ -1,5 +1,9 @@
 # 进展记录
 
+## 2026-10-08 — 远端重新克隆验证
+
+从GitHub拉取 `8f95d05` 到全新的带空格路径，未配置私有fixtures/原研究依赖目录，运行公开 `tools/dev_check.py`：18个原协议unittest、17项TLS自测检查均通过。缺capstone/pefile被正确报告。此验证确认公开源码满足协议检查，不冒充另一台物理机、原生编译或游戏联调。
+
 ## 2026-10-08 — A端保存常驻组合
 
 新增 `checkpoint_fresh_save_session`：固定原生User/Save地址，专用两槽FINALLY桥、HookSet真实槽发布、live_storage_binding / serialized Gate与冻结FreshSave Driver连接。生产库编译成功，13个自有进程用例通过，包括同一Owner两次不同文件、User/Save异常、Stop在提交前后、存储generation漂移、字节不符及抑制回调不能冒充原生返回。新增原入口32字节复核，拒绝初始化后出现的detour。
