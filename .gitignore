@@ -19,6 +19,10 @@ node_modules/
 
 # Game files, memory images, saves, third-party packages and build products.
 *.s14
+*.packet
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
 *.bin
 *.exe
 *.dll

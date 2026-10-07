@@ -1,0 +1,144 @@
+{
+  "schema": "san14.public-checkpoint-components-summary.v1",
+  "date": "2026-10-08",
+  "result": "PASS_OFFLINE_COMPONENTS_AND_TRANSPORT",
+  "flow_result_sha256": "921872816332876753fa35563a18b8e43336480e8c1489d916ef96fa3f11b095",
+  "steps": [
+    {
+      "name": "codec",
+      "result": "PASS",
+      "run_directory": "20261008-015304-010834",
+      "result_sha256": "6915a730706e1d4037ae7154eafdbce52860fdcbb4ab5d279941f3f30e3ab632",
+      "production_sha256": "85ac642e3326d5c255e85fd1d12921aa7db5e6ff974f26555c7514af5152d6c8",
+      "fixture_sha256": "24c7a7a9c7a415a4b3136a15ae6eab0970eeae29dac89dba5d6d6e8d86b240d9",
+      "tests_run": 8,
+      "native_codec_checks": 17
+    },
+    {
+      "name": "host_owner",
+      "result": "PASS",
+      "run_directory": "20261008-015306-085441",
+      "result_sha256": "c24b7a37dd179c1752c2fcbd2cc094291d0780ab2ae5aa63aa1f356a66144c31",
+      "production_sha256": "a81dd698c613da461cbd083c037e9ac698d94b2e636a17c94599b9b7fb15c093",
+      "fixture_sha256": "363196f326de15b52df0d1b44a07b1054e39fde5aee6d16f5eb647d9adc56123",
+      "native_scenarios": 20
+    },
+    {
+      "name": "guest_title_source",
+      "result": "PASS",
+      "run_directory": "20261008-015312-590468",
+      "result_sha256": "621bc37efaef0215e79ee5a068f301290b36c1e35252d085b9c6fdb9ddcbac39",
+      "fixture_sha256": "670cdbe125609316434ff9d7c5d8090c292a6d5ef8dfe2a1425f5ea77174bbf4",
+      "production_object_sha256": "85dcf3490e8149b408f49c9a584a694bb0929eb2c98c2afb816bd48490c190c5",
+      "production_completion_object_sha256": "b2e817a6ac61d3cbab45ca699825496aed15ddb4422820d43202aa6f76bf81a3",
+      "native_scenarios": 12
+    },
+    {
+      "name": "binding_and_tls",
+      "result": "PASS",
+      "run_directory": "20261008-015329-482059",
+      "result_sha256": "62fd672559fd306f1c6ec48a01209d261053e9d88dbb8182e340ab681482b5bb",
+      "tests_run": 20,
+      "skipped": 0,
+      "actual_native_fixture_packets_checked": true,
+      "network_cases": [
+        {
+          "case": "native-owner-export",
+          "period_count": 2,
+          "resources_closed": true,
+          "dynamic_native_submit_binding_validated": false,
+          "native_exports_created_before_model_reservation": true,
+          "periods": [
+            {
+              "period": 1,
+              "world_save_bytes": 32,
+              "transferred_bytes": 3506,
+              "chunks": 2,
+              "save_sha256": "63a177cd04c69c2e95c871cf6a5244a3c6aeac4400791be61535fafedfa970cd",
+              "durable_journal_reopened_status": "STAGED",
+              "load_receipt": "MODEL_ONLY",
+              "world_observations": "MODEL_ONLY"
+            },
+            {
+              "period": 2,
+              "world_save_bytes": 32,
+              "transferred_bytes": 3506,
+              "chunks": 2,
+              "save_sha256": "44402e7b3a88c051f4859946775646175d04dc7562bf92e79f6194323e75fae5",
+              "durable_journal_reopened_status": "STAGED",
+              "load_receipt": "MODEL_ONLY",
+              "world_observations": "MODEL_ONLY"
+            }
+          ]
+        },
+        {
+          "case": "model-export",
+          "period_count": 2,
+          "resources_closed": true,
+          "dynamic_native_submit_binding_validated": false,
+          "native_exports_created_before_model_reservation": false,
+          "periods": [
+            {
+              "period": 1,
+              "world_save_bytes": 114000,
+              "transferred_bytes": 117470,
+              "chunks": 5,
+              "save_sha256": "fc4fb7f65d664bf571b89cc895413c89230b6660d64250127162599cdc2009b2",
+              "durable_journal_reopened_status": "STAGED",
+              "load_receipt": "MODEL_ONLY",
+              "world_observations": "MODEL_ONLY"
+            },
+            {
+              "period": 2,
+              "world_save_bytes": 114000,
+              "transferred_bytes": 117470,
+              "chunks": 5,
+              "save_sha256": "d6a62dddbe210e8f8a266b1d81055f6ff280b0cb6163e4e72aa7c7ba928c7660",
+              "durable_journal_reopened_status": "STAGED",
+              "load_receipt": "MODEL_ONLY",
+              "world_observations": "MODEL_ONLY"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "tools/check_checkpoint_components.py": "42b3d39c7e70243bd2343f18dc9029258cc4e7455a3bffa8bdbabd9847347612",
+    "work/mod_research/a_save_user_owner.cpp": "f140a79e49d567186dd70d1f26415ee988b27b20d6dccd9b4bfbd618175a5854",
+    "work/mod_research/a_save_user_owner_bridge.cpp": "941924bf18e211676f576def257112cb932cbb7db51f796cf2f167fd2efeb3d8",
+    "work/mod_research/a_save_user_owner_bridge.asm": "476a52d41c2dffcf774a7b3edc6cb9aa5be7470d23449426451cd7ecb0265f70",
+    "work/mod_research/b_reload_title_source.cpp": "ce02facb9e080b42e6d48a203cabbc125e8211b90054fd13a380f118791f6529",
+    "work/mod_research/checkpoint_fresh_save_packet.cpp": "a4f6b7e7f41fb8d1a96d3ec504455859e7161673b4e2954241b2a2788968e10f",
+    "work/mod_research/checkpoint_fresh_save_packet.py": "9d65bbb38d6ac4f04481201e3cfe430bd3b8492b31ca3df4aaf15c1bf026de13",
+    "work/mod_research/checkpoint_fresh_save_binding.py": "14d06341ce6a5ad00e629b9a36793f75767bedbdac3b3dc4f70d42379e716266"
+  },
+  "game_process_accessed": false,
+  "steam_accessed": false,
+  "actual_two_games": false,
+  "complete_game_pipeline_validated": false,
+  "full_world_verified": false,
+  "native_gameplay_enabled": false,
+  "original_game_save_business": "TEST_DOUBLES",
+  "b_parent_and_start_services": "TEST_DOUBLES",
+  "world_observations_and_load_receipts": "MODEL_ONLY",
+  "producer_ipc_connected": false,
+  "native_owner_fixture_request_to_dynamic_room_reserve_order_proven": false,
+  "review_fixes": [
+    "Stop or sticky error while User held must forward originals; committed save still observed",
+    "Publication failure after actual artifact installation and explicit hold retire tickets and channels; cleanup uncertainty reported"
+  ],
+  "still_required": [
+    "A actual input/write exclusion plus required raw User execution",
+    "Actual local producer configuration, authenticated IPC and dynamic pre-Submit room binding",
+    "B parent/Finalize/Title worker source completion and real repeated loads",
+    "Human rules world retirement and rebinding",
+    "Full Ready/drain and authoritative world coverage validation",
+    "Two physical machines and actual game integration"
+  ],
+  "protocol_regression": {
+    "unittest_cases": 18,
+    "tls_named_checks": 17,
+    "actual_two_games": false
+  }
+}

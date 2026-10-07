@@ -42,6 +42,44 @@ py -3 ".\tools\dev_check.py" --vcvars64 "D:\VS\VC\Auxiliary\Build\vcvars64.bat"
 
 Finding tools does not prove the Windows SDK, all C++ libraries, ABI profiles, or historical native build scripts work. `--strict-env` is an availability check, not native certification.
 
+## Explicit checkpoint component checks (Windows)
+
+To rebuild the current checkpoint components and exercise their local byte-transfer composition:
+
+```powershell
+py -3 tools/check_checkpoint_components.py --fixture-root "D:\SAN14 private research\mod_research"
+```
+
+This entry uses an explicit allowlist: `checkpoint_fresh_save_packet_test.py`,
+`a_save_user_owner_test.py`, `b_reload_title_source_test.py`, then
+`checkpoint_fresh_save_binding_test.py --owner-run <the successful run just produced>`.
+It does not enumerate or attach to the game, load a DLL into SAN14, call a live
+launcher, change Steam files, or require a user to operate the game.
+
+Unlike `dev_check.py`, this **compiles and runs owned native test processes**.
+It currently requires VS2022 Community's default x64 toolchain path and the
+private runtime/profile/archive inputs referenced by the selected tests. Those
+inputs are read only. Missing inputs fail with an explicit reason; the tool
+does not manufacture them or accept arbitrary replacement hashes. First-time
+setup on another PC still needs its local evidence, as explained in
+`docs/LOCAL_SETUP.md`.
+
+The A fixture runs its real retained Owner, bridge, storage checks and
+`CopyArtifact` byte encoder. Game save business functions remain test doubles.
+The B fixture runs actual Title vtable publication and two-generation native
+component paths; its parent/start services remain doubles. The final step
+transfers the A fixture's two distinct diagnostic files over loopback TLS,
+reopens staged SQLite journals, preserves control channels and rejects stale
+downloads. **World observations and B load receipts are models, and the A
+packets were created before those model reservations.** This does not prove
+dynamic game Submit binding or successful B gameplay reload.
+
+Reports go to ignored `.local/checkpoint-components/<timestamp>/`; individual
+builds and detailed logs remain under the named ignored `*_runs/` directories.
+Each stage is reported separately. Even a successful summary always keeps
+`complete_game_pipeline_validated: false` and `actual_two_games: false`.
+This is an offline development check, not a playable multiplayer launcher.
+
 ## Private fixture paths
 
 Private inputs are unnecessary for the protocol checks. To diagnose their location without reading their contents, copy `private-fixtures.example.json` to an ignored local config and edit the root:

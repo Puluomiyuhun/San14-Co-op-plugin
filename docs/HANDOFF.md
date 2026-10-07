@@ -36,11 +36,23 @@
 
 优先完成“完整一旬”可测试链路，避免只增加彼此未接通的测试组件。
 
-1. **A 新存档生产接线。** 旧 `checkpoint_fresh_save.{h,cpp}`两请求核心26项组件测试过。本轮新增的 `checkpoint_fresh_save_session*` 已将真正 raw User/Save 地址、专用两槽FINALLY汇编桥、HookSet槽发布、`live_storage_binding` / serialized Gate 与该Driver接起来，生产库编译、13个自有进程用例通过；同一Owner两次不同文件成功。仍是替身保存业务/文件，不是两份真实SAN存档。具体API和运行命令见[模块交接](../work/mod_research/checkpoint_fresh_save_session_handoff.md)。下一步不是再造一层抽象：实际构造A端绑定配置，协调现有User槽所有者与规划输入抑制，建立真正的输入排除和Room已排空边界，再受控实机导出两次。该Owner最多两请求，常驻不卸载，不自动放行Ready。
-2. **B 同进程连续加载两份不同档。** `checkpoint_task_completion*`已经把三处线程join与同一身份规划会话关联，6个两代用例过；`checkpoint_task_native_*`已有绑定/启动捕获。生产父任务收尾、Title创建与启动来源仍未全接通。不能用两次重新初始化一次性探针代替常驻两代验证。
+1. **A 新存档生产接线。** 后继 `a_save_user_owner*` 已把 raw User/Save 保存观察与 User 子集等待放到同一物理槽所有者；生产库编译、20个自有进程用例通过，同Owner两次不同文件经 `CopyArtifact` 导出。交叉审查修复了 Stop/sticky error 后仍持续压住 User 的问题，已承诺保存仍保留收尾观察。仍是替身保存业务，不是两份真实SAN存档。见[模块交接](../work/mod_research/a_save_user_owner_handoff.md)。**当前已 hold 时仍拒绝保存**；必须建立独立的真实输入/业务写入排除，同时开放保存所必需的原生更新，不能为了保存偷偷解除等待。完整远端命令 Dispatcher、生产配置/安装器/可信IPC尚未合并。最多两请求，常驻不卸载，不自动放行Ready。
+2. **B 同进程连续加载两份不同档。** 后继 `b_reload_title_source*` 已发布固定 Title.Update vtable 槽到现有 FINALLY 桥，12个自有进程场景通过；两代之间保持同一来源页，实际经 vtable 间接调用。见[模块交接](../work/mod_research/b_reload_title_source_handoff.md)。还缺生产父调度来源、Load Finalize `4CC690`、Title520/590创建/启动及自动激活，并需整合规则撤回/换world后重新绑定。不能将这次 Title 来源接通等同于真实连续读档已通过。
 3. **准备后限制输入并排空命令。** `checkpoint_ready_input_gate*`覆盖主规划及另两个菜单消费点（12原生桥、2归档机器码、3Room拒绝用例）；其他子UI/消息/已锁存输入仍未覆盖，完整Ready依然不能放行。
 4. **收入增加348次的归因。** 上一轮纯转发696次，本轮1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. 前述完成后做两旬不下新命令的双机受控测试，再逐项接赏赐、出征等命令和事件暂停；验证B等待画面。尚未承诺完成日期或准确百分比。
+
+## 本轮无人操作时完成的接线
+
+用户本轮无法操作电脑。**未访问游戏进程、未操作游戏或Steam、未安装本轮补丁/调试器，没有等待用户的操作请求。** 自有测试进程和本机TLS监听器均已收尾；历史游戏状态仍以重新检查为准。
+
+- 不重做传输层：`checkpoint_room_artifacts.py` / `checkpoint_room_lifecycle.py` 已有独立下载通道、下载票据、跨旬换代与旧连接拒绝；基础 `checkpoint_transfer.py` 顶部“Room无endpoint”不能理解成整个工程都没有。
+- 新增[保存字节出口](../work/mod_research/checkpoint_fresh_save_packet_handoff.md)：C++从 `CopyArtifact` 生成明确小端格式，Python严格解码并重新校验摘要和完成报告。编码器生产编译、8项Python测试通过；它不认证来源，也不授予加载/Ready权限。
+- 新增[当旬绑定](../work/mod_research/checkpoint_fresh_save_binding_handoff.md)：可信本地层在提交前固定完整scope、当旬epoch、period、命令prefix、attachment、日期，完成后重新核对世界观察再交既有Room发布。**原生room_epoch为稳定Owner标识，不能直接截断每旬变化的协议epoch。** 缺少观察、断线、旧产物冒充新旬、已停止或未完成的保存均拒绝发布。
+- TLS整合使用同一自有Owner生成的两份不同packet，验证接收校验、SQLite落盘/重开、房间控制连接保留、第二代拒绝旧下载；绑定及网络共20项测试通过。交叉审查另修复“实际安装后抛错或显式hold，已暴露下载仍可用”的撤权漏洞，新票、旧票和现有下载连接均被拒，清理异常单独报告不虚称已关。世界观察和加载回执明确是模型；packet先在独立fixture生成，**尚未验证真实Room reserve到游戏Submit的动态时序、生产IPC或B原生加载**。详细计数/摘要见[本轮公开证据](evidence/2026-10-08-checkpoint-components.json)。
+- 新入口：`py -3 tools/check_checkpoint_components.py --fixture-root <本机私有研究输入目录>`。只运行明确列出的编码器、A Owner、B Title来源和绑定/TLS测试，不导入历史live入口；缺输入或失败不报全链路通过。本轮统一入口四阶段PASS，私有汇总 `.local/checkpoint-components/20261008-015303-908168/summary.json`。用法见[tools/README](../tools/README.md)。协议回归仍是18个unittest、17项TLS检查通过，和原生场景分开统计。
+
+下一步优先推进 B Title worker自动激活/父任务来源，以及 A 真实写入排除和本机出口到可信房间控制器；已有Room字节服务可复用。禁止把旧历史档reader换日期后作为新保存来源。
 
 ## 本轮仓库化工作
 

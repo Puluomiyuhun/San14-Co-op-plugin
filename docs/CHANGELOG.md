@@ -1,5 +1,15 @@
 # 进展记录
 
+## 2026-10-08 — 保存出口、当旬绑定与常驻原生来源
+
+用户不能操作电脑时，完成离线接线与多agent交叉审查，未访问游戏或Steam。
+
+- `a_save_user_owner` 将 raw保存观察和User子集等待放入同一物理槽所有者，同Owner两份不同文件导出；修复Stop或sticky error后无法解除实际抑制的问题。生产库及20个自有进程场景通过，保存业务仍是替身；已hold时仍不能提交保存，完整输入排除未完成。
+- `b_reload_title_source` 实际发布Title.Update vtable来源，同一常驻来源服务两代；生产对象及12个自有进程场景通过。父来源、Finalize、Title worker创建/启动和真实连续读档仍未完成。
+- `checkpoint_fresh_save_packet` 新增C++字节出口与Python严格解码，8项Python验证及原生编码器检查通过。格式完整性不冒充进程来源认证。
+- `checkpoint_fresh_save_binding` 固定当旬完整scope/epoch/cut/attachment，核对原生请求、固定字节和独立世界观察后交既有Room发布；稳定native epoch与每旬协议epoch分开。20项测试通过，TLS验证接收两份Owner诊断文件、持久化重开、控制连接保留及旧代拒绝；世界观察/加载回执明确为模型。审查发现并修复安装后异常仅标记HELD却仍发下载票的问题，显式hold和异常均退休下载，清理失败不虚报成功。
+- 增加明确allowlist的 `tools/check_checkpoint_components.py`，将新组件构建与字节链路检查接成可复跑入口。准确结果与证据范围见 [公开摘要](evidence/2026-10-08-checkpoint-components.json)。本轮不等于真实双客户端或完整一旬游戏流程通过。
+
 ## 2026-10-08 — 远端重新克隆验证
 
 从GitHub拉取 `8f95d05` 到全新的带空格路径，未配置私有fixtures/原研究依赖目录，运行公开 `tools/dev_check.py`：18个原协议unittest、17项TLS自测检查均通过。缺capstone/pefile被正确报告。此验证确认公开源码满足协议检查，不冒充另一台物理机、原生编译或游戏联调。
