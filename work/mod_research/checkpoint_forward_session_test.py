@@ -1,0 +1,42 @@
+"""Own-process Session plus planning observation integration tests. No game access or installer."""
+from pathlib import Path
+from datetime import datetime
+import subprocess,json,hashlib,shutil
+P=Path(__file__).resolve().parent
+CASES=('success-new','success-reused','player-pending','entry-ui','late-ui','missing-prefetch','wrong-site','wrong-menu','foreign-menu','queue-exception','original-exception','reentry','stop-original','stop-before-user','stop-queue','stop-after-cas','actual-byte-mismatch','user-exception','report-state','cross-thread-first','cross-thread-both','cross-thread-reused','poststop-other-thread','wrong-thread-original','wrong-frame-original','controller-stop-original','controller-stop-before','authorize-foreign-after','default-forward','bad-native-original','forward-hook-cycle','restore-native-slot')
+ARCHIVE=P/'checkpoint_push_archives/20261006-204306-581930/mppush01.s14'
+EXPECTED='88ddc39fd2fd76c0c4b130bd9a2dad12effa9cfd20a1cb333981d541e8761b8c'
+SOURCES=('checkpoint_forward_planning_observer.h','checkpoint_forward_planning_observer.cpp','checkpoint_forward_native_session.h','checkpoint_forward_native_session.cpp','checkpoint_forward_session_fixture.cpp','checkpoint_forward_admission_controller.h','checkpoint_forward_admission_controller.cpp','checkpoint_forward_admission_bridge.asm','checkpoint_native_input_pending_adapter.h','checkpoint_native_input_pending_adapter.cpp','checkpoint_native_input_prefetch_bridge.h','checkpoint_native_input_prefetch_bridge.cpp','checkpoint_native_input_prefetch_bridge.asm','checkpoint_native_input_prefetch_fixture.asm','checkpoint_native_input_prefetch_archived.inc','checkpoint_native_input_core.h','checkpoint_guest_native_session_fixture.asm','checkpoint_forward_session_build.cmd','checkpoint_forward_session_test.py',
+ 'checkpoint_title_identity_adapter.h','checkpoint_title_identity_adapter.cpp','checkpoint_identity_pair_commit.h','checkpoint_identity_pair_commit.cpp','checkpoint_cc_load_lifecycle.h','checkpoint_cc_load_lifecycle.cpp','checkpoint_cc_load_observer.h','checkpoint_cc_load_observer.cpp',
+ 'checkpoint_load_request_commit.h','checkpoint_load_request_commit.cpp','checkpoint_load_hook_set.h','checkpoint_load_hook_set.cpp','checkpoint_load_input_boundary.h','checkpoint_load_input_boundary.cpp','checkpoint_load_input_boundary_fixture_layout.h',
+ 'checkpoint_load_worker_bridge.h','checkpoint_load_worker_bridge.cpp','checkpoint_load_worker_bridge.asm','checkpoint_load_dispatch_bridge.h','checkpoint_load_dispatch_bridge.cpp','checkpoint_load_dispatch_bridge.asm','checkpoint_push_bridge.h','native_storage_read_core.h','native_storage_read_core.cpp')
+def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def main():
+ if ARCHIVE.stat().st_size!=274880 or sha(ARCHIVE)!=EXPECTED:raise SystemExit('Archive identity mismatch')
+ before={x:sha(P/x) for x in SOURCES}
+ run=P/'checkpoint_forward_session_fixtures'/datetime.now().strftime('%Y%m%d-%H%M%S-%f');run.mkdir(parents=True)
+ build=subprocess.run(['cmd','/c',str(P/'checkpoint_forward_session_build.cmd')],cwd=P,capture_output=True)
+ (run/'build.stdout.txt').write_bytes(build.stdout);(run/'build.stderr.txt').write_bytes(build.stderr)
+ if build.returncode:print(build.stdout.decode(errors='replace'));raise SystemExit(build.returncode)
+ rows=[]
+ for case in CASES:
+  case_dir=run/case;case_dir.mkdir();local=case_dir/'svdexccSC03.s14';shutil.copyfile(ARCHIVE,local)
+  try:
+   r=subprocess.run([str(P/'checkpoint_forward_session_fixture.exe'),case,str(local),str(case_dir/'load-request.intent'),str(case_dir/'identity.intent')],cwd=P,capture_output=True,timeout=20)
+   (case_dir/'stdout.txt').write_bytes(r.stdout);(case_dir/'stderr.txt').write_bytes(r.stderr)
+   lines=[x for x in r.stdout.decode(errors='replace').splitlines() if x.startswith('{')]
+   row=json.loads(lines[-1]) if lines else {'case':case,'passed':False,'error':'No report'}
+   row['exit_code']=r.returncode;row['local_archive_unchanged']=sha(local)==EXPECTED;row['passed']=bool(row['passed'] and r.returncode==0 and row['local_archive_unchanged'])
+  except subprocess.TimeoutExpired:row={'case':case,'passed':False,'error':'Own-process timeout'}
+  rows.append(row)
+ result={'schema':'san14.forward-session-scoped-admission-fixtures.v1','result':'PASS' if all(x['passed'] for x in rows) else 'FAIL','cases':rows,
+  'source_sha256':{x:sha(P/x) for x in SOURCES},'fixture_binary_sha256':sha(P/'checkpoint_forward_session_fixture.exe'),'production_controller_object_sha256':sha(P/'checkpoint_forward_admission_production.obj'),'production_session_object_sha256':sha(P/'checkpoint_forward_session_production.obj'),'source_unchanged_during_build_and_run':before=={x:sha(P/x) for x in SOURCES},
+  'archive_sha256':sha(ARCHIVE),'archive_bytes':274880,'game_access':False,'archived_menu_fetch_block_executed_in_owned_RX':True,'upstream_receipts_fabricated':False,
+  'planning_upstream_source':'actual Session::Snapshot; observer syntheticReceipt is null; original User and rebuilt User run through the same installed slot0 and production Session dispatch, no separate fixture forwarding',
+  'scope':'The production Session owns all request/bytes/lifecycle/Title/atomic/hook-set cores and callbacks. Actual own-memory six pointer publications/restorations and 4-slot dispatch/finally bridges, real durable intents, local deny-write pin, full-byte hashing and CAS. Pending and mid-prefetch controller gates the actual first-User queue callback. Scope encompasses native original and exception unwind; archived menu fetch block executes in owned PE RX. Planning observer uses actual Session generated bytes/lifecycle/identity receipts and the same slot0 before/original/after path. Historical Load and Title pages are inaccessible before rebuilt User update. Only native caller labels adapted in fixture builds. Synthetic native queue/push/Game/Load/Title/FileRead bodies and input/presentation validators; actual own OS worker thread/join. No game discovery, hooks in game, native game calls, world deserialization or global input/presentation proof.'}
+ result['result']='PASS' if result['result']=='PASS' and result['source_unchanged_during_build_and_run'] else 'FAIL'
+ (P/'checkpoint_forward_session_result.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
+ (run/'result.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
+ print(json.dumps({'result':result['result'],'cases':len(rows),'failed':[x['case'] for x in rows if not x['passed']],'path':str(run/'result.json')}))
+ raise SystemExit(0 if result['result']=='PASS' else 1)
+if __name__=='__main__':main()

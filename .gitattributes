@@ -1,0 +1,7 @@
+# Preserve imported source bytes: several historical checks pin source SHA256.
+# Do not silently rewrite their CRLF/LF endings on another computer.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.md text eol=lf
+*.json text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf

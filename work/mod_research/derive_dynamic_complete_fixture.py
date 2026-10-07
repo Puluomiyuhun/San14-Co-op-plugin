@@ -1,0 +1,21 @@
+"""One-time own-process composition; no installer or game access."""
+from pathlib import Path
+P=Path(__file__).resolve().parent
+assert not (P/'checkpoint_dynamic_complete_fixture.cpp').exists()
+s=(P/'checkpoint_dynamic_planning_fixture.cpp').read_text()
+s=s.replace('#include "checkpoint_persistent_planning_observer.h"','#include "checkpoint_persistent_planning_observer.h"\n#include "checkpoint_persistent_authorized_controller.h"')
+s=s.replace('#include "checkpoint_dynamic_planning_fixture_helpers.inc"','#include "checkpoint_dynamic_planning_fixture_helpers.inc"\n#include "checkpoint_dynamic_admission_fixture.inc"')
+s=s.replace('++userBodies;check(self==layout.config.states[4],"original User");', '++userBodies;check(self==layout.config.states[4],"original User");runFixturePrefetch(self);')
+s=s.replace('    configurePlanning(c);','    configurePlanning(c);attachAdmission(c);')
+s=s.replace('routeAdapter.Configuration(originals[i])','routeAdapter.Configuration(i?originals[i]:reinterpret_cast<void*>(&CheckpointPersistentAuthorizedOriginal))')
+s=s.replace('    check(r.menuBound&&r.state==ns::State::MenuQueued', '    verifyAdmission();\n    check(r.menuBound&&r.state==ns::State::MenuQueued')
+(P/'checkpoint_dynamic_complete_fixture.cpp').write_text(s)
+s=(P/'checkpoint_dynamic_planning_test.py').read_text().replace('checkpoint_dynamic_planning_runs','checkpoint_dynamic_complete_runs').replace('checkpoint_dynamic_planning_fixture\'','checkpoint_dynamic_complete_fixture\'').replace('checkpoint_dynamic_planning_test.py','checkpoint_dynamic_complete_test.py')
+s=s.replace("UNITS=['checkpoint_dynamic_file_profile'", "UNITS=['checkpoint_persistent_authorized_controller','checkpoint_bound_input_pending_adapter','checkpoint_native_input_pending_adapter','checkpoint_native_input_core','checkpoint_native_input_hwbp','checkpoint_dynamic_file_profile'")
+s=s.replace("DEFS='/DCHECKPOINT_PERSISTENT_PLANNING_FIXTURE", "DEFS='/DCHECKPOINT_PERSISTENT_AUTHORIZED_FIXTURE /DCHECKPOINT_PERSISTENT_PLANNING_FIXTURE")
+s=s.replace("sources.update(['checkpoint_persistent_bridge.asm'", "sources.update(['checkpoint_dynamic_admission_fixture.inc','checkpoint_persistent_authorized_bridge.asm','checkpoint_native_input_hwbp_fixture.asm','checkpoint_native_input_prefetch_archived.inc','checkpoint_persistent_bridge.asm'")
+s=s.replace("for name in ['checkpoint_persistent_bridge','checkpoint_guest_native_session_fixture']:","for name in ['checkpoint_persistent_bridge','checkpoint_guest_native_session_fixture','checkpoint_persistent_authorized_bridge','checkpoint_native_input_hwbp_fixture']:")
+s=s.replace('san14.dynamic-planning','san14.dynamic-complete')
+s=s.replace("'dynamic_native_file_date_identity_tested':True", "'actual_hardware_prefetch_and_authorized_controller_integrated':True,'dynamic_native_file_date_identity_tested':True")
+s=s.replace('No game deserialization, controller integration,', 'Actual hardware prefetch capture, real private input tickets and generation-bound authorized Controller added; native queue and other game bodies remain doubles. No game deserialization,')
+(P/'checkpoint_dynamic_complete_test.py').write_text(s)

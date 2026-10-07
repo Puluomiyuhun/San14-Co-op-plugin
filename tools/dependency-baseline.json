@@ -1,0 +1,10 @@
+{
+  "source": "Versions read from the original private work/mod_research/python_deps/*.dist-info/METADATA; packages are not bundled.",
+  "recorded_versions": {
+    "capstone": "5.0.9",
+    "pefile": "2024.8.26",
+    "unicorn": "2.1.4",
+    "cryptography": null
+  },
+  "cryptography_note": "No cryptography dist-info existed in that private dependency directory. Its version is intentionally not invented or pinned here. dev_check reports the installed version and exercises certificate creation when available."
+}

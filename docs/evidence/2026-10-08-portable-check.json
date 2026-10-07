@@ -1,0 +1,54 @@
+{
+  "schema": "san14.public-portable-check.v1",
+  "date": "2026-10-08",
+  "game_access": false,
+  "internet_access": false,
+  "local_loopback": true,
+  "unittest": {
+    "modules": [
+      "test_protocol",
+      "test_timeline_protocol"
+    ],
+    "tests_discovered": 18,
+    "tests_run": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true,
+    "transport": "real TCP on ephemeral 127.0.0.1 ports"
+  },
+  "room_tls": {
+    "status": "PASS",
+    "checks": 17,
+    "note": "Named checks from original lobby selftest; not extra unittest test cases."
+  },
+  "strict_environment_exit_code": 0,
+  "native_compiler_executed": false,
+  "native_tests_run": false,
+  "dependencies": {
+    "capstone": {
+      "version": "5.0.9",
+      "status": "AVAILABLE"
+    },
+    "pefile": {
+      "version": "2024.8.26",
+      "status": "AVAILABLE"
+    },
+    "cryptography": {
+      "version": "45.0.6",
+      "status": "AVAILABLE"
+    }
+  },
+  "private_inputs": "Existence and size checked; contents not read or published",
+  "tools_sha256": {
+    "tools/dependency-baseline.json": "ac843bee14419f0acc6a5900b986cbde6e5cb8a7c514f0e223b6946857d62fd3",
+    "tools/dev_check.py": "e29903726ed83cf0b325b8cd475681259c9f2aa95ba50f436f544d13f77f58bc",
+    "tools/private-fixtures.example.json": "5896e761f147b0d7220a0416241a4ef4ebdb05b9beee10eed8fa14b440309933",
+    "tools/README.md": "fd5d966639a3543fa90df740c86eb024ab0e35119d7a3cd616296c4593488f43"
+  },
+  "limits": [
+    "Native environment detection is not compilation or game verification",
+    "TLS named checks are not additional unittest test cases",
+    "Legacy native experiments still require private local inputs"
+  ]
+}

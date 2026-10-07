@@ -1,0 +1,8 @@
+{
+  "schema": "san14.private-fixtures.v1",
+  "root": "D:/SAN14 private fixtures",
+  "files": {
+    "runtime_image": "game-runtime-image.bin",
+    "runtime_pdata": "runtime-pdata.bin"
+  }
+}
