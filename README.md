@@ -17,7 +17,7 @@
 
 后续已接通“赏赐排空→双方准备→两边实际观察Owner等待入口”，并定位菜单确认前的捕获候选；设置标志本身不能算已等待。当前证明只覆盖局部入口，全部输入限制与真实菜单接管仍待完成。[最新组合交接](work/mod_research/reward_ready_flow_handoff.md)
 
-最新三路开发：赏赐确认前原生门禁可一次领取提案，窗口消息边界支持已审计消息等待，同一Owner可正式退役旧规划期、接续下一期累计编号，并完成两期奖励/诊断保存组合。仍为离线验证，真实菜单关闭、完整输入和合法新档/连续加载未闭环。[菜单暂留](work/mod_research/reward_menu_handoff_gate_handoff.md)、[窗口边界](work/mod_research/planning_input_boundary_handoff.md)、[跨期接线](work/mod_research/planning_period_owner_handoff.md)
+最新三路开发：网络期次已映射到同一原生Owner并延续累计指令编号；窗口拦截沿用一个驻留入口跨期交接。菜单收尾研究发现“关闭”队列不绑定原菜单，须解决消费时栈顶变化后才可安全自动关闭。仍为离线验证，完整输入和合法新档/连续加载未闭环。[菜单收尾](work/mod_research/reward_menu_completion_handoff.md)、[常驻窗口](work/mod_research/planning_input_resident_handoff.md)、[网络期次接线](work/mod_research/planning_period_session_handoff.md)
 
 ## 最近的实机里程碑
 

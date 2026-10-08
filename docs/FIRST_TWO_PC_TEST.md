@@ -37,6 +37,8 @@
 
 新[同world跨期后继](../work/mod_research/planning_period_owner_handoff.md)31项通过，关闭旧逻辑期后才绑定下一旬，已组合两诊断保存；日期仍由fixture写入，不是推演和真实存档验收。
 
+后续[本地期次映射](../work/mod_research/planning_period_session_handoff.md)21项把完整网络 epoch 与累计 cut 接到正式原生生命周期；[常驻窗口](../work/mod_research/planning_input_resident_handoff.md)10项含同一 Session 的实际组合，跨期不用释放/重装已审计窗口入口。它们缩小了宿主接线缺口，仍不证明完整输入排他、网络生产接线、A新档或B加载。赏赐菜单完整收尾不阻塞“不下新命令”的首测范围。
+
 首测不下新命令，因而**无需先做全内政并发同步**；但游戏自身仍有更新、报告、设备消息和后台工作。[上游门禁](../work/mod_research/a_save_upstream_handoff.md)已经挡住两个已知updater的User来源，原29项组合与7项审计沿用。
 
 最新[writer范围审计](../work/mod_research/a_save_writer_scope_handoff.md)17项通过，明确缩小了范围：warm 509640只是栈顶读取，Save覆盖时User原生早退；Game尾部却仍能启动后台army路径更新，该更新确实改动原生序列化使用的army+48字段。特效节点倒计时尚无权威字段相关证据，不能仅因有写入就扩大成停止全部渲染。

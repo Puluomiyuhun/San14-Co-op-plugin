@@ -52,8 +52,19 @@ retire使旧scope/key/cut失效，但没有执行规则撤回或世界替换。
 
 `planning_period_owner` 正式保留旧期回执，并在同root/world/User上重新绑定下一旬；
 同一物理桥、错误与命令/Ready累计编号不清零，每期只允许一个新Controller。退休后
-旧Controller必须在任何Gate操作前被拒绝。真实读档换world与网络epoch/保存配置
-映射仍需统一宿主接通。参见[跨期交接](../work/mod_research/planning_period_owner_handoff.md)。
+旧Controller必须在任何Gate操作前被拒绝。真实读档换world与保存配置仍需统一宿主
+接通。参见[跨期交接](../work/mod_research/planning_period_owner_handoff.md)。
+
+新 `planning_period_session` 保留完整网络房间/绑定/当期 epoch，按固定编码生成
+本地原生 binding，真实调用同Owner的 Retire/Rebind/新Controller Adopt，累计命令
+序号延续。它接可信本地 `PeriodCoordinator` 导出的期初身份；尚非生产TLS/IPC宿主，
+不能把 Scope 或配置 Snapshot 当加载完成证据。新的 `planning_input_resident`
+在逻辑换期期间保留同一窗口桥及已审计消息的 hold，窗口实际消费 Handoff 后才确认。
+它避免正常换期时重装窗口入口，初装发布竞争、其他输入/后台writer及换world仍缺。
+
+赏赐菜单的正常成功路径会排队一个不含菜单身份的“pop当前栈顶”命令。
+权威回执到达时与队列真正消费时可能不是同一栈顶，因此单次菜单采样加返回成功
+不能证明安全关闭。收尾研究与反例见[菜单交接](../work/mod_research/reward_menu_completion_handoff.md)。
 
 ## 换世界时的规则顺序
 

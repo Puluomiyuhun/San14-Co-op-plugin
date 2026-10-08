@@ -191,10 +191,13 @@ code copies, DLLs, raw results and diagnostic saves stay in ignored run folders.
 
 ```powershell
 py -3 work/mod_research/reward_menu_handoff_gate_test.py --archive-root "<private archive folder>"
+py -3 work/mod_research/reward_menu_completion_test.py --archive-root "<private archive folder>"
 $env:SAN14_PRIVATE_FIXTURE_ROOT = '<private mod_research folder>'
 py -3 work/mod_research/planning_period_owner_test.py
 py -3 work/mod_research/planning_input_boundary_test.py
 py -3 work/mod_research/planning_input_boundary_period_test.py
+py -3 work/mod_research/planning_period_session_test.py
+py -3 work/mod_research/planning_input_resident_test.py
 ```
 
 Read the [menu](../work/mod_research/reward_menu_handoff_gate_handoff.md),

@@ -10,6 +10,8 @@
 
 最新已增加[确认前原生暂留](../work/mod_research/reward_menu_handoff_gate_handoff.md)：自有归档Update重复确认不会自然赏赐，纯ID一次领取并经TLS去重；仍缺真实菜单关闭/安装/lifetime。新[同world跨期](../work/mod_research/planning_period_owner_handoff.md)已保留旧期并续接下一期累计编号，[窗口边界](../work/mod_research/planning_input_boundary_handoff.md)继续补已审计消息。均不是两个真实游戏完整操作通过。
 
+后续[菜单收尾](../work/mod_research/reward_menu_completion_handoff.md)查明成功pop请求不携带原菜单身份，异步消费时会针对当时栈顶；只读关联本地APPLIED日志不能替代这段生命周期保护。[本地期次映射](../work/mod_research/planning_period_session_handoff.md)和[常驻窗口](../work/mod_research/planning_input_resident_handoff.md)已实际组合，跨期不重装窗口入口、累计编号不重置。菜单安全自动关闭、生产网络宿主与两个游戏刷新仍缺。
+
 ## 按玩家功能核对
 
 | 功能 | 已有内容 | 当前还缺什么 |
