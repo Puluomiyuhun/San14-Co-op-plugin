@@ -1,5 +1,15 @@
 # 进展记录
 
+## 2026-10-08 — B父观察原子代次绑定与A报告边界审计
+
+继续多agent离线工作，未访问游戏/Steam/UI或当前存档目录，无待用户操作。冻结前驱未改。
+
+- 新Provider与queue parent同ABI实现后继，用伴随ObserveExpected在同一锁内核验current、generation/attempt/epoch及窗口状态，再处理四个parent点。错代拒绝，resume/complete只查expected bank；旧worker普通观察保留历史ticket归属，SEH/FINALLY固定异常归属并清理TLS。最终16项包含3个queue组合、12个直接Provider检查、1个真实OS捕获中途切代及PE收尾；不是全局调度fence。
+- 首轮3个失败来自fixture误设parent/worker同线程，保留失败后改用真实线程；没有放宽Core约束。独立审阅补强active/yielded resume负例，并修复测试等待失败可能使线程借用过期栈job的问题，最终重新运行。
+- A新增16项归档/模型审计，证明跳过flush call会清掉触发标志，更早User切点走原收尾能保留待办、避开selection/action。更早updater及外部生产者反例仍成立；未生成原生桥、发布器或保存permit。
+
+精确结果和范围见[公开证据](evidence/2026-10-08-bound-provider-report-boundary.json)与[当前交接](HANDOFF.md)。Root worker来源、保存完整写入排他和整体原生owner继续作为实机前置工作，尚未完成双游戏整旬测试。
+
 ## 2026-10-08 — 报告检查接入保存、真实队列Finalize与远端收件确认
 
 继续离线多agent开发和交叉审阅。未操作游戏/Steam/UI，未访问当前游戏存档目录，没有新的待用户操作请求。

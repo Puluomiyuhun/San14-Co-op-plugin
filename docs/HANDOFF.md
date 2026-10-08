@@ -42,13 +42,23 @@
 
 优先完成“完整一旬”可测试链路，避免只增加彼此未接通的测试组件。
 
-1. **A 新存档生产接线。** `a_save_report_owner.cpp` 是 `a_save_user_owner.cpp` 的同ABI实现后继，构建时替换旧实现，不能同时链接。已把早段报告检查真正接入Submit、User返回、Save、storage及Copy出口，同Owner两保存通过；保存过程中普通Copy轮询不会误撤权。`a_save_action_gate*` 仍替代旧 `a_save_input*`，不可叠装。当前仍能复现“同次调用中报告产生又清零、游标不变”的ABA旁路，负向采样不是完整排他。下一步要统一管理报告作用域/写入者及动作补丁，再接IPC生产构建、可信permit和安装器；非空渲染/选择对象、消息/设备/后台写入及对象生命周期仍缺。最多两保存请求，不自动放行Ready。
-2. **B 同进程连续加载两份不同档。** 新 `b_reload_queue_*` 已接真实归档父调度type1队列pop→Finalize→Title +520/+590；Finalize时manager当前对象为0的时序已覆盖，不再人工调用Finalize。显式两代窗口让2000次普通调度透明通过而不消耗加载scope。仍有必须先修的代次竞态：Parent核对某代Provider快照后，外部OpenWindow可切换Provider的current_，旧windowOpen仍为true；当前检查不能证明后续Observe属于同一代。需要Provider原子绑定expected generation或统一所有Provider操作的可信owner，不能只多查一次快照。Root worker来源/业务、生产发布器、连续两份真实档和长期生命周期仍缺；新3项不能继承旧8项异常测试结论。
+1. **A 新存档生产接线。** `a_save_report_owner.cpp` 是 `a_save_user_owner.cpp` 的同ABI实现后继，构建时替换旧实现。报告检查已接同Owner两保存，但同次写后清零的ABA仍可绕过采样。本轮 `a_save_report_boundary_audit` 在归档执行中验证更早的User切点：从3F9BA8走原3FA09F收尾可保留报告待办并避开selection/action；只跳flush call会错误清flag。该候选仍位于16C5F0等updater之后，分流决策/外部业务是模型，没有实际桥/发布器。下一步做替换旧action gate的统一早段后继，同时查生产者与updater非空路径；不能安装无主第三处补丁或提前接permit。IPC构建、完整写入/生命周期排他仍缺；最多两保存请求，不放行Ready。
+2. **B 同进程连续加载两份不同档。** `b_reload_queue_*` 已接归档父调度type1队列pop→Finalize→两代Title；2000次普通调度不耗scope。本轮 `checkpoint_native_task_provider_bound.cpp` 和 `b_reload_bound_parent_source.cpp` 分别替换旧Provider/queue parent实现，保持ABI，四个parent捕获点在同一Provider锁内核验expected身份与current并处理；下一代抢先打开时旧scope明确拒绝，不能记录到新代。错代的实际OS fresh捕获及PE FINALLY恢复已验证，旧worker仍按旧ticket收尾。该修复不是调度fence，也未把Finalize/Title全部来源改成原子接口。下一步优先补Root worker来源及统一native owner的持续排他/故障收尾，再接生产发布器和连续两份真实档；真实scheduler resume分支、长期多旬和完整负例覆盖仍缺。
 3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；`checkpoint_rules_context*` 已接远端B规则配置及阶段切换，本轮 `checkpoint_delivery_control*` 又接上B独立进程经TLS返回实收字节→A实际bytes_received。B日志仍STAGED，无加载INTENT；全量回传会额外增加一次存档大小的传输。Config使用稳定binding_epoch，B不持A的Room对象，正常换代不Revoke/reset旧DLL。下一步在同一可信owner中接B旧规则撤下、持续执行/输入排他、单次加载许可、原生加载及新规则安装，再做完整世界/菜单/地图帧核验和跨机Ready回执。context与observe_loaded都是点检查，不是持续锁或加载完成证明。
 4. **收入增加348次的归因。** 上一轮纯转发696次，本轮1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. **跨电脑启动与连接。** 已有可从干净公开仓库生成的Python源码连接诊断包，支持可选EXE摘要、本机配置、真实TLS和字节校验，详见[连接检查](CONNECTION_CHECK.md)。不依赖原电脑私有catalog/profile；它没有连接原生后端。两台异地电脑尚未配置直连/VPN，真实游戏profile/安装器/A/B整体配置仍缺。首个实机目标保持为两旬不下新命令，再逐项接赏赐、出征与事件暂停。
 
-## 最新一轮：报告感知保存、真实队列收尾与跨机收件确认
+## 最新一轮：修复B观察代次竞态，定位A更早报告边界
+
+本轮没有访问游戏、Steam、UI或当前存档目录，无待用户操作。原生检查只在自有进程执行已有归档；A审计使用Unicorn与明确模型。没有新的游戏补丁或调试器。
+
+- B原子绑定后继最终16项：3项实际归档queue/两代Title组合、12项直接Provider反例/旧任务兼容、1项实际parent中途切代。错代/错误身份拒绝不污染其他bank；旧worker在真实另一线程返回/done；跨代resume使用确实active/yielded的旧任务并验证合法旧resume仍可成功。实际parent错代捕获拒绝后，经fixture指定异常验证PE FINALLY恢复6DR、active归零。这是错误观察的隔离，不是原生世界写入已经暂停。见[B交接](../work/mod_research/b_reload_bound_handoff.md)。
+- A审计16项：3个原始归档基线、7个报告块对照、4个更早User收尾候选、2个纯模型。更早切点保留待办且归档原收尾能恢复所查寄存器/栈，但更早updater和外部生产者反例仍能写入。没有实现桥/发布器或新的Owner组合，完整保存排他仍未完成。见[A边界交接](../work/mod_research/a_save_report_boundary_handoff.md)。
+- 保留首次B测试的3个失败：fixture把parent和worker误设同线程，Core正确拒绝，改用真实独立线程而未放宽生产检查。交叉审阅另补强了resume负例，并修正fixture线程等待失败时栈job生命周期。所有最终证据按新源码重新运行。
+
+源码/结果/产物摘要、测试层次和剩余范围见[本轮公开证据](evidence/2026-10-08-bound-provider-report-boundary.json)。网络收件确认沿用上一轮已验证组件，本轮未改网络协议。下一步以真正Root worker来源与A写入排他为主，再连统一owner完成原生load/规则/世界/Ready；仍不能把本轮离线结果当成双机整旬已通过。
+
+## 上一轮：报告感知保存、真实队列收尾与跨机收件确认
 
 本轮未操作游戏、Steam或UI，也未访问当前游戏存档目录，无待用户操作、无新增游戏补丁或调试器。自有测试进程/TLS连接均已收尾。以下均为离线组合验证，**不是两台真实游戏已联机，也不是新的实机读档成功记录**。
 
