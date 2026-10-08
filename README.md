@@ -17,7 +17,7 @@
 
 后续已接通“赏赐排空→双方准备→两边实际观察Owner等待入口”，并定位菜单确认前的捕获候选；设置标志本身不能算已等待。当前证明只覆盖局部入口，全部输入限制与真实菜单接管仍待完成。[最新组合交接](work/mod_research/reward_ready_flow_handoff.md)
 
-最新三路接线：同一Owner联合观察User、全局UI和面板等待，已接双端TLS；B的四线程启动来源与两代完整加载队列已组合通过；赏赐菜单只读观察工具已可在用户方便时采集真实来源。均为离线验证，尚未真实菜单拦截或整旬联机。[输入组合](work/mod_research/reward_interlock_flow_handoff.md)、[连续加载组合](work/mod_research/b_reload_lifecycle_queue_handoff.md)、[菜单观察](work/mod_research/reward_menu_observation_handoff.md)
+最新三路开发：赏赐确认前原生门禁可一次领取提案，窗口消息边界支持已审计消息等待，同一Owner可正式退役旧规划期、接续下一期累计编号，并完成两期奖励/诊断保存组合。仍为离线验证，真实菜单关闭、完整输入和合法新档/连续加载未闭环。[菜单暂留](work/mod_research/reward_menu_handoff_gate_handoff.md)、[窗口边界](work/mod_research/planning_input_boundary_handoff.md)、[跨期接线](work/mod_research/planning_period_owner_handoff.md)
 
 ## 最近的实机里程碑
 

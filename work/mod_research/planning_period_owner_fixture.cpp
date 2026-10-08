@@ -1,0 +1,8 @@
+#include "planning_period_owner.h"
+#include "planning_period_base_fixture.inc"
+namespace pp=planning_period_owner;
+static int periodMain(int argc,char**argv){SetErrorMode(SEM_FAILCRITICALERRORS|SEM_NOGPFAULTERRORBOX);if(argc!=4)return 2;mode=argv[1];setup();machinery();reportMachinery();upstreamMachinery();cfg.base=b;cfg.binder=uintptr_t(&binder);cfg.queue=uintptr_t(&queue);cfg.caller=uintptr_t(&FreshDispatchReturn);cfg.room_epoch=7;cfg.room_id[0]=1;cfg.input_binding.attempt[0]=4;cfg.input_binding.attachment[0]=5;cfg.input_binding.owner_generation=77;cfg.sample_input=inputSample;MultiByteToWideChar(CP_UTF8,0,argv[2],-1,cfg.save_directory,512);wcscpy_s(cfg.intent_directory,cfg.save_directory);storageSetup(argv[3]);cfg.storage.exists=endpoint(reinterpret_cast<void*>(&reportExists));storageVtable[0x68/8]=uintptr_t(&reportExists);
+ RewardData data;if(mode=="worker-b")put<unsigned char>(world+0x3A,2);check(session->Initialize(cfg)&&session->Arm(),"single actual User/Save owner");ic.base=b;ic.root=root;ic.world=world;ic.saveOwner=session;ic.binding=cfg.input_binding;ic.sample=inputSample;ic.fixtureGameCaller=uintptr_t(&InputGameReturn);ic.fixtureUiCaller=uintptr_t(&InputUiReturn);check(input->Initialize(ic)&&input->PreparedPlan(plan),"upstream gate");publish();check(input->Arm()&&input->Hold(ic.binding,true,1),"same existing upstream held boundary");check(gameDispatch()==0,"actual Game boundary observed before Save");ar::Config rc{};rc.binding=data.binding;rc.sample=RewardData::sample;check(ar::Bind(*session,rc),"reward lane binds exact same owner");
+#include "planning_period_owner_cases.inc"
+}
+int main(int argc,char**argv){if(argc==4&&std::string(argv[1]).rfind("period-",0)==0)return periodMain(argc,argv);return FrozenPeriodBaseMain(argc,argv);}

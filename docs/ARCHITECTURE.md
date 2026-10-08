@@ -28,11 +28,11 @@
 | 其他内政命令 | `domestic_reader.py`、`domestic_command_contracts.py` | 交易/移动草稿接严格语义提案与独立证据预检；缺价格/资格/时限不猜测，未接原生执行或房间路由 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
-| A 本轮存档 | `a_save_upstream_gate*`, `a_save_upstream_owner.cpp`, `a_save_observation_status*`, `a_save_ipc*` | 更早门禁接同Owner两诊断保存；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
+| A 本轮存档 | `planning_period_owner*`, `a_save_observation_status*`, `a_save_ipc*` | 同物理Owner跨逻辑期两奖励/两诊断保存已组合；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
 | B 连续加载 | `b_reload_lifecycle_queue*`, `b_reload_lifecycle*`, `b_reload_nested_*`, `b_reload_fault*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。真实Bootstrap/发布、持续排他和两真实档仍缺，旧故障矩阵未与本组合重跑 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
-| Ready 输入等待 | `planning_input_interlock*`, `reward_interlock_native_port.py`, `reward_ready_flow.py` | 同一Owner联合观察User/Game/global UI/panel已接双端TLS；源/日期/槽漂移拒绝。覆盖仍局部，窗口消息/设备/后台writer未覆盖；单规划期尚不能跨旬重新绑定，不发原生推演许可 |
-| 菜单捕获准备 | `reward_menu_capture.py`, `reward_menu_observation*` | 只读四点工具已完成自建调试及解码测试，实机尚未运行。观察可能已有本地赏赐效果，只能生成不可发送的shadow；真实拦截/取消/关闭和可信lifetime未完成 |
+| Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |
+| 菜单捕获准备 | `reward_menu_handoff_gate*`, `reward_menu_capture.py`, `reward_menu_observation*` | 归档Update确认前原生门禁已能单次领取纯ID并接TLS去重，正常取消/关闭与生产installer/lifetime仍缺。只读观察的自然执行记录仍不能发送 |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |
 
 模块名用于定位，不是推荐直接运行这些历史脚本。新电脑先做本地检查与纯协议测试。
@@ -48,10 +48,12 @@ challenge，A/B持久化本机fence意图，实际观察原生User抑制后回�
 确认只有局部Owner coverage，不是全引擎排他；未知结果不重试setter，也不自动release。
 retire使旧scope/key/cut失效，但没有执行规则撤回或世界替换。
 
-新输入后继把现有Game/global UI/panel加入同一个Owner的本轮观察，端口在本地验证
-扩展证据；旧Ready签名协议继续只陈述原User范围。Controller固定日期/viewer，
-赏赐binding仅绑定一次：正式跨旬需要保留旧日志/模块的退役和新期绑定接口，不能
-通过清零revision或重新创建旧Owner来复用。参见[最新接线](../work/mod_research/reward_interlock_flow_handoff.md)。
+新输入后继把Game/global UI/panel加入同Owner观察，端口本地验证扩展证据；旧Ready签名仍只陈述原User范围。新窗口边界另有原生消息ACK，不自动扩展网络签名的覆盖范围。
+
+`planning_period_owner` 正式保留旧期回执，并在同root/world/User上重新绑定下一旬；
+同一物理桥、错误与命令/Ready累计编号不清零，每期只允许一个新Controller。退休后
+旧Controller必须在任何Gate操作前被拒绝。真实读档换world与网络epoch/保存配置
+映射仍需统一宿主接通。参见[跨期交接](../work/mod_research/planning_period_owner_handoff.md)。
 
 ## 换世界时的规则顺序
 

@@ -1,0 +1,760 @@
+{
+  "schema": "san14.menu-window-period.evidence.v1",
+  "date": "2026-10-08",
+  "timezone": "Asia/Shanghai",
+  "summary": "Offline menu confirmation gate, actual owned-window input boundary, and same-world logical-period retirement/rebinding with shared physical execution ownership.",
+  "game_access": false,
+  "steam_access": false,
+  "current_save_access": false,
+  "game_process_discovery": false,
+  "game_ui_actions": false,
+  "new_game_hooks_or_debugger": false,
+  "waiting_for_user": false,
+  "results": {
+    "reward_menu_handoff_gate": {
+      "local_result": "work/mod_research/reward_menu_handoff_gate_runs/20261008-205639-507224/result.json",
+      "result_sha256": "f922ab4d64c4fcb249a9df87a82f7713c1a7491c809cc467478c09b4378cc8bd",
+      "schema": "san14.reward-menu-handoff-gate-owned-tests.v1",
+      "passed_cases": 67,
+      "source_count": 26,
+      "scope": "32 bounded archive checks, 34 owned native scenarios, one actual loopback TLS composition with business models.",
+      "cases": [
+        {
+          "name": "reward_vtable_slot_0",
+          "passed": true
+        },
+        {
+          "name": "reward_vtable_slot_1",
+          "passed": true
+        },
+        {
+          "name": "reward_vtable_slot_2",
+          "passed": true
+        },
+        {
+          "name": "reward_vtable_slot_3",
+          "passed": true
+        },
+        {
+          "name": "reward_vtable_slot_4",
+          "passed": true
+        },
+        {
+          "name": "reward_vtable_slot_5",
+          "passed": true
+        },
+        {
+          "name": "instruction_67a993",
+          "passed": true
+        },
+        {
+          "name": "instruction_67a998",
+          "passed": true
+        },
+        {
+          "name": "instruction_67a99a",
+          "passed": true
+        },
+        {
+          "name": "instruction_67a9a9",
+          "passed": true
+        },
+        {
+          "name": "instruction_67a9b6",
+          "passed": true
+        },
+        {
+          "name": "instruction_626275",
+          "passed": true
+        },
+        {
+          "name": "instruction_62627f",
+          "passed": true
+        },
+        {
+          "name": "instruction_626284",
+          "passed": true
+        },
+        {
+          "name": "instruction_6749b8",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b20",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b27",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b2d",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b33",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b43",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b55",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b5a",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b5c",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b84",
+          "passed": true
+        },
+        {
+          "name": "instruction_667b91",
+          "passed": true
+        },
+        {
+          "name": "instruction_60b01c",
+          "passed": true
+        },
+        {
+          "name": "instruction_60b02d",
+          "passed": true
+        },
+        {
+          "name": "instruction_665cd0",
+          "passed": true
+        },
+        {
+          "name": "instruction_665cd5",
+          "passed": true
+        },
+        {
+          "name": "bounded_function_67a930",
+          "passed": true
+        },
+        {
+          "name": "bounded_function_667b10",
+          "passed": true
+        },
+        {
+          "name": "bounded_function_60b000",
+          "passed": true
+        },
+        {
+          "name": "unpatched-control",
+          "passed": true
+        },
+        {
+          "name": "take-once",
+          "passed": true
+        },
+        {
+          "name": "repeat",
+          "passed": true
+        },
+        {
+          "name": "duplicate-take",
+          "passed": true
+        },
+        {
+          "name": "wrong-claim",
+          "passed": true
+        },
+        {
+          "name": "wrong-generation",
+          "passed": true
+        },
+        {
+          "name": "change-before-take",
+          "passed": true
+        },
+        {
+          "name": "change-on-repeat",
+          "passed": true
+        },
+        {
+          "name": "change-after-take",
+          "passed": true
+        },
+        {
+          "name": "event-reset",
+          "passed": true
+        },
+        {
+          "name": "exit-pending",
+          "passed": true
+        },
+        {
+          "name": "destroy-pending",
+          "passed": true
+        },
+        {
+          "name": "wrong-world",
+          "passed": true
+        },
+        {
+          "name": "wrong-viewer",
+          "passed": true
+        },
+        {
+          "name": "wrong-date",
+          "passed": true
+        },
+        {
+          "name": "wrong-stack",
+          "passed": true
+        },
+        {
+          "name": "wrong-layout",
+          "passed": true
+        },
+        {
+          "name": "wrong-thread",
+          "passed": true
+        },
+        {
+          "name": "source-tamper",
+          "passed": true
+        },
+        {
+          "name": "relay-tamper",
+          "passed": true
+        },
+        {
+          "name": "take-wrong-thread",
+          "passed": true
+        },
+        {
+          "name": "foreign-call",
+          "passed": true
+        },
+        {
+          "name": "retire-before",
+          "passed": true
+        },
+        {
+          "name": "retire-pending",
+          "passed": true
+        },
+        {
+          "name": "retire-taken",
+          "passed": true
+        },
+        {
+          "name": "idle",
+          "passed": true
+        },
+        {
+          "name": "event-one",
+          "passed": true
+        },
+        {
+          "name": "empty",
+          "passed": true
+        },
+        {
+          "name": "cycle",
+          "passed": true
+        },
+        {
+          "name": "duplicate-person",
+          "passed": true
+        },
+        {
+          "name": "oversize",
+          "passed": true
+        },
+        {
+          "name": "unreadable-world",
+          "passed": true
+        },
+        {
+          "name": "rebind",
+          "passed": true
+        },
+        {
+          "name": "bad-bind-source",
+          "passed": true
+        },
+        {
+          "name": "native-claimed-ids_to_CaptureSession_to_real_TLS_once",
+          "passed": true
+        }
+      ],
+      "flags": {
+        "game_access": false,
+        "production_permit": false,
+        "sources_unchanged": true,
+        "archive_unchanged": true,
+        "pdata_unchanged": true
+      },
+      "artifacts": {
+        "fixture_sha256": "1bc0fe0dc14f87114d38c4de13a6fb2744953afda2395725418f740f3ab5f07b",
+        "archive_end_sha256": "5a2ef730f2a075f23cd8880c5acb1f83c99c03810ea23c0663ae9f05b6c04268",
+        "pdata_end_sha256": "74e018f15ec009af5fd0e0d91ce981b82d7d970150b3dce5861f17d11eea2e9f"
+      }
+    },
+    "planning_period_owner": {
+      "local_result": "work/mod_research/planning_period_owner_runs/20261008-210101-627017/result.json",
+      "result_sha256": "b59bd0ec707f12fca664108492a0f1e061473d660db1981702acb6a000ef1483",
+      "schema": "san14.planning-period-owner-owned.v1",
+      "passed_cases": 31,
+      "source_count": 57,
+      "scope": "16 inherited interlock conflicts, two persistent owned views, 13 logical period cases; fixture date and diagnostic save business.",
+      "cases": [
+        {
+          "name": "interlock-slot-drift",
+          "passed": true
+        },
+        {
+          "name": "interlock-after-drift",
+          "passed": true
+        },
+        {
+          "name": "interlock-date",
+          "passed": true
+        },
+        {
+          "name": "interlock-missing-game",
+          "passed": true
+        },
+        {
+          "name": "interlock-missing-user",
+          "passed": true
+        },
+        {
+          "name": "interlock-thread",
+          "passed": true
+        },
+        {
+          "name": "interlock-gate-drift",
+          "passed": true
+        },
+        {
+          "name": "interlock-identity-owner",
+          "passed": true
+        },
+        {
+          "name": "interlock-full-refusal",
+          "passed": true
+        },
+        {
+          "name": "interlock-release",
+          "passed": true
+        },
+        {
+          "name": "fence-queued",
+          "passed": true
+        },
+        {
+          "name": "fence-save",
+          "passed": true
+        },
+        {
+          "name": "fence-active",
+          "passed": true
+        },
+        {
+          "name": "fence-uncertain",
+          "passed": true
+        },
+        {
+          "name": "fence-world",
+          "passed": true
+        },
+        {
+          "name": "fence-original",
+          "passed": true
+        },
+        {
+          "name": "period-two-saves",
+          "passed": true
+        },
+        {
+          "name": "period-two-rewards",
+          "passed": true
+        },
+        {
+          "name": "period-no-observation",
+          "passed": true
+        },
+        {
+          "name": "period-duplicate-controller",
+          "passed": true
+        },
+        {
+          "name": "period-retired-admission",
+          "passed": true
+        },
+        {
+          "name": "period-same-date",
+          "passed": true
+        },
+        {
+          "name": "period-skip-date",
+          "passed": true
+        },
+        {
+          "name": "period-wrong-world",
+          "passed": true
+        },
+        {
+          "name": "period-wrong-binding",
+          "passed": true
+        },
+        {
+          "name": "period-stale-serial",
+          "passed": true
+        },
+        {
+          "name": "period-wrong-thread",
+          "passed": true
+        },
+        {
+          "name": "period-bad-sampler",
+          "passed": true
+        },
+        {
+          "name": "period-cross-thread-snapshot",
+          "passed": true
+        },
+        {
+          "name": "worker",
+          "passed": true
+        },
+        {
+          "name": "worker-b",
+          "passed": true
+        }
+      ],
+      "flags": {
+        "sources_unchanged": true,
+        "game_access": false,
+        "steam_access": false,
+        "room_ready": false,
+        "full_world": false,
+        "production_permit": false,
+        "same_user_slot": true,
+        "logical_period_rebind": true,
+        "same_world_only": true,
+        "actual_simulation": false,
+        "actual_game_save_load": false,
+        "original_reward_business_fixture": true,
+        "all_input_held": false,
+        "native_gameplay_enabled": false,
+        "save_authorized": false,
+        "same_owner_gate_identity_checked": true,
+        "actual_game_ui_panel_and_user_observation": true
+      },
+      "artifacts": {
+        "fixture_sha256": "be7bb9413639b4fe1ef6ddfa009d20e82e09ffc12ca7657a4e9d908bd6fb0091",
+        "production_sha256": "e48f0f15dfde3cbf7a47e5246bffcd8d8611bde8eb5bd8a033ead895e9f9be1b",
+        "planning_dll_sha256": "16894ebd2121415a2381069305cfaba63caeb68ae9e041b5a5dc623a76a31104",
+        "reward_dll_sha256": "b8719ac32fc42e45a9af0b71159302c434c13fddcc9137ce4b12d12167041227"
+      }
+    },
+    "planning_input_boundary": {
+      "local_result": "work/mod_research/planning_input_boundary_runs/20261008-210909-886718/result.json",
+      "result_sha256": "83ed9006709f934316d703aa9df6f4c4ed466a42a1f6007f17062369789e6f55",
+      "schema": "san14.planning-input-boundary-owned.v1",
+      "passed_cases": 6,
+      "source_count": 59,
+      "scope": "Actual owned HWND thread and archived WndProc; native handler business double; includes two actual publication race counterexamples.",
+      "cases": [
+        {
+          "name": "window-normal",
+          "passed": true
+        },
+        {
+          "name": "window-retire",
+          "passed": true
+        },
+        {
+          "name": "window-foreign",
+          "passed": true
+        },
+        {
+          "name": "window-date",
+          "passed": true
+        },
+        {
+          "name": "window-race-install",
+          "passed": true
+        },
+        {
+          "name": "window-race-retire",
+          "passed": true
+        }
+      ],
+      "flags": {
+        "sources_unchanged": true,
+        "game_access": false,
+        "steam_access": false,
+        "actual_owned_window_thread": true,
+        "actual_archived_wndproc": true,
+        "original_message_business_is_fixture": true,
+        "same_owner_game_user_observation": true,
+        "bounded_window_messages": true,
+        "requires_trusted_sole_wndproc_publisher": true,
+        "concurrent_foreign_publication_excluded": false,
+        "actual_publication_race_counterexamples": true,
+        "all_input_held": false,
+        "full_window_input_held": false,
+        "physical_release_proven": false,
+        "os_queue_drained": false,
+        "room_ready": false,
+        "native_gameplay_enabled": false,
+        "save_authorized": false
+      },
+      "artifacts": {
+        "archive_sha256": "5a2ef730f2a075f23cd8880c5acb1f83c99c03810ea23c0663ae9f05b6c04268",
+        "fixture_sha256": "a61f3f484759e81cf98d62cb12145ded0f77747976e881f1925c4ce71747a4f1",
+        "production_sha256": "043d2de3f4c95d944a1b2cd757b0cc0ffc22253fa71e89b0bb93c00be5824c87",
+        "planning_dll_sha256": "16894ebd2121415a2381069305cfaba63caeb68ae9e041b5a5dc623a76a31104",
+        "reward_dll_sha256": "3bf6a830bbd875dd8ca0e38a7c25d2712e819291f8c6b908a16ef9556754b5d4"
+      }
+    },
+    "planning_input_boundary_period": {
+      "local_result": "work/mod_research/planning_input_boundary_period_runs/20261008-210927-252455/result.json",
+      "result_sha256": "82d3cd545f93380d0df601143c2f73df1b1890d59f28c003654d96e30490b5b4",
+      "schema": "san14.planning-input-boundary-period-owned.v1",
+      "passed_cases": 7,
+      "source_count": 59,
+      "scope": "Six window regressions plus one formal Retire/Rebind combination; same physical Owner, fixture date, no continuous full input hold.",
+      "cases": [
+        {
+          "name": "window-normal",
+          "passed": true
+        },
+        {
+          "name": "window-retire",
+          "passed": true
+        },
+        {
+          "name": "window-foreign",
+          "passed": true
+        },
+        {
+          "name": "window-date",
+          "passed": true
+        },
+        {
+          "name": "window-race-install",
+          "passed": true
+        },
+        {
+          "name": "window-race-retire",
+          "passed": true
+        },
+        {
+          "name": "window-period",
+          "passed": true
+        }
+      ],
+      "flags": {
+        "sources_unchanged": true,
+        "game_access": false,
+        "steam_access": false,
+        "actual_owned_window_thread": true,
+        "actual_period_retire_rebind": true,
+        "fixture_date_change": true,
+        "continuous_full_input_hold": false,
+        "actual_archived_wndproc": true,
+        "original_message_business_is_fixture": true,
+        "same_owner_game_user_observation": true,
+        "bounded_window_messages": true,
+        "requires_trusted_sole_wndproc_publisher": true,
+        "concurrent_foreign_publication_excluded": false,
+        "actual_publication_race_counterexamples": true,
+        "all_input_held": false,
+        "full_window_input_held": false,
+        "physical_release_proven": false,
+        "os_queue_drained": false,
+        "room_ready": false,
+        "native_gameplay_enabled": false,
+        "save_authorized": false
+      },
+      "artifacts": {
+        "archive_sha256": "5a2ef730f2a075f23cd8880c5acb1f83c99c03810ea23c0663ae9f05b6c04268",
+        "fixture_sha256": "a56274850b9d2019adb0b5889cb73a4b190ffaea4e5911274b2f6a7274167389",
+        "production_sha256": "793d2b887f95a7bd8ccac4da4e4e9b424a9dbe1aaed67bb41df73668b4b9d4e4",
+        "planning_dll_sha256": "16894ebd2121415a2381069305cfaba63caeb68ae9e041b5a5dc623a76a31104",
+        "reward_dll_sha256": "81c3853e5f7980206e1529efd1594264eec8ffb3ef706a65fd8a20f369040702"
+      }
+    }
+  },
+  "source_identity": {
+    "unique_source_count": 92,
+    "all_current_sources_verified": true,
+    "sha256": {
+      "outputs/san14-link/authoritative_sync.py": "9fae7ac472c48249d4feb7c4db37dfaa54c40bda306e59bf93a8d2f365c29c0c",
+      "outputs/san14-link/authority_reward.py": "e8bba9b17912898f7d2d060fd9a893bd016d0b7bc1e8364ea678b2d0c69606d8",
+      "outputs/san14-link/domestic_reader.py": "7a3a8fea1100dcbf9a4975d1e6dbc0c263d6f580d4969db8672636e4108132cc",
+      "outputs/san14-link/execution_journal.py": "25549df09eaf47f5a269a376fb8321cbeb8d8e82589e8d1e6fc1ae9f62af70f4",
+      "outputs/san14-link/game_reader.py": "44d5599118ad5e1aa65c4518c12c1b90cd3fe3dc46564f609cf6b5d4e7484e3b",
+      "outputs/san14-link/readonly_probe.py": "c2173df25a6ed491450840ca9b8585e27b1dcabff54f92d7aab07a885f754605",
+      "outputs/san14-link/reward_eligibility.py": "25b5ba555affb535562922a73ffc859dc8b61e8989b9e09cf60205dacfca042b",
+      "outputs/san14-link/reward_menu_capture.py": "0ddd235b2be1ba0f2f6f07213022c19802d1fbba39b361e2dbceb77cc93b6013",
+      "outputs/san14-link/reward_preflight.py": "e8849b54d610d52d178eba76313554eef7131fb70b62414426eee0f29c88e9f4",
+      "outputs/san14-link/reward_ready_flow.py": "0f64b7b775f68b4367d6350ba719becdfc5b38ff45d8713aea2222967f6243c0",
+      "outputs/san14-link/reward_room_flow.py": "e125620dac173a1bf2b3aa36e6c4a2c70ec60d4b362627e895833c50716895ef",
+      "outputs/san14-link/room_session.py": "75cfe81fd051280d3e9ef817d0fe8c29421290b819dd251ad8de43bccc0304b7",
+      "outputs/san14-link/room_transport.py": "7b401e5da276810ce18fb9eb0e9abf20fbca122241d241b946a70a9c606bfb20",
+      "outputs/san14-link/sortie_reader.py": "03a2c692cc21a297de7e18eec779fd81af81b51c74c8df57a5bf4d286983c690",
+      "work/mod_research/a_reward_save_owner.cpp": "ce4698e4c680f6acbc5123fadcb2ba15daf7997df0e362ef2326462371b89a0d",
+      "work/mod_research/a_reward_save_owner.h": "9db39d7f4cdde15d0fa3e1f32da340778779cb19853fece6857bd04017aff929",
+      "work/mod_research/a_reward_save_owner_bridge.cpp": "0655076713466654a1b9e1babf4933ca41e459300288c604ee3b7c28b8b4398d",
+      "work/mod_research/a_save_action_gate.h": "bdb0b1726d00d1df9ac9dc0576717a2df2c89f21790f2aaa712d928f6d7cd584",
+      "work/mod_research/a_save_action_gate_bridge.cpp": "8fa6cb9ee40cccf8c7c8fdd0baad2198addaa907ecbc46c510170bf9ede38516",
+      "work/mod_research/a_save_action_gate_bridge.h": "0ae9c5ded20c4744af2eb66168c55740005b281edc7f0f1bfe64ed2c0e9508c4",
+      "work/mod_research/a_save_action_gate_fixture.cpp": "6ad946e4520652b640ff434c8411dce1e8f73d028fecc41f508f6ebb9b8a67fa",
+      "work/mod_research/a_save_early_guard.cpp": "fab90d1b829721d6ea2467a0e591426a4f60c8bff34716daec7ce6daca6ed3c6",
+      "work/mod_research/a_save_early_guard.h": "1feb298970b86d8559e3d3b1edb57b82a7b8479abe3a214bd6370d501b92c390",
+      "work/mod_research/a_save_report_owner.h": "05fbd30c9fb00f386a6058fcefbbadc4f622f07401680a13f0567919125c7930",
+      "work/mod_research/a_save_upstream_bridge.asm": "8808586988621b70a5b0f84b9e5b3e2025a1b0190079e0e219ecf94c34caf9a0",
+      "work/mod_research/a_save_upstream_fixture.asm": "2f259101d7a45bdb948c586c49ff733d98d253fdfdd6a0f37b998f14f653e996",
+      "work/mod_research/a_save_upstream_fixture.cpp": "77b1ccf893517124256237c610a3f41ddb6997b31e6c06069f9eb7bf6c3f04d7",
+      "work/mod_research/a_save_upstream_gate.h": "b45047a0fb0fdcbdda3f875df1b7fd5ce3dfb97c2c7d4ca6dfd96a398186a073",
+      "work/mod_research/a_save_user_owner.h": "40b04bfd674c368da8a3881594e3dbc30accb6489ac02bfffe4226351ef8d8ad",
+      "work/mod_research/a_save_user_owner_bridge.asm": "476a52d41c2dffcf774a7b3edc6cb9aa5be7470d23449426451cd7ecb0265f70",
+      "work/mod_research/a_save_user_owner_bridge.h": "ed86f36acb4d941c0923a546357794a1ef12415a3315714f3cde01d361ea4ebb",
+      "work/mod_research/a_save_user_owner_fixture.asm": "b86caf502e8a58aa95613fe9495b98361d7a1da822d585bb45effbfa1cf376f7",
+      "work/mod_research/a_save_user_owner_fixture.cpp": "4f84aae232be158f46eabc10b4d81c87c971bfb032b3712d194f412204b28c2a",
+      "work/mod_research/checkpoint_fresh_save.cpp": "22f421d8c7138829bc432a711867b84d99eae57015fbf65556a52cdc9da1b4aa",
+      "work/mod_research/checkpoint_fresh_save.h": "4fa1387dc12da6b51e280a41b7d27f490dbcaca3e14a6aac0ea7de461a6625f7",
+      "work/mod_research/checkpoint_fresh_save_packet.cpp": "a4f6b7e7f41fb8d1a96d3ec504455859e7161673b4e2954241b2a2788968e10f",
+      "work/mod_research/checkpoint_fresh_save_packet.h": "b9f57cfe679dc481d2067d46040b6c2b3144f2162cf0440f4f9ac14d58e7e88b",
+      "work/mod_research/checkpoint_live_storage_binding.cpp": "6dedc7baa966827305d120d6e323640bb2eff06ebd3f5356b017dd2e3744fff8",
+      "work/mod_research/checkpoint_live_storage_binding.h": "8cbe15fa2cc005c9425a09c5d4333bf11ac58859f0c749ac261760b470d8101e",
+      "work/mod_research/checkpoint_live_storage_binding_fixture.asm": "70b7b532ba3e3e58d1102cd0d494e441a864308e9de6ba91264d6430b616d915",
+      "work/mod_research/checkpoint_load_dispatch_bridge.h": "9db3fecfeeb60c2d213d97a436f1bf735c97af118b723067633f7f57e9b96bc1",
+      "work/mod_research/checkpoint_load_hook_set.cpp": "a3e4622bc5dbc10dddb3a9e3ca40ddf3e4308b52888cb225fa918e6ccad71ce7",
+      "work/mod_research/checkpoint_load_hook_set.h": "e0a4a4fb2b76d9813bc716a220f2318172cb67842ca0f9a495692289e9822a0b",
+      "work/mod_research/checkpoint_load_worker_bridge.h": "dceba69251643febb1933df3a97c839be6ea1a2b4d53f6730b25746e13b1212b",
+      "work/mod_research/checkpoint_native_input_consumer_bridge.h": "9ef22d36c8b51575f0cdb5af403cb10db2fa0b53b48fea965d7373e843d93507",
+      "work/mod_research/checkpoint_native_input_core.cpp": "1152cc782f6fca1994ed2deda7cfd6aa4ca6723f90af0ecb18b4f699073a744c",
+      "work/mod_research/checkpoint_native_input_core.h": "400da085ccd361ccdd00e8e0e3b7ace8f86e2d741f578a627f5ea744fb3d0616",
+      "work/mod_research/checkpoint_native_input_pending_adapter.cpp": "e9b097431e038e3a5dac42a5a1fa76b08a4f33eeb02d4b95f51e251b808e9401",
+      "work/mod_research/checkpoint_native_input_pending_adapter.h": "a40eba862c59edb2851cf7af83668d6845c701ac46605cd4cee9fb1f70dd4095",
+      "work/mod_research/checkpoint_persistent_bridge.h": "44723865f8497bb7212be1e70e4709367251f26fe9c49720ddf37cdfb7396958",
+      "work/mod_research/checkpoint_planning_hold_adapter.h": "55b297f8b5497f6f64b6fec2616b7480b78175433f47f1b9b365e88e7be0d134",
+      "work/mod_research/checkpoint_push_bridge.h": "8a250e3bf0546466eabeb52c475b486ba98605db8bc35ece86470404289ecee7",
+      "work/mod_research/checkpoint_push_pilot.h": "dbf1e44d91453efe02f9f236130e79c53e3275d60880b6bf390a245e15ba4f02",
+      "work/mod_research/checkpoint_reward_owned_replay.cpp": "ba671b0bb418e822caa7c92816a1e596d29440ddc681f5113f72f432e9b72b01",
+      "work/mod_research/checkpoint_reward_owned_replay.h": "a73517bed16177f600fee72a78ae24bda89bafc9a249a87dca5fb1a2f8f700b0",
+      "work/mod_research/checkpoint_serialized_storage_gate.cpp": "6b2bad0bb07d9d792d5804aac69012db01bc05678aa3f094ff6b46b6272aea81",
+      "work/mod_research/checkpoint_serialized_storage_gate.h": "0afe68386137087a1f07eceb7676bf93ea3e103bb151d1843be19f8d3e639eb9",
+      "work/mod_research/native_storage_read_core.cpp": "aca7c7e97f3e614b08dd8c7d85cf0188d53014f262207245e9aa961b7d4c3835",
+      "work/mod_research/native_storage_read_core.h": "65f12ea568ce6f9a48b847e572ab841771014c24ff1a59c6f93599b556dc264f",
+      "work/mod_research/planning_input_boundary.cpp": "19b05d6a18113568bd9baa00a7f36a6a3d5c18e02d20fc6060536cddcf554c9e",
+      "work/mod_research/planning_input_boundary.h": "f246051ad508ac657d715ec11d1c1e4cdd508cfb73f0690006d2372a135e1ecf",
+      "work/mod_research/planning_input_boundary_fixture.cpp": "dbe37c270132fb6686ca9ccf950c3bfa6a1739324982ca46c1f15f02e96e040e",
+      "work/mod_research/planning_input_boundary_period_test.py": "ed84979078f780870a7f19dc39600e94f1f0400ae2c64b6c247a0e5d3677487a",
+      "work/mod_research/planning_input_boundary_test.py": "03653f95960f176d16c3a04889c0279cf8c49fdfb87fe979a51578e9dcdcf8fe",
+      "work/mod_research/planning_input_interlock.cpp": "8e55d71308452b522a6a65415559386094ca617bc4eaf0fed62d3b1c1a2abad9",
+      "work/mod_research/planning_input_interlock.h": "b1228ba37df58097cb0d175231d02a0be2992e511cded014859f42584cf44438",
+      "work/mod_research/planning_input_interlock_fixture.cpp": "1e8e46bacf51b4481651bfeb4c746ba5ab0aa6d4baf94c4a61b43cd59165ea73",
+      "work/mod_research/planning_input_interlock_gate.cpp": "8335a87c6586980ed751487e801a8454df5fb6ed96b34d2dc515103067f63f96",
+      "work/mod_research/planning_input_interlock_gate.h": "67a91a0300e04075f5b4b1ac631660f705385dbc1f36eef382e7001e04430c6c",
+      "work/mod_research/planning_period_interlock.cpp": "898494ad25e24ac964af008d9c48c3fbe76f7470c1371d59cfa6bb8e23022f09",
+      "work/mod_research/planning_period_owner.cpp": "ac862f98692f1dd98c06e3cc1d7b7b9dca34e53e5f66826a458691f704bd19e3",
+      "work/mod_research/planning_period_owner.h": "506c4d13c8af953c48ccdeeabc8a140e4f6c805aff2b25ef41851af6b2575aa9",
+      "work/mod_research/planning_period_owner_cases.inc": "14cde31dc553c21449ea4562ee1515eaec256fa2ae26c718e4df3b0c90de82e9",
+      "work/mod_research/planning_period_owner_fixture.cpp": "c4661287b17e635df84a8be0f6857a3f2c94da495256cac4a5e0fce5c32488e9",
+      "work/mod_research/planning_period_owner_lifecycle.inc": "8c1438c1615a2f30f52bb27c14bbbd9f8689d3880c5fbde47663f0d3c3b19f17",
+      "work/mod_research/planning_period_owner_test.py": "af354055f4f1f694556cdd1c4d43c4952200d7fb6756117b566418846a0dadf2",
+      "work/mod_research/reward_eligibility_fingerprints.h": "259c17e27267c54138ce2aef8d9d574f7fb837edf939f4d0c665da19c69f213f",
+      "work/mod_research/reward_eligibility_guard.inc": "995016cddbcf9c8ddf2a588186ed0cecbf3948284d2a1d708b5c58e7700b95d8",
+      "work/mod_research/reward_execution_fingerprints.h": "a7231bdf24992d529d472462b8cc202d9ce43c8bbb578ddbc75bed9d2066b243",
+      "work/mod_research/reward_menu_handoff_gate.cpp": "6ec452afe4a4b774bd78cc43c558133d7fbdc8205babc549ec93bfe12e0f03c5",
+      "work/mod_research/reward_menu_handoff_gate.h": "b88f8c8d151cdb20cf8b67a8996f95db80a2531b36091a3d45d0ac64392f3fc4",
+      "work/mod_research/reward_menu_handoff_gate_audit.py": "0e91c87683e7542e018e8031b002e57bbccb14538ba94d1899c0af4cb50a90e0",
+      "work/mod_research/reward_menu_handoff_gate_fixture.asm": "a7d3f9ca6e8ca8c5630eeb3cab7b386723347013cd02bcf1fe2c0b0689a6d22b",
+      "work/mod_research/reward_menu_handoff_gate_fixture.cpp": "7961807285380cfdd7f8cff79fe785fa01739d7bcc878fff249fd842be22592d",
+      "work/mod_research/reward_menu_handoff_gate_test.py": "c43389182b3ce5b5246bb77dd9be52373c81e3d019e33540dcab8e35ef8ed7f0",
+      "work/mod_research/reward_menu_observation_decode.inc": "aa16d34f9cc89663774525919cc6c20309dafd9a704c18e83dbe3c0ecb9c328e",
+      "work/mod_research/reward_menu_observation_semantic_fixture.cpp": "63053bfac55e52cb120a8628e448d79b1c4445c93e9607e4dbbf64b6635d5b19",
+      "work/mod_research/reward_probe_fingerprints.h": "17bbb5e3331c49953f1beecffd7fbc9de1e4fc2435176764392873473b1b74dd",
+      "work/mod_research/reward_ready_flow_fixture.py": "de91733cac469ed8e1adefbdb723c8ddd30f4459059d625e3434c9e0237c7ba7",
+      "work/mod_research/reward_ready_flow_test.py": "ef3e22bb9fc5b89408d574b9dca51a6ed7863248f6641d0dece08a534f3a32f8",
+      "work/mod_research/reward_room_flow_fixture.py": "887821c18c2bddffcdd3f54053d4b87bd53ce9756097f08356ed699b4b9cb862",
+      "work/mod_research/reward_room_flow_test.py": "5f1d3a5b576a7d84c0ea1905058dd4ae9a348a77d421d8c93655badcc64947c1"
+    }
+  },
+  "shared_repository_save": {
+    "path": "fixtures/saves/slot34/svdexSC34.s14",
+    "sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95",
+    "unchanged": true,
+    "is_current_game_save": false
+  },
+  "review_fixes": [
+    "Reject retired or mismatched Controller before any Gate mutation; negative cases keep hold and revision unchanged.",
+    "WndProc records explicit normal completion instead of treating __try early return as abnormal native completion.",
+    "Retain both Controllers and once-only callback instances across period transition."
+  ],
+  "observed_limits": [
+    "Real SetWindowLongPtr racing publisher can be overwritten before conflict is detected. Tests prove uncertain/no-ACK reporting, not exclusion or rollback. Trusted sole publisher remains unimplemented.",
+    "Window retirement and rebinding contain release gaps; old cached callback calls are not completely covered by a new HWND boundary.",
+    "Only same physical root/world/User rebinding. B world replacement and actual date simulation refused/unexecuted.",
+    "Menu TLS composition uses actual gate output but business models, not two game clients.",
+    "Period save outputs are diagnostic business-double files, not newly produced legal SAN14 saves.",
+    "Window period suite repeats six window regressions; do not sum counts as independent coverage or completion percentage."
+  ],
+  "remaining": [
+    "Trusted production host and installer, menu lifetime, cancellation and normal close.",
+    "Unknown window messages, device polling/cache, Root consumers, background writers, continuous full input exclusion and sole WndProc publisher.",
+    "Map local integer period epoch to network binding/config without resetting retained physical owners.",
+    "A two actual new saves; B same-process two legal loads with world and rules replacement, full world/menu/map verification.",
+    "Two-computer connection configuration and actual two-client full-period test."
+  ],
+  "permissions": {
+    "production_permit": false,
+    "room_ready": false,
+    "all_input_held": false,
+    "save_authorized": false,
+    "simulation_permit": false,
+    "world_replacement_permit": false,
+    "full_world": false,
+    "native_gameplay_enabled": false
+  },
+  "retained_failures": [
+    {
+      "suite": "menu",
+      "runs": [
+        "20261008-205238-963131",
+        "20261008-205341-659957"
+      ],
+      "cause": "Missing runner dependency then MASM /Fo spelling; corrected before final run."
+    },
+    {
+      "suite": "period",
+      "runs": [
+        "20261008-204549-834816",
+        "20261008-204605-766271"
+      ],
+      "cause": "Duplicate predecessor/successor headers, then nested fixture main macro conflict."
+    },
+    {
+      "suite": "window",
+      "runs": [
+        "20261008-210036-816675",
+        "20261008-210054-550279",
+        "20261008-210137-583696",
+        "20261008-210233-733964"
+      ],
+      "cause": "Path tuple, nested main macro, then callback completion/AbnormalTermination classification; private originals preserved."
+    }
+  ],
+  "handoffs": [
+    "work/mod_research/reward_menu_handoff_gate_handoff.md",
+    "work/mod_research/planning_period_owner_handoff.md",
+    "work/mod_research/planning_input_boundary_handoff.md"
+  ]
+}

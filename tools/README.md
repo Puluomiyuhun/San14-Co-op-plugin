@@ -182,3 +182,25 @@ The diagnostic reports only existence and file sizes. It does not load, hash, va
 - `3`: tests succeeded, but `--strict-env` found missing dependencies or a missing Windows x64 MSVC environment.
 
 `--output-dir` overrides the default. Keep that directory private/ignored: diagnostics contain local paths. A protocol pass is not proof of a two-computer match, native loading, battle determinism, or complete game synchronization.
+
+## Menu, window and logical-period successors (offline only)
+
+These explicit tests do not find or open the game. They require the documented
+local private archive/profile and Windows MSVC dependencies. Generated native
+code copies, DLLs, raw results and diagnostic saves stay in ignored run folders.
+
+```powershell
+py -3 work/mod_research/reward_menu_handoff_gate_test.py --archive-root "<private archive folder>"
+$env:SAN14_PRIVATE_FIXTURE_ROOT = '<private mod_research folder>'
+py -3 work/mod_research/planning_period_owner_test.py
+py -3 work/mod_research/planning_input_boundary_test.py
+py -3 work/mod_research/planning_input_boundary_period_test.py
+```
+
+Read the [menu](../work/mod_research/reward_menu_handoff_gate_handoff.md),
+[period](../work/mod_research/planning_period_owner_handoff.md), and
+[window](../work/mod_research/planning_input_boundary_handoff.md) handoffs first.
+The new period Owner/Controller replace their earlier implementations at link
+time; never link two implementations for the same physical slots. Window tests
+use their own hidden HWND and actual message threads, not game UI automation.
+These are not native installers or full input/simulation permits.

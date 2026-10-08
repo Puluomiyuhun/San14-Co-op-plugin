@@ -8,13 +8,13 @@
 
 后续新增双方准备的实际Owner等待回执：Python19/19、原生组合11/11和worker8/8；仅局部User/赏赐/保存接纳，不是全输入排他。赏赐菜单捕获53项语义+16项归档检查，候选67A993及重复确认保护已就绪，纯语义提案也已串入TLS组合；真实取消/关闭和菜单拦截仍缺。[最新交接](../work/mod_research/reward_ready_flow_handoff.md)、[菜单来源](../work/mod_research/reward_menu_capture_handoff.md)。
 
-最新同Owner输入后继18/18、双端组合13/13，增加实际Game/global UI/panel观察；仍有窗口/设备/外部写入缺口，且只绑定一个规划期。真实菜单只读观察工具已就绪，尚未实机采集或拦截；已自然执行的菜单记录不会再发队列。[输入接线](../work/mod_research/reward_interlock_flow_handoff.md)、[菜单工具](../work/mod_research/reward_menu_observation_handoff.md)。
+最新已增加[确认前原生暂留](../work/mod_research/reward_menu_handoff_gate_handoff.md)：自有归档Update重复确认不会自然赏赐，纯ID一次领取并经TLS去重；仍缺真实菜单关闭/安装/lifetime。新[同world跨期](../work/mod_research/planning_period_owner_handoff.md)已保留旧期并续接下一期累计编号，[窗口边界](../work/mod_research/planning_input_boundary_handoff.md)继续补已审计消息。均不是两个真实游戏完整操作通过。
 
 ## 按玩家功能核对
 
 | 功能 | 已有内容 | 当前还缺什么 |
 | --- | --- | --- |
-| 赏赐 | 历史固定赏赐实机与跨势力执行；新唯一User/Save Owner、现代TLS共同排序、双日志、独立原生fixture应用与签名回执已组合通过 | 普通菜单提交前接管、真实上下文/报告密钥引导、两个游戏实际应用与菜单刷新、最终原生Ready及跨旬 |
+| 赏赐 | 历史固定赏赐实机与跨势力执行；新唯一User/Save Owner、现代TLS共同排序、双日志、独立原生fixture应用与签名回执已组合通过 | 提交前门禁的真实安装/安全菜单关闭/生命周期、可信上下文和报告密钥、两个游戏实际应用与刷新、全输入Ready和换world跨旬 |
 | 商人交易 | 原有草稿解码与静态包装链；新纯ID提案、严格归属/资源/报价证据预检 | 真实菜单字段对照、原生价格/资格证据生产者、容器与执行过程、双端同步；预检不授权执行 |
 | 武将移动 | 原有来源/人物/起始格/目标草稿；新提案和资格/行动/时限证据契约 | 真实资格/任务占用与耗时观察、执行与任务创建。行动力扣除在玩家包装层，不能只调用公共处理器；预检未接执行 |
 | 施政 | 已有 UI/AI 类与公共处理器候选 | 参数布局、草稿解码、具体菜单映射、权限及完整执行；候选不等于所有城市内政分配都已覆盖 |
