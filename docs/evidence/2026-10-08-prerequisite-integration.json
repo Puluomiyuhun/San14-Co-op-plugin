@@ -1,0 +1,237 @@
+{
+  "schema": "san14.public-prerequisite-integration.v1",
+  "date": "2026-10-08",
+  "scope": "Offline successor components, self-owned Windows processes, archived-code audit, and loopback TLS; not two real game clients.",
+  "game_process_access": false,
+  "steam_access": false,
+  "actual_two_computers": false,
+  "real_game_save_reload": false,
+  "full_period_integration": false,
+  "room_ready": false,
+  "frozen_predecessors_modified": false,
+  "source_hashes_independently_rechecked_before_commit": {
+    "a": 36,
+    "b": 117,
+    "world": 34,
+    "network": 8
+  },
+  "a_action_gate": {
+    "private_result_path": "work/mod_research/a_save_action_gate_runs/20261008-100652-794864/result.json",
+    "result_sha256": "69cd6bd3186035485516ec91ddc9a1940d92ffd9c18449655717ca2be7b8cad2",
+    "result": "PASS",
+    "cases_passed": 18,
+    "production_library_sha256": "8095b5f0ec89b1be2d002fe0939f8dadcf8c0f962ecb6626535d7fbab036bb59",
+    "fixture_sha256": "bcc73522bad83fb4f7aa6dbaaca5871b087c75acdbee0caa3ead87a1b4e7dd7b",
+    "case_names": [
+      "open",
+      "held",
+      "two-saves",
+      "panel-pending",
+      "raw-command",
+      "raw-advance",
+      "early-bypass",
+      "stop-held",
+      "inflight-stop",
+      "release",
+      "ordinary-user",
+      "source-conflict",
+      "page-drift",
+      "panel-exception",
+      "no-install",
+      "partial-install",
+      "tail-av",
+      "unwind"
+    ],
+    "actual_owned_vtable_and_two_callsite_publication": true,
+    "fixture_peer_threads_suspended_context_checked_and_restored": true,
+    "user_body_intentionally_transformed": true,
+    "two_owner_files": "Different 32-byte diagnostic files; game/save business remains doubles.",
+    "exception_checks": "Actual original-load AV reaches outer FINALLY; RtlVirtualUnwind checks restoration PCs and canonical epilog.",
+    "limits": [
+      "Earlier User writes have an explicit surviving-write counterexample.",
+      "Message/device/indirect consumers and production installer remain missing.",
+      "Hardware shadow-stack enabled processes are rejected, never disabled.",
+      "Replaces a_save_input; the two owners must not be installed together."
+    ],
+    "full_input_hold": false,
+    "save_authorized": false,
+    "room_ready": false
+  },
+  "a_archived_tail_audit": {
+    "private_result_path": "work/mod_research/a_save_action_gate_sources_runs/20261008-100516-000704/result.json",
+    "result_sha256": "bd75828f94c35bd5e12589e9038628e07bfc31d579a8c639f783611795ca9c01",
+    "result": "PASS",
+    "paths_passed": 4,
+    "execution": "Unicorn emulation of archived User tail and original epilogue, not hardware game execution.",
+    "branch_decision_modeled": true,
+    "external_callees_modeled": true,
+    "actual_patch_and_bridge_evidence": "work/mod_research/a_save_action_gate_runs/20261008-100652-794864/result.json",
+    "unhandled_anchors": 15,
+    "audit_source_current_sha256": "8d59d93912c249a615223344a3186272a6978704d59436ae1c39be1b8898b1d9",
+    "audit_result_does_not_embed_source_hash": true
+  },
+  "b_finalize_title520": {
+    "private_result_path": "work/mod_research/b_reload_title520_runs/20261008-095337-566788/result.json",
+    "result_sha256": "e437f50c2828baafbdaf37144c5108ecddb8359ccc09534bee412eda69224b79",
+    "result": "PASS",
+    "cases_passed": 12,
+    "fixture_sha256": "81c71b2c7872e3368af4f80762d56f7ac9a84571a430e30c0683aabd82b33ec3",
+    "production_objects": {
+      "b_reload_title_bridge": "03e95fef7c398c0346b46cb523f48657d99bc9e7a1f7bd12b9edd45059df9caa",
+      "b_reload_title590_router": "95229d2ed5b1d5e7e782595304bc857e119ad13df422378cd7c9568af9984192",
+      "b_reload_title590_publish": "7ae4c7d9f997a19c72402f63246d929366c0f7164f8117cc6cd288c7d44ee3af",
+      "b_reload_title590_ports": "e8991ca4bad8403dec8e6dad2bc864a0fc65106e2b508bc8be1e234f4a359d8b",
+      "b_reload_title_source_v2": "b4dc70744b6039ae7ffe2fdf9acfb3a8c6bb77149ff359bb28674d7fc4f81bcb",
+      "b_reload_title520_bridge": "04e6d1eb5f07a39ef5b1fb01b5492d9de1454448843568331ebbf05ba2365753",
+      "b_reload_title520_router": "6e92a9cdef3eaff45d317302dceff994e0ccbf56c7fcdd3b0c2bb65597f8f62e",
+      "b_reload_title520_publish": "afd6a513a48cd195303c3d0eb5d9a0fce8f67c89338a03b13776289eda59e246",
+      "b_reload_finalize_ports": "ba892e3384c9e8f21ee5b8764e8c4f14ec059fc5e3846906543a9cb869ca3e85",
+      "b_reload_finalize_source": "26c5a3f36495887809b2796c7a5d6b410ffdb8a077e9ac880e5a1458d2287a91"
+    },
+    "case_names": [
+      "success",
+      "reuse-full-addresses",
+      "late-old-root",
+      "completion-wait",
+      "title520-exception",
+      "title520-wrong-wait",
+      "finalize-native-exception",
+      "title590-exception",
+      "title590-wrong-wait",
+      "finalize-stop-before-publish",
+      "finalize-slot-drift",
+      "finalize-code-drift"
+    ],
+    "actual_owned_finalize_slot_and_native_context": true,
+    "independent_title520_and_title590_worker_banks": true,
+    "manual_title520_begin_and_context_removed": true,
+    "execution": "Selected archived instructions execute on hardware CPU with actual CONTEXT and OS threads/events; constructors, payloads, helper business and parent scheduler are doubles.",
+    "limits": [
+      "Parent scheduling sources are not connected.",
+      "Fixture Finalize runs after Load.Update FINALLY; real nested hardware-register scope timing remains unproven and must refuse occupied scope.",
+      "Two distinct fixture inputs do not prove two valid new SAN saves."
+    ],
+    "parent_sources_installed": false,
+    "game_finalize_source_installed": false,
+    "real_game_reload": false,
+    "room_ready": false
+  },
+  "rules_world_lifecycle": {
+    "private_result_path": "work/mod_research/human_rules_world_lifecycle_runs/20261008-100221-226218/result.json",
+    "result_sha256": "2061b5b4dff4b4e73f6d27db8cff30e375c4df3795284d65579ef547717f7b87",
+    "result": "PASS",
+    "tests_run": 12,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "same_owned_process_independent_resident_modules": 2,
+    "actual_six_source_install_restore_operations": 4,
+    "each_operation_written_mask": 63,
+    "each_operation_threads_checked": 3,
+    "debugger_detached_and_final_sources_original": true,
+    "api": "NextWorldRequest has no pointers; restore -> load -> observe_loaded -> validate -> prepare fresh instance -> install -> independent readback.",
+    "old_modules_retained_no_reset_no_unload": true,
+    "normal_restore_does_not_call_permanent_revoke": true,
+    "stale_postload_observation_rejected_before_prepare": true,
+    "limits": [
+      "Load replaces self-owned memory, not a SAN save.",
+      "Room scope is a model; actual input/execution exclusion and trusted production ports remain missing.",
+      "Third-generation historical-module reuse rejection is a model case, not a third native load.",
+      "Two-instance evidence does not establish unlimited resident-module resource bounds."
+    ],
+    "production_fence_verified": false,
+    "full_world_verified": false,
+    "ready": false
+  },
+  "portable_connection_check": {
+    "private_result_path": ".local/connection-check-tests/20261008-095729-537302/result.json",
+    "result_sha256": "f114c0b6ba73daa8e37b4cb2822569c4a1d21c887418e39f47cb8794942ba06e",
+    "result": "PASS",
+    "tests_run": 8,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "relocated_independent_isolated_python_processes": 2,
+    "actual_loopback_tls_bytes_verified": 132096,
+    "wrong_pin_and_build_rejected": true,
+    "strict_packaging_allowlist": true,
+    "private_catalog_profile_or_run_input_required": false,
+    "runtime_requirements": [
+      "Python 3.10+",
+      "cryptography"
+    ],
+    "network_configuration_changed": false,
+    "native_backend_connected": false,
+    "actual_two_computers": false,
+    "package": {
+      "name": "SAN14-Connection-Check-20261008.zip",
+      "sha256": "67ddf20030bf893bd597a8fa8455a5d4d0ec579ea972534745642996579a6955",
+      "bytes": 25360,
+      "files": 10,
+      "build_id": "a38ad6be1d649ef071cf1ffed132c0e3271a7756f843b6c9c5cf95ecdeee9500",
+      "zip_entries_and_current_bundled_sources_verified": true,
+      "binary_or_credentials_committed": false
+    }
+  },
+  "preserved_failures_and_review_corrections": [
+    {
+      "module": "A",
+      "run": "a_save_action_gate_runs/20261008-095652-627876",
+      "finding": "Additional system threads caused refusal before publication. Fixture now really suspends/checks/resumes peer threads."
+    },
+    {
+      "module": "A",
+      "run": "a_save_action_gate_runs/20261008-095815-143644",
+      "finding": "16 ordinary cases passed but review found invalid Win64 unwind tail. Fixed FP/epilog, added actual AV and unwind cases; final 18 supersedes intermediate results."
+    },
+    {
+      "module": "B",
+      "run": "b_reload_title520_runs/20261008-095037-812515",
+      "finding": "First build rejected unused obsolete fixture functions under /WX; no cases executed. Removed manual paths and rebuilt."
+    },
+    {
+      "module": "world",
+      "finding": "Review rejected pre-known postload addresses, pair-only module reuse checks and false callback success. New API samples after load, rejects every historical address or nonce, requires exact None success."
+    },
+    {
+      "module": "network",
+      "finding": "Review replaced output-directory enumeration with explicit archive allowlist and added concurrent extra-file exclusion test."
+    }
+  ],
+  "remaining_before_two_game_test": [
+    "Complete A early/indirect write exclusion and real source publication/restore with trusted save permit.",
+    "Connect B parent scheduler and prove non-conflicting Finalize timing, then two real different saves in one process.",
+    "Join real Room ownership, rules lifecycle, native save/load, current-world and local-view verification under one owner.",
+    "Resolve extra 348 income-judgment calls and compare actual values; call counts are not money grants.",
+    "Provide local runtime profiles/configuration and establish two-PC LAN/VPN before the first no-new-command two-period game test."
+  ],
+  "new_source_sha256": {
+    "tools/connection_check_entry.py": "ac3ec5bdf75ef0854fea4feab6c94f6c953b99cf5a7bfb963d39886af8a96882",
+    "tools/prepare_connection_check.py": "63e50db78012decb15f76be4629ffddbbcb241903c8a8d6afed0403de8214d55",
+    "tools/test_connection_bundle.py": "8e2b6e8270f8b23e1d4ecbbecc827824ed126caf1c69ee7c7590a27404960b9c",
+    "work/mod_research/a_save_action_gate.cpp": "18016bdb6359c5a7ca996f27007598f00be706a645e383676534ca449a16bf77",
+    "work/mod_research/a_save_action_gate.h": "bdb0b1726d00d1df9ac9dc0576717a2df2c89f21790f2aaa712d928f6d7cd584",
+    "work/mod_research/a_save_action_gate_bridge.asm": "43047050bb8d9f7df6a3e134113efd1c652b457b040ec3e083e546d520ce48d4",
+    "work/mod_research/a_save_action_gate_bridge.cpp": "8fa6cb9ee40cccf8c7c8fdd0baad2198addaa907ecbc46c510170bf9ede38516",
+    "work/mod_research/a_save_action_gate_bridge.h": "0ae9c5ded20c4744af2eb66168c55740005b281edc7f0f1bfe64ed2c0e9508c4",
+    "work/mod_research/a_save_action_gate_fixture.asm": "d72561a63bdb7656a96fd3811354831f5ec5fd7afe4001820c4f4569441e8683",
+    "work/mod_research/a_save_action_gate_fixture.cpp": "6ad946e4520652b640ff434c8411dce1e8f73d028fecc41f508f6ebb9b8a67fa",
+    "work/mod_research/a_save_action_gate_sources.py": "8d59d93912c249a615223344a3186272a6978704d59436ae1c39be1b8898b1d9",
+    "work/mod_research/a_save_action_gate_test.py": "d7d090acaaed548be028027f5cafa61f703151f166c2bee1c84aabc67867c8d9",
+    "work/mod_research/b_reload_finalize_ports.cpp": "94b5a0c48cdf8fe234885b57a969af53da16cd11a435d29c5e9af06522fe6f40",
+    "work/mod_research/b_reload_finalize_ports.h": "c507dc0bbc0f9fb76d3962c5c5e31e84d76c1d92d7c9f23d2cd0613c86935767",
+    "work/mod_research/b_reload_finalize_source.cpp": "cebc5bcdff04d8123e9aa9882e37372fc869eee2088e70670de7a22087ffd750",
+    "work/mod_research/b_reload_finalize_source.h": "419c4449b7b87766bf72e14ee8bdf77eb0782a62849b64b6dc9b4e4b8ffd3560",
+    "work/mod_research/b_reload_title520_bridge.asm": "8614c2111e6d5f6d9a7643e78f20bc8625b6266ce746ff3ff0e8890e3f66bc90",
+    "work/mod_research/b_reload_title520_bridge.cpp": "a623637009523ad1dcb302143d7b85417510b30befdb57b6a94c2ba364c7a91b",
+    "work/mod_research/b_reload_title520_bridge.h": "e196bd80e41cd5246852a665925dc8f4653aa3615df608e2abf155ffbe4d2c52",
+    "work/mod_research/b_reload_title520_publish.cpp": "19d5e28ce856c78dd2658a3c7cea1e17d094aa1cbee88e114f7e03b082f58d70",
+    "work/mod_research/b_reload_title520_publish.h": "37b9f7c172ecf4ad24ee3f2feda54801b679427735512c33447cbc061cf74fe1",
+    "work/mod_research/b_reload_title520_router.cpp": "aff32b5c5566d8cfb92852b3e51b10e95f8b596c6c14b5ace8790106110e2d08",
+    "work/mod_research/b_reload_title520_router.h": "8832c046f09c6df5e6b2570b19bc63ebbefd4506fa9d481f35d6b3ea5c6ee0f6",
+    "work/mod_research/b_reload_title520_test.py": "70e0e77ceda7d2079e62483a2c8e683b8a34fff08e1ca65d04ed2865887759e0",
+    "work/mod_research/human_rules_world_lifecycle.py": "a89484d2d1b4bf562a02d155a71966d7060bf25d4758297c285bee3e5968bce1",
+    "work/mod_research/human_rules_world_lifecycle_fixture.cpp": "fca5af568a01ee3310834697b2ecca2e50d11b061331f3c085cdff62510ee37c",
+    "work/mod_research/human_rules_world_lifecycle_test.py": "82e293012ab4e5fbb30f096263b3c4057473f3f85f676893e326fd7a53a054d5"
+  }
+}

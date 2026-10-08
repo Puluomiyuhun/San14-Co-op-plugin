@@ -23,13 +23,21 @@
 
 | 模块 | 现有入口 | 当前边界 |
 | --- | --- | --- |
-| 房间和协议 | `outputs/san14-link/room_session.py`, `room_transport.py` | 本机协议/TLS验证；不等于双游戏联机 |
+| 房间和协议 | `outputs/san14-link/room_session.py`, `room_transport.py`, `tools/prepare_connection_check.py` | 本机协议/TLS验证；有公开源码连接诊断包，原生游戏后端未接 |
 | 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*` | 赏赐链路已有验证；内政并未全覆盖 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
-| 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_activation_publish_v2*` | 一个真实游戏、固定 world、一旬通过；换 world 必须先撤回来源 |
+| 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*` | 固定world实机曾通过；新增实际六入口恢复/新模块安装的离线换代组合，真实load/排他/Room仍须接入 |
 | A 本轮存档 | `a_save_user_owner*`, `a_save_ipc*`, `checkpoint_fresh_save_binding*` | 实际本机IPC已接动态Room请求、同Owner两次新文件和TLS；仍是自有替身保存，缺真实写入排除/可信permit/生产安装器 |
-| B 连续加载 | `checkpoint_task_completion*`, `b_reload_title_source_v2*`, `b_reload_title590*` | Title来源及+590启动/runner已接；+520、父来源、Finalize和真实连续两次仍缺 |
-| Ready 输入等待 | `checkpoint_ready_input_gate*`, `a_save_input*` | 新增Game/globalUI真实槽来源，可与保存并行；panel/命令/消息等仍绕行，不能放行完整Ready |
+| B 连续加载 | `b_reload_title_source_v2*`, `b_reload_title590*`, `b_reload_finalize*`, `b_reload_title520*` | Finalize、两worker启动/runner已接；父来源及真实调度边界、连续两真实档仍缺 |
+| Ready 输入等待 | `checkpoint_ready_input_gate*`, `a_save_action_gate*` | 后继统一Game/UI/panel和User动作段；User早段/消息等仍未全覆盖，不放行完整Ready |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |
 
 模块名用于定位，不是推荐直接运行这些历史脚本。新电脑先做本地检查与纯协议测试。
+
+## 换世界时的规则顺序
+
+可信协调器先保留执行/输入排他，恢复旧模块拥有的六处原入口，并核对原始字节、活动计数归零和发布器已经解除调试。正常恢复与模块 `Revoke` 不同：后者永久进入故障，不能拿来正常换代。
+
+加载请求只携带下一代编号、检查点、epoch与日期，不预先猜测新世界内存地址。加载之后再通过当前本机reader取得新root/world和两名玩家身份；核对后创建新驻留模块、Prepare/Seal、安装六入口并再次独立读取验证。历史模块地址和nonce都不能复用，旧DLL保留到进程退出。
+
+规则换代完成仅说明这段生命周期成功。完整世界核对、B视角、待命命令排空及Ready仍由整体协调器负责；故障时不得自动释放等待或退回AI接管。

@@ -1,5 +1,11 @@
 # Offline developer check
 
+For the portable two-computer **connection diagnostic**, see
+[CONNECTION_CHECK.md](../docs/CONNECTION_CHECK.md). Build it from public sources
+with `prepare_connection_check.py`; `test_connection_bundle.py` runs two actual
+relocated loopback TLS processes. This diagnostic never starts or attaches to
+the game and does not replace the native save/load prerequisites.
+
 From the repository root, with Python 3.10 or newer:
 
 ```powershell
