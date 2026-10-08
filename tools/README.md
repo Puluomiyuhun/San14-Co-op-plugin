@@ -1,5 +1,11 @@
 # Offline developer check
 
+Latest held-save pipe/phase work: [a_save_held_ipc_handoff.md](../work/mod_research/a_save_held_ipc_handoff.md),
+with [native held admission](../work/mod_research/planning_checkpoint_save_handoff.md)
+and [actual Bootstrap](../work/mod_research/b_reload_bootstrap_handoff.md).
+These use only owned processes and archived inputs. They do not establish actual
+post-simulation native date transition, legitimate game saves, or two-game readiness.
+
 For the latest retained Period Owner + actual save pipe/TLS/journal composition,
 see [a_save_period_ipc_handoff.md](../work/mod_research/a_save_period_ipc_handoff.md).
 Its explicit build and flow commands use only an owned process, diagnostic files

@@ -19,6 +19,12 @@
 - 严格确定性锁步尚未成立。随机种子相同并不足以涵盖执行顺序、视角相关路径、隐藏状态及事件交互。A 权威旬末校正是当前用户接受的首版方案。
 - 长期目标是同一进程常驻、连续多旬。之前一次性成功的读档实验不能证明连续两次及更多次均可工作。
 
+## 推演结束与下一旬的身份边界
+
+旬初规划身份保持到本旬校正结束。旬末保存日期已经改变，但B尚未加载，下一旬身份还不存在。新 `checkpoint_planning_save_link.py` 显式绑定这两个日期，禁止提前创建下一旬；它只是身份接线，不是原生保存许可。`planning_checkpoint_save*` 已支持当前日期下保持Ready/Gate执行保存，`a_save_held_ipc*`已接真实管道/TLS；原生推演后的日期转移与完整Session仍未组合。
+
+B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Arm，替代旧marker证据。验证采用人工准备的自有映像；实际游戏运行时来源就绪、四worker及连续合法档加载仍待接通。
+
 ## 已知模块与关键缺口
 
 | 模块 | 现有入口 | 当前边界 |
@@ -29,7 +35,7 @@
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
 | A 本轮存档 | `a_save_period_ipc*`, `a_save_parent_coordination*`, `a_save_observation_status*` | 同物理Owner跨逻辑期两奖励/两诊断保存已组合；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
-| B 连续加载 | `b_reload_lifecycle_fault*`, `b_reload_lifecycle_queue*`, `b_reload_nested_*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。真实Bootstrap/发布、持续排他和两真实档仍缺，新可信本地失败闸已组合两代观察器SEH；旧业务异常/外来DR矩阵尚未全量组合 |
+| B 连续加载 | `b_reload_lifecycle_fault*`, `b_reload_lifecycle_queue*`, `b_reload_nested_*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。新Bootstrap实际发布已在人工自有映像验证；真实来源就绪、与四worker组合、持续排他和两真实档仍缺，新可信本地失败闸已组合两代观察器SEH；旧业务异常/外来DR矩阵尚未全量组合 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |
 | 菜单捕获准备 | `reward_menu_handoff_gate*`, `reward_menu_capture.py`, `reward_menu_observation*` | 归档Update确认前原生门禁已能单次领取纯ID并接TLS去重，正常取消/关闭与生产installer/lifetime仍缺。只读观察的自然执行记录仍不能发送 |
