@@ -1,5 +1,14 @@
 # 进展记录
 
+## 2026-10-08 — B自动接入完整队列与异常组合，A后台writer范围确认
+
+多agent离线推进、主线程整合与交叉审阅；未访问游戏、Steam、UI或当前存档，无待用户操作，冻结生产源未改。
+
+- 新activated queue将真实自动激活接到两代完整queue/Title/User/Load，4/4；同一原生worker、16个Root任务、48次捕获、8个Load任务。实际输入yield恢复不重复创建任务，已有运行池仍不支持。
+- 新nested fault 30/30含26回归与4实际故障；新activated fault 3/3将Observer异常、业务SEH与DR冲突接到真实自动owner。保留子层错误、任务abandon和恢复不确定性，不伪造正常完成或Ready。故障测试仍为隔离单任务，生产异常唤醒未完成。
+- 新writer scope审计17/17，关闭warm 509640写入疑点；归档Game在Save pending下仍可启动army后台更新，实际army+48写入进入原生序列化字段。路径搜索/OS线程/memcpy明确为替身。保留已有原生协调待查，未宣称损坏、排空或生产permit。
+- 完整两档/双机验收仍未通过；源码、产物、失败与精确边界见[公开证据](evidence/2026-10-08-activated-queue-writer-scope.json)和[交接](HANDOFF.md)。
+
 ## 2026-10-08 — A上游来源、B原生暂停恢复及自动线程接入
 
 多agent离线开发与交叉审阅；未操作游戏、Steam、UI或当前存档目录，无待用户操作，冻结前驱未改。
