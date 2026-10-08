@@ -3,5 +3,6 @@
 * -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 *.md text eol=lf
 *.json text eol=lf
+*.s14 binary
 .gitignore text eol=lf
 .gitattributes text eol=lf

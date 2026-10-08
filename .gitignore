@@ -19,6 +19,8 @@ node_modules/
 
 # Game files, memory images, saves, third-party packages and build products.
 *.s14
+# Explicitly shared by the user for cross-computer baseline testing.
+!/fixtures/saves/slot34/svdexSC34.s14
 *.packet
 *.sqlite
 *.sqlite-wal

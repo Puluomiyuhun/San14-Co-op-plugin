@@ -1,0 +1,33 @@
+{
+  "schema": "san14.shared-save-fixture.v1",
+  "shared_on": "2026-10-08",
+  "user_authorized_publication": true,
+  "file": "svdexSC34.s14",
+  "slot": 34,
+  "size_bytes": 274920,
+  "sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95",
+  "byte_preserving_copy": true,
+  "original_and_historical_backup_match": true,
+  "historically_verified_world": {
+    "year": 203,
+    "month": 8,
+    "day": 11,
+    "period": "中旬",
+    "player_force_id": 12,
+    "player_ruler_id": 666,
+    "player_name": "张鲁",
+    "second_player_candidate": {
+      "force_id": 2,
+      "ruler_id": 952,
+      "name": "刘备"
+    }
+  },
+  "historically_verified_executable": {
+    "name": "SAN14PK_SC.exe",
+    "sha256": "42d53bb42c033c6027b6da75e8077f4170f4d684abb0f57483a661225d052025"
+  },
+  "validation_this_publication": "File bytes and SHA-256 only; no game process access or load execution.",
+  "cross_computer_load_verified": false,
+  "runtime_profile_included": false,
+  "native_permission_receipt": false
+}
