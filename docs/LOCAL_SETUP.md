@@ -13,7 +13,7 @@ py -3 --version
 
 若只是准备朋友电脑的连接环境，可先按 [CONNECTION_CHECK.md](CONNECTION_CHECK.md) 从公开源码生成诊断包。这个入口不依赖原电脑私有catalog/profile，能独立检查可选EXE版本与实际TLS字节传输；它不是游戏安装器，也不会自动进入地图。
 
-新的[单次正常保存观察工具](../work/mod_research/a_save_observation_handoff.md)也可从公开源码在 Windows 编译并做自有进程测试，不需要私有原生转储。测试命令不会查找游戏；`--preflight`/`--record` 是另外的显式实机步骤，须按交接核对本机状态及刚通过的构建。B启动加载器目前仅通过自建EXE/DLL检查，未接真实游戏Bootstrap，不能当作可玩启动器。
+新的[单次正常保存观察工具](../work/mod_research/a_save_observation_status_handoff.md)与[赏赐菜单观察工具](../work/mod_research/reward_menu_observation_handoff.md)可从公开源码在 Windows 编译并做自有进程测试，不需要私有原生转储。新版共用DR6事件归属检查，避免退出时清除外来状态；冻结旧保存观察器只留作历史。测试命令不会查找游戏；`--preflight`/`--record` 是另外的显式实机步骤，要求当前明确PID，须按交接核对本机状态及刚通过的构建。B启动加载器目前仅通过自建EXE/DLL检查，未接真实游戏Bootstrap，不能当作可玩启动器。
 
 Python 常见依赖：`pefile`、`capstone`、`cryptography`；执行归档机器码的测试还使用 `unicorn`。工具会区分缺少依赖和测试失败，不要把跳过当通过。以工具提供的依赖清单和实际安装状态为准。
 

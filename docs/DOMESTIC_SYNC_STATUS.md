@@ -8,6 +8,8 @@
 
 后续新增双方准备的实际Owner等待回执：Python19/19、原生组合11/11和worker8/8；仅局部User/赏赐/保存接纳，不是全输入排他。赏赐菜单捕获53项语义+16项归档检查，候选67A993及重复确认保护已就绪，纯语义提案也已串入TLS组合；真实取消/关闭和菜单拦截仍缺。[最新交接](../work/mod_research/reward_ready_flow_handoff.md)、[菜单来源](../work/mod_research/reward_menu_capture_handoff.md)。
 
+最新同Owner输入后继18/18、双端组合13/13，增加实际Game/global UI/panel观察；仍有窗口/设备/外部写入缺口，且只绑定一个规划期。真实菜单只读观察工具已就绪，尚未实机采集或拦截；已自然执行的菜单记录不会再发队列。[输入接线](../work/mod_research/reward_interlock_flow_handoff.md)、[菜单工具](../work/mod_research/reward_menu_observation_handoff.md)。
+
 ## 按玩家功能核对
 
 | 功能 | 已有内容 | 当前还缺什么 |

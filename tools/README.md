@@ -1,12 +1,14 @@
 # Offline developer check
 
 For the new single-manual-save observer, see
-[a_save_observation_handoff.md](../work/mod_research/a_save_observation_handoff.md).
-`py -3 work/mod_research/a_save_observation_test.py` builds and tests only owned
+[a_save_observation_status_handoff.md](../work/mod_research/a_save_observation_status_handoff.md).
+`py -3 work/mod_research/a_save_observation_status_test.py` builds and tests only owned
 Windows processes, without private native dumps or game discovery. The launcher
 without arguments shows help. Its explicit `--preflight` and `--record` options
 access the game and are separate future manual-test steps; they are not part of
-any offline developer check or multiplayer authorization.
+any offline developer check or multiplayer authorization. This successor shares
+the menu observer's DR6 event-ownership guard; the old observer remains frozen
+for historical evidence and is no longer the recommended recording entry point.
 
 For the portable two-computer **connection diagnostic**, see
 [CONNECTION_CHECK.md](../docs/CONNECTION_CHECK.md). Build it from public sources
@@ -132,6 +134,26 @@ source and B Title +590 worker source, respectively; neither is a full input
 lock or a complete native save/load pipeline.
 
 ## Private fixture paths
+
+The latest planning/menu/reload compositions have explicit offline entry points:
+
+```powershell
+# Owned debugger targets and menu memory only; this is not --preflight/--record.
+py -3 work/mod_research/reward_menu_observation_test.py
+
+# Require the private fixture root described below. No installed game access.
+py -3 work/mod_research/planning_input_interlock_test.py
+py -3 work/mod_research/b_reload_lifecycle_queue_test.py
+
+# Supply the exact new PASS interlock fixture, not the old Ready worker.
+py -3 work/mod_research/reward_interlock_flow_test.py --native-fixture '<new interlock run>/fixture.exe'
+```
+
+These cover different layers and are not a playable end-to-end launcher.
+The input interlock retains explicit uncovered consumers/writers; B uses a
+diagnostic second file and constructor/business substitutes. Menu observations
+are read-only and must never be replayed as commands that may already have run.
+See the corresponding `*_handoff.md` files for source pins and remaining gates.
 
 Private inputs are unnecessary for the protocol checks. To diagnose their location without reading their contents, copy `private-fixtures.example.json` to an ignored local config and edit the root:
 

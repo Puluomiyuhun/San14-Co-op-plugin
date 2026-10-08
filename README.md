@@ -17,6 +17,8 @@
 
 后续已接通“赏赐排空→双方准备→两边实际观察Owner等待入口”，并定位菜单确认前的捕获候选；设置标志本身不能算已等待。当前证明只覆盖局部入口，全部输入限制与真实菜单接管仍待完成。[最新组合交接](work/mod_research/reward_ready_flow_handoff.md)
 
+最新三路接线：同一Owner联合观察User、全局UI和面板等待，已接双端TLS；B的四线程启动来源与两代完整加载队列已组合通过；赏赐菜单只读观察工具已可在用户方便时采集真实来源。均为离线验证，尚未真实菜单拦截或整旬联机。[输入组合](work/mod_research/reward_interlock_flow_handoff.md)、[连续加载组合](work/mod_research/b_reload_lifecycle_queue_handoff.md)、[菜单观察](work/mod_research/reward_menu_observation_handoff.md)
+
 ## 最近的实机里程碑
 
 2026-10-08：在一个真实游戏进程中启用张鲁、刘备的双人势力规则并推进一旬。四类 AI 入口共 120 次调用，8 次按玩家势力规则跳过，112 次执行原生处理；1,044 次收入归属判断均返回，没有活动调用、挂起或异常残留。六处补丁已撤回，用户已恢复测试存档。

@@ -8,11 +8,13 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-**本轮用户暂时不方便操作，先继续开发。** 新的单次正常保存观察工具已完成离线验证；尚未启动游戏检查或记录。下次用户方便时，按 [观察工具交接](../work/mod_research/a_save_observation_handoff.md) 先验证本机构建与只读状态，记录器 READY 后才安排一次保存。没有当前待操作请求。
+**本轮用户暂时不方便操作，先继续开发。** 新的单次正常保存观察工具已完成离线验证；尚未启动游戏检查或记录。下次用户方便时，按 [新版观察工具交接](../work/mod_research/a_save_observation_status_handoff.md) 先验证本机构建与只读状态，记录器 READY 后才安排一次保存。新版修复退出时可能清除外来调试事件状态的问题；冻结旧工具仅留作历史。没有当前待操作请求。
 
 最新按用户要求三路并行开发内政：新赏赐队列合入同一User/Save Owner，现代TLS房间→A/B独立日志→两个自建原生进程的实际回放/结果核对已组合通过；交易/武将移动新增严格语义提案和可信证据预检。真实游戏菜单捕获、双端数值/UI刷新及最终原生Ready仍未闭合。[内政状态](DOMESTIC_SYNC_STATUS.md)、[赏赐组合交接](../work/mod_research/reward_room_flow_handoff.md)。本轮完全离线，没有待用户操作。
 
 继续开发已将双方准备接到两个原生Owner的实际等待观察，并串过“菜单语义提案→TLS去重→双端赏赐→等待确认”。新结果19项Python、11项原生组合通过；菜单确认前候选已定位。局部User/赏赐/保存入口证据不是全输入排他，不发推演许可。[本轮交接](../work/mod_research/reward_ready_flow_handoff.md)。
+
+**最新继续推进（用户明确暂不方便，本轮全部离线）：** 输入隔离同Owner后继18/18，接双端TLS组合13/13；B启动四线程来源与两代完整queue组合4/4，消除两者仅分别测试的缺口；新赏赐菜单只读观察器60/60、新正常保存观察器39/39已就绪，但未运行实机preflight/record。没有待用户操作。[输入组合](../work/mod_research/reward_interlock_flow_handoff.md)、[B组合](../work/mod_research/b_reload_lifecycle_queue_handoff.md)、[菜单工具](../work/mod_research/reward_menu_observation_handoff.md)、[保存工具](../work/mod_research/a_save_observation_status_handoff.md)。
 
 ## 共享的34号测试存档
 
@@ -50,17 +52,31 @@
 
 内政线已经交付[唯一Owner赏赐后继](../work/mod_research/a_reward_save_owner_handoff.md)和[TLS/双日志/独立原生测试端组合](../work/mod_research/reward_room_flow_handoff.md)。不要叠装旧Dispatcher或同时链接两个Owner实现。接下来补真实菜单提交前捕获、可信采样/报告密钥引导、最终Ready输入限制、两个游戏的数值及界面更新；交易/移动只有严格提案预检，原生资格/成本观察与执行仍缺。
 
-最新 `reward_ready_flow` 将局部Owner fence的实际回调证据接入；全部输入限制仍缺。菜单候选为 `67A993` 进入包装前，公共处理器返回0不能安全模拟取消；event1也未证实为取消。下一条具体菜单工作按[捕获来源交接](../work/mod_research/reward_menu_capture_handoff.md)准备四点只读观察，用户方便后再执行，不要直接安装拦截。
+最新 `planning_input_interlock` 将同Owner的User/global UI/panel本轮观察合并，已接原Ready流程；窗口消息、Root转换、设备缓存、其它消费者和后台writer仍不在覆盖内。Controller及赏赐绑定只对应一个规划期，跨旬需正式退役/重绑定，不能重置旧模块。菜单四点只读[观察工具](../work/mod_research/reward_menu_observation_handoff.md)已完成，用户方便后按该交接执行；未抑制自然赏赐的记录只能作shadow分析，不能再送权威队列造成双执行。取消/安全关闭与完整menu lifetime仍未证实。
 
 **距离首轮双机测试的验收清单：** [FIRST_TWO_PC_TEST](FIRST_TWO_PC_TEST.md)。固定34号起点、张鲁/刘备、两旬不下新命令；还缺A真实两次新档、B真实连续加载、统一运行所有者接通、两机配置四项结果，不按离线用例数量估完成百分比。
 
-1. **A 新存档生产接线。** [upstream门禁](../work/mod_research/a_save_upstream_handoff.md)仍为冻结基线，同Owner两诊断保存29/29。[writer范围审计](../work/mod_research/a_save_writer_scope_handoff.md)已定位Game尾部启动army后台任务及序列化字段交叉。新[原生协调调查和分析器](../work/mod_research/a_save_native_coordination_handoff.md)48/48：找到普通/内联队列生产者，确认16C160含对象清理，不能拿来纯排空；普通Save直接层尚未找到join，间接协调仍未证明。新[单次正常保存观察器](../work/mod_research/a_save_observation_handoff.md)34/34已准备，使用四个硬件点配对Save/worker，严格拒绝漏样本、错配及不完整收尾。下一步在用户方便时取得一次真实记录，再决定必要保护范围；生产发布/IPC、对象生命周期及两真实新档仍缺。观察结果不发permit。
-2. **B 同进程连续加载两份不同档。** 前轮[完整queue/yield](../work/mod_research/b_reload_activated_queue_handoff.md)4/4、[嵌套故障](../work/mod_research/b_reload_fault_handoff.md)30/30及[自动owner单任务故障](../work/mod_research/b_reload_activated_fault_handoff.md)3/3沿用。新[启动生命周期后继](../work/mod_research/b_reload_lifecycle_handoff.md)2/2将接入点定位到1447B6原生四线程初始化：四worker初始等待时注册，一项无票普通任务透明通过，同一已暖worker随后两任务产生6次Root捕获，已有运行池拒绝。构造替身主动等待初始窗口，真实构造时序未证明；此后继还未与完整queue组合。另有新进程DLL加载器2/2和同一二进制10次重复启动，但只是自建marker export，未接SAN14 Bootstrap/发布器。PE入口前是否已有支持的运行时代码也未证明。实际安装、两合法新档、持续排他和世界/地图证明仍缺。
+1. **A 新存档生产接线。** [upstream门禁](../work/mod_research/a_save_upstream_handoff.md)仍为冻结基线，同Owner两诊断保存29/29。[writer范围审计](../work/mod_research/a_save_writer_scope_handoff.md)已定位Game尾部启动army后台任务及序列化字段交叉。新[原生协调调查和分析器](../work/mod_research/a_save_native_coordination_handoff.md)48/48：找到普通/内联队列生产者，确认16C160含对象清理，不能拿来纯排空；普通Save直接层尚未找到join，间接协调仍未证明。新[单次正常保存观察器](../work/mod_research/a_save_observation_status_handoff.md)39/39已准备，使用四个硬件点配对Save/worker，严格拒绝漏样本、错配及不完整收尾，并保留不属于自己的DR6事件状态。下一步在用户方便时取得一次真实记录，再决定必要保护范围；生产发布/IPC、对象生命周期及两真实新档仍缺。观察结果不发permit。
+2. **B 同进程连续加载两份不同档。** 最新[启动+完整queue组合](../work/mod_research/b_reload_lifecycle_queue_handoff.md)4/4：一次原生四worker初始化、同一已暖worker完成两代16个Root任务/48捕获、两次queue pop及Load/Title start/join；每代一个普通无票任务透明，yield场景两代各一次真实让出/恢复。两旧窗口退休，新代不改旧回执。构造替身仍主动等初始窗口，第二档仍诊断变体。旧[嵌套故障](../work/mod_research/b_reload_fault_handoff.md)30/30及[自动owner单任务故障](../work/mod_research/b_reload_activated_fault_handoff.md)3/3未与本次启动组合重跑。另有新进程DLL加载器独立2/2及10次重复，但只是marker export，未接SAN14 Bootstrap/发布器，PE入口运行时字节可用性未证明。实际安装、两合法新档、持续排他和世界/地图证明仍缺。
 3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；`checkpoint_rules_context*` 已接远端B规则配置及阶段切换，既有 `checkpoint_delivery_control*` 已接上B独立进程经TLS返回实收字节→A实际bytes_received。B日志仍STAGED，无加载INTENT；全量回传会额外增加一次存档大小的传输。Config使用稳定binding_epoch，B不持A的Room对象，正常换代不Revoke/reset旧DLL。下一步在同一可信owner中接B旧规则撤下、持续执行/输入排他、单次加载许可、原生加载及新规则安装，再做完整世界/菜单/地图帧核验和跨机Ready回执。context与observe_loaded都是点检查，不是持续锁或加载完成证明。
 4. **收入增加348次的归因。** 历史纯转发测试696次，双人规则测试1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. **跨电脑启动与连接。** 已有可从干净公开仓库生成的Python源码连接诊断包，支持可选EXE摘要、本机配置、真实TLS和字节校验，详见[连接检查](CONNECTION_CHECK.md)。不依赖原电脑私有catalog/profile；它没有连接原生后端。两台异地电脑尚未配置直连/VPN，真实游戏profile/安装器/A/B整体配置仍缺。首个实机目标保持为两旬不下新命令，再逐项接赏赐、出征与事件暂停。
 
-## 最新开发：双端Owner等待确认与赏赐菜单捕获准备
+## 最新开发：菜单观察工具、扩展输入隔离与两代加载组合
+
+三路并行开发/交叉审查，未访问游戏、Steam、当前存档或UI，无新游戏补丁/调试器；所有自建进程和TLS监听已收尾。原冻结模块不改，后继明确替代链接。
+
+- 输入后继18/18：同一Owner联合请求User fence及Gate Hold，实际观察Game/UI/panel/User；核对精确Owner、当前四个发布槽、世界/日期、版本及FINALLY增量。setter不是观察，缺来源/异常不授予完整输入、保存或推进权限。
+- TLS组合13/13（11实际双原生组合+2结构反例）：新端口严格检查扩展观察，旧HMAC协议仍只陈述原User范围；扩展记录保留本地。不将局部mask7/未知mask31升级为全输入暂停。
+- B启动/两代queue4/4：源与完整两代加载首次合并，保留原线程池跨测试world；普通任务、地址复用、等待、实际yield/resume通过。不是两份真实新档，也未连A存档/TLS或人类规则换代。
+- 菜单观察器60/60：9项自建debugger/退出检查、22项原生读取自有内存的来源情景及其余分析/入口反例；默认帮助且显式PID、已测产物/源码校验。真实菜单记录尚未采集，shadow输出没有可发送packet，不重复执行自然赏赐。
+- 交叉审查发现旧观察器退出时只核对断点布局，可能覆盖外来DR6事件位。菜单与正常保存两个新后继共用修复：未知状态不清除、不脱离，记录不完整；旧源码不改。保存后继39/39。共享guard的26个检查分成9次真实OS读回和17个显式CONTEXT模型：本机OS清除了外部写入的事件位，因此不能把模型说成实际触发过BS/BD/BT；两工具各自9个真实debugger场景另通过。
+- 交叉审查另明确跨旬缺口：Controller固定日期，赏赐binding不可变；下一期不能复用旧fence或重置旧模块。A真实保存边界仍等待正常保存观察，未假装本轮完成新档生产。
+- 最终五份结果关联的243份独立源码摘要统一重核一致，冻结前驱无变；仓库共享34号副本摘要不变。原始失败保留在本机，公开摘要区分实际自建进程、归档代码执行和语义模型。
+
+复跑/失败记录：[输入](../work/mod_research/planning_input_interlock_handoff.md)、[TLS组合](../work/mod_research/reward_interlock_flow_handoff.md)、[B加载](../work/mod_research/b_reload_lifecycle_queue_handoff.md)、[菜单](../work/mod_research/reward_menu_observation_handoff.md)、[保存工具](../work/mod_research/a_save_observation_status_handoff.md)。证据：[脱敏摘要](evidence/2026-10-08-menu-interlock-reload-composition.json)。下一步优先最小正常保存/菜单来源观察，之后实现真实菜单接管、正式跨旬retire/rebind及单游戏连续合法新档；暂无用户操作请求。
+
+## 上一轮开发：双端Owner等待确认与赏赐菜单捕获准备
 
 本轮三路并行开发/审查，冻结前驱不变，未访问游戏、Steam、当前存档或UI，无待用户操作。
 
