@@ -24,7 +24,8 @@
 | 模块 | 现有入口 | 当前边界 |
 | --- | --- | --- |
 | 房间和协议 | `outputs/san14-link/room_session.py`, `room_transport.py`, `tools/prepare_connection_check.py` | 本机协议/TLS验证；有公开源码连接诊断包，原生游戏后端未接 |
-| 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*`、`execution_journal.py` | 固定赏赐已在单游戏执行；房间/日志仅接受赏赐，远端队列尚未合入当前唯一A Owner，B即时应用与菜单刷新未闭环。交易/移动为草稿基础；见[内政盘点](DOMESTIC_SYNC_STATUS.md) |
+| 即时命令 | `reward_room_flow.py`、`a_reward_save_owner*`、`authority_reward.py`、`execution_journal.py` | 固定赏赐历史单游戏执行；新唯一Owner及现代TLS/双日志/两个独立原生fixture已组合，业务效果替身。普通菜单捕获、真实双游戏执行/刷新、密钥引导及原生Ready仍缺；见[内政盘点](DOMESTIC_SYNC_STATUS.md) |
+| 其他内政命令 | `domestic_reader.py`、`domestic_command_contracts.py` | 交易/移动草稿接严格语义提案与独立证据预检；缺价格/资格/时限不猜测，未接原生执行或房间路由 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
 | A 本轮存档 | `a_save_upstream_gate*`, `a_save_upstream_owner.cpp`, `a_save_observation*`, `a_save_ipc*` | 更早门禁接同Owner两诊断保存；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
@@ -34,6 +35,12 @@
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |
 
 模块名用于定位，不是推荐直接运行这些历史脚本。新电脑先做本地检查与纯协议测试。
+
+赏赐后继网络线程只排队，可信执行线程先持久化意图再调用唯一Owner；B独立执行并观察，
+回执由独立adapter key认证，不能把B玩家登录凭据或裸JSON当已执行证明。A/B日记保存同一
+权威意图，但本地视角context token分别重建。命令未知结果、换实例或断线终态等待，
+不自动重试。最终Ready仍仅协议模型；生产必须由同一生命周期Owner补持续输入限制和
+报告通道。详见[接线契约](../work/mod_research/reward_room_flow_handoff.md)。
 
 ## 换世界时的规则顺序
 
