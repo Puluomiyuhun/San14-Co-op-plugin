@@ -1,5 +1,11 @@
 # Offline developer check
 
+For the latest retained Period Owner + actual save pipe/TLS/journal composition,
+see [a_save_period_ipc_handoff.md](../work/mod_research/a_save_period_ipc_handoff.md).
+Its explicit build and flow commands use only an owned process, diagnostic files
+and loopback TLS. They require existing private archive inputs; they do not
+discover the game or produce a valid SAN14 save or a production save permit.
+
 For the new single-manual-save observer, see
 [a_save_observation_status_handoff.md](../work/mod_research/a_save_observation_status_handoff.md).
 `py -3 work/mod_research/a_save_observation_status_test.py` builds and tests only owned

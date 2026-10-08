@@ -28,14 +28,19 @@
 | 其他内政命令 | `domestic_reader.py`、`domestic_command_contracts.py` | 交易/移动草稿接严格语义提案与独立证据预检；缺价格/资格/时限不猜测，未接原生执行或房间路由 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
-| A 本轮存档 | `planning_period_owner*`, `a_save_observation_status*`, `a_save_ipc*` | 同物理Owner跨逻辑期两奖励/两诊断保存已组合；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
-| B 连续加载 | `b_reload_lifecycle_queue*`, `b_reload_lifecycle*`, `b_reload_nested_*`, `b_reload_fault*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。真实Bootstrap/发布、持续排他和两真实档仍缺，旧故障矩阵未与本组合重跑 |
+| A 本轮存档 | `a_save_period_ipc*`, `a_save_parent_coordination*`, `a_save_observation_status*` | 同物理Owner跨逻辑期两奖励/两诊断保存已组合；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
+| B 连续加载 | `b_reload_lifecycle_fault*`, `b_reload_lifecycle_queue*`, `b_reload_nested_*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。真实Bootstrap/发布、持续排他和两真实档仍缺，新可信本地失败闸已组合两代观察器SEH；旧业务异常/外来DR矩阵尚未全量组合 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |
 | 菜单捕获准备 | `reward_menu_handoff_gate*`, `reward_menu_capture.py`, `reward_menu_observation*` | 归档Update确认前原生门禁已能单次领取纯ID并接TLS去重，正常取消/关闭与生产installer/lifetime仍缺。只读观察的自然执行记录仍不能发送 |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |
 
 模块名用于定位，不是推荐直接运行这些历史脚本。新电脑先做本地检查与纯协议测试。
+
+新的 [A跨旬管道组合](../work/mod_research/a_save_period_ipc_handoff.md)把最新Period Owner/Gate
+与既有管道Server实际链接：房间先预约，再提交原生诊断保存；同一Owner正式退休/重绑后
+完成第二次，两档经真实TLS进入接收日志。原生期次绑定仍由fixture提供，网络scope映射
+Session尚未合入此链；日期/存档业务及B loaded仍是替身或模型，生产permit没有放开。
 
 赏赐后继网络线程只排队，可信执行线程先持久化意图再调用唯一Owner；B独立执行并观察，
 回执由独立adapter key认证，不能把B玩家登录凭据或裸JSON当已执行证明。A/B日记保存同一

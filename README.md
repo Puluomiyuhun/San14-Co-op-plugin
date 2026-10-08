@@ -17,7 +17,7 @@
 
 后续已接通“赏赐排空→双方准备→两边实际观察Owner等待入口”，并定位菜单确认前的捕获候选；设置标志本身不能算已等待。当前证明只覆盖局部入口，全部输入限制与真实菜单接管仍待完成。[最新组合交接](work/mod_research/reward_ready_flow_handoff.md)
 
-最新三路开发：网络期次已映射到同一原生Owner并延续累计指令编号；窗口拦截沿用一个驻留入口跨期交接。菜单收尾研究发现“关闭”队列不绑定原菜单，须解决消费时栈顶变化后才可安全自动关闭。仍为离线验证，完整输入和合法新档/连续加载未闭环。[菜单收尾](work/mod_research/reward_menu_completion_handoff.md)、[常驻窗口](work/mod_research/planning_input_resident_handoff.md)、[网络期次接线](work/mod_research/planning_period_session_handoff.md)
+最新主线进展：跨旬常驻模块已接实际保存管道、TLS和接收日志；连续加载组合补上了出错后阻止下一代的本地闸门。保存父菜单研究确认，等待界面更新结束不等于部队后台任务已结束。均为离线验证，真实新档和双客户端两旬仍待闭环。[跨旬保存](work/mod_research/a_save_period_ipc_handoff.md)、[保存协调](work/mod_research/a_save_parent_coordination_handoff.md)、[加载故障](work/mod_research/b_reload_lifecycle_fault_handoff.md)
 
 ## 最近的实机里程碑
 
