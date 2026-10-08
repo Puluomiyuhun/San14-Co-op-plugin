@@ -1,5 +1,9 @@
 # Offline developer check
 
+Latest actual startup composition: [same PE / DLL / Provider and four workers](../work/mod_research/b_reload_bootstrap_workers_handoff.md), 2/2 owned-process cases. Production game readiness and two-generation ticketed queue are still absent.
+
+One user-authorized normal Save observation has finished with verified cleanup; see [live interpretation](../work/mod_research/a_save_first_live_handoff.md). Do not automatically repeat historical live commands.
+
 Latest same-process two-period composition:
 [a_save_simulation_ipc_handoff.md](../work/mod_research/a_save_simulation_ipc_handoff.md).
 It binds actual Room scopes to the native date-boundary and Session successors,

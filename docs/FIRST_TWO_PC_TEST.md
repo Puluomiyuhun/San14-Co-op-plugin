@@ -1,6 +1,6 @@
 # 首轮双实机测试的最小范围与门槛
 
-2026-10-08。本文来自源码和交接记录的只读审查，不是实机放行记录。未访问游戏、Steam、当前存档或 UI。当前结果以 [HANDOFF](HANDOFF.md) 最新里程碑为准；这里明确首测应完成什么，避免把完整产品的所有功能都堆到首测之前。
+2026-10-08。本文是首测验收清单，不是实机放行记录；最新进度已纳入一次用户手动保存观察。当前结果以 [HANDOFF](HANDOFF.md) 最新里程碑为准；这里明确首测应完成什么，避免把完整产品的所有功能都堆到首测之前。
 
 ## 首测到底测什么
 
@@ -17,7 +17,7 @@
 | 门槛 | 已有基础 | 首测前仍须交付的证据 |
 | --- | --- | --- |
 | 1. A 每旬真实新档 | 最新Period Owner/Gate已与实际管道/TLS/接收日志组合，两逻辑期/两诊断保存与累计编号保留；上游已知updater受控 | 在真实游戏规划边界执行两次原生保存；由同一所有者控制相关写入与对象生命周期，补其他调用者和外部ABA、真实引擎调度和生产发布/IPC；完整网络scope已在两期诊断组合接入。真实保存后才发布 |
-| 2. B 同进程连续两次真实加载 | 四线程启动来源已与完整两代queue/Title/输入/Load/yield合并4/4；实际Bootstrap初始化/发布已单独验证，尚未与四线程队列组合 | 补真实运行时代码可用阶段、初始wait时序、Bootstrap/来源发布器及其余故障组合；用两份合法新档验证整个原生生命周期。重复地址、晚回调、错代必须拒绝或正确归入原代 |
+| 2. B 同进程连续两次真实加载 | 四线程启动来源已与完整两代queue/Title/输入/Load/yield合并4/4；实际Bootstrap现已接同PE/DLL/Provider四线程与普通任务2/2；两代queue尚未合入该Runtime | 补真实运行时代码可用阶段、初始wait时序、Bootstrap/来源发布器及其余故障组合；用两份合法新档验证整个原生生命周期。重复地址、晚回调、错代必须拒绝或正确归入原代 |
 | 3. 同一运行所有者接通整条链 | 收件确认到 `bytes_received`、规则跨 world、加载许可/日志/世界/等待的接口已有各自验证 | A/B 本机可信所有者连接实际持续排他、旧六入口撤下、单次加载许可、原生加载、新规则安装、世界/身份/规划地图核验、恢复输入。断线和结果不明保持 HELD，不能凭协议成功自动继续 |
 | 4. 两台电脑具备相同可运行配置 | 有不依赖私有归档的连接诊断包；共享34号档已提交 | 两机各自核对版本、运行时 profile、源码和产物身份及本机路径；异地实际 TLS/文件传输通过；在两端保存各自本次运行记录。连接包不是原生安装器 |
 
@@ -39,7 +39,7 @@
 
 新[同world跨期后继](../work/mod_research/planning_period_owner_handoff.md)31项通过，关闭旧逻辑期后才绑定下一旬，已组合两诊断保存；日期仍由fixture写入，不是推演和真实存档验收。
 
-新[跨旬管道组合](../work/mod_research/a_save_period_ipc_handoff.md)8/8，将最新Period Owner、Gate与原IPC正式链接；真实管道提交、双存储读取和TLS/SQLite已接两次诊断保存。停止后不能提交第二次或再导出旧结果。六项为协议反例、两项实际原生管道场景；日期/存档业务和B loaded仍替身/模型，完整网络scope的Session尚未合入，不能据此放开生产permit。
+新[跨旬管道组合](../work/mod_research/a_save_period_ipc_handoff.md)8/8，将最新Period Owner、Gate与原IPC正式链接；真实管道提交、双存储读取和TLS/SQLite已接两次诊断保存。停止后不能提交第二次或再导出旧结果。六项为协议反例、两项实际原生管道场景；日期/存档业务和B loaded仍替身/模型，当时完整网络scope的Session尚未合入；后继两期组合已补上，但不能据此放开生产permit。
 
 后续[本地期次映射](../work/mod_research/planning_period_session_handoff.md)21项把完整网络 epoch 与累计 cut 接到正式原生生命周期；[常驻窗口](../work/mod_research/planning_input_resident_handoff.md)10项含同一 Session 的实际组合，跨期不用释放/重装已审计窗口入口。它们缩小了宿主接线缺口，仍不证明完整输入排他、网络生产接线、A新档或B加载。赏赐菜单完整收尾不阻塞“不下新命令”的首测范围。
 
@@ -49,7 +49,7 @@
 
 本轮定位了army更新的start/poll/join顺序和保存读取live army指针的来源，没有证明真实线程排空，也没有证明原生保存发生损坏。已发现的root错误字符串锁在主要保存调用返回后才获取，不能拿它当保存区间锁；其他原生协调仍需核对。优先复用真实保存已有的串行化，确需新增保护时才持有对应队列与原生join后的窗口，不能用一个active字段的瞬时值替代排空。
 
-新的[原生协调调查](../work/mod_research/a_save_native_coordination_handoff.md)48/48已找到普通队列生产者与Game初始化的内联生产者，确认16C160还会清理对象，不能把它直接当作Save排空入口。新的[正常保存观察器](../work/mod_research/a_save_observation_status_handoff.md)39/39可在下次用户方便时记录一次手动保存，配对Save与army后台任务；本轮未实机。新版保留外来DR6事件状态，冻结旧工具只作历史。漏样本、清理异常或截断记录都判不完整，没有观察到重叠也不发许可。先取得这条实际证据，再决定需要补的最小保护范围。
+新的[原生协调调查](../work/mod_research/a_save_native_coordination_handoff.md)48/48已找到普通队列生产者与Game初始化的内联生产者，确认16C160还会清理对象，不能把它直接当作Save排空入口。新的[正常保存观察器](../work/mod_research/a_save_observation_status_handoff.md)已完成一次用户手动保存实机记录：Save配对1次、army任务0次，102线程寄存器恢复、干净退出。83份原档备份校验后只改49号，34号未变。本次没有重叠不代表writer全排空；优先分析正常Save可信调度和生产者边界，避免重复相同空闲保存。[实测分析](../work/mod_research/a_save_first_live_handoff.md)。
 
 真正需要的是本次保存区间中，影响权威存档、当旬语义与对象生命周期的写入具有可验证的顺序和所有权。它不必等同于停止所有渲染、音频和无关线程。如果另选原生已串行化的规划/保存边界，需要以新的来源与组合测试证明，并按后继实现更新契约；不能删掉现有 `permit`、报告或身份检查来提前放行。完整产品中任意内政按钮的并发体验可以延后，保存区间本身的一致性不能延后。
 
@@ -59,7 +59,7 @@
 
 仍有明确替身：构造器、线程池选择、callable存储和引擎文件业务；第二输入是诊断变体。自动接入只支持初始wait冷池，不能直接接管已经运行的旧线程池。[启动生命周期后继](../work/mod_research/b_reload_lifecycle_handoff.md)最初2/2只衔接两个任务；最新[启动+完整queue组合](../work/mod_research/b_reload_lifecycle_queue_handoff.md)4/4已将实际1447B6/509580四线程初始化接到两代完整加载，同一已暖worker处理16个Root任务，每代无票普通任务透明。构造替身主动等待初始窗口，真实时序仍未验证。
 
-新进程加载器另有2/2及10次重复：可在自建EXE入口前加载DLL并调用固定export、恢复后再启动主程序。当前export只设置fixture标记，不调用真实SAN14 Initialize/Arm；真实PE入口是否已有归档profile也未证明。缺的是这两层的实际Bootstrap/来源发布接线和实机支持阶段，之后才安排两合法新档。完整世界核验和持续排他继续保留。
+新进程加载器的旧marker已由实际Bootstrap后继取代；最新[同PE四worker组合](../work/mod_research/b_reload_bootstrap_workers_handoff.md)2/2，实际Initialize/Arm、冷池注册、普通任务和正常收尾共用一个Provider及真实系统临界区。仍为人工准备的主PE，真实游戏来源可用阶段未证明。下一步将两代有票Session/Input/queue接入此Runtime，再验两合法新档；完整世界核验和持续排他仍缺。
 
 [嵌套故障后继](../work/mod_research/b_reload_fault_handoff.md)30项通过，包括4个新故障：输入前后实际SEH、观察回调异常、实际外来DR冲突；冲突后子/Root两层均不覆盖外来寄存器，保持不确定并拒绝后续观察。这4项仍使用fixture激活Root。另有[自动接入故障组合](../work/mod_research/b_reload_activated_fault_handoff.md)3项单任务测试，验证实际owner接到业务异常和外来DR冲突，保留唯一claim及错误；被容纳的Observer错误仍属子层，不冒充aggregate失败。它没有主动调度故障后的第二任务，也没有执行完整queue故障恢复。嵌套Load start/join异常及生产异常唤醒仍需覆盖。
 
@@ -80,7 +80,7 @@
 
 ## 下一步顺序与通过标准
 
-1. A 在用户方便时用新观察器取得一次正常保存记录，核对原生协调，再补必要边界和 IPC 生产接线；B 启动生命周期和完整queue已合并，继续补真实运行时可用阶段、Bootstrap/启动发布和故障组合；并行准备朋友电脑的 [连接检查](CONNECTION_CHECK.md)。
+1. A 正常保存记录已取得，继续补可信执行边界、必要写入协调和 IPC 生产接线；B 同PE Bootstrap已接四worker，接下来合入两代有票queue，并补真实运行时可用阶段和故障组合；并行准备朋友电脑的 [连接检查](CONNECTION_CHECK.md)。
 2. 生成有明确版本与来源的统一原生测试入口，先在单游戏进程完成真实两档的连续加载、规则撤回/重新安装、失败保留和正常退出观察。
 3. 接实际远端许可与回执，确认控制器断开时原生等待仍有效，完成世界、双方视角与地图恢复核验，再安排双实机。
 4. 两旬的每一旬都记录：日期与 generation、A新档摘要、B接收摘要、唯一加载 attempt/INTENT、旧新 world 规则生命周期、实际加载完成、世界核验、A/B视角与恢复操作。任何缺项不能计作通过。

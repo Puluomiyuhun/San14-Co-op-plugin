@@ -1,0 +1,19 @@
+{
+  "schema": "san14.connection-package-prepared.v1",
+  "bundle_id": "a38ad6be1d649ef071cf1ffed132c0e3271a7756f843b6c9c5cf95ecdeee9500",
+  "file_count": 9,
+  "source_commit": "70e4b93268997b58562018386eb58cc5c5702b5d",
+  "zip_sha256": "900fcab665f64293416471b3a8e8b7946101a12bb53fd5be54cfc5941ea70abc",
+  "local_check": "LOCAL_DIAGNOSTIC_CONFIG_PASS",
+  "game_version": "NOT_CONFIGURED",
+  "game_access": false,
+  "network_session_started": false,
+  "two_computers_proven": false,
+  "native_backend_connected": false,
+  "private_keys_packaged": false,
+  "source_sha256": {
+    "tools/prepare_connection_check.py": "63e50db78012decb15f76be4629ffddbbcb241903c8a8d6afed0403de8214d55",
+    "tools/connection_check_entry.py": "ac3ec5bdf75ef0854fea4feab6c94f6c953b99cf5a7bfb963d39886af8a96882",
+    "outputs/two_pc_preflight/two_pc_preflight.py": "bdef68c340b970d55e91f58ee5e12075a49595a5911f5f8e03c85369152cdae2"
+  }
+}
