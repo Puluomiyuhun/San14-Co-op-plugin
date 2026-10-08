@@ -88,3 +88,9 @@ retire使旧scope/key/cut失效，但没有执行规则撤回或世界替换。
 远端B使用自己的TLS控制连接获取固定协议context，不共享A的Python房间对象。规则Config使用稳定的房间binding_epoch；每旬epoch用于识别当旬请求。加载前后由B的当前原生reader取地址和字段，网络不提供地址。context核验是点检查，不能代替整个加载期间的执行/输入排他；正常切换阶段须显式核对谱系，故障才终态撤销下载。
 
 当前收件确认到bytes_received为止：B重开并校验SQLite的两个parts，再经控制TLS回传全部字节；A独立receiver核对后通知原协调器。成功后B控制连接继续保持、日志仍STAGED。断线或绑定/字节变化终态HELD，不自动重试；协议撤权不代表游戏已暂停。这里额外传回完整存档是原型成本，后续可优化。仍没有跨机原生加载许可、完整世界回执或Ready放行接口。
+
+## 保存请求与加载线程的宿主接线
+
+`a_save_dispatch_mailbox*`把请求、宿主接纳和保存完成分开，兼容已有held IPC执行端口的函数签名。网络线程等待宿主接纳，不直接执行Controller；结果按身份深复制、一次交付，未知结果不重投。实际pipe Server/Root/Stop协调仍待整合；固定native room_epoch也不等于网络每旬更换的timeline epoch。父入口候选已定位CApp实际调度调用，但尚无跨帧固定控制TID/完整子任务收尾证明。
+
+`b_reload_cold_wait*`在固定来源和对象身份下，通过真实线程上下文等待四个初始wait，成对恢复后仅调用一次后续入口。组件要求所有生产者服从可信宿主锁；这一契约尚未在游戏建立，旧Runtime也未接入此组件。不能拿一次扫描到的等待状态代替持续排他，不能重新使用旧RegisterColdPool claim。

@@ -1,0 +1,403 @@
+{
+  "schema": "san14.dispatch-cold-wait-summary.v1",
+  "game_access": false,
+  "two_game_ready": false,
+  "production_permit": false,
+  "save_mailbox": {
+    "result": "PASS",
+    "run": "a_save_dispatch_mailbox_runs/20261009-004507-355538/result.json",
+    "raw_result_sha256": "09d08713b4c58e81d2c6b692efa524db4ea5fdde12a2cc62cef2ba0a985502b0",
+    "source_sha256": {
+      "work/mod_research/a_save_dispatch_mailbox.cpp": "5f166ea812a51c414c45dabfdc998df91e069d4175f09f1b5383cdc428628347",
+      "work/mod_research/a_save_dispatch_mailbox.h": "37d79aacb9cd0d7382282e6317afedc6c40dd8c934a21e94b296e815b1f0b97f",
+      "work/mod_research/a_save_dispatch_mailbox_fixture.cpp": "9d32826a424fc6cd118e18c7c5796ca8d761202ef18f14e7c6c13664a2d52a5e",
+      "work/mod_research/a_save_dispatch_mailbox_test.py": "21f05f255233e48b5adb5d2d3011a10f617f69869f7364dc4fd2c111d57dc6a1",
+      "work/mod_research/a_save_held_ipc.h": "29d1a06ed222f3d34f9d862819d98c6094c53d1e57443453b24559b3c894a2ef",
+      "work/mod_research/a_save_user_owner.h": "40b04bfd674c368da8a3881594e3dbc30accb6489ac02bfffe4226351ef8d8ad",
+      "work/mod_research/a_save_user_owner_bridge.h": "ed86f36acb4d941c0923a546357794a1ef12415a3315714f3cde01d361ea4ebb",
+      "work/mod_research/checkpoint_fresh_save.h": "4fa1387dc12da6b51e280a41b7d27f490dbcaca3e14a6aac0ea7de461a6625f7",
+      "work/mod_research/checkpoint_fresh_save_packet.h": "b9f57cfe679dc481d2067d46040b6c2b3144f2162cf0440f4f9ac14d58e7e88b",
+      "work/mod_research/checkpoint_live_storage_binding.h": "8cbe15fa2cc005c9425a09c5d4333bf11ac58859f0c749ac261760b470d8101e",
+      "work/mod_research/checkpoint_load_dispatch_bridge.h": "9db3fecfeeb60c2d213d97a436f1bf735c97af118b723067633f7f57e9b96bc1",
+      "work/mod_research/checkpoint_load_hook_set.h": "e0a4a4fb2b76d9813bc716a220f2318172cb67842ca0f9a495692289e9822a0b",
+      "work/mod_research/checkpoint_load_worker_bridge.h": "dceba69251643febb1933df3a97c839be6ea1a2b4d53f6730b25746e13b1212b",
+      "work/mod_research/checkpoint_native_input_core.h": "400da085ccd361ccdd00e8e0e3b7ace8f86e2d741f578a627f5ea744fb3d0616",
+      "work/mod_research/checkpoint_native_input_pending_adapter.h": "a40eba862c59edb2851cf7af83668d6845c701ac46605cd4cee9fb1f70dd4095",
+      "work/mod_research/checkpoint_persistent_bridge.h": "44723865f8497bb7212be1e70e4709367251f26fe9c49720ddf37cdfb7396958",
+      "work/mod_research/checkpoint_push_bridge.h": "8a250e3bf0546466eabeb52c475b486ba98605db8bc35ece86470404289ecee7",
+      "work/mod_research/checkpoint_serialized_storage_gate.h": "0afe68386137087a1f07eceb7676bf93ea3e103bb151d1843be19f8d3e639eb9",
+      "work/mod_research/native_storage_read_core.h": "65f12ea568ce6f9a48b847e572ab841771014c24ff1a59c6f93599b556dc264f"
+    },
+    "cases": [
+      {
+        "case": "two-generations",
+        "passed": true,
+        "exit": 0
+      },
+      {
+        "case": "concurrent",
+        "passed": true,
+        "exit": 0
+      },
+      {
+        "case": "queued-timeout",
+        "passed": true,
+        "exit": 0
+      },
+      {
+        "case": "claimed-timeout",
+        "passed": true,
+        "exit": 0
+      },
+      {
+        "case": "stop",
+        "passed": true,
+        "exit": 0
+      },
+      {
+        "case": "unknown",
+        "passed": true,
+        "exit": 0
+      },
+      {
+        "case": "artifact-mismatch",
+        "passed": true,
+        "exit": 0
+      }
+    ],
+    "binary_sha256": "ca7040538ed96e305af631a4d6cbdebd8a4a6507184a48af7dacb66495cf7e2b",
+    "actual_os_threads": true,
+    "held_ipc_config_ports_executed": true,
+    "pipe_server_executed": false,
+    "native_save": false
+  },
+  "cold_wait": {
+    "result": "PASS",
+    "run": "b_reload_cold_wait_runs/20261009-005017-529022/result.json",
+    "raw_result_sha256": "f0cecc2b7626050a6c39ebdc187c0b5c9562e2ad42cc9ce23286bc3d0a424cc6",
+    "source_sha256": {
+      "work/mod_research/b_reload_cold_wait.h": "1855e8c0a63294a61b939a46d45a9bab10d8eaee163a228cca5c303aa32410c0",
+      "work/mod_research/b_reload_cold_wait.cpp": "2d57ec37c1b2e293aa4ea67532dc33fc178ec5d384043b554b6cdba8ef3702a2",
+      "work/mod_research/b_reload_cold_wait_test.py": "934580c91d298daf710526eeace54522e6befb69039492609f22abe340811f79",
+      "work/mod_research/b_reload_cold_wait_fixture.inc": "05b396750df56ab4ff4a9b039ca436e3e053692cd2dd15d597438be1a1427002",
+      "work/mod_research/b_reload_bootstrap_workers_fixture.inc": "8691d17ba470bb5c443bb9b6246af1ec6be5deaff9a008b2e6cbc9bbcd267b70",
+      "work/mod_research/b_reload_bootstrap_workers_unwind.asm": "f4b07b1e15f978c34cddd457fddfea3c9cc56defc6d19c6cd3ccd1ab886aae34"
+    },
+    "cases": [
+      {
+        "case": "delayed",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 0,
+            "rounds": 12,
+            "pending": 44,
+            "verified": 4,
+            "suspends": 48,
+            "resumes": 48,
+            "callbacks": 1,
+            "elapsed_ms": 172,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "deadline",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 10,
+            "rounds": 4,
+            "pending": 16,
+            "verified": 0,
+            "suspends": 16,
+            "resumes": 16,
+            "callbacks": 0,
+            "elapsed_ms": 46,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "source",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 3,
+            "rounds": 0,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 0,
+            "resumes": 0,
+            "callbacks": 0,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "warm",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 8,
+            "rounds": 1,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 4,
+            "resumes": 4,
+            "callbacks": 0,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 1
+          }
+        ]
+      },
+      {
+        "case": "task-started",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 9,
+            "rounds": 1,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 0,
+            "resumes": 0,
+            "callbacks": 0,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "event-set",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 6,
+            "rounds": 1,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 4,
+            "resumes": 4,
+            "callbacks": 0,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "callback-refused",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 11,
+            "rounds": 1,
+            "pending": 0,
+            "verified": 4,
+            "suspends": 4,
+            "resumes": 4,
+            "callbacks": 1,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "prior-suspended",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 5,
+            "rounds": 1,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 1,
+            "resumes": 1,
+            "callbacks": 0,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "binding",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 4,
+            "rounds": 1,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 4,
+            "resumes": 4,
+            "callbacks": 0,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "unknown-context",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 7,
+            "rounds": 1,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 4,
+            "resumes": 4,
+            "callbacks": 0,
+            "elapsed_ms": 0,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "producer-busy",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 10,
+            "rounds": 0,
+            "pending": 0,
+            "verified": 0,
+            "suspends": 0,
+            "resumes": 0,
+            "callbacks": 0,
+            "elapsed_ms": 47,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      },
+      {
+        "case": "handle-changed",
+        "passed": true,
+        "exit": 0,
+        "records": [
+          {
+            "passed": true,
+            "error": 4,
+            "rounds": 12,
+            "pending": 44,
+            "verified": 0,
+            "suspends": 48,
+            "resumes": 48,
+            "callbacks": 0,
+            "elapsed_ms": 172,
+            "worker_exits": 4,
+            "balanced_locks": 6,
+            "warm": 0
+          }
+        ]
+      }
+    ],
+    "binaries": {
+      "owned_cold_wait.exe": "4d0c5b961142aa3116001dc9485631a18745d667747ebe377db5577a9394ba32",
+      "cold_wait.obj": "79c7f78d57f56c108337aaf51486bb4c9bf94294e6353dcf27dc5f414a290bc6",
+      "unwind.obj": "b53be897505bc8438cec2499f158ecb319cb19f7a3621224171c2f6254c211db"
+    },
+    "actual_os_suspend_context_unwind": true,
+    "registered_with_old_runtime": false,
+    "production_producer_exclusion_proved": false,
+    "wait_service_is_owned_wrapper": true
+  },
+  "parent_boundary": {
+    "result": "PASS",
+    "run": "a_save_dispatch_parent_runs/20261009-004151-694265/result.json",
+    "raw_result_sha256": "caa7353a8e1cc5c6b578ac48e97d9f59924275a45b4041d006b184171e975060",
+    "source_sha256": {
+      "work/mod_research/a_save_dispatch_parent_audit.py": "b4f11d50a4d8d522c7540dff65261c85bd92788e8fdd50276eaaf0f3b52e9702",
+      "work/mod_research/a_save_writer_scope_audit.py": "36885d10878f9ad5f80a3e8946c8895e020a50130b192c7fc46d20e5d4e56c05"
+    },
+    "cases": [
+      {
+        "case": "source-and-rtti",
+        "result": "PASS",
+        "class": "CApp",
+        "virtual_slot": 16,
+        "same_thread_across_frames_proved": false
+      },
+      {
+        "case": "normal-scheduler",
+        "result": "PASS",
+        "native_instruction_count": 140,
+        "scheduler_descendant_is_double": true,
+        "actual_os_threads": false,
+        "production_permit": false
+      },
+      {
+        "case": "scheduler-bypassed",
+        "result": "PASS",
+        "native_instruction_count": 116,
+        "scheduler_descendant_is_double": true,
+        "actual_os_threads": false,
+        "production_permit": false
+      },
+      {
+        "case": "input-before-scheduler",
+        "result": "PASS",
+        "native_instruction_count": 164,
+        "scheduler_descendant_is_double": true,
+        "actual_os_threads": false,
+        "production_permit": false
+      }
+    ],
+    "actual_os_threads": false,
+    "all_descendants_are_doubles": true,
+    "stable_control_thread_proved": false
+  },
+  "limits": [
+    "Mailbox host must validate actual Root/Controller/permit and native completion; Accept is not Save completion.",
+    "Existing held IPC Server and disconnect/Stop coordinator are not integrated; only Config port calls execute in an owned host.",
+    "Cold wait requires all producers to honor the trusted host lock; this has not been established for the game.",
+    "Cold wait is not yet wired to existing Runtime/RegisterColdPool; no old claim was reset or retried.",
+    "Parent source audit executes CApp control flow only, not child completion or real OS threading.",
+    "No real new save, legal consecutive game load or two-PC acceptance this turn."
+  ]
+}

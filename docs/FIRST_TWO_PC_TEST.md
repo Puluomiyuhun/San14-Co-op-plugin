@@ -10,6 +10,8 @@
 
 最新离线更新：原生日期边界16/16、同进程两期管道组合8/8。完整Room Scope、Session正式退休重绑已接，两份不同日期诊断数据经真实TLS传输；下一期只在模型B完成后产生。日期/战斗/保存业务仍替身，真实异步引擎、合法新档与B加载未完成。[两期组合](../work/mod_research/a_save_simulation_ipc_handoff.md)；[B同一启动所有者接线](../work/mod_research/b_reload_bootstrap_queue_handoff.md)。
 
+最新接入准备新增[A跨线程邮箱](../work/mod_research/a_save_dispatch_mailbox_handoff.md)和[B冷等待协调](../work/mod_research/b_reload_cold_wait_handoff.md)。它们通过自有线程测试，但尚未接实际父宿主/断线协调及游戏生产者锁，不能将“端口可调用”和“已到初始等待”当成真实保存/加载完成。
+
 ## 还有四道验收门槛
 
 下表是四个可验收的结果，不是四个等量任务，也不是完成百分比。现有组件会复用，不能按测试用例数量推断还需几天。

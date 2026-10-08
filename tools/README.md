@@ -233,3 +233,22 @@ The new period Owner/Controller replace their earlier implementations at link
 time; never link two implementations for the same physical slots. Window tests
 use their own hidden HWND and actual message threads, not game UI automation.
 These are not native installers or full input/simulation permits.
+
+## Save dispatch and cold wait successors (offline only)
+
+```powershell
+# Self-owned threads only; MSVC required, no private game archive needed.
+py -3 work/mod_research/a_save_dispatch_mailbox_test.py
+# Existing pinned archives required; neither command discovers the game.
+$env:SAN14_PRIVATE_FIXTURE_ROOT = '<private archive folder>'
+py -3 work/mod_research/a_save_dispatch_parent_audit.py
+py -3 work/mod_research/b_reload_cold_wait_test.py
+```
+
+Read [mailbox](../work/mod_research/a_save_dispatch_mailbox_handoff.md),
+[parent](../work/mod_research/a_save_dispatch_parent_handoff.md) and
+[cold wait](../work/mod_research/b_reload_cold_wait_handoff.md) first.
+Config port compatibility is not a running IPC Server or native Save host.
+Cold wait is a separate pre-registration component, not integrated into the
+existing Runtime; all producers must obey a separately established host lock.
+No command grants a production permit or performs a real save/load.
