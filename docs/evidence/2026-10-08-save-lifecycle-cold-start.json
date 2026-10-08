@@ -1,0 +1,79 @@
+{
+  "schema": "san14.save-lifecycle-and-cold-start-summary.v1",
+  "game_access": false,
+  "production_permit": false,
+  "two_game_ready": false,
+  "save_lifecycle": {
+    "result": "PASS",
+    "run": "a_save_dispatch_runs/20261008-235330-702355/result.json",
+    "raw_result_sha256": "c587bf900cc57e0dc05e5a254bb5af87fa33397a1d712f3a629a3dc9aa3cbf6b",
+    "cases": [
+      {
+        "case": "idle-phase2-two-save-lifecycles",
+        "result": "PASS",
+        "native_instruction_count": 2917,
+        "serializer_executed": false,
+        "actual_os_threads": false,
+        "selected_business_is_double": false
+      },
+      {
+        "case": "selected-phase2-two-save-lifecycles",
+        "result": "PASS",
+        "native_instruction_count": 2905,
+        "serializer_executed": false,
+        "actual_os_threads": false,
+        "selected_business_is_double": true
+      },
+      {
+        "case": "idle-phase5-two-save-lifecycles",
+        "result": "PASS",
+        "native_instruction_count": 2025,
+        "serializer_executed": false,
+        "actual_os_threads": false,
+        "selected_business_is_double": false
+      }
+    ],
+    "source_sha256": {
+      "work/mod_research/a_save_dispatch_test.py": "b536361388785bf7d40e1fced8154413402aae5657efe8c6b680f845c8ae4aea",
+      "work/mod_research/a_save_dispatch_audit.py": "5139d78bf83c269c76fc156f24c4fd0c427ae6b4a9f015f0d109800ee8c7178e",
+      "work/mod_research/private_checkpoint_save_apply_regression.py": "14c36c4dd807426fc057ca1cb792fb805c34280e32f5f8b7a9286074e8b058ee"
+    }
+  },
+  "cold_start": {
+    "result": "PASS",
+    "run": "b_reload_cold_start_audit_runs/20261008-234720-062784/result.json",
+    "raw_result_sha256": "528ac58303f8b0096757fb5571429fc3d3b75b66f95271fe4cb27b5e3341952a",
+    "cases": [
+      {
+        "case": "all-children-deferred",
+        "result": "PASS",
+        "native_instruction_count": 877,
+        "native_initializer_returned": true,
+        "created_suspended": 4,
+        "resumed": 4,
+        "modeled_children_at_initial_wait": 0,
+        "actual_child_instructions": 0
+      },
+      {
+        "case": "modeled-ready-before-return",
+        "result": "PASS",
+        "native_instruction_count": 877,
+        "native_initializer_returned": true,
+        "created_suspended": 4,
+        "resumed": 4,
+        "modeled_children_at_initial_wait": 4,
+        "actual_child_instructions": 0
+      }
+    ],
+    "source_sha256": {
+      "work/mod_research/b_reload_cold_start_audit.py": "b5620143bee69fdefe708fcc777d68f6636be170d480fb337b96c3f89f53e113",
+      "work/mod_research/a_save_writer_scope_audit.py": "36885d10878f9ad5f80a3e8946c8895e020a50130b192c7fc46d20e5d4e56c05"
+    }
+  },
+  "limits": [
+    "Save construction, success, UI/world services remain doubles; no serializer or new game file.",
+    "A trusted Root parent mailbox and writer exclusion are not implemented.",
+    "Cold-start OS/thread services modeled; no actual worker instructions or OS scheduling measured.",
+    "A native constructor return does not by itself establish the exact cold-wait context required by registration."
+  ]
+}

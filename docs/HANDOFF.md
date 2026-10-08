@@ -1,6 +1,6 @@
 # 当前交接：另一台电脑的 AI 从这里开始
 
-更新日期：2026-10-08（Asia/Shanghai）。这一页是当前状态；历史里程碑见 [CHANGELOG](CHANGELOG.md)。
+更新日期：2026-10-09（Asia/Shanghai）。这一页是当前状态；历史里程碑见 [CHANGELOG](CHANGELOG.md)。
 
 ## 用户目标和已接受设计
 
@@ -8,7 +8,19 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：一次真实保存已记录，B 启动接四线程
+## 最新：B同一启动环境接两代队列，A补真实User生命周期
+
+本轮全部离线：没有访问游戏、Steam、当前存档或UI，无新增实机补丁、调试器或待用户操作。上次用户保存49号的备份与历史状态见下一节，不能当作本轮新采样。
+
+- **B组合2/2**：同一主PE、DLL、Provider和四个worker，实际Bootstrap后连续执行两代加载队列；正常及嵌套输入yield场景通过。第二代经首代实际Session/Input/Root收尾检查再Register/Open，保留旧回执。修复模块归属、代码页保护、展开表及遗漏的占位worker临界区；失败保留。构造/引擎业务及部分底层fixture宏仍存在，第二文件为诊断变体，不是两份合法新档，也不是全DLL生产路径。
+- **A生命周期3/3**：同一User连续两次原生Save push/pop，实际执行User四类生命周期和所覆盖回调容器清除、重建、析构；phase5反例保留phase5。没有执行序列化或写真实存档，不能称完整输入暂停已完成。生产调度要先证明Root父层线程/完成边界，再接邮箱；不能在活动User回调中硬调Controller。
+- **冷启动审计2/2**：归档父构造链在显式延迟子线程的服务模型下仍返回成功。构造成功不证明四线程已经到初始等待；不是实机竞态证明，生产初始等待协调仍缺。
+
+复跑与精确限制：[B两代组合](../work/mod_research/b_reload_bootstrap_queue_runtime_handoff.md)、[A生命周期与调度](../work/mod_research/a_save_dispatch_handoff.md)、[冷启动](../work/mod_research/b_reload_cold_start_handoff.md)。公开证据：[B](evidence/2026-10-09-bootstrap-two-generation-queue.json)、[A及冷启动](evidence/2026-10-08-save-lifecycle-cold-start.json)。
+
+下一步优先真实启动来源就绪和冷等待协调、B两份合法档连续加载、A可信Root邮箱和保存写入协调；再合房间/规则换world/完整世界与地图核验。首次双机仍固定34号两旬不下新命令，四道实机结果门槛尚未全部完成。不按归档测试数量推断开发百分比。
+
+## 上一轮：一次真实保存已记录，B 启动接四线程
 
 用户本轮已配合正常保存到49号，无待游戏操作请求。观察器已完整退出、102个线程调试寄存器恢复，后检无调试器；没有新增保存/加载请求或游戏数据写入。原电脑最后核对仍为张鲁、203年8月中旬、可下令大地图；这是当时采样，不能代替后续预检。
 
@@ -60,7 +72,7 @@
 **距离首轮双机测试的验收清单：** [FIRST_TWO_PC_TEST](FIRST_TWO_PC_TEST.md)。固定34号起点、张鲁/刘备、两旬不下新命令；还缺A真实两次新档、B真实连续加载、统一运行所有者接通、两机配置四项结果，不按离线用例数量估完成百分比。
 
 1. **A 新存档生产接线。** 新[同world跨期后继](../work/mod_research/planning_period_owner_handoff.md)已将两期赏赐与两诊断保存接在同一物理Owner上，不清零桥/命令/Ready状态；真实日期引擎和合法新档未验证。[upstream门禁](../work/mod_research/a_save_upstream_handoff.md)仍为冻结基线，同Owner两诊断保存29/29。[writer范围审计](../work/mod_research/a_save_writer_scope_handoff.md)已定位Game尾部启动army后台任务及序列化字段交叉。新[原生协调调查和分析器](../work/mod_research/a_save_native_coordination_handoff.md)48/48：找到普通/内联队列生产者，确认16C160含对象清理，不能拿来纯排空；普通Save直接层尚未找到join，间接协调仍未证明。新[单次正常保存观察器](../work/mod_research/a_save_observation_status_handoff.md)39/39已准备，使用四个硬件点配对Save/worker，严格拒绝漏样本、错配及不完整收尾，并保留不属于自己的DR6事件状态。现已取得一次真实保存配对，army任务为0且干净退出；继续核对可信调度与生产者范围，不重复同一种空闲保存；最新[跨旬管道组合](../work/mod_research/a_save_period_ipc_handoff.md)已接实际IPC/TLS两诊断保存；新[父层协调](../work/mod_research/a_save_parent_coordination_handoff.md)11/11执行正常菜单七栈和逐状态Update，仍可到达独立army/Save启动点，OS服务是替身。最新[同进程两期组合](../work/mod_research/a_save_simulation_ipc_handoff.md)已把完整网络Scope、原生日期边界和Session正式换期接保存管道/TLS；日期推进及Save业务仍替身，B loaded仍模型。真实引擎调度、生产发布/permit、对象生命周期及两真实新档仍缺。观察结果不发permit。
-2. **B 同进程连续加载两份不同档。** 最新[启动+完整queue组合](../work/mod_research/b_reload_lifecycle_queue_handoff.md)4/4：一次原生四worker初始化、同一已暖worker完成两代16个Root任务/48捕获、两次queue pop及Load/Title start/join；每代一个普通无票任务透明，yield场景两代各一次真实让出/恢复。两旧窗口退休，新代不改旧回执。构造替身仍主动等初始窗口，第二档仍诊断变体。旧[嵌套故障](../work/mod_research/b_reload_fault_handoff.md)30/30及[自动owner单任务故障](../work/mod_research/b_reload_activated_fault_handoff.md)3/3未全量与本次启动组合重跑；最新[启动/故障后继](../work/mod_research/b_reload_lifecycle_fault_handoff.md)3/3已补两代实际观察回调SEH及拒绝下一代的可信本地闸，业务跨Root异常和外来DR仍未合并。旧新进程DLL加载器的marker export已有新[Bootstrap后继](../work/mod_research/b_reload_bootstrap_handoff.md)7/7，实际初始化/发布/Arm；人工自有映像成功，不代表真实运行时来源就绪，后续[同PE四worker组合](../work/mod_research/b_reload_bootstrap_workers_handoff.md)已完成2/2，完整两代queue尚未合入此Runtime。此前[B组合审查](../work/mod_research/b_reload_bootstrap_queue_handoff.md)要求同PE/DLL/Provider及真实配对临界区先接四worker，不能直接拼旧私有映像fixture。实际安装、两合法新档、持续排他和世界/地图证明仍缺。
+2. **B 同进程连续加载两份不同档。** 最新[启动+完整queue组合](../work/mod_research/b_reload_lifecycle_queue_handoff.md)4/4：一次原生四worker初始化、同一已暖worker完成两代16个Root任务/48捕获、两次queue pop及Load/Title start/join；每代一个普通无票任务透明，yield场景两代各一次真实让出/恢复。两旧窗口退休，新代不改旧回执。构造替身仍主动等初始窗口，第二档仍诊断变体。旧[嵌套故障](../work/mod_research/b_reload_fault_handoff.md)30/30及[自动owner单任务故障](../work/mod_research/b_reload_activated_fault_handoff.md)3/3未全量与本次启动组合重跑；最新[启动/故障后继](../work/mod_research/b_reload_lifecycle_fault_handoff.md)3/3已补两代实际观察回调SEH及拒绝下一代的可信本地闸，业务跨Root异常和外来DR仍未合并。旧新进程DLL加载器的marker export已有新[Bootstrap后继](../work/mod_research/b_reload_bootstrap_handoff.md)7/7，实际初始化/发布/Arm；人工自有映像成功，不代表真实运行时来源就绪，后续[同PE四worker组合](../work/mod_research/b_reload_bootstrap_workers_handoff.md)已完成2/2，后续[同PE两代queue组合](../work/mod_research/b_reload_bootstrap_queue_runtime_handoff.md)已完成2/2；真实游戏来源/合法文件/故障矩阵仍缺。此前[B组合审查](../work/mod_research/b_reload_bootstrap_queue_handoff.md)要求同PE/DLL/Provider及真实配对临界区先接四worker，不能直接拼旧私有映像fixture。实际安装、两合法新档、持续排他和世界/地图证明仍缺。
 3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；`checkpoint_rules_context*` 已接远端B规则配置及阶段切换，既有 `checkpoint_delivery_control*` 已接上B独立进程经TLS返回实收字节→A实际bytes_received。B日志仍STAGED，无加载INTENT；全量回传会额外增加一次存档大小的传输。Config使用稳定binding_epoch，B不持A的Room对象，正常换代不Revoke/reset旧DLL。下一步在同一可信owner中接B旧规则撤下、持续执行/输入排他、单次加载许可、原生加载及新规则安装，再做完整世界/菜单/地图帧核验和跨机Ready回执。context与observe_loaded都是点检查，不是持续锁或加载完成证明。
 4. **收入增加348次的归因。** 历史纯转发测试696次，双人规则测试1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. **跨电脑启动与连接。** 已有可从干净公开仓库生成的Python源码连接诊断包，支持可选EXE摘要、本机配置、真实TLS和字节校验，详见[连接检查](CONNECTION_CHECK.md)。不依赖原电脑私有catalog/profile；它没有连接原生后端。两台异地电脑尚未配置直连/VPN，真实游戏profile/安装器/A/B整体配置仍缺。首个实机目标保持为两旬不下新命令，再逐项接赏赐、出征与事件暂停。

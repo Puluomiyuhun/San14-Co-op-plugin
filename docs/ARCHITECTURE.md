@@ -23,7 +23,7 @@
 
 旬初规划身份保持到本旬校正结束。旬末保存日期已经改变，但B尚未加载，下一旬身份还不存在。`checkpoint_planning_save_link.py`显式绑定这两个日期。新 `planning_simulation_boundary*` 在可信同步宿主回调前后核实际原生日期/桥收尾，以同epoch进入旬末；`planning_simulation_session.cpp`保留旬初Scope，只认可该明确边界的有效日期，随后正式退休重绑。`a_save_simulation_ipc*`已在同一自有进程接完整网络Scope、两期诊断保存和真实TLS，下一Scope仅在模型B完成后产生。日期/战斗与保存业务仍替身，没有接真实引擎调度或B加载。
 
-B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Arm，替代旧marker证据。验证采用人工准备的自有映像；后继同PE/DLL/Provider实际Bootstrap→四worker→普通无票任务已组合2/2；真实运行时来源就绪、两代queue及连续合法档加载仍待接通。[组合审查](../work/mod_research/b_reload_bootstrap_queue_handoff.md)已明确须保留同PE/DLL/Provider和真实配对临界区；旧私有映像queue不能直接硬拼。
+B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Arm，替代旧marker证据。验证采用人工准备的自有映像；后继同PE/DLL/Provider实际Bootstrap→四worker→普通无票任务已组合2/2；后续同PE两代queue已组合2/2；真实运行时来源就绪、冷等待时序及连续合法档加载仍待接通。[组合审查](../work/mod_research/b_reload_bootstrap_queue_handoff.md)已明确须保留同PE/DLL/Provider和真实配对临界区；旧私有映像queue不能直接硬拼。
 
 ## 已知模块与关键缺口
 
@@ -35,7 +35,7 @@ B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Ar
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
 | A 本轮存档 | `a_save_period_ipc*`, `a_save_parent_coordination*`, `a_save_observation_status*` | 同物理Owner跨逻辑期两奖励/两诊断保存已组合；原生队列/清理来源已缩小，一次正常保存的四点观察器已实机记录一次完整Save配对、army任务0次，退出恢复102线程。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
-| B 连续加载 | `b_reload_lifecycle_fault*`, `b_reload_lifecycle_queue*`, `b_reload_nested_*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。新Bootstrap实际发布已在人工自有映像验证；同PE四worker与普通任务已组合2/2；真实来源就绪、与两代queue组合、持续排他和两真实档仍缺，新可信本地失败闸已组合两代观察器SEH；旧业务异常/外来DR矩阵尚未全量组合 |
+| B 连续加载 | `b_reload_lifecycle_fault*`, `b_reload_lifecycle_queue*`, `b_reload_nested_*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。新Bootstrap实际发布已在人工自有映像验证；同PE四worker与普通任务已组合2/2；同PE两代queue组合2/2已补；真实来源就绪、冷等待协调、持续排他和两真实档仍缺，新可信本地失败闸已组合两代观察器SEH；旧业务异常/外来DR矩阵尚未全量组合 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |
 | 菜单捕获准备 | `reward_menu_handoff_gate*`, `reward_menu_capture.py`, `reward_menu_observation*` | 归档Update确认前原生门禁已能单次领取纯ID并接TLS去重，正常取消/关闭与生产installer/lifetime仍缺。只读观察的自然执行记录仍不能发送 |

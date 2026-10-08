@@ -1,5 +1,9 @@
 # Offline developer check
 
+Newest same-runtime queue composition: [Bootstrap and two generations](../work/mod_research/b_reload_bootstrap_queue_runtime_handoff.md). Normal and input-yield owned cases pass; read the macro/service doubles before reproducing. This is not a game installer.
+
+[A native User lifecycle](../work/mod_research/a_save_dispatch_handoff.md) and [cold-start parent audit](../work/mod_research/b_reload_cold_start_handoff.md) run only pinned archive instructions, with explicit modeled services. No real saves or OS startup timing are proved.
+
 Latest actual startup composition: [same PE / DLL / Provider and four workers](../work/mod_research/b_reload_bootstrap_workers_handoff.md), 2/2 owned-process cases. Production game readiness and two-generation ticketed queue are still absent.
 
 One user-authorized normal Save observation has finished with verified cleanup; see [live interpretation](../work/mod_research/a_save_first_live_handoff.md). Do not automatically repeat historical live commands.
