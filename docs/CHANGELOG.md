@@ -1,5 +1,13 @@
 # 进展记录
 
+## 2026-10-08 — 完整Scope、原生日期边界与同进程两期保存
+
+- 原生边界16/16：同epoch/period推进到实际诊断旬末日期，新观察才可Save/Copy；异常/错日期/来源漂移等拒绝。
+- 组合8/8：实际Room Scope进入原生Session；同Owner日1→11→21，两份诊断数据经真实管道/TLS/STAGED，模型B完成后才正式退休重绑下一期。完整两期身份与日期衔接已接，真实引擎与合法档未验证。
+- Session明确后继保留旬初Scope，接精确成功边界的旬末Receipt；真实错scope/epoch/cut/日期反例保留旧检查。
+- B只读审查定位主PE、Provider、真实临界区及页面重建冲突，给出同一所有者接四worker再两代queue路径，未新增B成功测试。
+- 88份独立源码及产物核验；失败保留，未触游戏/当前档/UI，共享34号未变。见[交接](HANDOFF.md)及[证据](evidence/2026-10-08-scoped-native-two-period.json)。
+
 ## 2026-10-08 — 保持Ready保存、阶段身份与实际Bootstrap
 
 - 保存22/22：新专用入口保持Ready/Gate，封存实际观察防止查询刷新掩盖过期；结果Copy前禁止退休/释放，普通Submit行为不变。

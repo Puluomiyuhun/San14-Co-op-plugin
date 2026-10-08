@@ -21,9 +21,9 @@
 
 ## 推演结束与下一旬的身份边界
 
-旬初规划身份保持到本旬校正结束。旬末保存日期已经改变，但B尚未加载，下一旬身份还不存在。新 `checkpoint_planning_save_link.py` 显式绑定这两个日期，禁止提前创建下一旬；它只是身份接线，不是原生保存许可。`planning_checkpoint_save*` 已支持当前日期下保持Ready/Gate执行保存，`a_save_held_ipc*`已接真实管道/TLS；原生推演后的日期转移与完整Session仍未组合。
+旬初规划身份保持到本旬校正结束。旬末保存日期已经改变，但B尚未加载，下一旬身份还不存在。`checkpoint_planning_save_link.py`显式绑定这两个日期。新 `planning_simulation_boundary*` 在可信同步宿主回调前后核实际原生日期/桥收尾，以同epoch进入旬末；`planning_simulation_session.cpp`保留旬初Scope，只认可该明确边界的有效日期，随后正式退休重绑。`a_save_simulation_ipc*`已在同一自有进程接完整网络Scope、两期诊断保存和真实TLS，下一Scope仅在模型B完成后产生。日期/战斗与保存业务仍替身，没有接真实引擎调度或B加载。
 
-B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Arm，替代旧marker证据。验证采用人工准备的自有映像；实际游戏运行时来源就绪、四worker及连续合法档加载仍待接通。
+B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Arm，替代旧marker证据。验证采用人工准备的自有映像；实际游戏运行时来源就绪、四worker及连续合法档加载仍待接通。[组合审查](../work/mod_research/b_reload_bootstrap_queue_handoff.md)已明确须保留同PE/DLL/Provider和真实配对临界区；旧私有映像queue不能直接硬拼。
 
 ## 已知模块与关键缺口
 

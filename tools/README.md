@@ -1,6 +1,12 @@
 # Offline developer check
 
-Latest held-save pipe/phase work: [a_save_held_ipc_handoff.md](../work/mod_research/a_save_held_ipc_handoff.md),
+Latest same-process two-period composition:
+[a_save_simulation_ipc_handoff.md](../work/mod_research/a_save_simulation_ipc_handoff.md).
+It binds actual Room scopes to the native date-boundary and Session successors,
+then executes two diagnostic saves through the authenticated pipe and real TLS.
+Battle/date business and B loaded remain fixture/model; no real game access.
+
+Previous held-save pipe/phase work: [a_save_held_ipc_handoff.md](../work/mod_research/a_save_held_ipc_handoff.md),
 with [native held admission](../work/mod_research/planning_checkpoint_save_handoff.md)
 and [actual Bootstrap](../work/mod_research/b_reload_bootstrap_handoff.md).
 These use only owned processes and archived inputs. They do not establish actual

@@ -1,0 +1,317 @@
+{
+  "schema": "san14.scoped-native-two-period-summary.v1",
+  "date": "2026-10-08",
+  "runs": [
+    {
+      "run": "planning_simulation_boundary_runs/20261008-230452-084576",
+      "result_sha256": "a587c3fad6cb6b1b509a01d82a6952abce488f4f3796f9eaf12bd27f3811d942",
+      "result": "PASS",
+      "tests_run": 16,
+      "source_count": 64,
+      "cases": [
+        {
+          "case": "simulation-good",
+          "passed": true
+        },
+        {
+          "case": "simulation-wrong-thread",
+          "passed": true
+        },
+        {
+          "case": "simulation-wrong-binding",
+          "passed": true
+        },
+        {
+          "case": "simulation-stale",
+          "passed": true
+        },
+        {
+          "case": "simulation-no-date",
+          "passed": true
+        },
+        {
+          "case": "simulation-wrong-date",
+          "passed": true
+        },
+        {
+          "case": "simulation-no-callbacks",
+          "passed": true
+        },
+        {
+          "case": "simulation-false",
+          "passed": true
+        },
+        {
+          "case": "simulation-fault",
+          "passed": true
+        },
+        {
+          "case": "simulation-pending",
+          "passed": true
+        },
+        {
+          "case": "simulation-root-change",
+          "passed": true
+        },
+        {
+          "case": "simulation-wrong-serial",
+          "passed": true
+        },
+        {
+          "case": "simulation-no-user",
+          "passed": true
+        },
+        {
+          "case": "simulation-no-game",
+          "passed": true
+        },
+        {
+          "case": "simulation-stop",
+          "passed": true
+        },
+        {
+          "case": "simulation-source-conflict",
+          "passed": true
+        }
+      ],
+      "artifacts_sha256": {
+        "fixture.exe": "fba4a0573b2fca4790412b21819dc15129e72c2fef49c7caf9482c0a85d0b972",
+        "a_save_upstream.lib": "4fde55e733ff2f66c66db93ebd1a45c8d87c929e7c5686968fba60ec20663d44",
+        "checkpoint_planning_hold.dll": "16894ebd2121415a2381069305cfaba63caeb68ae9e041b5a5dc623a76a31104",
+        "reward.dll": "50fdaf03e596a1237c3e811871a64c093bb561f519db3360fa9dc2a26e4b57c6"
+      }
+    },
+    {
+      "run": "a_save_simulation_ipc_build_runs/20261008-231204-561776",
+      "result_sha256": "1b634c5ea727a518b11df354c0e37ab4a56b9f04ccfcc8901387c003f3e4d77f",
+      "result": "PASS",
+      "tests_run": 0,
+      "source_count": 72,
+      "cases": [],
+      "artifacts_sha256": {
+        "reward.dll": "a66d81442f9593b8672b4d039c6a22acc5337239a55f3a642433c8ca204289fc",
+        "checkpoint_planning_hold.dll": "16894ebd2121415a2381069305cfaba63caeb68ae9e041b5a5dc623a76a31104",
+        "fixture.exe": "896b205431dd7fd713dbd28e40a906977d5ede0453b2dec86aff07fb24dabe7f",
+        "a_save_simulation_ipc.lib": "f981f2f44906ce3cf0da2288473c79ae7538a072557f275622a9c8e38cef2b3d"
+      }
+    },
+    {
+      "run": "a_save_simulation_ipc_flow_runs/20261008-231245-622762",
+      "result_sha256": "2dd1af9c191771665aba9d6118162f2301f81873b628c1ecc9bd66f7498f163b",
+      "result": "PASS",
+      "tests_run": 8,
+      "source_count": 18,
+      "cases": [
+        {
+          "case": "planning-only-capture",
+          "passed": true,
+          "layer": "PROTOCOL_IDENTITY"
+        },
+        {
+          "case": "changed-scope-or-event",
+          "passed": true,
+          "layer": "PROTOCOL_IDENTITY"
+        },
+        {
+          "case": "consumed-failed-reservation",
+          "passed": true,
+          "layer": "PROTOCOL_IDENTITY"
+        },
+        {
+          "case": "full-width-scope",
+          "passed": true,
+          "layer": "PROTOCOL_IDENTITY"
+        },
+        {
+          "case": "invalid-scope",
+          "passed": true,
+          "layer": "PROTOCOL_IDENTITY"
+        },
+        {
+          "case": "ACTUAL_TWO_SCOPED_DATE_BOUNDARIES_PIPE_TLS",
+          "passed": true
+        },
+        {
+          "case": "SCOPED_SHUTDOWN_BEFORE_CALLBACK",
+          "passed": true
+        },
+        {
+          "case": "ACTUAL_NATIVE_CUT_REFUSAL",
+          "passed": true
+        }
+      ],
+      "artifacts_sha256": {}
+    }
+  ],
+  "unique_source_count": 88,
+  "source_sha256": {
+    "outputs/san14-link/authoritative_sync.py": "9fae7ac472c48249d4feb7c4db37dfaa54c40bda306e59bf93a8d2f365c29c0c",
+    "outputs/san14-link/checkpoint_journal.py": "4e02a6fbd0938986c0f4c3501cacb86d279773ece34c8ceaa2b240e1926d0336",
+    "outputs/san14-link/checkpoint_transfer.py": "c809430e854545093e9005822dd68ccee1d58271f5dacdb428ebca5b011a3bac",
+    "outputs/san14-link/planning_period_scope.py": "a7807732cd61691452a3406b373825f34d94f8153a93004a3c586406a2c35fee",
+    "outputs/san14-link/room_session.py": "75cfe81fd051280d3e9ef817d0fe8c29421290b819dd251ad8de43bccc0304b7",
+    "outputs/san14-link/room_transport.py": "7b401e5da276810ce18fb9eb0e9abf20fbca122241d241b946a70a9c606bfb20",
+    "work/mod_research/a_reward_save_owner.h": "9db39d7f4cdde15d0fa3e1f32da340778779cb19853fece6857bd04017aff929",
+    "work/mod_research/a_reward_save_owner_bridge.cpp": "0655076713466654a1b9e1babf4933ca41e459300288c604ee3b7c28b8b4398d",
+    "work/mod_research/a_save_action_gate.h": "bdb0b1726d00d1df9ac9dc0576717a2df2c89f21790f2aaa712d928f6d7cd584",
+    "work/mod_research/a_save_action_gate_bridge.cpp": "8fa6cb9ee40cccf8c7c8fdd0baad2198addaa907ecbc46c510170bf9ede38516",
+    "work/mod_research/a_save_action_gate_bridge.h": "0ae9c5ded20c4744af2eb66168c55740005b281edc7f0f1bfe64ed2c0e9508c4",
+    "work/mod_research/a_save_action_gate_fixture.cpp": "6ad946e4520652b640ff434c8411dce1e8f73d028fecc41f508f6ebb9b8a67fa",
+    "work/mod_research/a_save_early_guard.cpp": "fab90d1b829721d6ea2467a0e591426a4f60c8bff34716daec7ce6daca6ed3c6",
+    "work/mod_research/a_save_early_guard.h": "1feb298970b86d8559e3d3b1edb57b82a7b8479abe3a214bd6370d501b92c390",
+    "work/mod_research/a_save_held_ipc.cpp": "2cb56b86ca37813f7e01e92fadabac67c5bd191ce7e803ebb56aaf91bb0d9eb6",
+    "work/mod_research/a_save_held_ipc.h": "29d1a06ed222f3d34f9d862819d98c6094c53d1e57443453b24559b3c894a2ef",
+    "work/mod_research/a_save_ipc_client.py": "8f7e90f3e2adefb71c2c7825476eb389c41beaa4c4338e1c6c985ca59fa3cae4",
+    "work/mod_research/a_save_ipc_flow_test.py": "b2175c0d3d0a6ef2174c25339ecbe55fd1da70157a1e636bf01840765a834661",
+    "work/mod_research/a_save_report_owner.h": "05fbd30c9fb00f386a6058fcefbbadc4f622f07401680a13f0567919125c7930",
+    "work/mod_research/a_save_simulation_ipc_build.py": "97474a6baf9ee2038d6b7e3b6ecc06afa4b07f21f7030c39123cf5e91e781e3f",
+    "work/mod_research/a_save_simulation_ipc_child.py": "2f214da9db47ed3827a60c5ed3160a7451310cf6b7e6b847b1a02a5a5509670e",
+    "work/mod_research/a_save_simulation_ipc_fixture.cpp": "1457603553451df69944d70deab5006ec410d4b93ea7955f8494f3541711633b",
+    "work/mod_research/a_save_simulation_ipc_flow_test.py": "ff8e8dd9daf5f58874ff3d505d1e70be3653321035c206c8beeaccb627d3cf20",
+    "work/mod_research/a_save_upstream_bridge.asm": "8808586988621b70a5b0f84b9e5b3e2025a1b0190079e0e219ecf94c34caf9a0",
+    "work/mod_research/a_save_upstream_fixture.asm": "2f259101d7a45bdb948c586c49ff733d98d253fdfdd6a0f37b998f14f653e996",
+    "work/mod_research/a_save_upstream_fixture.cpp": "77b1ccf893517124256237c610a3f41ddb6997b31e6c06069f9eb7bf6c3f04d7",
+    "work/mod_research/a_save_user_owner.h": "40b04bfd674c368da8a3881594e3dbc30accb6489ac02bfffe4226351ef8d8ad",
+    "work/mod_research/a_save_user_owner_bridge.asm": "476a52d41c2dffcf774a7b3edc6cb9aa5be7470d23449426451cd7ecb0265f70",
+    "work/mod_research/a_save_user_owner_bridge.h": "ed86f36acb4d941c0923a546357794a1ef12415a3315714f3cde01d361ea4ebb",
+    "work/mod_research/a_save_user_owner_fixture.asm": "b86caf502e8a58aa95613fe9495b98361d7a1da822d585bb45effbfa1cf376f7",
+    "work/mod_research/a_save_user_owner_fixture.cpp": "4f84aae232be158f46eabc10b4d81c87c971bfb032b3712d194f412204b28c2a",
+    "work/mod_research/checkpoint_fresh_save.cpp": "22f421d8c7138829bc432a711867b84d99eae57015fbf65556a52cdc9da1b4aa",
+    "work/mod_research/checkpoint_fresh_save.h": "4fa1387dc12da6b51e280a41b7d27f490dbcaca3e14a6aac0ea7de461a6625f7",
+    "work/mod_research/checkpoint_fresh_save_binding.py": "14d06341ce6a5ad00e629b9a36793f75767bedbdac3b3dc4f70d42379e716266",
+    "work/mod_research/checkpoint_fresh_save_binding_test.py": "71ece54f385659ad0bdb6706888fad99bd90cd7571db041bc694a9091ebc9a4e",
+    "work/mod_research/checkpoint_fresh_save_packet.cpp": "a4f6b7e7f41fb8d1a96d3ec504455859e7161673b4e2954241b2a2788968e10f",
+    "work/mod_research/checkpoint_fresh_save_packet.h": "b9f57cfe679dc481d2067d46040b6c2b3144f2162cf0440f4f9ac14d58e7e88b",
+    "work/mod_research/checkpoint_fresh_save_packet.py": "9d65bbb38d6ac4f04481201e3cfe430bd3b8492b31ca3df4aaf15c1bf026de13",
+    "work/mod_research/checkpoint_live_storage_binding.cpp": "6dedc7baa966827305d120d6e323640bb2eff06ebd3f5356b017dd2e3744fff8",
+    "work/mod_research/checkpoint_live_storage_binding.h": "8cbe15fa2cc005c9425a09c5d4333bf11ac58859f0c749ac261760b470d8101e",
+    "work/mod_research/checkpoint_live_storage_binding_fixture.asm": "70b7b532ba3e3e58d1102cd0d494e441a864308e9de6ba91264d6430b616d915",
+    "work/mod_research/checkpoint_load_dispatch_bridge.h": "9db3fecfeeb60c2d213d97a436f1bf735c97af118b723067633f7f57e9b96bc1",
+    "work/mod_research/checkpoint_load_hook_set.cpp": "a3e4622bc5dbc10dddb3a9e3ca40ddf3e4308b52888cb225fa918e6ccad71ce7",
+    "work/mod_research/checkpoint_load_hook_set.h": "e0a4a4fb2b76d9813bc716a220f2318172cb67842ca0f9a495692289e9822a0b",
+    "work/mod_research/checkpoint_load_worker_bridge.h": "dceba69251643febb1933df3a97c839be6ea1a2b4d53f6730b25746e13b1212b",
+    "work/mod_research/checkpoint_native_input_consumer_bridge.h": "9ef22d36c8b51575f0cdb5af403cb10db2fa0b53b48fea965d7373e843d93507",
+    "work/mod_research/checkpoint_native_input_core.h": "400da085ccd361ccdd00e8e0e3b7ace8f86e2d741f578a627f5ea744fb3d0616",
+    "work/mod_research/checkpoint_native_input_pending_adapter.cpp": "e9b097431e038e3a5dac42a5a1fa76b08a4f33eeb02d4b95f51e251b808e9401",
+    "work/mod_research/checkpoint_native_input_pending_adapter.h": "a40eba862c59edb2851cf7af83668d6845c701ac46605cd4cee9fb1f70dd4095",
+    "work/mod_research/checkpoint_persistent_bridge.h": "44723865f8497bb7212be1e70e4709367251f26fe9c49720ddf37cdfb7396958",
+    "work/mod_research/checkpoint_planning_hold_adapter.h": "55b297f8b5497f6f64b6fec2616b7480b78175433f47f1b9b365e88e7be0d134",
+    "work/mod_research/checkpoint_planning_save_link.py": "017e02daf778345d40c265d11ba3c945f13d897917d91c49af93f808eacb4635",
+    "work/mod_research/checkpoint_push_bridge.h": "8a250e3bf0546466eabeb52c475b486ba98605db8bc35ece86470404289ecee7",
+    "work/mod_research/checkpoint_push_pilot.h": "dbf1e44d91453efe02f9f236130e79c53e3275d60880b6bf390a245e15ba4f02",
+    "work/mod_research/checkpoint_reward_owned_replay.cpp": "ba671b0bb418e822caa7c92816a1e596d29440ddc681f5113f72f432e9b72b01",
+    "work/mod_research/checkpoint_reward_owned_replay.h": "a73517bed16177f600fee72a78ae24bda89bafc9a249a87dca5fb1a2f8f700b0",
+    "work/mod_research/checkpoint_room_artifacts.py": "e6f8d68e34f72855bf609ed7e123fa0c8bec8df6b0fe568d756f75bbb331d7be",
+    "work/mod_research/checkpoint_room_client.py": "0f16e9ecc46133a92c90ad898e26ae02a9c8cb1e706fb8c95486e636430ead2a",
+    "work/mod_research/checkpoint_room_lifecycle.py": "d88b5b74b5a08f238d30ef7fcf24b36c9e1943a5a58d577530623f0f194de937",
+    "work/mod_research/checkpoint_serialized_storage_gate.cpp": "6b2bad0bb07d9d792d5804aac69012db01bc05678aa3f094ff6b46b6272aea81",
+    "work/mod_research/checkpoint_serialized_storage_gate.h": "0afe68386137087a1f07eceb7676bf93ea3e103bb151d1843be19f8d3e639eb9",
+    "work/mod_research/checkpoint_session_channel.py": "8dd8dfb5736b5223defd9f3555f80763f9f234bdba2e68e73e4f79018316299d",
+    "work/mod_research/native_storage_read_core.cpp": "aca7c7e97f3e614b08dd8c7d85cf0188d53014f262207245e9aa961b7d4c3835",
+    "work/mod_research/native_storage_read_core.h": "65f12ea568ce6f9a48b847e572ab841771014c24ff1a59c6f93599b556dc264f",
+    "work/mod_research/planning_checkpoint_save.cpp": "047f9d693b750abc4e2c4183eacd25c4ac8840c27391271ef61babf3083a833c",
+    "work/mod_research/planning_checkpoint_save.h": "c7f1f6603c371e2b0eaecd171c38199e57241338f774745a4647cc541587e105",
+    "work/mod_research/planning_checkpoint_save_gate_entry.inc": "87b5efbee24935351172f89ec24358c9043195cd762c67385e8d5721ffe06b39",
+    "work/mod_research/planning_input_interlock.h": "b1228ba37df58097cb0d175231d02a0be2992e511cded014859f42584cf44438",
+    "work/mod_research/planning_input_interlock_fixture.cpp": "1e8e46bacf51b4481651bfeb4c746ba5ab0aa6d4baf94c4a61b43cd59165ea73",
+    "work/mod_research/planning_input_interlock_gate.h": "67a91a0300e04075f5b4b1ac631660f705385dbc1f36eef382e7001e04430c6c",
+    "work/mod_research/planning_period_owner.h": "506c4d13c8af953c48ccdeeabc8a140e4f6c805aff2b25ef41851af6b2575aa9",
+    "work/mod_research/planning_period_session.h": "2cf4f74e7d51f726878e6e9b3226bd6719dc876b0ca0aa83b9d284e17865a13a",
+    "work/mod_research/planning_simulation_boundary.cpp": "0d912d7c708f3e22f6a33bb815684d77a65710f775b8f146767d2bda25c1205d",
+    "work/mod_research/planning_simulation_boundary.h": "d189046dbdc218862b4e9e4a9e78d0d99e3f17636058e97b03bd7599ed4628d6",
+    "work/mod_research/planning_simulation_boundary_checkpoint.inc": "4cde077b988adb6e838157e9ab7b997a5985f3561411f4bd78af7b37fee4344f",
+    "work/mod_research/planning_simulation_boundary_fixture.cpp": "6bcd72f9183a3a42e6a6af500926240f5c08f8a458ddb580e44ccfe176b8b543",
+    "work/mod_research/planning_simulation_boundary_gate.cpp": "26974d74f21f5d6a756ad06908962f582289cf0c0da1ba9a6e92825a7dbbf281",
+    "work/mod_research/planning_simulation_boundary_gate_entry.inc": "9972f95c1d7a1cd247c71001dedf203f432406aea8b24a575256c66ac69d309a",
+    "work/mod_research/planning_simulation_boundary_interlock.cpp": "6b8f84f23b5fe3b26f4960cbf998869c6342b29a3c8f0e791bc53051db0f2129",
+    "work/mod_research/planning_simulation_boundary_lifecycle.inc": "645e6a7a15e8ecd4d48a33c9ce050f6b45b7ad7d3a441845fb26e213e5b9c849",
+    "work/mod_research/planning_simulation_boundary_owner.cpp": "3a2a0525f19ccfa9c992effb0d2e67f04c2dfe3589631be0b519694a6465929c",
+    "work/mod_research/planning_simulation_boundary_owner_entry.inc": "437714fef2654a8c7ad2183af0fcefbb5f38a81a34f3c574e01dc95db9425fc1",
+    "work/mod_research/planning_simulation_boundary_test.py": "9a11f3aebdf6ce0eee21fca734692835805a338dd1671cd3f2ff141338b646f4",
+    "work/mod_research/planning_simulation_session.cpp": "02d20178f2741e4097a158ba211c990d776d3d438650112b3ed149d30c137f9c",
+    "work/mod_research/reward_eligibility_fingerprints.h": "259c17e27267c54138ce2aef8d9d574f7fb837edf939f4d0c665da19c69f213f",
+    "work/mod_research/reward_eligibility_guard.inc": "995016cddbcf9c8ddf2a588186ed0cecbf3948284d2a1d708b5c58e7700b95d8",
+    "work/mod_research/reward_execution_fingerprints.h": "a7231bdf24992d529d472462b8cc202d9ce43c8bbb578ddbc75bed9d2066b243",
+    "work/mod_research/reward_probe_fingerprints.h": "17bbb5e3331c49953f1beecffd7fbc9de1e4fc2435176764392873473b1b74dd"
+  },
+  "shared_slot34_sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95",
+  "game_access": false,
+  "steam_access": false,
+  "current_save_access": false,
+  "actual_two_games": false,
+  "actual_battle_engine": false,
+  "actual_game_save_load": false,
+  "production_permit": false,
+  "full_input_held": false,
+  "native_date_boundary_composed": true,
+  "session_next_period_composed": true,
+  "network": "REAL_LOOPBACK_TLS",
+  "guest_load_receipt": "MODEL_ONLY",
+  "save_business": "OWNED_DIAGNOSTIC_32_BYTES",
+  "successful_native_flow": {
+    "case": "ACTUAL_TWO_SCOPED_DATE_BOUNDARIES_PIPE_TLS",
+    "owner_final": {
+      "event": "FINAL",
+      "result": "PASS",
+      "game_access": false,
+      "submits": 2,
+      "copies": 2,
+      "completed": 2,
+      "owner_stopped": 1,
+      "ipc_closed": true,
+      "active": 0,
+      "checks_failed": 0,
+      "backend_submit_calls": 2,
+      "backend_copy_calls": 2,
+      "ready_held": true,
+      "gate_held": true,
+      "ready_revision": 1,
+      "full_input_held": false,
+      "production_permit": false
+    },
+    "resources_closed": true,
+    "deliveries": [
+      {
+        "period": 1,
+        "planning_day": 1,
+        "saved_day": 11,
+        "context_sha256": "f5b001d6f601886620cfe05a915b9c62d942565decc9bd72b3116c5c68ad787d",
+        "save_sha256": "63a177cd04c69c2e95c871cf6a5244a3c6aeac4400791be61535fafedfa970cd",
+        "diagnostic_save_bytes": 32,
+        "guest_journal": "STAGED_REOPEN_VERIFIED"
+      },
+      {
+        "period": 2,
+        "planning_day": 11,
+        "saved_day": 21,
+        "context_sha256": "99f2c035f779996f4fe9eafca215ff93ffae90cb671a48480cd3b9a9e98f91db",
+        "save_sha256": "44402e7b3a88c051f4859946775646175d04dc7562bf92e79f6194323e75fae5",
+        "diagnostic_save_bytes": 32,
+        "guest_journal": "STAGED_REOPEN_VERIFIED"
+      }
+    ],
+    "native_date_boundary_composed": true,
+    "actual_battle_engine": false,
+    "session_next_period_composed": true,
+    "planning_bound": {
+      "event": "PLANNING_SCOPE_BOUND",
+      "initial_day": 1,
+      "period": 1,
+      "session_initialized": true,
+      "native_digest": "4c431d1186332934e18407f9be2f514fdd3b407a0896ec2e7d6b51438feb9969"
+    },
+    "guest_load_receipt": "MODEL_ONLY",
+    "production_permit": false
+  },
+  "b_bootstrap_queue": "READ_ONLY_COMPOSITION_REVIEW_ONLY",
+  "retained_failures": [
+    "planning_simulation_boundary_runs/20261008-230243-640566: 9/12; premature Controller release attempt poisoned observer, fixed by early phase guard; world-replacement test expectation corrected",
+    "a_save_simulation_ipc_flow_runs/20261008-230448-390853: 7/8; shutdown response may be transport ChannelError, test previously accepted only ASaveChannelError; no backend executed"
+  ],
+  "remaining": [
+    "Real engine scheduling and event/state-stack compatibility",
+    "Actual save writer coordination and legal new saves",
+    "B same PE/DLL/Provider real Bootstrap plus worker pool and consecutive legal loads",
+    "Complete production owner and two-machine setup"
+  ]
+}

@@ -17,7 +17,7 @@
 
 后续已接通“赏赐排空→双方准备→两边实际观察Owner等待入口”，并定位菜单确认前的捕获候选；设置标志本身不能算已等待。当前证明只覆盖局部入口，全部输入限制与真实菜单接管仍待完成。[最新组合交接](work/mod_research/reward_ready_flow_handoff.md)
 
-最新主线进展：已补保持“准备”状态的保存通道，并接实际管道/TLS；B启动入口开始实际初始化和启用。均为离线验证，推演后日期衔接、真实新档和双客户端两旬仍待闭环。[保存接线](work/mod_research/a_save_held_ipc_handoff.md)、[B启动](work/mod_research/b_reload_bootstrap_handoff.md)
+最新主线进展：完整房间身份、旬末日期交接与正式换期已接入同一测试进程，连续完成两份诊断保存并经真实TLS传输。推演和B读档完成仍为测试模型，真实新档/连续加载尚待闭环。[两期组合](work/mod_research/a_save_simulation_ipc_handoff.md)、[B启动接线](work/mod_research/b_reload_bootstrap_queue_handoff.md)
 
 ## 最近的实机里程碑
 
