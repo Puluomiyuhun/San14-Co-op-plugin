@@ -1,5 +1,14 @@
 # 进展记录
 
+## 2026-10-08 — A上游来源、B原生暂停恢复及自动线程接入
+
+多agent离线开发与交叉审阅；未操作游戏、Steam、UI或当前存档目录，无待用户操作，冻结前驱未改。
+
+- A新upstream gate将同一User来源移到3F9B16，使用原短收尾3FA0AE；透明路径尾跳原singleton。新Owner只接受登记的5字节来源，报告块恢复原样。29项同Owner保存组合及7项归档审计通过；对象/updater副作用有实证，其他writer与生命周期仍未全部排他。
+- B新yield parent解决resume后50B598被误当fresh creation的问题。26项通过，实际归档暂停、reset和resume在Root及两代输入观察中运行，保留同ticket；第二个输入文件仍为诊断变体。
+- 新root activation独立3/3，使用已核对的初始wait发布与实际IAT调用来源，支持同一长寿命runner为每项任务自动接入，并保留异常外层FINALLY；独立验证不等于完整queue/实际游戏接线。已有运行池不支持首版安装，不能回填成功。
+- 保留fixture声明顺序、临时状态重建、预期计数、callable复制和构建失败；交叉审阅补强vtable固定、IAT身份核对和不确定恢复报告。见[公开证据](evidence/2026-10-08-upstream-yield-activation.json)及[HANDOFF](HANDOFF.md)，结果与源码摘要以最终冻结记录为准。
+
 ## 2026-10-08 — A早段门禁和B嵌套观察器完成组合
 
 多agent并行实现、主线程整合及交叉审查；未操作游戏、Steam、UI或当前存档，无待用户操作。

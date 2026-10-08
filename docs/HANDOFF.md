@@ -44,13 +44,24 @@
 
 **距离首轮双机测试的验收清单：** [FIRST_TWO_PC_TEST](FIRST_TWO_PC_TEST.md)。固定34号起点、张鲁/刘备、两旬不下新命令；还缺A真实两次新档、B真实连续加载、统一运行所有者接通、两机配置四项结果，不按离线用例数量估完成百分比。
 
-1. **A 新存档生产接线。** `a_save_report_owner.cpp` 继续替换旧User Owner；最新 `a_save_early_gate*` 替换旧action gate实现/ASM，将同一所有者的User切点前移至3F9BA8，held走原3FA09F，Game panel仍是另一处补丁。`a_save_early_gate_guard.cpp`替换early guard，只接受精确已发布来源。25项已接同Owner两保存、报告晚到保留、旧本地报告写后清零旁路阻断、flags和异常unwind；保存文件/业务仍为替身。更早15FA20/16C5F0 updater及外部producer/consumer ABA反例仍成立，完整写入/生命周期排他、生产发布器、IPC接线与两真实新档仍缺，不发permit/Ready。见[A早段交接](../work/mod_research/a_save_early_gate_handoff.md)。
-2. **B 同进程连续加载两份不同档。** 最新 `b_reload_nested_*` 分别替换Root、native_start、title590 completion、persistent_input观察实现，保留原ABI；Root真实entry后释放不再需要的观察点，保留return/yield，User输入和Load借用空槽。完整queue/两代Title组合已用真实Root entry/return/done，24项最终通过；3个组合各16个Root任务、48个Root捕获、8个Load任务，不再手工填写这批Root上下文。实际Set/Get会规范化保留位，后继只对DR6事件位/DR7非固定位比较，保留原始报告，不放宽占用约束。Root激活、构造器与业务仍fixture，真实yield/resume、嵌套异常/第三方DR冲突覆盖、Finalize/Title原子接口、持续排他、生产发布器及两份真实档仍缺。见[B嵌套交接](../work/mod_research/b_reload_nested_handoff.md)。
-3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；`checkpoint_rules_context*` 已接远端B规则配置及阶段切换，本轮 `checkpoint_delivery_control*` 又接上B独立进程经TLS返回实收字节→A实际bytes_received。B日志仍STAGED，无加载INTENT；全量回传会额外增加一次存档大小的传输。Config使用稳定binding_epoch，B不持A的Room对象，正常换代不Revoke/reset旧DLL。下一步在同一可信owner中接B旧规则撤下、持续执行/输入排他、单次加载许可、原生加载及新规则安装，再做完整世界/菜单/地图帧核验和跨机Ready回执。context与observe_loaded都是点检查，不是持续锁或加载完成证明。
-4. **收入增加348次的归因。** 上一轮纯转发696次，本轮1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
+1. **A 新存档生产接线。** 最新 `a_save_upstream_gate*` 将User切点进一步前移至3F9B16，使用原3FA0AE短收尾；`a_save_upstream_owner.cpp`替代report Owner实现，只认本Gate的5字节来源。恢复原early guard（报告块不再改动），同Owner两诊断保存29/29，归档updater审计7/7。两个已知updater经此User来源的写入路径已挡住；其他调用者、消息、外部写入/生命周期与更早509640仍未全部排他，生产发布/IPC及两真实新档仍缺，不发permit/Ready。见[A上游交接](../work/mod_research/a_save_upstream_handoff.md)。
+2. **B 同进程连续加载两份不同档。** nested四实现继续组合真实Root与输入/Load观察；最新 `b_reload_yield_parent.cpp`替代bound parent，实际归档yield/reset/resume已经执行。26/26：两代输入观察在暂停中保持有效，resume后的50B598沿用原ticket，校验同Scope/state/vtable/slot/worker/callable，不再误创建新任务。该组仍由fixture激活Root，见[B暂停恢复交接](../work/mod_research/b_reload_yield_handoff.md)。独立 `b_reload_root_activation*` 已3/3，通过初始wait发布、同runner两任务自动接入、异常/错wait；已运行旧池不支持接管。合法两档、完整queue与实际激活组合、嵌套异常/第三方DR冲突、持续排他及生产发布仍不能由此推定完成。
+3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；`checkpoint_rules_context*` 已接远端B规则配置及阶段切换，既有 `checkpoint_delivery_control*` 已接上B独立进程经TLS返回实收字节→A实际bytes_received。B日志仍STAGED，无加载INTENT；全量回传会额外增加一次存档大小的传输。Config使用稳定binding_epoch，B不持A的Room对象，正常换代不Revoke/reset旧DLL。下一步在同一可信owner中接B旧规则撤下、持续执行/输入排他、单次加载许可、原生加载及新规则安装，再做完整世界/菜单/地图帧核验和跨机Ready回执。context与observe_loaded都是点检查，不是持续锁或加载完成证明。
+4. **收入增加348次的归因。** 历史纯转发测试696次，双人规则测试1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. **跨电脑启动与连接。** 已有可从干净公开仓库生成的Python源码连接诊断包，支持可选EXE摘要、本机配置、真实TLS和字节校验，详见[连接检查](CONNECTION_CHECK.md)。不依赖原电脑私有catalog/profile；它没有连接原生后端。两台异地电脑尚未配置直连/VPN，真实游戏profile/安装器/A/B整体配置仍缺。首个实机目标保持为两旬不下新命令，再逐项接赏赐、出征与事件暂停。
 
-## 最新一轮：A早段门禁接入保存，B真实Root接入两代加载组合
+## 最新一轮：A上游保护、B暂停恢复与线程自动接入
+
+多agent实现和交叉审阅。本轮未访问游戏、Steam、UI或当前存档目录，无待用户操作，也没有新增游戏补丁/调试器。共享34副本摘要未变。
+
+- A原生组合29/29，归档审计7/7。User来源提前挡在singleton/updater之前，正常释放恢复原调用链；短收尾与透明尾跳、异常FINALLY、精确prefix归属均有新证据。更早/外部写入仍作为未解决边界保留。
+- B暂停恢复26/26。已执行原生yield、事件重置和parent resume；在实际输入观察尚有效时暂停，两代恢复后继续捕获并完成加载组合。修复resume误走fresh creation的问题，同一任务恢复后不会另造ticket。
+- B自动激活独立3/3：初始线程等待窗口验证后发布外层PE桥，再由真实原生调用点为每个任务启停Root观察。既有已运行线程池尚不支持此发布方式；这组与完整queue/yield组合尚未合并。全部新结果合并179份独立源码摘要重核一致。其精确最终结果及限制见[B自动接入交接](../work/mod_research/b_reload_root_activation_handoff.md)。
+- 所有失败保留。新增公开摘要区分独立activation、两代queue与归档审计，不能把几组结果拼成真实双档或双机已通过；A/B真实新档、统一所有者、排他/规则换代/世界地图核验及异地配置仍待验收。
+
+复跑入口与失败说明：[A上游](../work/mod_research/a_save_upstream_handoff.md)、[B暂停恢复](../work/mod_research/b_reload_yield_handoff.md)、[B自动接入](../work/mod_research/b_reload_root_activation_handoff.md)。汇总见[公开证据](evidence/2026-10-08-upstream-yield-activation.json)。
+
+## 上一轮：A早段门禁接入保存，B真实Root接入两代加载组合
 
 多agent实现并交叉审阅，未访问游戏、Steam、UI或当前存档目录，无待用户操作，无新增游戏补丁/调试器。自有测试进程已结束，冻结前驱未修改。
 
