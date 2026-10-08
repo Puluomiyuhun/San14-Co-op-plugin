@@ -12,7 +12,7 @@
 
 按用户明确要求，原34号档的固定副本已加入 [`fixtures/saves/slot34/`](../fixtures/saves/slot34/README.md)，供其他电脑测试。274920字节，SHA-256 `afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95`，与当前槽位和历史备份逐字节一致；对应历史实机203年8月中旬、张鲁。导入说明与机器可读manifest在同目录。
 
-这次只读取并复制该存档、修改仓库文档；没有启动或操纵游戏、加载存档、安装补丁或调试器，无待用户操作。该副本不包含运行时镜像/profile或旧会话许可；其他电脑仍须重新建立本机运行身份与验证。原档未改，原生开发缺口继续见下文。
+共享存档那次只读取并复制该存档、修改仓库文档；没有启动或操纵游戏、加载存档、安装补丁或调试器。该副本不包含运行时镜像/profile或旧会话许可；其他电脑仍须重新建立本机运行身份与验证。原档未改，原生开发缺口继续见下文。
 
 ## 已确认的最新实机状态
 
@@ -42,13 +42,24 @@
 
 优先完成“完整一旬”可测试链路，避免只增加彼此未接通的测试组件。
 
-1. **A 新存档生产接线。** `a_save_user_owner*` / `a_save_ipc*` 已有动态Room请求和同Owner两保存；`a_save_action_gate*` 替代旧 `a_save_input*`，二者不可叠装。本轮 `a_save_early_*` 证实User早段报告处理会写世界/报告内存，新增必须同时检查User报告flag、队列及空树形状的只读拒绝条件。Quiet结果仍不是permit。剩余重点是非空渲染列表/选择对象下游、消息/设备/后台写入、对象生命周期到保存之间的完整排他，以及真实补丁发布/恢复安装器。两个call-site补丁不能仅凭“所有线程已停”的布尔值安装。最多两保存请求，不自动放行Ready。
-2. **B 同进程连续加载两份不同档。** `b_reload_parent*` 已用归档父调度的实际上下文接入既有Provider，组合两代Title +520/+590；队列阶段不占硬件寄存器，进入后段worker循环才开启四处观察。新发现：真实队列Finalize时manager当前对象已清空，与旧Finalize候选的Load前置条件不兼容，必须做parent-aware后继，不能放宽旧校验冒充接通。Root worker入口/返回仍是替身；父来源还缺生产发布器、按真实load窗口限定的长期生命周期及两份不同真实文件连续实测。现有128次scope上限会被普通调度调用消耗，不能常驻放任运行。
-3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；本轮 `checkpoint_rules_context*` 接上检查点房间和远端B的规则配置、故障撤权、显式PLANNING/RECONCILING上下文切换。Config使用稳定binding_epoch，不能写每旬epoch；B不持A的Room对象。正常恢复不调用Revoke，不复用/reset旧DLL。仍需真实B加载器、持续执行/输入排他、原生身份/hold、完整世界/菜单/地图帧核验和跨机原生Ready回执。context是快照，observe_loaded只是当前采样，均不是加载完成/持续锁证明。
+1. **A 新存档生产接线。** `a_save_report_owner.cpp` 是 `a_save_user_owner.cpp` 的同ABI实现后继，构建时替换旧实现，不能同时链接。已把早段报告检查真正接入Submit、User返回、Save、storage及Copy出口，同Owner两保存通过；保存过程中普通Copy轮询不会误撤权。`a_save_action_gate*` 仍替代旧 `a_save_input*`，不可叠装。当前仍能复现“同次调用中报告产生又清零、游标不变”的ABA旁路，负向采样不是完整排他。下一步要统一管理报告作用域/写入者及动作补丁，再接IPC生产构建、可信permit和安装器；非空渲染/选择对象、消息/设备/后台写入及对象生命周期仍缺。最多两保存请求，不自动放行Ready。
+2. **B 同进程连续加载两份不同档。** 新 `b_reload_queue_*` 已接真实归档父调度type1队列pop→Finalize→Title +520/+590；Finalize时manager当前对象为0的时序已覆盖，不再人工调用Finalize。显式两代窗口让2000次普通调度透明通过而不消耗加载scope。仍有必须先修的代次竞态：Parent核对某代Provider快照后，外部OpenWindow可切换Provider的current_，旧windowOpen仍为true；当前检查不能证明后续Observe属于同一代。需要Provider原子绑定expected generation或统一所有Provider操作的可信owner，不能只多查一次快照。Root worker来源/业务、生产发布器、连续两份真实档和长期生命周期仍缺；新3项不能继承旧8项异常测试结论。
+3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；`checkpoint_rules_context*` 已接远端B规则配置及阶段切换，本轮 `checkpoint_delivery_control*` 又接上B独立进程经TLS返回实收字节→A实际bytes_received。B日志仍STAGED，无加载INTENT；全量回传会额外增加一次存档大小的传输。Config使用稳定binding_epoch，B不持A的Room对象，正常换代不Revoke/reset旧DLL。下一步在同一可信owner中接B旧规则撤下、持续执行/输入排他、单次加载许可、原生加载及新规则安装，再做完整世界/菜单/地图帧核验和跨机Ready回执。context与observe_loaded都是点检查，不是持续锁或加载完成证明。
 4. **收入增加348次的归因。** 上一轮纯转发696次，本轮1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. **跨电脑启动与连接。** 已有可从干净公开仓库生成的Python源码连接诊断包，支持可选EXE摘要、本机配置、真实TLS和字节校验，详见[连接检查](CONNECTION_CHECK.md)。不依赖原电脑私有catalog/profile；它没有连接原生后端。两台异地电脑尚未配置直连/VPN，真实游戏profile/安装器/A/B整体配置仍缺。首个实机目标保持为两旬不下新命令，再逐项接赏赐、出征与事件暂停。
 
-## 最新一轮：早段写入定位、父调度与远端规则上下文
+## 最新一轮：报告感知保存、真实队列收尾与跨机收件确认
+
+本轮未操作游戏、Steam或UI，也未访问当前游戏存档目录，无待用户操作、无新增游戏补丁或调试器。自有测试进程/TLS连接均已收尾。以下均为离线组合验证，**不是两台真实游戏已联机，也不是新的实机读档成功记录**。
+
+- A最终15项通过：报告检查已接同一个实际Owner/Driver/动作桥的两次保存，包含正常保存期间Copy轮询、完成后异常终态、并发初始化只认一个Owner、旧代导出拒绝及不可读页处理。另一个PASS是成功复现仍未修的ABA旁路，不能算排他完成。未切换旧IPC构建，也未重跑IPC/TLS。见[A模块交接](../work/mod_research/a_save_report_handoff.md)。
+- B最终3项通过：普通两代、全部地址复用、Title等待。每项实际执行两次type1队列pop及Finalize，检查8次manager当前对象为0，18个有效父scope；2000次空闲调度不耗scope，两个窗口均退休。首次编译因变量遮蔽被/WX拒绝，修正后重跑；并发Provider代次选择仍有源码级缺口，未宣称已测试或修好。Root worker、构造器、分配器和引擎业务仍有明确替身，第二份文件是诊断变体。见[B模块交接](../work/mod_research/b_reload_queue_handoff.md)。
+- 网络最终19项通过：5个独立B进程场景用真实回环TLS/SQLite，成功场景下载并重开81959字节，然后经控制连接返回两份文件；A独立receiver核验并真正调用received。并发finish只确认一次；损坏/空日志拒绝；确认成功后丢失真实TLS回复进入HELD，不自动重连重放。B日志保持STAGED，没有加载许可或Ready。见[收件确认交接](../work/mod_research/checkpoint_delivery_control_handoff.md)。
+- 交叉审阅修复A的并发claim、旧代游标背书、未捕获内存异常和正常轮询误撤权；网络helper改为从自己的连接创建context，避免错接另一房间后误撤权。B新发现的Provider选择竞态明确保留为下一步门槛；没有放宽旧模块校验来声称链路完成。
+
+精确结果、当前源码与产物哈希、失败记录和范围见[本轮公开证据](evidence/2026-10-08-report-queue-delivery.json)。接手优先顺序：先补B原子代次选择与Root worker，A并行补报告写入排他；再由统一owner连接已完成的网络收件确认、原生加载、规则换代与世界核验。在单游戏进程连续加载两份真实新档之前，不安排双机整旬测试。异地网络诊断仍可独立进行。
+
+## 上一轮：早段写入定位、父调度与远端规则上下文
 
 本轮未操作游戏、Steam或UI，也未读取或改写当前游戏存档目录，无待用户操作。原生测试使用已有私有归档副本和自有进程；回环TLS测试不能替代实机双客户端整旬。
 

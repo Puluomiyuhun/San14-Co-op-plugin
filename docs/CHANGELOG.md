@@ -1,5 +1,14 @@
 # 进展记录
 
+## 2026-10-08 — 报告检查接入保存、真实队列Finalize与远端收件确认
+
+继续离线多agent开发和交叉审阅。未操作游戏/Steam/UI，未访问当前游戏存档目录，没有新的待用户操作请求。
+
+- A新增同ABI `a_save_report_owner` 实现后继，把报告flag/队列/游标检查接入同Owner两保存，最终15项通过。修复并发初始化claim、旧代导出、Submit内存异常与Copy轮询误撤权；完成后异常能传到普通Owner终态。明确复现同次报告写后清零且游标不变的ABA旁路，完整排他/生产permit仍未放行；旧IPC构建尚未切换。
+- B新增 `b_reload_queue_*`，用归档调度器真实type1队列pop调用Finalize，再组合两代Title +520/+590，移除人工Finalize调用。3项通过，各有两次pop、18个有效scope和2000次不消耗scope的普通调度。首次编译因变量遮蔽失败，修正后通过。审阅发现Provider快照与current_选择不是原子的，外部OpenWindow仍可能改变观察归属；这是下一步必须修的缺口，不算生产接通。Root worker和部分引擎业务仍是替身。
+- 新增 `checkpoint_delivery_control`：独立B使用真实TLS/SQLite返回完整字节，A独立receiver核验后实际设置bytes_received；最终19项，含5个独立B场景。并发确认只调用一次received，真实确认回复丢失时HELD且不自动重放，日志仍STAGED、没有加载INTENT/Ready。全量回传多一次存档传输，后续优化。
+- 保留全部中间/失败记录。没有改冻结前驱、重置once-claim或把离线结果写成实机双客户端通过。精确哈希与边界见[公开证据](evidence/2026-10-08-report-queue-delivery.json)，下一步见[当前交接](HANDOFF.md)。
+
 ## 2026-10-08 — 共享34号测试基线
 
 按用户要求，将 `svdexSC34.s14` 固定副本加入 `fixtures/saves/slot34/`，提供导入说明和manifest。当前原档、历史备份和仓库副本均为274920字节，SHA-256一致；原档未修改。仅对此明确文件增加Git忽略例外，其他存档及私有运行资料仍排除。没有操作游戏或执行加载，也不将共享文件视为跨电脑加载已通过。
