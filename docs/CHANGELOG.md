@@ -1,5 +1,14 @@
 # 进展记录
 
+## 2026-10-08 — B真实Root线程来源与首轮双机门槛
+
+多agent离线开发/审阅，未访问游戏、Steam、UI或当前存档目录，无待用户操作。
+
+- 新worker Provider同ABI后继：锁内固定expected bank，旧worker切代后可按原任务返回/done；旧parent接口保留current检查。新Root观察器从实际OS CONTEXT取得入口/返回/完成，PE FINALLY恢复六个DR，异常保留未完成任务。
+- 最终23/23：16项前驱回归、7项独立Root（连续两个任务、异常和拒绝等）。首轮4个失败来自fixture误把yielded任务当正常完成，修正后继断言而未清零worker/伪造回执；失败保留。两新实现无fixture宏编译通过，最终输入摘要不变。
+- 明确发现同线程Root/Load观察器的DR占用冲突，尚未组合；激活仍由fixture提供，实际yield/resume未覆盖，不能称两份真实档加载完成。A保存排他、统一owner、生产发布与跨机配置继续为门槛。
+- 新增[首测清单](FIRST_TWO_PC_TEST.md)，限定张鲁/刘备、两旬不下新命令，区分四项验收结果与可延后功能。见[公开证据](evidence/2026-10-08-root-worker-sources.json)与[交接](HANDOFF.md)。
+
 ## 2026-10-08 — B父观察原子代次绑定与A报告边界审计
 
 继续多agent离线工作，未访问游戏/Steam/UI或当前存档目录，无待用户操作。冻结前驱未改。
