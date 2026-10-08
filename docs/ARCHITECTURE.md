@@ -27,10 +27,10 @@
 | 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*` | 赏赐链路已有验证；内政并未全覆盖 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
-| A 本轮存档 | `a_save_report_owner*`, `a_save_report_boundary_audit.py`, `a_save_ipc*` | 报告检查已接同Owner两保存；更早User分流只在归档/模型验证，前置updater与外部写入ABA仍缺排他，未接permit |
-| B 连续加载 | `checkpoint_native_task_provider_worker*`, `b_reload_root_worker_ports*`, `b_reload_bound_parent_source.cpp`, `b_reload_queue_*` | queue→Finalize→两代Title已组合；独立Root entry/return/done来源通过，但与嵌套Load争用同线程DR，尚未整体替换fixture；激活、yield/resume、持续排他、发布器、两真实档仍缺 |
+| A 本轮存档 | `a_save_early_gate*`, `a_save_report_owner*`, `a_save_ipc*` | 实际早段门禁接同Owner两诊断保存，阻断User下游报告ABA；前置updater与外部写入仍缺排他，未接生产发布/IPC/permit |
+| B 连续加载 | `b_reload_nested_*`, `checkpoint_native_task_provider_worker*`, `b_reload_bound_parent_source.cpp`, `b_reload_queue_*` | queue→Finalize→两代Title已组合真实Root与输入/Load观察；观察槽按实际阶段共享，保留yield；激活、实际yield/resume、持续排他、发布器、两真实档仍缺 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
-| Ready 输入等待 | `checkpoint_ready_input_gate*`, `a_save_action_gate*` | 后继统一Game/UI/panel和User动作段；User早段/消息等仍未全覆盖，不放行完整Ready |
+| Ready 输入等待 | `checkpoint_ready_input_gate*`, `a_save_early_gate*` | 后继统一Game/UI/panel和User报告/选择/动作段；更早updater/消息/外部写入仍未全覆盖，不放行完整Ready |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |
 
 模块名用于定位，不是推荐直接运行这些历史脚本。新电脑先做本地检查与纯协议测试。

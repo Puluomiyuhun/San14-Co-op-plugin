@@ -1,5 +1,14 @@
 # 进展记录
 
+## 2026-10-08 — A早段门禁和B嵌套观察器完成组合
+
+多agent并行实现、主线程整合及交叉审查；未操作游戏、Steam、UI或当前存档，无待用户操作。
+
+- A新early gate实际替代旧action gate，同一Owner持有Game panel和前移User两处来源，接report Owner两保存。25/25：保留晚到报告、阻断旧User消费后的本地ABA，cmp flags/AV FINALLY/逐点unwind及源漂移拒绝通过。外部ABA与更早updater仍有反例，未发生产permit。
+- B新nested后继按真实Root阶段保留return/yield，给User输入、Load start/join借用空余DR，保留旧ABI。3个完整两代queue场景各16个Root任务、48次实际Root上下文、8个Load任务；加前驱/独立Root/lease契约合计24/24。激活与业务仍fixture，第二文件是诊断变体，非双实机。
+- B保留四轮失败：先遗漏User admission也是DR owner，后发现Set/Get真实规范化DR6保留位和DR7固定bit10，原逐字节比较误拒绝。仅修新后继比较语义，实际地址/控制/事件位仍严格核验、原始报告不改。没有重置旧claim或放宽占用。
+- 更新首测四门槛及精确缺口。A/B最终167份独立源码指纹重核一致；见[证据](evidence/2026-10-08-early-gate-nested-observers.json)、[A交接](../work/mod_research/a_save_early_gate_handoff.md)、[B交接](../work/mod_research/b_reload_nested_handoff.md)。
+
 ## 2026-10-08 — B真实Root线程来源与首轮双机门槛
 
 多agent离线开发/审阅，未访问游戏、Steam、UI或当前存档目录，无待用户操作。
