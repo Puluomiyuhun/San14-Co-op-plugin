@@ -26,9 +26,9 @@
 | 房间和协议 | `outputs/san14-link/room_session.py`, `room_transport.py`, `tools/prepare_connection_check.py` | 本机协议/TLS验证；有公开源码连接诊断包，原生游戏后端未接 |
 | 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*` | 赏赐链路已有验证；内政并未全覆盖 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
-| 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*` | 固定world实机曾通过；新增实际六入口恢复/新模块安装的离线换代组合，真实load/排他/Room仍须接入 |
-| A 本轮存档 | `a_save_user_owner*`, `a_save_ipc*`, `checkpoint_fresh_save_binding*` | 实际本机IPC已接动态Room请求、同Owner两次新文件和TLS；仍是自有替身保存，缺真实写入排除/可信permit/生产安装器 |
-| B 连续加载 | `b_reload_title_source_v2*`, `b_reload_title590*`, `b_reload_finalize*`, `b_reload_title520*` | Finalize、两worker启动/runner已接；父来源及真实调度边界、连续两真实档仍缺 |
+| 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
+| A 本轮存档 | `a_save_user_owner*`, `a_save_ipc*`, `a_save_early_guard*` | 动态Room→IPC→两文件→TLS已验证；新增早段报告写入拒绝检查，仍缺完整排他/可信permit/生产安装器 |
+| B 连续加载 | `b_reload_title_source_v2*`, `b_reload_title590*`, `b_reload_finalize*`, `b_reload_title520*`, `b_reload_parent*` | 两代Title组合已接归档父调度上下文；真实queue Finalize与旧候选不兼容，Root worker/生产发布器/连续两真实档仍缺 |
 | Ready 输入等待 | `checkpoint_ready_input_gate*`, `a_save_action_gate*` | 后继统一Game/UI/panel和User动作段；User早段/消息等仍未全覆盖，不放行完整Ready |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |
 
@@ -41,3 +41,5 @@
 加载请求只携带下一代编号、检查点、epoch与日期，不预先猜测新世界内存地址。加载之后再通过当前本机reader取得新root/world和两名玩家身份；核对后创建新驻留模块、Prepare/Seal、安装六入口并再次独立读取验证。历史模块地址和nonce都不能复用，旧DLL保留到进程退出。
 
 规则换代完成仅说明这段生命周期成功。完整世界核对、B视角、待命命令排空及Ready仍由整体协调器负责；故障时不得自动释放等待或退回AI接管。
+
+远端B使用自己的TLS控制连接获取固定协议context，不共享A的Python房间对象。规则Config使用稳定的房间binding_epoch；每旬epoch用于识别当旬请求。加载前后由B的当前原生reader取地址和字段，网络不提供地址。context核验是点检查，不能代替整个加载期间的执行/输入排他；正常切换阶段须显式核对谱系，故障才终态撤销下载。当前仍没有跨机原生加载许可/完整世界回执/Ready放行接口。
