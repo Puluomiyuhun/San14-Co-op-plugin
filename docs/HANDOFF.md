@@ -8,6 +8,8 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
+**本轮用户暂时不方便操作，先继续开发。** 新的单次正常保存观察工具已完成离线验证；尚未启动游戏检查或记录。下次用户方便时，按 [观察工具交接](../work/mod_research/a_save_observation_handoff.md) 先验证本机构建与只读状态，记录器 READY 后才安排一次保存。没有当前待操作请求。
+
 ## 共享的34号测试存档
 
 按用户明确要求，原34号档的固定副本已加入 [`fixtures/saves/slot34/`](../fixtures/saves/slot34/README.md)，供其他电脑测试。274920字节，SHA-256 `afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95`，与当前槽位和历史备份逐字节一致；对应历史实机203年8月中旬、张鲁。导入说明与机器可读manifest在同目录。
@@ -44,13 +46,24 @@
 
 **距离首轮双机测试的验收清单：** [FIRST_TWO_PC_TEST](FIRST_TWO_PC_TEST.md)。固定34号起点、张鲁/刘备、两旬不下新命令；还缺A真实两次新档、B真实连续加载、统一运行所有者接通、两机配置四项结果，不按离线用例数量估完成百分比。
 
-1. **A 新存档生产接线。** [upstream门禁](../work/mod_research/a_save_upstream_handoff.md)仍为实现基线，同Owner两诊断保存29/29；本轮没有修改它。最新[writer范围审计](../work/mod_research/a_save_writer_scope_handoff.md)17/17关闭warm 509640的写入疑点：已初始化时只是栈顶读取，Save压栈后User直接早退。但实际Game尾部在Save pending时仍可启动army后台更新，实际army+48写入与原生序列化字段相交。16CB30的start/poll/join和live army来源已定位；OS线程、路径搜索和memcpy服务仍是明确替身，未证明实际并发损坏或完成真实排空。下一步优先核对已有原生保存/队列串行化，必要时持有原生join后且禁止重启的窗口；不能仅凭active字段为0发permit。生产发布/IPC、相关对象生命周期及两真实新档仍缺。
-2. **B 同进程连续加载两份不同档。** 最新 [activated queue](../work/mod_research/b_reload_activated_queue_handoff.md) 已把实际Root自动接入与完整两代queue/yield合并，4/4：同一个原生worker执行16个Root任务、48次entry/return/done，8个Load任务；输入观察中的两次yield恢复仍只有16个fresh任务。构造器、文件业务仍为替身，第二输入仍为诊断变体；仅支持初始wait的冷池，已有运行池未支持。独立[嵌套故障](../work/mod_research/b_reload_fault_handoff.md)30/30（26回归+4故障）验证SEH和实际外来DR冲突保留错误、不伪造完成；其Root激活仍fixture。另有[自动接入故障组合](../work/mod_research/b_reload_activated_fault_handoff.md)3/3，验证子观察异常、业务SEH及外来DR错误能保留到实际自动owner；这三项是单任务故障，不是完整queue故障恢复。生产生命周期安装、两份合法新档、持续排他和世界/地图完成证明仍缺。
+1. **A 新存档生产接线。** [upstream门禁](../work/mod_research/a_save_upstream_handoff.md)仍为冻结基线，同Owner两诊断保存29/29。[writer范围审计](../work/mod_research/a_save_writer_scope_handoff.md)已定位Game尾部启动army后台任务及序列化字段交叉。新[原生协调调查和分析器](../work/mod_research/a_save_native_coordination_handoff.md)48/48：找到普通/内联队列生产者，确认16C160含对象清理，不能拿来纯排空；普通Save直接层尚未找到join，间接协调仍未证明。新[单次正常保存观察器](../work/mod_research/a_save_observation_handoff.md)34/34已准备，使用四个硬件点配对Save/worker，严格拒绝漏样本、错配及不完整收尾。下一步在用户方便时取得一次真实记录，再决定必要保护范围；生产发布/IPC、对象生命周期及两真实新档仍缺。观察结果不发permit。
+2. **B 同进程连续加载两份不同档。** 前轮[完整queue/yield](../work/mod_research/b_reload_activated_queue_handoff.md)4/4、[嵌套故障](../work/mod_research/b_reload_fault_handoff.md)30/30及[自动owner单任务故障](../work/mod_research/b_reload_activated_fault_handoff.md)3/3沿用。新[启动生命周期后继](../work/mod_research/b_reload_lifecycle_handoff.md)2/2将接入点定位到1447B6原生四线程初始化：四worker初始等待时注册，一项无票普通任务透明通过，同一已暖worker随后两任务产生6次Root捕获，已有运行池拒绝。构造替身主动等待初始窗口，真实构造时序未证明；此后继还未与完整queue组合。另有新进程DLL加载器2/2和同一二进制10次重复启动，但只是自建marker export，未接SAN14 Bootstrap/发布器。PE入口前是否已有支持的运行时代码也未证明。实际安装、两合法新档、持续排他和世界/地图证明仍缺。
 3. **双人规则跨world与准备边界。** `human_rules_world_lifecycle*` 已有六来源恢复/新实例安装顺序；`checkpoint_rules_context*` 已接远端B规则配置及阶段切换，既有 `checkpoint_delivery_control*` 已接上B独立进程经TLS返回实收字节→A实际bytes_received。B日志仍STAGED，无加载INTENT；全量回传会额外增加一次存档大小的传输。Config使用稳定binding_epoch，B不持A的Room对象，正常换代不Revoke/reset旧DLL。下一步在同一可信owner中接B旧规则撤下、持续执行/输入排他、单次加载许可、原生加载及新规则安装，再做完整世界/菜单/地图帧核验和跨机Ready回执。context与observe_loaded都是点检查，不是持续锁或加载完成证明。
 4. **收入增加348次的归因。** 历史纯转发测试696次，双人规则测试1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. **跨电脑启动与连接。** 已有可从干净公开仓库生成的Python源码连接诊断包，支持可选EXE摘要、本机配置、真实TLS和字节校验，详见[连接检查](CONNECTION_CHECK.md)。不依赖原电脑私有catalog/profile；它没有连接原生后端。两台异地电脑尚未配置直连/VPN，真实游戏profile/安装器/A/B整体配置仍缺。首个实机目标保持为两旬不下新命令，再逐项接赏赐、出征与事件暂停。
 
-## 最新一轮：自动接入完整加载队列，定位A后台存档字段写入
+## 最新一轮：正常保存观察器就绪，B启动时接入来源落地
+
+用户本轮表示暂时不方便操作，继续多agent离线开发和交叉审查。只读进程列表未发现游戏；没有打开游戏进程、访问Steam/当前存档或操作界面，没有新游戏补丁/调试器和待操作请求。冻结前驱未改。
+
+- A观察器34/34：9项真实自建进程调试、12项C++读取自有内存的语义模型、11项日志生命周期模型、JSON残片拒绝及默认帮助。生产版核对本机EXE/原指令和本次身份，只有显式record才附加；不发保存命令。交叉审查补齐清理时排队断点丢样本、异常/退出和计数不符拒绝；无Save的干净超时明确为无结论。下次最小实测是一项正常手动保存，见[操作与退出说明](../work/mod_research/a_save_observation_handoff.md)。
+- A原生协调48/48：41个分析器反例/配对模型、6个有界原生片段、1个静态来源检查。定位普通与内联队列来源；16C160会清理对象，不能调用来纯排空。没有证明实际Save/worker重叠、数据竞争、存档损坏或完整排他。
+- B生命周期2/2：实际原生初始化循环→四个真实线程初始等待→一次普通任务→同一worker两次被观察任务。构造与调用框架等仍替身；真实初始等待时序及与完整queue/Load/故障组合待验证。另有新进程启动加载器2/2、同二进制10次重复通过；修复调试事件句柄过早关闭导致detach失败。它仍未提供真实游戏Bootstrap和来源发布器。
+- 最终171份独立依赖源码指纹统一重核一致；失败与中间记录保留。所有结果均为离线分层证据，不是双人实机通过。下一步A取得正常保存记录，B连接真实运行时可用阶段、Bootstrap及明确的启动发布，再进行单进程两档验证。
+
+复跑和限制：[A原生协调](../work/mod_research/a_save_native_coordination_handoff.md)、[A观察器](../work/mod_research/a_save_observation_handoff.md)、[B启动后继](../work/mod_research/b_reload_lifecycle_handoff.md)。精确结果、产物及源码指纹见[公开摘要](evidence/2026-10-08-native-save-observer-startup-lifecycle.json)。
+
+## 上一轮：自动接入完整加载队列，定位A后台存档字段写入
 
 多agent继续离线开发并交叉审查。本轮未访问游戏、Steam、UI或当前存档目录，无待用户操作；没有新增游戏补丁/调试器，所有冻结生产源保持不变。
 

@@ -27,8 +27,8 @@
 | 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*` | 赏赐链路已有验证；内政并未全覆盖 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
-| A 本轮存档 | `a_save_upstream_gate*`, `a_save_upstream_owner.cpp`, `a_save_ipc*` | 更早User门禁接同Owner两诊断保存；writer审计确认warm栈顶只读，并定位后台army路径字段与序列化交叉。需核对原生队列/保存协调；未接生产发布/IPC/permit |
-| B 连续加载 | `b_reload_nested_*`, `b_reload_root_activation*`, `b_reload_activated_queue*`, `b_reload_fault*` | 实际Root自动接入已与两代queue/Title/输入/Load及yield组合；冷池限定，构造/文件业务仍替身。嵌套故障及实际自动owner单任务故障另有验证；生产安装、持续排他和两真实档仍缺 |
+| A 本轮存档 | `a_save_upstream_gate*`, `a_save_upstream_owner.cpp`, `a_save_observation*`, `a_save_ipc*` | 更早门禁接同Owner两诊断保存；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
+| B 连续加载 | `b_reload_lifecycle*`, `b_reload_activated_queue*`, `b_reload_nested_*`, `b_reload_fault*` | 启动来源1447B6接实际四worker初始化已在自建进程通过，普通无票任务透明；真实冷等待时序仍待证。新进程DLL提前加载是另一独立测试，未接游戏Bootstrap/来源发布器，也未与两代完整queue合并；实际安装、持续排他和两真实档仍缺 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `checkpoint_ready_input_gate*`, `a_save_upstream_gate*` | 后继统一Game/UI/panel和User上游/报告/选择/动作段；其他调用者/消息/外部写入仍未全覆盖，不放行完整Ready |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |

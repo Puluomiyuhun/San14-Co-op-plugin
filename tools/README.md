@@ -1,5 +1,13 @@
 # Offline developer check
 
+For the new single-manual-save observer, see
+[a_save_observation_handoff.md](../work/mod_research/a_save_observation_handoff.md).
+`py -3 work/mod_research/a_save_observation_test.py` builds and tests only owned
+Windows processes, without private native dumps or game discovery. The launcher
+without arguments shows help. Its explicit `--preflight` and `--record` options
+access the game and are separate future manual-test steps; they are not part of
+any offline developer check or multiplayer authorization.
+
 For the portable two-computer **connection diagnostic**, see
 [CONNECTION_CHECK.md](../docs/CONNECTION_CHECK.md). Build it from public sources
 with `prepare_connection_check.py`; `test_connection_bundle.py` runs two actual
