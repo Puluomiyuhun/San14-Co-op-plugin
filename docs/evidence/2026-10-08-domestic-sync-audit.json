@@ -1,0 +1,91 @@
+{
+  "schema": "san14.domestic-sync-audit.v1",
+  "date": "2026-10-08",
+  "audited_base_commit": "1fe16c487a5e862d4a3b9bf63ee6ee70acaef929",
+  "kind": "source-and-existing-evidence-review",
+  "native_support_added": false,
+  "game_or_steam_access": false,
+  "native_tests_run_this_audit": false,
+  "active_game_patch_or_debugger_added": false,
+  "pending_user_action": null,
+  "current_limitations": {
+    "room_route_reward_only": true,
+    "room_route_is_binding_preview": true,
+    "execution_journal_reward_only": true,
+    "remote_reward_queue_in_current_a_owner": false,
+    "two_real_games_reward_replication_proved": false,
+    "reward_ui_refresh_proved": false,
+    "merchant_move_drafts_positive_game_ui_correlated": false,
+    "timeline_days5_7_are_synthetic": true
+  },
+  "feature_status": {
+    "reward": "Fixed single-game native and local network experiments exist; modern owner, room and B application path incomplete.",
+    "merchant": "City UI draft decoder and static wrapper route only; no complete legal execution adapter.",
+    "officer_move": "City UI draft decoder and static wrapper route only; action cost belongs to player wrapper.",
+    "government_employ_search": "Candidate routes; no connected decoder/command execution contract.",
+    "city_area_assignments": "Type/index candidates, complete menu mapping and decoder absent in reviewed sources.",
+    "recruit_train": "No actual SAN14 command adapter found in the reviewed sources; similarly named prototype actions are models.",
+    "sortie": "Fixed prior native/local-network experiment; general command and current two-game path incomplete."
+  },
+  "parallel_work_packages": [
+    "Integrate existing reward queue and owned replay into the unique A owner with save/Ready mutual exclusion.",
+    "Wire modern TLS identity, authoritative ordering, existing execution journals, independent B application and receipts.",
+    "Introduce strict command/capability contract successors, reusing existing identity/dedup/Ready components.",
+    "Prepare merchant and officer-move semantic guards and archived wrapper/container/cost execution.",
+    "Choose one government or domestic-allocation class and implement a bounded decoder.",
+    "Connect delayed-task/event protocol to room/journal; real native event continuation still needs game validation."
+  ],
+  "portable_check": {
+    "private_summary": ".local/dev-check/20261008-183809-838146/summary.json",
+    "summary_sha256": "0ce068b0837a2cb98981ed47fb7bc53d2659e0bafb15869b1e6b250d746b35a9",
+    "protocol": {
+      "modules": [
+        "test_protocol",
+        "test_timeline_protocol"
+      ],
+      "tests_discovered": 18,
+      "tests_run": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "successful": true,
+      "transport": "real TCP on ephemeral 127.0.0.1 ports"
+    },
+    "room_tls": {
+      "status": "PASS",
+      "checks": 17,
+      "note": "Named checks from original lobby selftest; not extra unittest test cases."
+    },
+    "development_environment": "INCOMPLETE",
+    "pefile_available": false,
+    "private_inputs_configured_for_check": false,
+    "native_compilation_run": false,
+    "game_access": false,
+    "transport": "Owned loopback TCP/TLS only"
+  },
+  "source_hashes": {
+    "outputs/san14-link/domestic_reader.py": "7a3a8fea1100dcbf9a4975d1e6dbc0c263d6f580d4969db8672636e4108132cc",
+    "outputs/san14-link/authority_reward.py": "e8bba9b17912898f7d2d060fd9a893bd016d0b7bc1e8364ea678b2d0c69606d8",
+    "outputs/san14-link/room_session.py": "75cfe81fd051280d3e9ef817d0fe8c29421290b819dd251ad8de43bccc0304b7",
+    "outputs/san14-link/execution_journal.py": "25549df09eaf47f5a269a376fb8321cbeb8d8e82589e8d1e6fc1ae9f62af70f4",
+    "outputs/san14-link/authoritative_sync.py": "9fae7ac472c48249d4feb7c4db37dfaa54c40bda306e59bf93a8d2f365c29c0c",
+    "outputs/san14-link/timeline_protocol.py": "a9f7925faba05ab61afd3c275977eabd27e45a74b05390874cff9f47edab4253",
+    "outputs/san14-link/prototype.py": "374559fb25c0b1451e39d44e176365d5570979c1f98f82c48b963d73e5bca89d",
+    "outputs/san14-link/sortie_reader.py": "03a2c692cc21a297de7e18eec779fd81af81b51c74c8df57a5bf4d286983c690",
+    "work/mod_research/second_force_reward_network.py": "05183040e0e11e4e18963a7d54fde1106f621919d586ff9dc37f598ae8258b89",
+    "work/mod_research/checkpoint_reward_owned_replay.cpp": "ba671b0bb418e822caa7c92816a1e596d29440ddc681f5113f72f432e9b72b01",
+    "work/mod_research/checkpoint_planning_dispatcher.cpp": "08cc26cd29e102f441edfc981c10b008c22026daa43d9e4e72a7ee4c4772c95f",
+    "work/mod_research/a_save_upstream_owner.cpp": "d60eaf01a046c59de2ea17c5120f37e85f5f3f362d0193503243b7492da5141d",
+    "work/mod_research/survey_domestic_routes.py": "c200042bab87e030b261769663704c36fdaeb621b38086b35d48ddcad0e69c8a",
+    "work/mod_research/finalize_domestic_evidence.py": "bcef39bbd1403ccfd4a72ef301cbe698894d43bb14140148c6625892fa692d1c",
+    "work/mod_research/a_save_user_owner_handoff.md": "e6262e7f9c89d655dbe6891701f395bc92b67d339b084f095c02e3a320d9b7ae"
+  },
+  "review": "Two agents independently inspected command categories and reward execution. Category reviewer also reviewed the final document; no overclaim found.",
+  "historical_results_not_rerun": [
+    "Single-game second-force fixed reward and TCP/HMAC pilot.",
+    "24-case reward owned replay fixture.",
+    "18-case independent planning dispatcher fixture.",
+    "Isolated copied-native A/B samples with separate journals."
+  ],
+  "public_handoff": "docs/DOMESTIC_SYNC_STATUS.md"
+}

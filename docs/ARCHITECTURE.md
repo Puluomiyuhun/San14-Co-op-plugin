@@ -24,7 +24,7 @@
 | 模块 | 现有入口 | 当前边界 |
 | --- | --- | --- |
 | 房间和协议 | `outputs/san14-link/room_session.py`, `room_transport.py`, `tools/prepare_connection_check.py` | 本机协议/TLS验证；有公开源码连接诊断包，原生游戏后端未接 |
-| 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*` | 赏赐链路已有验证；内政并未全覆盖 |
+| 即时命令 | `authority_reward.py`、`checkpoint_reward_owned_replay*`、`execution_journal.py` | 固定赏赐已在单游戏执行；房间/日志仅接受赏赐，远端队列尚未合入当前唯一A Owner，B即时应用与菜单刷新未闭环。交易/移动为草稿基础；见[内政盘点](DOMESTIC_SYNC_STATUS.md) |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
 | A 本轮存档 | `a_save_upstream_gate*`, `a_save_upstream_owner.cpp`, `a_save_observation*`, `a_save_ipc*` | 更早门禁接同Owner两诊断保存；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
