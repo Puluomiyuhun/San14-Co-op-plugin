@@ -1,5 +1,14 @@
 # 进展记录
 
+## 2026-10-08 — 双端Owner等待回执与赏赐菜单确认前捕获准备
+
+三路离线开发及交叉审查，旧模块保持不变，未操作游戏/Steam/当前存档/UI，无新游戏补丁或待操作请求。
+
+- 新Ready worker8/8：设置请求与实际观察分开；通过已发布User入口确认原生增量0/0、FINALLY增量1，拒绝过期revision、排队、保存、活动/未知状态及换world。
+- 新房间后继Python19/19、原生组合11/11：A/B赏赐排空后绑定同一challenge/cut，双方实际等待观察，B签名、A复查后确认；重复回执不重调setter。串入两视角菜单纯语义提案去重→TLS→双原生执行→fence的组合。
+- 菜单53项语义、16项归档检查通过；确认前候选67A993，不能靠公共处理器返回0模拟取消。145字节UI Update为实际归档，其外部callee仍替身，取消及真实菜单收尾未确证。
+- 修复并发晚成功覆盖UNKNOWN、报告采样中换实例、IPC响应串配和并行测试目录名碰撞；失败保留。局部Owner证据不等于全输入排他，原生推进/full-world权限仍false。见[交接](../work/mod_research/reward_ready_flow_handoff.md)与[证据](evidence/2026-10-08-reward-ready-menu.json)。
+
 ## 2026-10-08 — 赏赐同Owner与现代房间双端离线组合，交易/移动提案
 
 三路并行开发，复用冻结Room/TLS、ExecutionJournal及PeriodCoordinator，不操作游戏。

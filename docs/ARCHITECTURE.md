@@ -31,7 +31,8 @@
 | A 本轮存档 | `a_save_upstream_gate*`, `a_save_upstream_owner.cpp`, `a_save_observation*`, `a_save_ipc*` | 更早门禁接同Owner两诊断保存；原生队列/清理来源已缩小，一次正常保存的四点观察器完成自有进程验证、尚未实机。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
 | B 连续加载 | `b_reload_lifecycle*`, `b_reload_activated_queue*`, `b_reload_nested_*`, `b_reload_fault*` | 启动来源1447B6接实际四worker初始化已在自建进程通过，普通无票任务透明；真实冷等待时序仍待证。新进程DLL提前加载是另一独立测试，未接游戏Bootstrap/来源发布器，也未与两代完整queue合并；实际安装、持续排他和两真实档仍缺 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
-| Ready 输入等待 | `checkpoint_ready_input_gate*`, `a_save_upstream_gate*` | 后继统一Game/UI/panel和User上游/报告/选择/动作段；其他调用者/消息/外部写入仍未全覆盖，不放行完整Ready |
+| Ready 输入等待 | `reward_ready_flow.py`, `a_reward_ready_worker*`, `checkpoint_ready_input_gate*`, `a_save_upstream_gate*` | 现代房间已接两个独立fixture的实际Owner等待观察；setter和observed分开，challenge绑定两份已应用日志。仅局部User/赏赐/保存接纳，全输入/外部writer仍未覆盖，不发原生推演许可 |
+| 菜单捕获准备 | `reward_menu_capture.py`, `reward_menu_capture_audit.py` | 赏赐确认前67A993候选和严格纯ID提案已确定，提案在fixture组合经TLS运行；真实菜单拦截/取消及可信lifetime生产者未完成 |
 | 世界核验 | `checkpoint_world_snapshot_reader.py` 等 | 已覆盖记录与格子有核验；完整世界证明未完成 |
 
 模块名用于定位，不是推荐直接运行这些历史脚本。新电脑先做本地检查与纯协议测试。
@@ -41,6 +42,11 @@
 权威意图，但本地视角context token分别重建。命令未知结果、换实例或断线终态等待，
 不自动重试。最终Ready仍仅协议模型；生产必须由同一生命周期Owner补持续输入限制和
 报告通道。详见[接线契约](../work/mod_research/reward_room_flow_handoff.md)。
+
+新[Ready后继](../work/mod_research/reward_ready_flow_handoff.md)在双方准备且排空后固定同一
+challenge，A/B持久化本机fence意图，实际观察原生User抑制后回报，再由A复查。协议
+确认只有局部Owner coverage，不是全引擎排他；未知结果不重试setter，也不自动release。
+retire使旧scope/key/cut失效，但没有执行规则撤回或世界替换。
 
 ## 换世界时的规则顺序
 

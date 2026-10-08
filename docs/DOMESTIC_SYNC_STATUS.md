@@ -6,6 +6,8 @@
 
 本轮已跨过两个离线接线缺口：赏赐与保存共用一个User/Save Owner；现代TLS房间已能让两个独立原生测试进程按同一顺序赏赐并核对结果。原生Owner11/11、房间Python21/21与原生组合13/13通过；交易/移动预检76/76。测试世界业务仍是替身，真实游戏菜单、数值/UI刷新和原生Ready仍缺。[新交接](../work/mod_research/reward_room_flow_handoff.md)、[公开证据](evidence/2026-10-08-domestic-offline-integration.json)。
 
+后续新增双方准备的实际Owner等待回执：Python19/19、原生组合11/11和worker8/8；仅局部User/赏赐/保存接纳，不是全输入排他。赏赐菜单捕获53项语义+16项归档检查，候选67A993及重复确认保护已就绪，纯语义提案也已串入TLS组合；真实取消/关闭和菜单拦截仍缺。[最新交接](../work/mod_research/reward_ready_flow_handoff.md)、[菜单来源](../work/mod_research/reward_menu_capture_handoff.md)。
+
 ## 按玩家功能核对
 
 | 功能 | 已有内容 | 当前还缺什么 |

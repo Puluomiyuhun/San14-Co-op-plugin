@@ -12,6 +12,8 @@
 
 最新按用户要求三路并行开发内政：新赏赐队列合入同一User/Save Owner，现代TLS房间→A/B独立日志→两个自建原生进程的实际回放/结果核对已组合通过；交易/武将移动新增严格语义提案和可信证据预检。真实游戏菜单捕获、双端数值/UI刷新及最终原生Ready仍未闭合。[内政状态](DOMESTIC_SYNC_STATUS.md)、[赏赐组合交接](../work/mod_research/reward_room_flow_handoff.md)。本轮完全离线，没有待用户操作。
 
+继续开发已将双方准备接到两个原生Owner的实际等待观察，并串过“菜单语义提案→TLS去重→双端赏赐→等待确认”。新结果19项Python、11项原生组合通过；菜单确认前候选已定位。局部User/赏赐/保存入口证据不是全输入排他，不发推演许可。[本轮交接](../work/mod_research/reward_ready_flow_handoff.md)。
+
 ## 共享的34号测试存档
 
 按用户明确要求，原34号档的固定副本已加入 [`fixtures/saves/slot34/`](../fixtures/saves/slot34/README.md)，供其他电脑测试。274920字节，SHA-256 `afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95`，与当前槽位和历史备份逐字节一致；对应历史实机203年8月中旬、张鲁。导入说明与机器可读manifest在同目录。
@@ -48,6 +50,8 @@
 
 内政线已经交付[唯一Owner赏赐后继](../work/mod_research/a_reward_save_owner_handoff.md)和[TLS/双日志/独立原生测试端组合](../work/mod_research/reward_room_flow_handoff.md)。不要叠装旧Dispatcher或同时链接两个Owner实现。接下来补真实菜单提交前捕获、可信采样/报告密钥引导、最终Ready输入限制、两个游戏的数值及界面更新；交易/移动只有严格提案预检，原生资格/成本观察与执行仍缺。
 
+最新 `reward_ready_flow` 将局部Owner fence的实际回调证据接入；全部输入限制仍缺。菜单候选为 `67A993` 进入包装前，公共处理器返回0不能安全模拟取消；event1也未证实为取消。下一条具体菜单工作按[捕获来源交接](../work/mod_research/reward_menu_capture_handoff.md)准备四点只读观察，用户方便后再执行，不要直接安装拦截。
+
 **距离首轮双机测试的验收清单：** [FIRST_TWO_PC_TEST](FIRST_TWO_PC_TEST.md)。固定34号起点、张鲁/刘备、两旬不下新命令；还缺A真实两次新档、B真实连续加载、统一运行所有者接通、两机配置四项结果，不按离线用例数量估完成百分比。
 
 1. **A 新存档生产接线。** [upstream门禁](../work/mod_research/a_save_upstream_handoff.md)仍为冻结基线，同Owner两诊断保存29/29。[writer范围审计](../work/mod_research/a_save_writer_scope_handoff.md)已定位Game尾部启动army后台任务及序列化字段交叉。新[原生协调调查和分析器](../work/mod_research/a_save_native_coordination_handoff.md)48/48：找到普通/内联队列生产者，确认16C160含对象清理，不能拿来纯排空；普通Save直接层尚未找到join，间接协调仍未证明。新[单次正常保存观察器](../work/mod_research/a_save_observation_handoff.md)34/34已准备，使用四个硬件点配对Save/worker，严格拒绝漏样本、错配及不完整收尾。下一步在用户方便时取得一次真实记录，再决定必要保护范围；生产发布/IPC、对象生命周期及两真实新档仍缺。观察结果不发permit。
@@ -56,7 +60,19 @@
 4. **收入增加348次的归因。** 历史纯转发测试696次，双人规则测试1044次。两条收入分支没有直接重入判断点；上层预测/结算调度或AI工作量变化尚需证据。最短有用新增记录：逐调用点、势力、日期阶段及父收入计算来源的有界聚合，另做实际数值对照。不要强行把次数改回696，也不要把“无异常”写成“经济正确性完全证明”。
 5. **跨电脑启动与连接。** 已有可从干净公开仓库生成的Python源码连接诊断包，支持可选EXE摘要、本机配置、真实TLS和字节校验，详见[连接检查](CONNECTION_CHECK.md)。不依赖原电脑私有catalog/profile；它没有连接原生后端。两台异地电脑尚未配置直连/VPN，真实游戏profile/安装器/A/B整体配置仍缺。首个实机目标保持为两旬不下新命令，再逐项接赏赐、出征与事件暂停。
 
-## 最新开发：赏赐完整离线接线与交易/移动预检
+## 最新开发：双端Owner等待确认与赏赐菜单捕获准备
+
+本轮三路并行开发/审查，冻结前驱不变，未访问游戏、Steam、当前存档或UI，无待用户操作。
+
+- 新原生Ready worker **8/8**：setter ACK明确observed=false；fence_sample当前revision实际经过已发布User入口，Native增量0/0、FINALLY增量1才给observed。保留保存/排队/活动/未知结果/换world冲突拒绝。
+- 新Ready组合 **Python19/19、双独立原生fixture11/11**：命令排空→双方Ready→A实际等待观察→B独立观察并签名→A再核验。包含新CaptureSession两视角提案和重复确认经TLS只执行一次的组合。仍全部是自建世界，菜单lifetime/context是fixture，业务效果替身。
+- 失败/换实例/断线/退休保持等待，旧期和旧cut失效；未完成的fence请求不自动重试、不会自动解除。修复并发UNKNOWN覆盖、采样中换实例、IPC串配及目录名碰撞；保留失败记录。
+- 菜单捕获 **53项语义+16项归档检查**：真实145字节UI Update有界执行（外部callee为替身），确认前候选67A993；包装忽略common返回值、零返回可重复触发，取消路径仍缺。仅生成不可变纯ID提案，未拦截游戏菜单。
+- 所有生产Ready/推演/full-world权限保持false。retire只退役控制scope/key，不撤原生规则、不读档。两旬保存/连续加载主线四门槛仍未改变。
+
+复跑与证据：[新组合](../work/mod_research/reward_ready_flow_handoff.md)、[原生worker](../work/mod_research/a_reward_ready_worker_handoff.md)、[菜单捕获](../work/mod_research/reward_menu_capture_handoff.md)、[公开摘要](evidence/2026-10-08-reward-ready-menu.json)。冻结前驱房间21/21、便携协议18项和TLS17项回归通过；环境检查仍缺pefile/便携私有输入配置。
+
+## 上一轮开发：赏赐完整离线接线与交易/移动预检
 
 本轮三路实现与交叉审查，冻结前驱未改；没有访问游戏、Steam、当前存档或UI，无新增游戏补丁/调试器，自建进程与TLS监听均退出。
 
