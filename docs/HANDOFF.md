@@ -8,7 +8,18 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：A请求跨线程转交与B冷等待协调
+## 最新：A真实管道接邮箱，B冷等待接原注册
+
+本轮全部离线，没有访问游戏、Steam、当前存档或UI，没有新增实机补丁、调试器或待用户操作。旧模块保持冻结；未执行真实游戏保存或读档。
+
+- **A管道组合5/5**：独立客户端子进程通过真实命名管道，向新Server提交两期请求，经邮箱转给固定宿主，再取回两份诊断结果；真实packet编码/哈希和冻结Python解码均通过。请求等待中关闭连接但保持客户端进程存活，或发外部shutdown，都能唤醒等待并保留Cancelled/Unknown，不重投。生产Server保留具体Owner接口；本测试只有Owner三方法和保存业务是替身，没有执行实际Controller/Root/serializer。
+- **B原登记组合8/8**：同一主PE/Provider/四线程，实际生命周期Bridge中先冷等待，再调用冻结生产RegisterColdPool一次，由原函数重新验证并登记四worker。修复已发布Leave桥与上一冷等待检查的来源冲突，没有放宽到任意IAT或重置claim。延迟成功、期限、两种来源漂移、提前任务、无owner、两种Stop均核对精确结果。尚未合入远程Bootstrap和完整两代queue，真实生产者排他/早期CRT上下文仍缺。
+
+入口：[A管道组合](../work/mod_research/a_save_dispatch_ipc_handoff.md)、[B原登记组合](../work/mod_research/b_reload_cold_registration_handoff.md)。[分层证据](evidence/2026-10-09-ipc-cold-registration.json)含源码/产物身份及限制。自有服务、monitor、客户端和worker都正常收尾；共享34号副本未变。
+
+下一步：A接真实父宿主和Controller/保存writer协调；B让Bootstrap使用新的准备入口，避免二次Initialize，再接同Provider两代queue。随后验证A两份真实新档与B两份合法档连续加载。四道双机实机结果门槛尚未全部通过，暂不要求用户操作。
+
+## 上一轮：A请求跨线程转交与B冷等待协调
 
 本轮全部离线，没有访问游戏、Steam、当前存档或UI，无实机补丁、调试器或待用户操作。没有生成真实新档，也没有执行真实读档。
 

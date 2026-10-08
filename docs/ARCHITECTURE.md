@@ -94,3 +94,7 @@ retire使旧scope/key/cut失效，但没有执行规则撤回或世界替换。
 `a_save_dispatch_mailbox*`把请求、宿主接纳和保存完成分开，兼容已有held IPC执行端口的函数签名。网络线程等待宿主接纳，不直接执行Controller；结果按身份深复制、一次交付，未知结果不重投。实际pipe Server/Root/Stop协调仍待整合；固定native room_epoch也不等于网络每旬更换的timeline epoch。父入口候选已定位CApp实际调度调用，但尚无跨帧固定控制TID/完整子任务收尾证明。
 
 `b_reload_cold_wait*`在固定来源和对象身份下，通过真实线程上下文等待四个初始wait，成对恢复后仅调用一次后续入口。组件要求所有生产者服从可信宿主锁；这一契约尚未在游戏建立，旧Runtime也未接入此组件。不能拿一次扫描到的等待状态代替持续排他，不能重新使用旧RegisterColdPool claim。
+
+后继 `a_save_dispatch_ipc*` 已将邮箱端口接入真实命名管道Server，并由独立monitor在Submit等待中检测外部shutdown/EOF；monitor只停止邮箱，Server继续保持具体Owner接口与认证/序列/结果检查。构建产物包含生产Server对象，组合测试中的Owner业务另由fixture TU替身提供。wire Stop仍是串行消息，不代替外部取消；析构也可能在生命周期宿主线程调用Owner.Stop。
+
+`b_reload_cold_registration*` 已在实际初始化Bridge内调用原RegisterColdPool，保留真实Owner和原登记检查；新wait后继只接受明确已发布的activation Leave桥。新Prepare已经初始化生命周期，不能随后直接调用会再次Initialize的旧Bootstrap。下一步需明确Bootstrap后继使用同一准备入口，再接同Provider的完整queue；真实生产者锁覆盖仍不是传入一个SRW就完成。

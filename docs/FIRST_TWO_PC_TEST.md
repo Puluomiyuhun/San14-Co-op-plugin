@@ -12,6 +12,8 @@
 
 最新接入准备新增[A跨线程邮箱](../work/mod_research/a_save_dispatch_mailbox_handoff.md)和[B冷等待协调](../work/mod_research/b_reload_cold_wait_handoff.md)。它们通过自有线程测试，但尚未接实际父宿主/断线协调及游戏生产者锁，不能将“端口可调用”和“已到初始等待”当成真实保存/加载完成。
 
+本轮进一步接通[A真实管道与邮箱](../work/mod_research/a_save_dispatch_ipc_handoff.md)5/5和[B冷等待到原Register](../work/mod_research/b_reload_cold_registration_handoff.md)8/8。A的Owner/保存业务仍为替身，B还未合入远程Bootstrap/完整queue；这两项是组件接线证据，尚不关闭真实新档与连续加载门槛。
+
 ## 还有四道验收门槛
 
 下表是四个可验收的结果，不是四个等量任务，也不是完成百分比。现有组件会复用，不能按测试用例数量推断还需几天。

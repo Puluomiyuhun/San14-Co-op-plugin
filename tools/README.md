@@ -252,3 +252,19 @@ Config port compatibility is not a running IPC Server or native Save host.
 Cold wait is a separate pre-registration component, not integrated into the
 existing Runtime; all producers must obey a separately established host lock.
 No command grants a production permit or performs a real save/load.
+
+## Pipe/mailbox and original cold registration compositions (offline only)
+
+```powershell
+# Actual owned child process, named pipe and mailbox; Owner business doubles.
+py -3 work/mod_research/a_save_dispatch_ipc_test.py
+# Pinned private inputs required; actual original RegisterColdPool in owned PE.
+$env:SAN14_PRIVATE_FIXTURE_ROOT = '<private archive folder>'
+py -3 work/mod_research/b_reload_cold_registration_test.py
+```
+
+Read [IPC](../work/mod_research/a_save_dispatch_ipc_handoff.md) and
+[registration](../work/mod_research/b_reload_cold_registration_handoff.md).
+These are explicit successors; do not link both lifecycle implementations or
+call the old Bootstrap after the new Prepare has already initialized it.
+Neither test opens the game or supplies a production save/load permit.
