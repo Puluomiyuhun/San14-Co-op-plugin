@@ -8,7 +8,19 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：远端收档接入原生刷新；A 自动保存实测停在初始化
+## 最新：A 实机首错已抓到，修正大地图状态值并完成新构建
+
+用户重新启动并读34后，在新PID26948/birth134360312693484013单次执行初始化诊断候选。实际仍未提交保存，但这次RPM首错记录明确到`fresh_inspector/stage46`：`error=0`、`decision=4/StateTransition`，phase2、五状态、空队列、菜单-1，记录中的transition/load/advance均0。Stop后七处原入口全部恢复，无调试器；84份原档全部未改、没有新增。独立归档审计通过；旧Gate首错的NOT_PUBLISHED不能解读为初始化没出错。
+
+**找到并修正一项确切的代码/真实起点不匹配。** 初始capture的`planning.expectedMode`和后验5次只读快照都为`cache+8=0`，其余隐藏切换字段0、cache选择-1。冻结A Inspector却在最后要求该值为1，而离线fixture也一直使用1。新`a_save_planning_mode_input.cpp`只将该处严格比较改成要求0，限定本版本/当前已观测大地图；不同时接受0和1，不改游戏字段，原有调用作用域、选择、队列、六层状态、授权加载与其它检查逐字保留。首个失败瞬间没有单独锁存cache+8，后验采样不能冒充当时值；因此实际保存是否由此修复仍须复测。
+
+新候选**4/4自有进程测试、完整生产编译、原typed ABI及旧launcher兼容**通过：baseline0真实Controller/Owner/IPC链完成一次Submit/Copy/Release；mode1、mode2和User+660切换分别拒绝。游戏业务/世界/存储为替身，不是游戏已自动保存。根复核112来源、23私有输入、13生成项、82产物、17记录全部哈希。首次测试仅因旧fixture的nativebody断言只预期Pointer、未允许更早的StateTransition而失败，已限定修正测试断言，失败记录保留。[后继及测试说明](../work/mod_research/a_save_planning_mode_handoff.md)、[本轮公开证据](evidence/2026-10-09-a-planning-mode.json)。
+
+**下一步已有可执行候选，无需再造保存模块。** 原电脑`--build-run`为`..\mod_research\a_save_planning_mode_runs\20261009-230254-218464\candidate\launch`，launch manifest SHA `34171de9d918bf0d00951692f8f5129b35adb3b3c3229e975bd9906723f30cb5`，DLL SHA `ad0bf55dc8a4c8e542c6d3be211779fe84edda8557f744597a654e063c9ee922`；配套publisher仍用`a_save_abort_publish_runs/20261009-135151-357545`。先确认旧PID退出，再让用户启动读34；只读核新PID/birth/版本/原入口/存档，使用`a_save_diagnostic_start.py`单次执行。若失败，先用`a_save_initialize_trace_read.py --observe --run <新run>`读当前DLL的144字节首错再收尾。不能向26948重投、清claim或卸载驻留模块。
+
+当前已请求用户正常退出、先不用重开；最近OS查询仍见PID26948，尚未确认退出。七处改动和调试器已撤回，但模块保留至进程正常结束。本轮没有推进、加载或更改存档。B的两次真实加载和远端收档离线接线维持下节已验证结果；A实机新存档、真正两机串联仍是当前窄测试缺口。
+
+## 上轮：远端收档接入原生刷新；A 自动保存实测停在初始化
 
 本轮新增 `b_warm_refresh_remote_owner.py`、对应 ReceivedApply 和两个规则桥。首次 A→B 与下一期 B→B 保留原 Journal/预约/规则恢复与重装/正式回执，文件部分改为独立源及备份交给原生刷新加载器；不再物理替换目标或在整个加载期间持有 Python 目标锁。此 API 与上轮实测通过的 stable Resident 一致。
 

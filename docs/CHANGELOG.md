@@ -1,5 +1,11 @@
 # 进展记录
 
+## 2026-10-09：A 实机抓到 Inspector 拒绝；大地图 mode0 后继完成
+
+- 新PID单次诊断得到真实stage46/StateTransition，保存未提交；七入口恢复、无调试器、84档未改、无新文件。
+- 真实起点mode0与旧检查固定mode1不匹配；新后继只将末尾比较改为严格mode0，保留其它检查且不写游戏状态。后验快照不等同失败瞬间，实际修复仍待新进程验证。
+- baseline0完整一次保存链、mode1/2和真实切换拒绝，共4项自有进程测试通过，生产DLL/typed ABI/launcher核验通过。已请求用户正常退出旧实例，未确认；[证据](evidence/2026-10-09-a-planning-mode.json)。
+
 ## 2026-10-09：A 初始化首错后继完成生产构建和启动器包装
 
 - 保留原Controller/Claim/Inspector的检查、调用顺序和锁，只在Initialize作用域一次发布DATA首错；细分即时槽读取、采样、绑定及Inspector拒绝。记录只复制当次已取得的报告，不额外调用游戏。

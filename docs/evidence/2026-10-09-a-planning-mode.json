@@ -1,0 +1,79 @@
+{
+  "description": "Public summary; raw evidence remains private on originating machine",
+  "date": "2026-10-09",
+  "records": {
+    "live": {
+      "path": "a_save_runtime_live_runs/20261009-225620-723897/result.json",
+      "sha256": "abaf68b217c8f3be785b180a05df27a767cf0238dc1774969420d9f76bf8a9fe"
+    },
+    "trace": {
+      "path": "a_save_initialize_trace_read_runs/20261009-225635-061434/result.json",
+      "sha256": "a57535df718ce5f37fafec6c6200be1249d148bbdb0e5f64c179ee0bc139df06"
+    },
+    "post_failure": {
+      "path": "a_save_runtime_live_runs/20261009-225620-723897/readonly-transition-225847-685382/result.json",
+      "sha256": "ff9c64f067ab11c09f641065dcfcda391249c3ed394de382d8b8db9c05b08f54"
+    },
+    "independent_audit": {
+      "path": "a_save_runtime_live_runs/20261009-225620-723897/independent-audit/result.json",
+      "sha256": "3f1b34b3013bcea2bee9164560877083d0329414a7301cfa5ed7085ac3b69252"
+    },
+    "build": {
+      "path": "a_save_planning_mode_runs/20261009-230254-218464/result.json",
+      "sha256": "626abbe26375cf03c85507f918eae90a8e7e1a03757d64e3df015ae2de7c2683"
+    },
+    "candidate": {
+      "path": "a_save_planning_mode_runs/20261009-230254-218464/candidate/result.json",
+      "sha256": "2669fa2e5c803ba123077a53ec070d5f3c91355e30baa7b91c5f8effee77c10a"
+    },
+    "launch": {
+      "path": "a_save_planning_mode_runs/20261009-230254-218464/candidate/launch/result.json",
+      "sha256": "34171de9d918bf0d00951692f8f5129b35adb3b3c3229e975bd9906723f30cb5"
+    }
+  },
+  "actual_game": {
+    "pid": 26948,
+    "birth": 134360312693484013,
+    "save_submitted": false,
+    "real_fresh_save": false,
+    "sources_restored": true,
+    "original_saves_unchanged": 84,
+    "new_saves": 0,
+    "first_failure_stage": 46,
+    "first_failure_name": "fresh_inspector",
+    "input_error": 0,
+    "input_decision": 4,
+    "decision_name": "StateTransition",
+    "post_failure_cache_mode": 0,
+    "post_failure_observation_is_failure_instant": false,
+    "normal_exit_requested": true,
+    "normal_exit_confirmed": false
+  },
+  "change": {
+    "frozen_predecessor": "a_save_scoped_input.cpp",
+    "successor": "a_save_planning_mode_input.cpp",
+    "only_predicate_change": "final quiescent load_cache+8 check: !=1 to !=0",
+    "writes_to_game_mode": false,
+    "other_checks_unchanged": true
+  },
+  "validation": {
+    "owned_process_cases": 4,
+    "real_game_business": false,
+    "typed_abi_executed": true,
+    "production_dll_sha256": "ad0bf55dc8a4c8e542c6d3be211779fe84edda8557f744597a654e063c9ee922",
+    "root_verified_manifest_counts": {
+      "sources": 112,
+      "private": 23,
+      "generated": 13,
+      "binaries": 82,
+      "artifacts": 17
+    }
+  },
+  "not_proven": [
+    "actual save after mode correction",
+    "real two-computer end-to-end play",
+    "full input pause",
+    "map overlay",
+    "complete command coverage"
+  ]
+}
