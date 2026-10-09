@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Existing native two-file diagnostic with preflight before process/claim and six original rule-source checks",
+  "game_memory_access": false,
+  "game_ui_access": false,
+  "steam_save_access": false,
+  "os_process_metadata_read": true,
+  "new_game_patch_or_debugger": false,
+  "two_real_games_verified": false,
+  "two_player_ready": false,
+  "user_state": "Will return after dinner, normally exit/restart and load slot34; completion not yet reported",
+  "preflight": {
+    "private_result": "b_warm_pair_preflight_runs/20261009-202759-214380/result.json",
+    "sha256": "7f148f896151f814c7a8c593c4d41c56dec304a032c9ea5be75d0f43a4e89ecf",
+    "result": "PASS",
+    "tests": 5,
+    "verified_pins": {
+      "sources": 10,
+      "private": 2,
+      "artifacts": 25
+    }
+  },
+  "diagnostic": {
+    "private_result": "b_warm_pair_diagnostic_test_runs/20261009-203017-218491/result.json",
+    "sha256": "edc74894d930c9e84fff091808822c66f2c6c2b41142e2fd50e86e4b21c36f6b",
+    "result": "PASS",
+    "tests": 8,
+    "verified_pins": {
+      "sources": 29,
+      "private": 191,
+      "artifacts": 68
+    },
+    "actual_windows_file_staging": true,
+    "actual_archived_build_checks": true,
+    "reader_storage_native_port_are_doubles": true,
+    "actual_game_execution": false,
+    "full_input_exclusion": false,
+    "strict_remote_guard_implemented": false,
+    "third_party_rules_restore": false
+  },
+  "b_build_prerequisites": {
+    "private_result": "b_warm_pair_prerequisites_runs/20261009-202829-577038/result.json",
+    "sha256": "71ac56e615ae0037aa867372aca0279a69bb09648f5567a54f285c3b002766fc"
+  },
+  "a_build_prerequisites": {
+    "private_result": "a_save_fresh_prerequisites_runs/20261009-202947-954028/result.json",
+    "sha256": "5abe4833b8abac9388a171e309ce4797a0e5cee851bd06b75fbf61d5e6ff56e7"
+  },
+  "private_second_file_candidate": {
+    "private_result": "b_warm_pair_start_audit_runs/20261009-202418-554052/file-candidates.json",
+    "sha256": "4dbf7d65a94ff69987399b55622b1be4b18e230ca3e3f5feb34d635fac930fd4",
+    "actual_backup_hash_verified": true,
+    "internal_archive_date_verified": false,
+    "second_profile_authorized": false,
+    "save_committed": false
+  },
+  "retained_failure": {
+    "private_run": "b_warm_pair_diagnostic_test_runs/20261009-202941-755288",
+    "reason": "Fixture bank used integer while new successful retirement marker needs dict; fixture adjusted, production source unchanged for that correction",
+    "final_pass_does_not_overwrite_failure": true
+  },
+  "remaining": [
+    "Await normal old-game exit/restart and fresh slot34 before live process precheck",
+    "Confirm actual second candidate archive date/faction, backup and prepare first slot63 file/local plan",
+    "Read-only diagnostic check then actual same-process two-file native loads under no-new-command convention",
+    "Strict RemoteOwner guard/rules integration and actual two-PC game connection remain separate"
+  ]
+}

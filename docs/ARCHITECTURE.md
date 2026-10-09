@@ -22,6 +22,12 @@
 - warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
 - [同槽接管后继](../work/mod_research/b_warm_two_bank_handoff.md)在一个自有host中持有固定原函数和同六槽，第一代实际封存/恢复后才准第二个独立DLL接管。跨代不重置Session或once。相应文件暂存与fresh planning采样已分别实现，但仍须由统一启动器在真实退休、无读者和输入边界下衔接；文件已暂存和采样相同都不是原生加载许可。此前profile的固定势力guard遗漏已由后继修复，旧target9 fixture成功不证明那层曾被执行。
 
+## 最小原生连续加载诊断
+
+已有Resident/run_two可直接加载两份已准备档，不依赖严格远端owner的全程guard。新增[窄诊断入口](../work/mod_research/b_warm_pair_diagnostic_handoff.md)用于未安装双人AI/收入规则、玩家不下新命令的本机两档测试。原始六规则来源需在claim前及每bank边缘保持原样；继承已有User/Menu/Game局部原生边界和真实退休/Handover，没有实现持续输入暂停，也不接房间Ready。
+
+[文件/构建前检](../work/mod_research/b_warm_pair_preflight_handoff.md)先于进程打开和一次性claim，防止坏文件先消耗测试生命周期。诊断成功后仍须接正式远端owner与规则生命周期；不能把无规则局部诊断的约定填作严格guard。本机可用两份既有合法档证明B连续加载，无需先完成A自动保存；候选的实际日期/势力仍须确认。
+
 ## 同一B所有者与旬末校正
 
 [RetainedRemoteOwner](../work/mod_research/b_warm_remote_owner_handoff.md)已将远端一次预约接到实际Bootstrap/普通ReceivedApply、同一加载/规则bridge和加载后采样，再给原远端通道发送正式完成。owner保留同一进程/对象图、两bank和三代规则历史，回包丢失锁住整个流程且不重做加载。它要求已有严格执行guard，未自行实现游戏暂停；测试原生行为仍为替身。

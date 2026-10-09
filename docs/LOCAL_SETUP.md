@@ -8,6 +8,14 @@
 
 最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)、[B同六槽两模块交接](../work/mod_research/b_warm_two_bank_handoff.md)、[文件暂存](../work/mod_research/b_warm_staging_handoff.md)和[B本代采样](../work/mod_research/b_warm_profile_capture_handoff.md)。它们仍需合并为本机启动流程，不能直接替换旧脚本的DLL路径执行；合法新档与连续实机加载尚待验收。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。最新交接明确修正了旧profile的固定势力guard遗漏。
 
+## 连续两档的最小实机诊断入口
+
+使用[新窄诊断入口](../work/mod_research/b_warm_pair_diagnostic_handoff.md)而非把旧`--execute`当作无副作用预检。默认只显示help；实际输入齐全时先`--check`，执行另需`--execute --no-new-commands`。参数和严格plan格式见[前检手册](../work/mod_research/b_warm_pair_preflight_handoff.md)。首档须已按备份流程暂存到槽63，第二档真实日期/势力先确认；文件哈希不代替内容验证。
+
+该路径明确要求fresh游戏、六处双人规则来源为原值，且期间不手动下令/读档/推进。它只验证本机两个原生加载与退休，不接双人房间、不装AI规则，也不授完整暂停。任何历史claim、已安装规则或未知原入口都不能靠重跑/删记录处理。当前用户待回家正常重启读34；不要使用原失败实例。
+
+离线命令：`py -3 work/mod_research/b_warm_pair_preflight_test.py` 与 `py -3 work/mod_research/b_warm_pair_diagnostic_test.py`。两者不发现游戏；前者需要本机已批准helper/pair构建归档，后者同样使用明确的内存/原生加载替身。
+
 ## 当前B本地接点与离线测试
 
 新增[持久B所有者](../work/mod_research/b_warm_remote_owner_handoff.md)连接原生bridge与远端预约；仍须已建立的真实本机加载器、规则对象和执行guard，不能单独执行就宣称游戏联机。以下测试不触碰游戏：
