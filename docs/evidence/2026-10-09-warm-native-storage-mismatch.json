@@ -1,0 +1,169 @@
+{
+  "schema": "san14.public-progress-evidence.v1",
+  "date": "2026-10-09",
+  "status": "LIVE_FIRST_LOAD_REFUSED_NATIVE_SIZE_MISMATCH_CONFIRMED",
+  "game_process_access": true,
+  "native_modules_installed": true,
+  "live_two_loads_passed": false,
+  "fresh_identity": {
+    "pid": 1324,
+    "birth": 134360250124627141
+  },
+  "preparation": {
+    "original_saves_backed_up_and_verified": 84,
+    "old_autosave_candidate_not_authorized": true,
+    "manual49_created_by_user": true,
+    "next_period_live_date": [
+      203,
+      8,
+      21
+    ],
+    "next_period_force": 12,
+    "next_period_ruler": 666,
+    "next_period_size": 274975,
+    "next_period_sha256": "cbe6d0b9cd97ed6053fb797d68193c8bbe74a4118ffdebc83583215c64c51bd0",
+    "next_period_archive_roundtrip_verified": false
+  },
+  "failure": {
+    "bank": 1,
+    "session_error": 7,
+    "request_stage": "fresh_complete_native_reads",
+    "native_storage_stage": "native_size_before",
+    "expected_size": 274920,
+    "native_reported_size": 274880,
+    "local_sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95",
+    "exists_calls": 1,
+    "size_calls": 1,
+    "read_calls": 0,
+    "matching_complete_evidence_structures": 2,
+    "request_cas_attempts": 0,
+    "load_workers_started": 0,
+    "identity_workers_started": 0,
+    "second_bank_started": false,
+    "control_uncertain": false
+  },
+  "recovery": {
+    "user_normal_exit_confirmed": true,
+    "os_game_process_absent": true,
+    "active_game_hooks": false,
+    "active_game_debugger": false,
+    "stop_alone_did_not_prove_retirement": true,
+    "slot63_restored_after_game_exit": true,
+    "slot34_unchanged": true,
+    "new49_retained": true,
+    "remaining_changed_originals": [
+      "autosdexSC09.s14",
+      "svdexSC49.s14"
+    ],
+    "claims_and_failed_records_retained": true,
+    "forced_termination": false
+  },
+  "interpretation": {
+    "proven": "Native storage size and accepted local file differ; original size check correctly refused before FileRead/CAS.",
+    "not_proven": "Whether the underlying difference is specifically cache or namespace/publication semantics; no repaired game load yet."
+  },
+  "records": {
+    "fresh_readonly": {
+      "private_path": "b_warm_pair_fresh_readonly_runs/20261009-211230-527028/result.json",
+      "sha256": "6802f5df606558689c04e309b72a38fc5fcff4ca13316fbe980cdbd6a5b02dba"
+    },
+    "save_backup_manifest": {
+      "private_path": "b_warm_pair_live_preparation_runs/20261009-211320-032827/original-saves/manifest.json",
+      "sha256": "e64877a2cdc0276da826439fd90090459292dc318edd5f249c6dabd9fa490161"
+    },
+    "manual_next_period": {
+      "private_path": "b_warm_pair_live_preparation_runs/20261009-211320-032827/manual-second-20261009-211814-615609/result.json",
+      "sha256": "e7917752cce395f929714f0396e39bc4ea0248929e4cfd4bb2469833ef58e4f0"
+    },
+    "first_staging": {
+      "private_path": "b_warm_pair_live_preparation_runs/20261009-211320-032827/first-stage-20261009-211932-627555/result.json",
+      "sha256": "ed1cb3126a18949c7d6b49f0364a0cd462c4ca4a71197b80a6356b188d0a714e"
+    },
+    "readonly_precheck_refusal": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-211942-592357/result.json",
+      "sha256": "10b4362e6de292d46f79c83776bbebfcb613c9e3f78e85f07339ff12f91087c2"
+    },
+    "readonly_precheck_pass": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212004-679757/result.json",
+      "sha256": "f5d96f7803d939b412fcd2981f8c5c2ddfb12163360161986ba0eba0a3ddb5b0"
+    },
+    "actual_native_attempt": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212018-163311/result.json",
+      "sha256": "943a8d9ba7fb20fdcb95a58954f0c09eebf5d282bca7fbc15f9c2e63241a4a64"
+    },
+    "trace": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212018-163311/bank-1/trace.json",
+      "sha256": "0e1b4c9491a74605a84ab658f5c81ce5348d91650efcf0cd72aa4431916974c8"
+    },
+    "stop": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212018-163311/bank-1/stop.json",
+      "sha256": "324db38d2eda1828d011cf57309f5f1fea8c43fa8f8ff2f95272d4860e6202df"
+    },
+    "readonly_closeout": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212018-163311/readonly-closeout-212130-010260.json",
+      "sha256": "5a10fdbf5103ff8765255348777d2a943ea686271bf0bf0accf2aad1bf9e5606"
+    },
+    "native_size_audit": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212018-163311/native-size-audit.json",
+      "sha256": "3b3f7f9a8d8ebb4d023ba2154a241dcf8f7e4990bc2ff2fc191e40a9af3c92eb"
+    },
+    "normal_exit": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212018-163311/normal-exit.json",
+      "sha256": "9f0c504b14fa0807bd2d789757bb2aaba1fe37ed8929b2928d897a7d057f9546"
+    },
+    "restore_original_slot63": {
+      "private_path": "b_warm_pair_diagnostic_runs/20261009-212018-163311/closed-game-slot63-restore/result.json",
+      "sha256": "46d43d8ce3de63b9ed1419511e6d0be715ad8999e81c06d718ea42dba8e7c9e6"
+    }
+  },
+  "limitations": [
+    "No completed first native load in this run",
+    "No second native load",
+    "No two real clients",
+    "No full input lock or map cover",
+    "Second manual archive has not yet been round-trip loaded"
+  ],
+  "refresh_core": {
+    "result": "PASS_OFFLINE_CORE_ONLY",
+    "cases": [
+      "two-generations",
+      "wrong-previous",
+      "wrong-name",
+      "previous-second-no-write",
+      "target-read-lock",
+      "readback-corrupt"
+    ],
+    "passed": 6,
+    "private_result": "b_warm_storage_refresh_runs/20261009-213256-631945/result.json",
+    "result_sha256": "7ebd84ca5287305d3917de642b605d9e1406c17c6bc0c8b18fcd25ca6f703cbf",
+    "verified_pin_counts": {
+      "sources": 6,
+      "binaries": 4,
+      "generated": 1,
+      "artifacts": 24
+    },
+    "game_access": false,
+    "steam_methods_are_doubles": true,
+    "production_wired": false,
+    "sources": {
+      "work/mod_research/b_warm_storage_refresh_core.h": "3627ce02ba08fa6707ee4c8d773447c5e10bab2d6eb700bc5e550f12b172352d",
+      "work/mod_research/b_warm_storage_refresh_core.cpp": "a52304afef7a6ed192bf4972e8beefcf8c8bb7eb286045fbeb854c0403a0a0f1",
+      "work/mod_research/b_warm_storage_refresh_fixture.cpp": "59eb765bd80ab0b32ec58648a4c3df347692132146356927e48a981f06d2235d",
+      "work/mod_research/b_warm_storage_refresh_test.py": "a42ede8b0384e1e33b974ae448de99f27743c76136c2a485c29c5c0deb98aaf6",
+      "work/mod_research/native_storage_read_core.h": "65f12ea568ce6f9a48b847e572ab841771014c24ff1a59c6f93599b556dc264f",
+      "work/mod_research/native_storage_read_core.cpp": "aca7c7e97f3e614b08dd8c7d85cf0188d53014f262207245e9aa961b7d4c3835"
+    },
+    "remaining": [
+      "bind and revalidate actual FileWrite v014 endpoint",
+      "invoke at existing verified game callback boundary",
+      "remove old physical-stage and target-deny-write lease order before publication",
+      "complete two real native loads in a fresh process"
+    ]
+  },
+  "root_review": {
+    "archived_native_audit_rerun_passed": true,
+    "audit_input_hashes_verified": 10,
+    "refresh_all_pins_reverified": true,
+    "second_old_read_buffer_reuse_fixed": true
+  }
+}
