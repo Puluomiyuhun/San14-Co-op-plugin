@@ -8,7 +8,23 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：家中无人操作能力检查，准备公司端连接诊断
+## 最新：补齐保存过渡与失败收尾，仍待新进程实机验收
+
+本轮三个方向并行，全部离线：没有访问游戏、Steam存档或UI，没有启动网络监听、安装新钩子或要求用户操作。上一失败进程的正常退出仍未确认，不能把新代码当作已修复其驻留旧DLL。
+
+- **定位并修复另一个保存过渡缺口。** 固定原生调度代码允许状态的暂缓转换检查绕过队列apply，继续更新下层状态。因此五栈、一个本代Save已排队时仍可能更新User；旧Owner会把它误判为输入异常。新增独立后继只接受准确本代、唯一type0自有Save，保留实际claim、原生返回和报告字段检查。前驱缺陷已复现，后继正常及拒绝组合通过；这不是上次实机首因的证明。
+- **增加独立的失败收尾。** 对原生Save已完成worker/join/finalizer、却在最终校验报error54的首个请求，在原宿主线程和真实父控制边界重新检查状态任务、调用与队列排空后，退休保存占用并释放该宿主自己的锁。原错误、撤销标记与once claim保留，邮箱Unknown，无artifact。导出层和外部发布器均要求同代收尾回执；错误线程、未排空任务、回执错代或仍持锁不放行。仍不是所有错误的通用恢复，也不证明全游戏writer排他。
+- **首次失败自动留证。** 新启动后继通过独立只读进程句柄双读首次失败DATA，核PID/birth、EXE/DLL和映射身份；不另发目标调用。未发布或不稳定的数据不当作成功，诊断失败不影响原来的收尾尝试，未决收尾调用保留结构化记录。实际自有进程读数测试10项通过。
+
+入口：[保存排队User](../work/mod_research/a_save_pending_user_handoff.md)、[失败收尾](../work/mod_research/a_save_abort_handoff.md)、[调度与启动审查](../work/mod_research/a_save_covered_review.md)、[首次失败诊断](../work/mod_research/a_save_failure_diagnostic_handoff.md)。[本轮公开分层证据](evidence/2026-10-09-save-transition-retirement.json)区分实际自有进程、业务替身和生产编译；源码旧版本保持冻结。
+
+**最终合并已完成。** pending User六例通过；合并同一Owner后的正常保存与报告游标错误退休两例通过；新发布器六例通过，包含独立失败回执、拒绝未退休/错代/持锁，以及原Complete/未绑定Cancelled恢复。完整生产DLL及实际typed ABI通过，原生字段编码五例通过。根agent逐份复核声明源码/产物/生成文件，无变化；合并仅增加abort的四处代码，pending/covered逻辑保留。尚未把这份DLL装入游戏。
+
+下一次内部单次入口为 `work/mod_research/a_save_diagnostic_start.py`。本机最终`--build-run`指向私有目录 `a_save_abort_pending_runtime_runs/20261009-135510-973447/abi`，`--publisher-build`指向 `a_save_abort_publish_runs/20261009-135151-357545`；DLL SHA256为 `8125ec17de92bd46f9fcda780008990b5c8c1b9456630f895de8bb39886054cb`。这只是定位已验证构建，不允许复用旧PID、旧claim或跳过fresh进程/阶段检查。离线重建入口为 `a_save_abort_pending_runtime_build.py`，构建产物不提交Git。
+
+下一项仍是：旧游戏正常退出后，用新的34号档进程完成一次**文件校验通过且来源恢复通过**的保存。此后还缺A连续第二次保存、B两份合法新档连续加载、同房间跨旬衔接和异地连接。公司端网络/Python条件尚待答复；连接诊断与原生游戏验收分开。
+
+## 上一轮：家中无人操作能力检查，准备公司端连接诊断
 
 用户当前在公司，允许尝试自行操作家中游戏，并可在公司配合远程测试。本轮只检查进程/窗口和准备连接诊断，没有向游戏发送点击、按键、读档、推进或新注入请求。
 

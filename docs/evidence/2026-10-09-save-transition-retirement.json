@@ -1,0 +1,106 @@
+{
+  "schema": "san14.offline-save-transition-retirement.v1",
+  "date": "2026-10-09",
+  "game_access": false,
+  "steam_save_access": false,
+  "ui_input": false,
+  "network_listener_started": false,
+  "successor_injected": false,
+  "real_new_save_accepted": false,
+  "real_source_restoration_verified": false,
+  "two_real_clients_connected": false,
+  "runs": [
+    {
+      "name": "pending_user_baseline",
+      "private_record": "a_save_pending_user_runs/20261009-135259-190602/result.json",
+      "record_sha256": "8a2925e1a9049d13a763f18adbdf16f8049773e54245a5c053f6b55ce20430dd",
+      "result": "PASS",
+      "case_count": 1,
+      "scope": "owned_process_or_offline",
+      "baseline_reproduces_failure": true
+    },
+    {
+      "name": "pending_user_successor",
+      "private_record": "a_save_pending_user_runs/20261009-135331-717748/result.json",
+      "record_sha256": "c5fb6db57b7ac02241cf6b85eb4d9d5106d92e6b65ee9a9e89379b57decabbbb",
+      "result": "PASS",
+      "case_count": 6,
+      "scope": "owned_process_or_offline",
+      "baseline_reproduces_failure": false
+    },
+    {
+      "name": "abort_pending_composed",
+      "private_record": "a_save_abort_pending_runs/20261009-135855-553382/result.json",
+      "record_sha256": "e5c007030db82f0af4d52fa32beeca9220ceef8ce6ef3a7c9ee3e0e73fa36ca3",
+      "result": "PASS",
+      "case_count": 2,
+      "scope": "owned_process_or_offline",
+      "baseline_reproduces_failure": false
+    },
+    {
+      "name": "production_runtime_abi",
+      "private_record": "a_save_abort_pending_runtime_runs/20261009-135510-973447/result.json",
+      "record_sha256": "85a2bf2d9c176cf8917ae757d492cb19d64e2ea577003dbf58ac5e1c64148974",
+      "result": "PASS",
+      "case_count": null,
+      "scope": "owned_process_or_offline",
+      "baseline_reproduces_failure": false
+    },
+    {
+      "name": "publisher",
+      "private_record": "a_save_abort_publish_runs/20261009-135151-357545/result.json",
+      "record_sha256": "9d278c350607379b5e68113ea5181a0d0e539dfa29a10cfb04e9824fbaa4c66f",
+      "result": "PASS",
+      "case_count": 6,
+      "scope": "owned_process_or_offline",
+      "baseline_reproduces_failure": false
+    },
+    {
+      "name": "read_only_failure_diagnostic",
+      "private_record": "a_save_failure_diagnostic_test_runs/20261009-135136-315886/result.json",
+      "record_sha256": "8314c31685650b119977964ed7fb60f5d15a3e35a4d0bf6ed48e8d7184d5b445",
+      "result": "PASS",
+      "case_count": 10,
+      "scope": "owned_process_or_offline",
+      "baseline_reproduces_failure": false
+    },
+    {
+      "name": "native_abi_capture_encoding",
+      "private_record": "a_save_runtime_start_test_runs/20261009-135642-590955/result.json",
+      "record_sha256": "31525784b532b1610a5766f8d6220437b5793bbd5978d5c85748c731f70586e1",
+      "result": "PASS",
+      "case_count": 5,
+      "scope": "owned_process_or_offline",
+      "baseline_reproduces_failure": false
+    }
+  ],
+  "production": {
+    "abi_directory": "a_save_abort_pending_runtime_runs/20261009-135510-973447/abi",
+    "dll_sha256": "8125ec17de92bd46f9fcda780008990b5c8c1b9456630f895de8bb39886054cb",
+    "publisher_directory": "a_save_abort_publish_runs/20261009-135151-357545",
+    "launcher": "work/mod_research/a_save_diagnostic_start.py",
+    "combined_owner": "work/mod_research/a_save_abort_pending_owner.cpp"
+  },
+  "root_review": {
+    "source_and_artifact_pins_match": true,
+    "combined_owner_preserves_pending_logic": true,
+    "new_launcher_validated_exact_build_schema_and_data_export": true,
+    "new_launcher_game_execution": false
+  },
+  "limitations": [
+    "Pending User is supported by archived scheduler control flow, not observed as the prior live first cause.",
+    "Save business and scheduler bodies in composition remain explicit substitutes.",
+    "Aborted-drained applies only to the first error54 request with observed native finalization and exact boundary/task conditions.",
+    "Failure retirement preserves Unknown and original error; no artifact, retry, claim reset, DLL unload or full-game writer permit.",
+    "Publisher fixture supplies its own diagnostic receipt; actual receipt production is separately exercised in the composition.",
+    "Owner wrong-generation, missing worker join and abnormal predicates are statically reviewed, not dynamically fabricated.",
+    "Gate first-failure DATA records a failure category, not every layout subpredicate.",
+    "Previous old game normal exit remains unconfirmed; new code cannot retire its old loaded module."
+  ],
+  "next_acceptance": [
+    "Normal exit of prior failed process and fresh slot34 process.",
+    "One actual verified fresh save plus all source restoration.",
+    "Second A save, two B legal consecutive loads and room lifecycle integration.",
+    "Confirm company network/Python conditions, then real remote connection and transfer check."
+  ]
+}
