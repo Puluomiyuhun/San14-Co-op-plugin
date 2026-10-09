@@ -8,6 +8,10 @@
 
 最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)、[B同六槽两模块交接](../work/mod_research/b_warm_two_bank_handoff.md)、[文件暂存](../work/mod_research/b_warm_staging_handoff.md)和[B本代采样](../work/mod_research/b_warm_profile_capture_handoff.md)。它们仍需合并为本机启动流程，不能直接替换旧脚本的DLL路径执行；合法新档与连续实机加载尚待验收。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。最新交接明确修正了旧profile的固定势力guard遗漏。
 
+## 新增启动入口的使用范围
+
+最新[A跨旬启动](../work/mod_research/a_native_turn_start_handoff.md)和[B单代启动](../work/mod_research/b_warm_start_handoff.md)均默认仅显示help，显式参数才访问当前PID。A仍使用原机34号/存储绑定；B接本机明确Steam路径但仍核固定支持版本哈希。两者依赖各自完整私有构建证据，不是朋友电脑的一键安装包。B新启动器要求完整factory构建，旧部分组合结果不能替代；同PID/birth仅一次，失败Stop不授予换档/重试。后续持续协调器尚需连接第二代接管、暂存及房间。
+
 ## 先建立开发环境
 
 ```powershell

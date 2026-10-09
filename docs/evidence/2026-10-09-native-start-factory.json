@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "A controlled two-save startup; B full one-bank factory and profile-aware startup checks",
+  "game_process_access": false,
+  "steam_save_access": false,
+  "game_ui_access": false,
+  "new_game_patch_or_debugger": false,
+  "two_player_ready": false,
+  "a_startup": {
+    "private_result": "a_native_turn_start_test_runs/20261009-172106-322176/result.json",
+    "sha256": "d761cb95f1c2015eb1368fafe5f642c0a22a31a9cf9e3c7d3c5f593020263d13",
+    "result": "PASS",
+    "tests": 5,
+    "sources_verified": 11,
+    "private_inputs_verified": 5,
+    "actual_client_codec": true,
+    "actual_owned_unprepared_production_exports": true,
+    "transport_and_runtime_state_are_doubles": true,
+    "whole_launcher_executed": false,
+    "real_turn_executed": false,
+    "real_two_saves_verified": false
+  },
+  "b_factory": {
+    "private_result": "b_warm_factory_runs/20261009-172050-464741/result.json",
+    "sha256": "d08889ffb8cdbf517c141e8b3b2a8e05d38374008cd7833a041713fb48720499",
+    "result": "PASS",
+    "cases": 3,
+    "full_install_configure_and_guards_executed": true,
+    "target_ids": [
+      2,
+      9
+    ],
+    "guard_checks_each_success": 57,
+    "storage_validations_each_success": 72,
+    "source_drift_rejected_before_request_cas": true,
+    "production_dll_sha256": "c4b32383ff4b278a835277d4e36308d21b4169fce59083e2b275a65ef2d7650b",
+    "sources_verified": 79,
+    "private_inputs_verified": 7,
+    "generated_verified": 6,
+    "binaries_verified": 61,
+    "native_menu_file_and_world_business_are_doubles": true,
+    "same_process_two_complete_factories": false,
+    "two_legal_game_saves": false,
+    "ready_authorized": false
+  },
+  "b_startup_tests": {
+    "private_result": "b_warm_start_test_runs/20261009-173141-716883/result.json",
+    "sha256": "e73d08fc80590472abfb7ff0e9702f955441197c222d9c88a7935c47ecfa77c3",
+    "result": "PASS",
+    "cases": 34,
+    "sources_verified": 10,
+    "private_inputs_verified": 2,
+    "reports_and_control_calls_are_synthetic": true,
+    "actual_production_manifest_pins_checked": true,
+    "whole_execute_cleanup_exercised": false,
+    "game_loaded": false,
+    "first_bank_only": true,
+    "default_help_executed": true,
+    "next_bank_authorized": false
+  },
+  "review_fixes": [
+    "Full factory manifest uses sources/private, not source_pins/private_pins",
+    "Completion requires increasing sequence, not duplicate samples",
+    "Identity Pair fields remain pointers, not profile numeric IDs",
+    "Known Stop request precedes local file lease close; Stop is not native drain"
+  ],
+  "remaining": [
+    "Connect two complete B factory installs with actual native handover, staging and fresh samples in one persistent coordinator",
+    "A verified real save and controlled native turn followed by real second save",
+    "Two legal newly produced saves loaded into same real B process",
+    "Shared room file delivery, rules withdrawal/reinstallation and next-period acknowledgments",
+    "Two-PC supported-version and local-path checks plus actual remote connectivity"
+  ],
+  "current_recovery": {
+    "normal_exit_of_old_failed_process_confirmed": false,
+    "current_game_reinspected": false,
+    "new_manual_operation_requested": false,
+    "old_claims_preserved": true
+  },
+  "source_sha256": {
+    "work/mod_research/b_warm_start_test.py": "0b98f44a81bb3bcd5a77ef64651c349a533af5aa300ae297b28e0c5401d74df5",
+    "work/mod_research/b_warm_start.py": "53ba7ce7df012f52cdfaa4fe79e169a60a94be6bff95b47078a71c5272bf1379",
+    "work/mod_research/b_warm_start_support.py": "413c453f9fc17b9e900c1e4340f8659ddf8ba6d22725d6d9aa1aa64b95dc6ecb",
+    "work/mod_research/b_warm_start_acceptance.py": "2fb3d8ae131228f6635dc161f3417282a3a609d591ee6ed611c8b05f445c8bb0",
+    "work/mod_research/a_native_turn_start.py": "8fa69e03d067809fe1fb435ef3e2e05b4ebd0f1ab56f446aade17d6a3b06dd99",
+    "work/mod_research/a_native_turn_start_control.py": "ec2097cbcc1ddce2fc0c7a09e2ec70e9b5a80b0a4cbc14a439b1de5807596363",
+    "work/mod_research/a_native_turn_start_test.py": "2566ef93f3cf6034050f32c91056400fcd1a670dd74ddba36a3743646fa6d062"
+  }
+}

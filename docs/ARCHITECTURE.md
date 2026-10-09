@@ -22,6 +22,10 @@
 - warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
 - [同槽接管后继](../work/mod_research/b_warm_two_bank_handoff.md)在一个自有host中持有固定原函数和同六槽，第一代实际封存/恢复后才准第二个独立DLL接管。跨代不重置Session或once。相应文件暂存与fresh planning采样已分别实现，但仍须由统一启动器在真实退休、无读者和输入边界下衔接；文件已暂存和采样相同都不是原生加载许可。此前profile的固定势力guard遗漏已由后继修复，旧target9 fixture成功不证明那层曾被执行。
 
+## 最新启动接线边界
+
+[A跨旬启动后继](../work/mod_research/a_native_turn_start_handoff.md)已经连接生产Runtime新9/10、原IPC心跳与第二保存请求，运行期间仍由人正常推进。B的[完整factory组合](../work/mod_research/b_warm_factory_handoff.md)补上实际Install/configure与完整guard执行，一代成功不再依赖附件guard替身；游戏业务仍为明确替身。新[B单代启动入口](../work/mod_research/b_warm_start_handoff.md)绑定当前本机profile/Steam/生产DLL，实际完成报告、退休和fresh地图身份共同验收。单代启动不覆盖暂存档，不授权下一代；文件替换、真实native handover和两个完整factory还需持续协调器连接。两端房间Ready和规则跨world重装亦未在这两个启动器内闭环。
+
 ## 推演结束与下一旬的身份边界
 
 旧A repeat的Retire保留ReadyFence/Gate，却等待被门禁挡住的日期推进。新的[a_native_turn后继](../work/mod_research/a_native_turn_handoff.md)已接独立跨帧Running：旧工具命令/保存请求继续退休，原User/Game透明执行，返回规划后核对日期并fresh绑定状态对象及新Guard。自有组合特意让User/Strategy离栈换址，随后第二份保存完成；真实游戏仍待验。Running目前放行普通菜单，测试必须不新增命令，不能称正式输入白名单。Stop时保持未决推演、不恢复旧对象检查。[身份采样工具](../work/mod_research/a_turn_identity_handoff.md)可伴随未来实机推进补地址观测。
