@@ -8,6 +8,12 @@
 
 最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)、[B同六槽两模块交接](../work/mod_research/b_warm_two_bank_handoff.md)、[文件暂存](../work/mod_research/b_warm_staging_handoff.md)和[B本代采样](../work/mod_research/b_warm_profile_capture_handoff.md)。它们仍需合并为本机启动流程，不能直接替换旧脚本的DLL路径执行；合法新档与连续实机加载尚待验收。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。最新交接明确修正了旧profile的固定势力guard遗漏。
 
+## 远端完成回执与本机规则配置
+
+新增[RemoteCompletion](../work/mod_research/b_warm_remote_completion_handoff.md)和[RemoteRules](../work/mod_research/b_warm_remote_rules_handoff.md)。A持Coordinator，B只需实际控制连接、本机Journal和自己的原生所有者。两端启动器需要另外私下提供同一adapter密钥；当前没有在普通入房请求里发密钥，也没有实现朋友端一键启动。不要把join token、旧运行JSON或诊断ACK当成已加载证明。
+
+`py -3 work/mod_research/b_warm_remote_completion_test.py`使用独立B子进程、真实本机TLS及显式native替身。`py -3 work/mod_research/b_warm_remote_rules_test.py`还会运行自有原生宿主，需要前驱固定构建输入；两者不会发现或操作游戏。受控首测的局部边界及未完成的正式暂停见[审计](../work/mod_research/b_warm_boundary_audit.md)，不把空callback当成实际暂停。
+
 ## 首次formal收档与规则准备接口
 
 新增[bootstrap正式后继](../work/mod_research/b_warm_bootstrap_protocol_handoff.md)及[保留式规则factory](../work/mod_research/b_warm_rules_factory_handoff.md)。首代必须直接创建独立bootstrap SQLite，不把旧Journal改版本或伪造B预载视角；后续期使用原Journal。factory接已有GameReader/ProcessAPI及实际等待边界，构建身份和计数器指纹必须匹配，不能用owned fixture产物安装游戏，也不能在旧失败进程上重试。

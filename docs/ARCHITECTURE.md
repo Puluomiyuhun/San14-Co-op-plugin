@@ -22,6 +22,14 @@
 - warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
 - [同槽接管后继](../work/mod_research/b_warm_two_bank_handoff.md)在一个自有host中持有固定原函数和同六槽，第一代实际封存/恢复后才准第二个独立DLL接管。跨代不重置Session或once。相应文件暂存与fresh planning采样已分别实现，但仍须由统一启动器在真实退休、无读者和输入边界下衔接；文件已暂存和采样相同都不是原生加载许可。此前profile的固定势力guard遗漏已由后继修复，旧target9 fixture成功不证明那层曾被执行。
 
+## A/B跨进程的完成确认与规则配置
+
+[RemoteCompletion](../work/mod_research/b_warm_remote_completion_handoff.md)将原来同进程Projection的最后确认拆开：A独占PeriodCoordinator，B只持本机Journal/原生所有者；独立adapter密钥认证预约及加载观察，A以新鲜本机采样对照后才`loaded()`。B先核完整投影，网络传固定结构摘要，避免将压缩率当成64KiB上限内可传的保证。摘要依赖可信B所有者及其本地检查；HMAC认证来源本身不是native fence证明。
+
+[RemoteRulesWorldCapture](../work/mod_research/b_warm_remote_rules_handoff.md)只通过真实B控制连接读取已确认scope，本机GameReader仍读取本机世界；不在B重建A的Room。明确后继factory复用已有真实Prepare/Seal/发布器。断线使capture/factory停止依赖工作并保留模块，不等于已自动恢复原入口。
+
+现有[B边界审计](../work/mod_research/b_warm_boundary_audit.md)列明局部加载边界与持续输入暂停的差别。可做无新命令受控诊断，不应为它追加全引擎锁；正式可玩暂停需在B自己的warm原生Owner中衔接，不能叠加占同User/Game槽的A owner。
+
 ## 首次视角切换与后续房间确认
 
 [Bootstrap正式后继](../work/mod_research/b_warm_bootstrap_protocol_handoff.md)将首代读档前的source视角作为独立数据库契约记录，加载后依然必须是targetB。第1期使用独立BootstrapJournal/Projection，第2期回到普通Journal/Projection；同一warm和规则生命周期先用bank0，再用bank1，不重建对象来清掉一次性历史。实际本机TLS/SQLite/Windows文件事务已在一条组合中由期1进入期2再到期3；原生加载、保存、内存和暂停仍是测试替身，没有两游戏闭环。
@@ -32,7 +40,7 @@
 
 [首次视角后继](../work/mod_research/b_warm_bootstrap_handoff.md)只在第一代允许旧规则source viewer→profile.target；随后交回原WorldLifecycle同viewer约束。它要求旧双人规则已安装，先恢复再加载，绝不在world换址后才试图恢复旧绑定。两代共享warm bank序列与规则生命周期；该模式没有实现第三bank。
 
-[规则捕获适配](../work/mod_research/b_warm_rules_capture_handoff.md)从已绑定GameReader/房间得到新WorldGeneration和当前Config，区分固定房间binding epoch与本地规则代际epoch。准备、封存及发布新规则DLL仍需要生产factory。首次source视角也不能通过假造target视角调用旧Journal：首代Received后继目前只做诊断ACK，正式bootstrap协议边界需明确后继。
+[规则捕获适配](../work/mod_research/b_warm_rules_capture_handoff.md)从已绑定GameReader/房间得到新WorldGeneration和当前Config，区分固定房间binding epoch与本地规则代际epoch。准备、封存及发布由已新增的RulesFactory完成。首次source视角不能假造target视角调用旧Journal：冻结Received前驱仅做诊断ACK，正式路径使用Bootstrap后继及上文RemoteCompletion。
 
 最新[收档适配](../work/mod_research/b_warm_received_apply_handoff.md)把B本机的实际收档记录、一次性加载意图、既有规则/warm桥和TLS诊断ACK接在一起。固定本期context和原生进程身份；已实际预约的Journal INTENT可交给该调用，但必须与本机持久记录精确匹配。回执丢失不重做加载。
 

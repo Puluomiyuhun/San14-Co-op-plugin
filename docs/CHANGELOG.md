@@ -1,5 +1,12 @@
 # 进展记录
 
+## 2026-10-09 — 远端独立B完成回执与网络规则绑定
+
+- 新RemoteCompletion把A Coordinator与B本机Journal/加载所有者拆到独立进程，通过真实TLS及独立adapter认证完成首代和次期loaded；未知结果不重做native。
+- 新RemoteRulesCapture/Factory使B通过当前控制连接核scope，读取自己世界并复用真实规则Prepare/Seal/发布器，不复制A Room。
+- 复查发现完整投影的压缩包可能超64KiB，改为本地完整核验后回传固定结构认证摘要。窄诊断边界审计明确现有可复用路径和未完成的持续暂停，未新增全引擎首测门槛。
+- 仅只读OS元数据确认旧失败游戏仍存在；无游戏内存/UI/存档操作、无新游戏补丁。验证及剩余限制见[本轮摘要](evidence/2026-10-09-warm-remote-completion-rules.json)。
+
 ## 2026-10-09 — 首次视角切换接正式两期房间，提取保留式规则factory
 
 - 新BootstrapJournal如实保存首代A视角，独立schema/SQLite版本；6项实际持久化/并发/一次性检查通过，普通Journal不迁移。

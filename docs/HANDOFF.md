@@ -8,7 +8,22 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：首次切换接正式两期房间，规则准备接真实原生调用
+## 最新：A/B分进程的远端完成通道，B规则配置不再依赖A的Room对象
+
+本轮仍未读取游戏内存、操作UI或Steam存档，没有新增游戏补丁/调试器。仅查询操作系统进程元数据，核对旧PID38556及birth仍与原失败实例一致，因此正常退出尚未发生；没有向旧实例重投或清claim，无新用户操作要求。
+
+- **补上真正跨进程的完成通道。** 此前Projection组合虽然经TLS传档，但最终A/B观察与`loaded()`由同一测试进程调用。新`RemoteCompletionRoom`让A独占Coordinator，B的`RemoteGuestCompletion`只持本机Journal/加载所有者和实际TLS控制连接，预约后只执行一次本机加载，返回认证观察；A重新采样自己的投影后才调用实际`loaded()`。普通warm诊断ACK仍不能代替这一步。独立adapter key通过本地启动器私下布置，不拿join token充原生执行证明。
+- **B规则配置不再需要A的Python对象。** 新`RemoteRulesWorldCapture`通过当前B连接查询固定scope，读取B自己的PID/birth、world/设置和身份；`RemoteRulesFactory`明确接受这个capture，其余LoadLibrary/Prepare/Seal/ResidentPort/发布器直接继承上轮真实实现。已与真实自有进程的两代DLL准备和四次安装/恢复联合验证。
+- **修正远端数据包容量问题。** 直接压缩完整核验投影会在低可压缩数据下超过既有64KiB消息上限。B现在先本地完整核验，再发固定结构的HMAC认证摘要；A与本地完整观察提取的同摘要比较。仍只陈述两表已审计字段和日期，不能写成完整世界或引擎暂停证明。
+- **首测与完整暂停明确区分。** [边界审计](../work/mod_research/b_warm_boundary_audit.md)确认可复用既有真实User/Menu/Game加载提交与完成边界；旧A输入owner占用同两槽，不能再叠到B。受控无新命令的两档诊断不要求先补全引擎锁；但不能用人工不操作或空回调冒充冻结严格接口所要求的持续排他。本轮没有增加恒false门禁或新的全世界核验门槛。
+
+精确测试与替身范围见[本轮证据](evidence/2026-10-09-warm-remote-completion-rules.json)、[远端回执](../work/mod_research/b_warm_remote_completion_handoff.md)及[远端规则配置](../work/mod_research/b_warm_remote_rules_handoff.md)。A/B独立进程和真实TLS并不等于两个真实游戏：完成通道中的Save/load/RAM/等待仍是显式替身；规则组合运行的是自有原生宿主。本轮没有新增可玩的朋友端安装包。
+
+两组各5项通过。当前两期诊断的日期合同仍是B停在旧期等待A的新档，再加载到目标日期；尚不代表双方都自行推演到旬末后再校正。后者需要明确支持B已到目标日期的加载前状态，不能伪造旧日期满足检查，也不追加为本次受控首测的门槛。
+
+**接下来：** 把远端通道的`apply_received(permit)`接到同一B持久加载/规则所有者，在明确的受控无新命令诊断语义下使用已有局部原生边界；不能将强合同回调留空却宣称锁已完成。然后在fresh实例验证A修复后的新档、同一B两次合法加载和跨期；再做两台电脑的实际远端连接/本机配置。独立key的启动配置尚需接入统一入口；host restart/reconnect恢复、完整内政与正式全输入暂停并未由本轮完成。
+
+## 上一轮：首次切换接正式两期房间，规则准备接真实原生调用
 
 本轮仅离线和自有测试进程，没有访问游戏、Steam存档或UI，没有新游戏补丁/调试器。旧失败游戏正常退出仍未确认，不重试、不清claim，也没有新增用户操作要求。
 

@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Separate B process authenticated completion and network-bound local rules capture/factory",
+  "game_memory_access": false,
+  "game_ui_access": false,
+  "steam_save_access": false,
+  "os_process_metadata_read": true,
+  "old_failed_game_incarnation_still_present": true,
+  "new_game_patch_or_debugger": false,
+  "two_real_games_verified": false,
+  "two_player_ready": false,
+  "remote_completion": {
+    "private_result": "b_warm_remote_completion_runs/20261009-200139-981665/result.json",
+    "sha256": "87d186d74de618856f8db395ced712fe88b7fbfb16bbe3087b44edf02552be01",
+    "result": "PASS",
+    "cases": 5,
+    "verified_pins": {
+      "sources": 31,
+      "artifacts": 54
+    },
+    "actual_tls": true,
+    "independent_b_process": true,
+    "b_has_no_coordinator": true,
+    "actual_journals_and_coordinator_loaded": true,
+    "periods": [
+      1,
+      2,
+      3
+    ],
+    "separate_enrolled_adapter_key": true,
+    "source_key_not_remote_attestation": true,
+    "native_save_load_memory_boundary_are_doubles": true,
+    "compact_witness_locally_validated": true,
+    "low_compressibility_old_packet_bytes": 69314,
+    "low_compressibility_new_packet_bytes": 1518,
+    "ready_granted": false,
+    "date_policy": "B waits at old planning date for A checkpoint; both clients already simulated to target date is not implemented"
+  },
+  "remote_rules": {
+    "private_result": "b_warm_remote_rules_runs/20261009-200248-314187/result.json",
+    "sha256": "22081300d60f6ac118a092403a73ef5924ec3238f1e62d59dd416426767ee81f",
+    "result": "PASS",
+    "cases": 5,
+    "verified_pins": {
+      "sources": 46,
+      "build_sources": 65,
+      "private": 114,
+      "artifacts": 46
+    },
+    "actual_tls_binding_query": true,
+    "copied_authority_room": false,
+    "actual_owned_rpm": true,
+    "actual_owned_remote_prepare_seal": true,
+    "actual_owned_publish_install_restore": true,
+    "viewers": [
+      12,
+      2
+    ],
+    "actual_publishers": 4,
+    "owned_host_normal_exit": true,
+    "world_and_business_are_fixture": true,
+    "other_cases_use_fake_memory": true,
+    "native_game_load": false,
+    "ready_granted": false
+  },
+  "boundary_audit": {
+    "file": "work/mod_research/b_warm_boundary_audit.md",
+    "sha256": "35bb22194440687f5802c2de2e2124c993c865c3baaa379248a784df5acc050f",
+    "verified_source_pins": 18,
+    "static_only": true,
+    "blanket_full_engine_fence_not_added_as_diagnostic_gate": true,
+    "continuous_native_input_exclusion_not_implemented": true
+  },
+  "retained_iterations": [
+    {
+      "private_result": "b_warm_remote_capacity_runs/20261009-200012-851523/result.json",
+      "sha256": "14381b12a772f746c86ac9054ab4607e18e45ceef30153f7b006bee6687a80a1",
+      "result": "REPRODUCED_CAPACITY_REFUSAL",
+      "old_source_sha256": "0cd5e62aab56cffffbd54ae838f73961e0abd441f44d3d9f930dd961f02a37c2"
+    },
+    "Remote completion 195616 initial four-case PASS used compressible full samples; retained, superseded by compact-witness five-case test",
+    "Remote rules 195529/195827 were intermediate five-case PASS runs; final repeated after completion source freeze",
+    "Remote completion 200103 was first compact-witness PASS; final repeated after stricter binding/date validation"
+  ],
+  "remaining": [
+    "Connect remote apply_received to the same retained B native/rules owner under an explicit controlled no-command diagnostic contract",
+    "Fresh real A repaired save and two legal same-process B native loads/next period",
+    "Private adapter-key provisioning and local runtime/paths in a unified launcher",
+    "Actual WAN/two-PC game test; neither subprocess TLS nor owned native fixture proves two games",
+    "Full playable input pause and broad domestic command sync remain separate work; not extra gates for the minimal controlled diagnostic",
+    "Explicit pre-load date policy for both clients having independently simulated to target date; separate from controlled old-date diagnostic"
+  ]
+}
