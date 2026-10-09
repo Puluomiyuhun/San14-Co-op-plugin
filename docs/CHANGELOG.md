@@ -1,5 +1,11 @@
 # 进展记录
 
+## 2026-10-09：A 初始化首错后继完成生产构建和启动器包装
+
+- 保留原Controller/Claim/Inspector的检查、调用顺序和锁，只在Initialize作用域一次发布DATA首错；细分即时槽读取、采样、绑定及Inspector拒绝。记录只复制当次已取得的报告，不额外调用游戏。
+- 6个自有进程场景、完整生产DLL、真实typed ABI及旧启动器兼容检查通过；RPM-only reader 10/10通过，包含实际144字节DATA跨语言核对、未发布/半发布和超界PID拒绝。
+- 尚未向游戏安装此后继，没有把诊断补充写成实机问题已修复。旧实机失败的七处入口已恢复、84原档未变；请求用户正常退出，未确认。全部生成器/fixture故障与来源漂移保留在[手册](../work/mod_research/a_save_initialize_trace_handoff.md)。
+
 ## 2026-10-09：远端收档改用原生刷新；A 实测初始化失败已撤回并定位
 
 - 新规则桥/Bootstrap/ReceivedApply/RemoteOwner接入已实测Resident接口，取消目标物理替换和跨load Python文件锁，保留两期规则与正式Journal流程。桥6/6、真实本机TLS组合8/8通过；游戏内存/原生加载/guard为替身，不能写成两真实客户端已连通。

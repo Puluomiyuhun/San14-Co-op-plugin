@@ -16,9 +16,13 @@
 
 **A 新候选的实际保存尚未通过，不能继续写成“只差再测”。** 候选完整166文件离线审计和6项测试先通过；用户 fresh 启动读34后，PID7804/birth134360291394815952原入口、张鲁203-08-11、EXE与存储均核对通过。实际安装七处入口后，父回调初始化报 `parentError=7/Initialize`、`hostInitialized=0`；保存尚未提交/入队、未启动IPC、没有生成文件。工具 Stop 后取得 restoreReady，发布器恢复全部七处（mask127）并解除调试器；独立只读 capture 再次通过，84份原档无变化且无新增。保留失败claim/驻留模块，绝不重投同PID。[公开证据](evidence/2026-10-09-refresh-remote-a-initialize.json)。
 
-**已进一步只读定位到 Controller.Initialize。** 根使用精确旧DLL、两个指令引用和同MSVC布局确认Runtime地址，进行两次相等的只读对象快照，未调用导出或写入。其Controller.error=1/Config、initialized=0，因此后续Request/Mailbox/Host尚未执行。完整缓存解码确认所有clean谓词正常；仍不能区分read末尾即时槽位解引用与ClaimController内部检查，不能猜定某个Inspector字段。布局/解码5项与两项反例通过；[具体诊断与证据](../work/mod_research/a_save_parent_failure_handoff.md)。正在新增只记录初始化首个失败分支的后继，不放宽原检查。
+**已进一步只读定位到 Controller.Initialize。** 根使用精确旧DLL、两个指令引用和同MSVC布局确认Runtime地址，进行两次相等的只读对象快照，未调用导出或写入。其Controller.error=1/Config、initialized=0，因此后续Request/Mailbox/Host尚未执行。完整缓存解码确认所有clean谓词正常；仍不能区分read末尾即时槽位解引用与ClaimController内部检查，不能猜定某个Inspector字段。布局/解码5项与两项反例通过；[具体诊断与证据](../work/mod_research/a_save_parent_failure_handoff.md)。已完成只记录初始化首个失败分支的后继，不放宽原检查。
 
-用户已被请求正常退出、先不用重开；确认状态以本节收尾补充为准。当前七处入口已恢复且无调试器，驻留模块不卸载、claim不清除。未证明真实两机、完整输入隔离、地图遮罩或全指令覆盖；下节仍为有效的上轮B两次加载实证。
+**下一次可用的诊断构建已完成。** `a_save_initialize_trace_*` 保留原Controller/Claim/fresh谓词、短路和锁，只在初始化作用域原子记录首错；Inspector报告直接复制当时局部值，不另采样。6个自有进程场景、完整生产编译、实际原typed ABI、旧启动器兼容检查均通过；新RPM-only reader 10/10通过，含真实144字节DATA跨语言核对。此变更提供更精确证据，**并未修复或复现本轮实机根因**。[构建/全部保留失败](../work/mod_research/a_save_initialize_trace_handoff.md)。
+
+原电脑新候选 `--build-run`：`..\mod_research\a_save_initialize_trace_runs\20261009-224411-509053\launch`，manifest SHA `44cccd825784a4f238d7d67876d4c4ced45fdbc6753464c73ac615d6233096eb`；配套发布器仍是`a_save_abort_publish_runs/20261009-135151-357545`。先对fresh PID正常只读捕获，再单次执行既有 `a_save_diagnostic_start.py`；结束后另用 `a_save_initialize_trace_read.py --observe --run <新实际run>` 读取初始化DATA。不要用旧 `a_save_next_audit.py` 固定8125候选的PASS放行新DLL；新的完整来源与ABI证据在`a_save_initialize_trace_runs/20261009-224411-509053/result.json`（SHA `2de52a527763f354ee7b4905b838ad7eb70b7d0dbe8fee3b43d3b4c5b608ecc0`）。这些原电脑私有路径不能直接供另一电脑使用。
+
+用户已被请求正常退出、先不用重开；最后一次OS查询仍显示本轮PID7804，尚无退出确认。本轮不再安装或执行游戏操作。当前七处入口已恢复且无调试器，驻留模块不卸载、claim不清除。未证明真实两机、完整输入隔离、地图遮罩或全指令覆盖；下节仍为有效的上轮B两次加载实证。
 
 ## 上轮实机：同一真实游戏进程连续加载两档成功，最终203年8月下旬、刘备
 

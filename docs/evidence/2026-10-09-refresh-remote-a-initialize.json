@@ -94,5 +94,30 @@
     "layout_test_record": "a_save_parent_failure_test_runs/20261009-222741-089421/result.json",
     "layout_test_sha256": "3bc90ea62f5cd5ab1b455a2612cc36690cbc3b51a328e6ec5a288d80d451f258",
     "layout_and_decode_tests": 5
+  },
+  "a_initialize_successor": {
+    "record": "a_save_initialize_trace_runs/20261009-224411-509053/result.json",
+    "sha256": "2de52a527763f354ee7b4905b838ad7eb70b7d0dbe8fee3b43d3b4c5b608ecc0",
+    "cases": 6,
+    "production_compiled": true,
+    "typed_abi_executed": true,
+    "launch_compatible": true,
+    "game_access": false,
+    "real_failure_fixed": false,
+    "data_size": 144,
+    "stage_offset": 140,
+    "launch_manifest_sha256": "44cccd825784a4f238d7d67876d4c4ced45fdbc6753464c73ac615d6233096eb",
+    "dll_sha256": "8a69512acc0bfc8f8691166d5264ab7dd64e8d1b04bcc504a36f5d0be955c9ef",
+    "reader_test_record": "a_save_initialize_trace_read_test_runs/20261009-224735-598004/result.json",
+    "reader_test_sha256": "63a4ab94b0db9140a15e4573fbe5b62d45930985ce51ca14aa5e4b6c405b65a6",
+    "reader_cases": 10
+  },
+  "current_process": {
+    "last_os_observed_pid": 7804,
+    "normal_exit_requested": true,
+    "exit_confirmed": false,
+    "patches_restored": true,
+    "debugger_detached": true,
+    "retained_module_not_unloaded": true
   }
 }
