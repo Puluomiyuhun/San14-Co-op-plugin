@@ -1,5 +1,11 @@
 # 进展记录
 
+## 2026-10-09 — B规则换档适配、实际远程原生链与部分世界观察
+
+- 新bridge复用规则生命周期和warm加载接口，接实际规则恢复、文件备份替换、加载后新地址观察及新规则安装；真实owned规则发布器和Windows文件组合3项通过，warm业务明确替身。
+- 原样Resident模块加载/校验、外部typed Install、独立helper DLL与宿主主线程完整一代加载/退休链实际执行；整个Resident.load及生产completion分类未调用，不称实机验收。
+- 增加两张已审计表的完整字段投影读取和差异定位，5项检查通过；仅为partial world witness，不授予loaded/Ready。无game/Steam/UI访问，接手位置及尚缺联合流程见[交接](HANDOFF.md)。
+
 ## 2026-10-09 — B同进程完整双factory、两档协调器及TLS诊断回执
 
 - 同一host、同六槽两个独立bank真实Install/configure/全部guards成功；实际typed Handover串接，首代真实guard失败拒绝交接，旧迟到桥隔离通过。生产DLL另行完整构建。

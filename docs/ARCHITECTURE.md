@@ -24,6 +24,10 @@
 
 ## 同进程两档协调与房间回执
 
+新增[规则与warm适配](../work/mod_research/b_warm_rules_bridge_handoff.md)复用`WorldLifecycle.replace`：恢复旧规则六入口→真实文件事务→warm加载→实际新世界观察→新模块绑定/发布。输入与执行等待边界仍由可信本机所有者保持，bridge不以房间暂停或JSON代替，也不释放等待或设置Ready。新适配与真实规则发布器组合已验证，但warm加载在该组合中仍是替身；另一路实际远程原生测试不能拼成同一真实游戏联合成功。
+
+[世界观察后继](../work/mod_research/b_warm_world_handoff.md)只比较两张已有精确字段清单的表及日期。所有物理槽均读，包括非活动槽；地址和本地玩家标签不参与共享散列，已审计业务字节不做猜测性屏蔽。结果命名为`partial_sha256`，缺失领域和非原子读取明确保留，不能作为现有更广世界契约的成功回执。其接点是原生保存/加载成功后的诊断，并非新的网络放行权。
+
 最新[完整双factory](../work/mod_research/b_warm_factory_pair_handoff.md)在同一自有进程执行两次实际Install/configure/完整guards；[两档协调器](../work/mod_research/b_warm_coordinator_handoff.md)已经把原生Handover、两个bank、fresh采样与第二次文件备份替换接成单一本机流程。其整个远程执行路径未实机验证，文件检查的native port仍为替身。第一档须先暂存，CLI不接网络房间也不推进游戏。
 
 [WarmRoom](../work/mod_research/b_warm_room_handoff.md)沿既有TLS/接收Journal增加诊断完成ACK，供A显示B本地加载验收情况。它不是原PeriodCoordinator.loaded：文件SHA与canonical world SHA用途不同。正式下一旬还需把同一原生所有者的实际世界观察、规则撤回/重装和回执接入房间；不能用测试complete_model或客端自报替代。受控两档诊断继续不授全世界核验/完整输入排他/房间Ready。
