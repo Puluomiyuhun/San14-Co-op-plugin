@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Truthful first source-view bootstrap journal and two-period room integration; retained native rules preparation factory",
+  "game_process_access": false,
+  "steam_save_access": false,
+  "game_ui_access": false,
+  "new_game_patch_or_debugger": false,
+  "two_player_ready": false,
+  "bootstrap_journal": {
+    "private_result": "checkpoint_bootstrap_journal_runs/20261009-192452-706361/result.json",
+    "sha256": "0eaf8a1f7df351f980ed0d9e5e7f1282efc7476c093a7f2449137e521c5d3eb0",
+    "result": "PASS",
+    "cases": 6,
+    "verified_pins": {
+      "sources": 4,
+      "artifacts": 8
+    },
+    "actual_sqlite_and_coordinator": true,
+    "native_observations_are_models": true,
+    "distinct_schema_and_sqlite_version": true,
+    "source_before_target_after": true,
+    "no_migration_or_native_retry": true
+  },
+  "bootstrap_protocol": {
+    "private_result": "b_warm_bootstrap_protocol_runs/20261009-192704-289501/result.json",
+    "sha256": "12fff59a27f043f59bd81d4c92dc4a8edc125a6f1a3b0a7c5e3f74f97cf812dd",
+    "result": "PASS",
+    "cases": 5,
+    "verified_pins": {
+      "sources": 33,
+      "artifacts": 90
+    },
+    "actual_tls": true,
+    "actual_windows_backup_replace_lease": true,
+    "actual_resident_port_lifecycle_predicates": true,
+    "actual_journal_and_coordinator_loaded": true,
+    "protocol_periods": [
+      1,
+      2,
+      3
+    ],
+    "pre_load_viewers": [
+      12,
+      2
+    ],
+    "completion_viewers": [
+      2,
+      2
+    ],
+    "warm_bank_indices": [
+      0,
+      1
+    ],
+    "retained_rules_instances": 3,
+    "complete_model_called": false,
+    "native_memory_publisher_save_load_and_fence_are_doubles": true,
+    "ready_granted": false
+  },
+  "retained_iterations": [
+    "Journal first fixture reused sequence zero with a different prefix; corrected fixture to advancing sequence 1, no production check weakened",
+    "Protocol first five-case PASS preceded a nonbehavioral validation cleanup; final five-case PASS source pinned above",
+    "Rules factory 192738: archived fixture rulers are 12/2; production reader correctly refused expected 666/952. Fixed fixture expectations, never forged snapshot",
+    "Rules factory 192828: real Prepare rejection is Rejected state 5, test incorrectly expected Faulted 6; assertion corrected with no production weakening",
+    "Rules factory 193040: PASS before expanded nested JSON artifact pinning; final runner repeated both cases with complete nested claims and publisher evidence"
+  ],
+  "remaining": [
+    "Fresh A repaired native Save and controlled next-period legal checkpoint",
+    "Integrate actual input/execution fence, same room owner, RulesFactory and whole Resident.load in one fresh B game lifecycle",
+    "Actual same-process two legal B loads and protocol next-period completion",
+    "Two-PC supported build/local paths and actual remote connectivity",
+    "Third bank only for separate formal-start load plus two later corrections; not required for minimum two-load bootstrap diagnostic"
+  ],
+  "rules_factory": {
+    "private_result": "b_warm_rules_factory_runs/20261009-193128-959554/result.json",
+    "sha256": "fadd653391d377f5ffe64752c9660a257bf87dd9a1eae80488918604c20a21c6",
+    "result": "PASS",
+    "cases": 2,
+    "verified_pins": {
+      "sources": 65,
+      "private": 45,
+      "generated": 10,
+      "binaries": 14,
+      "artifacts": 46
+    },
+    "actual_owned_remote_loadlibrary_prepare_seal": true,
+    "actual_rules_capture": true,
+    "actual_external_publisher_install_restore": true,
+    "viewers": [
+      12,
+      2
+    ],
+    "resident_modules": 2,
+    "per_generation_ai_calls": 8,
+    "per_generation_ai_skipped": 4,
+    "per_generation_income_checks": 6,
+    "active_counters_at_restore": 0,
+    "native_prepare_rejected_and_not_retried": true,
+    "publisher_log_failure_window_uses_explicit_double": true,
+    "publisher_unknown_state_retained": true,
+    "actual_game_load": false,
+    "game_data_and_business_are_owned_fixture": true,
+    "production_pair_identity_checked_only": true,
+    "owned_hosts_exited_normally": 2,
+    "actual_publishers_detached_and_exited": 4,
+    "ready_granted": false
+  }
+}

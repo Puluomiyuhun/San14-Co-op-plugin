@@ -1,5 +1,11 @@
 # 进展记录
 
+## 2026-10-09 — 首次视角切换接正式两期房间，提取保留式规则factory
+
+- 新BootstrapJournal如实保存首代A视角，独立schema/SQLite版本；6项实际持久化/并发/一次性检查通过，普通Journal不迁移。
+- BootstrapProjection及FormalBootstrapReceivedApply接首代加载、targetB结果和正式loaded；同一房间/规则生命周期完成1→2→3期。5项真实TLS/Windows文件组合通过，native业务与等待仍为明确替身。
+- RulesFactory提取实际DLL LoadLibrary/Prepare/Seal、当前配置捕获及ResidentPort发布接口；不自动Revoke、卸载或重试未知调用。精确验证边界见[本轮摘要](evidence/2026-10-09-warm-bootstrap-protocol-factory.json)。无游戏访问，尚未提供双机可玩包。
+
 ## 2026-10-09 — 首次视角切换接同一warm所有者，增加规则配置只读适配
 
 - 新BootstrapRulesBridge先恢复旧A-view规则、bank0加载转B、安装fresh规则，再复用原WorldLifecycle/bank1；6项实际文件与规则检查组合通过，native业务和publisher仍为明确替身。

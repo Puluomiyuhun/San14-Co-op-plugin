@@ -8,7 +8,19 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：首次A视角切B已接同一加载器，补生产读取器到规则配置的接点
+## 最新：首次切换接正式两期房间，规则准备接真实原生调用
+
+本轮仅离线和自有测试进程，没有访问游戏、Steam存档或UI，没有新游戏补丁/调试器。旧失败游戏正常退出仍未确认，不重试、不清claim，也没有新增用户操作要求。
+
+- **首代身份切换已接正式房间确认。** 独立`BootstrapCheckpointJournal`持久记录加载前真实A视角；独立schema及数据库版本不会误读、迁移旧Journal。`BootstrapProjection`、`FormalBootstrapReceivedApply`将首代收档、一次性预约、已有规则/加载桥、加载后B视角和实际`loaded()`连起来。第2期使用原普通Journal/Projection，并继续同一个warm和规则生命周期，使用bank1。
+- **组合不再预设B开局已经切好。** 一条真实本机TLS链从第1期source12开始，首次加载后target2，第二次仍target2；协议1→2→3，B attachment/epoch分别更新，保留3代规则对象和两份真实Windows备份。没有借用`complete_model`。原生保存/加载/发布器、游戏内存与等待边界在这组组合中仍是明确替身。
+- **规则DLL准备接口已提取。** 新`RulesFactory.prepare_rules(observed)`连接当前`RulesWorldCapture`、保留的进程句柄、独立DLL副本、实际LoadLibrary/Prepare/Seal和已批准外部发布器，返回真实`ResidentPort`供生命周期安装。每代先写持久claim，失败不重试、Revoke或卸载，发布器结果不明时保留进程与证据。必须先恢复旧规则再改变world，不能把Revoke当恢复。
+
+验证和精确哈希见[本轮证据](evidence/2026-10-09-warm-bootstrap-protocol-factory.json)。Journal独立6项、首次切换及后续房间组合5项、规则factory自有进程2项均通过。factory实际完成同进程两代远程Prepare/Seal和安装/恢复，viewer12→2；每代8次AI入口、6次收入判断且活动调用归零。另验真实Prepare拒绝不重试、发布器启动后日志失败保持未知。两个宿主及4个真实发布器已正常退出，游戏世界/业务仍为fixture；详见[factory手册](../work/mod_research/b_warm_rules_factory_handoff.md)。入口：[正式首次切换](../work/mod_research/b_warm_bootstrap_protocol_handoff.md)、[独立Journal](../outputs/san14-link/checkpoint_bootstrap_journal_handoff.md)。旧模块保持冻结。
+
+**不再把“缺首次formal Journal”和“没有生产规则factory”重复列为未开发。** 下一步重点是将这些接口与同一实际输入/执行等待边界、`Resident.load`和房间所有者组合进fresh游戏，验证修复后的A真实保存、同一B进程连续两份合法档及下一期衔接。然后两台电脑配置路径/版本与远程连接。目前分层与替身组合通过，仍未有两个真实游戏的闭环，也没有朋友端一键包。首测保持不下新命令的两次校正；完整内政、全世界内存字段核验、地图遮罩不追加为该诊断的硬门槛。正式开局另加载一次再做两旬校正才需要第三bank，当前最小组合将首次校正兼作身份切换，仍只需bank0/1。
+
+## 上一轮：首次A视角切B已接同一加载器，补生产读取器到规则配置的接点
 
 本轮没有访问游戏进程、Steam存档或UI，没有新增游戏补丁/调试器，原失败进程正常退出仍未确认。无新手动操作要求，不重试旧进程或清claim。
 

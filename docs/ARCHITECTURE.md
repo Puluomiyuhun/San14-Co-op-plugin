@@ -22,6 +22,12 @@
 - warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
 - [同槽接管后继](../work/mod_research/b_warm_two_bank_handoff.md)在一个自有host中持有固定原函数和同六槽，第一代实际封存/恢复后才准第二个独立DLL接管。跨代不重置Session或once。相应文件暂存与fresh planning采样已分别实现，但仍须由统一启动器在真实退休、无读者和输入边界下衔接；文件已暂存和采样相同都不是原生加载许可。此前profile的固定势力guard遗漏已由后继修复，旧target9 fixture成功不证明那层曾被执行。
 
+## 首次视角切换与后续房间确认
+
+[Bootstrap正式后继](../work/mod_research/b_warm_bootstrap_protocol_handoff.md)将首代读档前的source视角作为独立数据库契约记录，加载后依然必须是targetB。第1期使用独立BootstrapJournal/Projection，第2期回到普通Journal/Projection；同一warm和规则生命周期先用bank0，再用bank1，不重建对象来清掉一次性历史。实际本机TLS/SQLite/Windows文件事务已在一条组合中由期1进入期2再到期3；原生加载、保存、内存和暂停仍是测试替身，没有两游戏闭环。
+
+[RulesFactory](../work/mod_research/b_warm_rules_factory_handoff.md)补上RulesWorldCapture之后的原生准备端口：当前world配置→独立DLL→Prepare→Seal→ResidentPort。它保留模块和发布器所有权，不自行安装或推进游戏；六入口安装/撤回继续由ResidentPort/WorldLifecycle检查。调用者需保留同一真实输入/执行边界。factory与真实warm.load、A保存、跨机完成证明的联合实机仍未验证。
+
 ## 同进程两档协调与房间回执
 
 [首次视角后继](../work/mod_research/b_warm_bootstrap_handoff.md)只在第一代允许旧规则source viewer→profile.target；随后交回原WorldLifecycle同viewer约束。它要求旧双人规则已安装，先恢复再加载，绝不在world换址后才试图恢复旧绑定。两代共享warm bank序列与规则生命周期；该模式没有实现第三bank。

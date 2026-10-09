@@ -8,9 +8,15 @@
 
 最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)、[B同六槽两模块交接](../work/mod_research/b_warm_two_bank_handoff.md)、[文件暂存](../work/mod_research/b_warm_staging_handoff.md)和[B本代采样](../work/mod_research/b_warm_profile_capture_handoff.md)。它们仍需合并为本机启动流程，不能直接替换旧脚本的DLL路径执行；合法新档与连续实机加载尚待验收。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。最新交接明确修正了旧profile的固定势力guard遗漏。
 
+## 首次formal收档与规则准备接口
+
+新增[bootstrap正式后继](../work/mod_research/b_warm_bootstrap_protocol_handoff.md)及[保留式规则factory](../work/mod_research/b_warm_rules_factory_handoff.md)。首代必须直接创建独立bootstrap SQLite，不把旧Journal改版本或伪造B预载视角；后续期使用原Journal。factory接已有GameReader/ProcessAPI及实际等待边界，构建身份和计数器指纹必须匹配，不能用owned fixture产物安装游戏，也不能在旧失败进程上重试。
+
+两个纯协议/文件检查入口可在不访问游戏的情况下运行：`py -3 outputs/san14-link/checkpoint_bootstrap_journal_test.py`、`py -3 work/mod_research/b_warm_bootstrap_protocol_test.py`。factory自有进程检查另需手册列出的归档私有构建输入。这些是接口及验证入口，尚不是自动发现、安装和启动游戏的发行包。
+
 ## 最新两档诊断入口
 
-新增[首次视角切换](../work/mod_research/b_warm_bootstrap_handoff.md)和[规则配置捕获](../work/mod_research/b_warm_rules_capture_handoff.md)，均为本地接口而非新的CLI安装器。前者需要已安装的source视角规则与原warm所有者；后者不创建进程读取器、不加载DLL。不要把首次source视角填成target来满足旧Journal，首代formal reservation当前明确拒绝。已有独立测试无须启动游戏，但它们不替代生产规则factory和实机边界。
+新增[首次视角切换](../work/mod_research/b_warm_bootstrap_handoff.md)和[规则配置捕获](../work/mod_research/b_warm_rules_capture_handoff.md)，均为本地接口而非新的CLI安装器。前者需要已安装的source视角规则与原warm所有者；后者不创建进程读取器、不加载DLL。不要把首次source视角填成target来满足旧Journal；此冻结前驱拒绝首代formal reservation，需要上文Bootstrap正式后继。已有独立测试无须启动游戏；当前已补生产规则factory接口，但它们均不替代联合实机边界。
 
 收档到加载的本机接点现为[ReceivedApply](../work/mod_research/b_warm_received_apply_handoff.md)。需使用原来常驻的规则/warm对象，不能由网络报文构造所谓原生成功。若受控首测采用[有限契约](../work/mod_research/b_warm_projection_handoff.md)，房间必须从开始就声明准确的CONTRACT，不能在旧检查点中途更换摘要含义。新的联合协议测试仍使用显式原生替身，不是新增可执行游戏安装包。
 
