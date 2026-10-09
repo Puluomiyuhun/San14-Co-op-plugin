@@ -8,7 +8,21 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：A/B分进程的远端完成通道，B规则配置不再依赖A的Room对象
+## 最新：同一B所有者已接收档、加载桥、规则换代与正式回执
+
+本轮仅离线及自有测试，未访问游戏进程、Steam存档或UI，没有新增游戏补丁/调试器。沿用上一轮旧失败游戏恢复记录，不重试旧实例、不清claim，没有新增手动操作要求；未重新检查旧进程是否退出。
+
+- **补上远端回调到本机持久流程。** `RetainedRemoteOwner`固定同一B连接、reader、warm加载器、规则生命周期和bridge；远端预约产生的真实Journal意图直接交给已有正式Bootstrap/普通ReceivedApply。随后沿实际bridge执行文件备份/暂存、规则恢复与重装，并在诊断ACK前后分别采样，最后给RemoteGuestCompletion完成正式`loaded()`。同一owner连续两期使用bank0/1，保留三代规则对象、两次回执及全部历史；不再由测试临时拼接一个空的`apply_received`。
+- **支持双方已到旬末的协议日期。** 新`SettledRemoteCompletionRoom`由A本地启动器明确选择：首代身份切换保持旧日期；后续普通校正要求B真实加载前日期等于目标日期。旧RemoteCompletionRoom保留原地等待的诊断语义。已在同owner组合中验证第二期before=loaded，旧规则配置不改写、实际restore检查允许日期推进。不同日期不能自动混用；真实推演若改变root/world仍会拒绝，不能擅自重绑。
+- **独立密钥有本地准备工具。** `b_warm_adapter_key.py`可创建、检查、显式导入/导出32字节密钥，实际Windows文件ACL在创建时只授当前用户，拒覆盖/Git目录等误用，CLI只显示公开fingerprint。A/B通过`load_key(private_path)`提供原有接口参数；没有自动发密钥或新增联网服务，统一启动界面仍未完成。
+
+验证：持久owner组合6项、独立B进程日期协议8项、Windows密钥文件6项，合计20项通过。根agent复核三份结果及全部源码/产物哈希。[本轮证据](evidence/2026-10-09-warm-retained-owner-settled-key.json)；入口：[B持久所有者](../work/mod_research/b_warm_remote_owner_handoff.md)、[旬末日期](../work/mod_research/b_warm_settled_completion_handoff.md)、[本机密钥](../work/mod_research/b_warm_adapter_key_handoff.md)。
+
+**不要扩大结论。** owner组合实际执行TLS、SQLite、Windows备份/租约和原ResidentPort/WorldLifecycle检查，但Save/load、规则发布、RAM、暂停仍是替身，A/B席位在同一测试进程；日期协议另有独立B进程测试，两者不能拼成两个真实游戏的原生闭环。严格owner仍要求调用方提供真实持续暂停guard；本轮只是接收并沿用它，没有实现它，也没有用空回调作生产替代。输入没有释放、Ready未授予。最小无新命令诊断可沿已有局部原生边界做明确有限合同后继，不必先实现全输入覆盖，但该可执行接入仍未完成。
+
+**下一步按顺序：** ①优先将本机加载所需的实际执行边界接进同一owner；若采用无新命令诊断，明确限定合同，不假称持续暂停。②确认旧失败游戏正常退出后，在fresh实例验证修复后的A真实保存和B连续两次合法档加载。③统一入口读取本机路径/版本/私有key，配置两台电脑的真实远端连接。完整内政、事件等待、地图遮罩、断线恢复和无限代加载仍未完成；不追加为当前两档诊断的硬门槛。
+
+## 上一轮：A/B分进程的远端完成通道，B规则配置不再依赖A的Room对象
 
 本轮仍未读取游戏内存、操作UI或Steam存档，没有新增游戏补丁/调试器。仅查询操作系统进程元数据，核对旧PID38556及birth仍与原失败实例一致，因此正常退出尚未发生；没有向旧实例重投或清claim，无新用户操作要求。
 

@@ -22,6 +22,14 @@
 - warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
 - [同槽接管后继](../work/mod_research/b_warm_two_bank_handoff.md)在一个自有host中持有固定原函数和同六槽，第一代实际封存/恢复后才准第二个独立DLL接管。跨代不重置Session或once。相应文件暂存与fresh planning采样已分别实现，但仍须由统一启动器在真实退休、无读者和输入边界下衔接；文件已暂存和采样相同都不是原生加载许可。此前profile的固定势力guard遗漏已由后继修复，旧target9 fixture成功不证明那层曾被执行。
 
+## 同一B所有者与旬末校正
+
+[RetainedRemoteOwner](../work/mod_research/b_warm_remote_owner_handoff.md)已将远端一次预约接到实际Bootstrap/普通ReceivedApply、同一加载/规则bridge和加载后采样，再给原远端通道发送正式完成。owner保留同一进程/对象图、两bank和三代规则历史，回包丢失锁住整个流程且不重做加载。它要求已有严格执行guard，未自行实现游戏暂停；测试原生行为仍为替身。
+
+[SettledRemoteCompletionRoom](../work/mod_research/b_warm_settled_completion_handoff.md)是双方已自行推演到旬末时的明确日期合同：普通校正before=loaded=目标日期，首代身份切换仍从旧日期开始。与原地等待诊断使用的旧Room分别由A本地配置选择，不接受任意日期。owner组合已覆盖目标日期第二次校正；真实推演后的root/world与输入边界仍待验。
+
+[本机密钥工具](../work/mod_research/b_warm_adapter_key_handoff.md)准备独立adapter key，并由两端本地load_key读入；人工私下转交、接收方重新以自己的Windows用户权限导入。它不自动启动网络房间或原生后端。
+
 ## A/B跨进程的完成确认与规则配置
 
 [RemoteCompletion](../work/mod_research/b_warm_remote_completion_handoff.md)将原来同进程Projection的最后确认拆开：A独占PeriodCoordinator，B只持本机Journal/原生所有者；独立adapter密钥认证预约及加载观察，A以新鲜本机采样对照后才`loaded()`。B先核完整投影，网络传固定结构摘要，避免将压缩率当成64KiB上限内可传的保证。摘要依赖可信B所有者及其本地检查；HMAC认证来源本身不是native fence证明。

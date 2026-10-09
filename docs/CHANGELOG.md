@@ -1,5 +1,13 @@
 # 进展记录
 
+## 2026-10-09：同一B加载所有者、已到旬末的校正日期及本机密钥
+
+- 新RetainedRemoteOwner将远端预约接实际ReceivedApply/加载规则bridge、两次加载后采样与正式loaded；同一owner两期保留bank和规则历史，回包丢失或加载异常不重试。
+- 新SettledRemoteCompletionRoom明确支持普通B已到目标日期，首代仍保留旧日期；旧诊断Room不改。owner组合亦覆盖第二次目标日期校正。
+- 新独立adapter key工具提供本机创建/检查/人工导入导出，实际当前用户私有ACL，CLI不输出秘密。
+- owner6项、日期8项、密钥6项通过；真实TLS/SQLite/Windows文件事务已执行，游戏Save/load/RAM/规则发布和暂停仍是显式替身。没有游戏访问或新增补丁，实际持续guard与fresh两游戏验证仍待接入。精确证据见 `docs/evidence/2026-10-09-warm-retained-owner-settled-key.json`。
+
+
 ## 2026-10-09 — 远端独立B完成回执与网络规则绑定
 
 - 新RemoteCompletion把A Coordinator与B本机Journal/加载所有者拆到独立进程，通过真实TLS及独立adapter认证完成首代和次期loaded；未知结果不重做native。

@@ -8,6 +8,18 @@
 
 最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)、[B同六槽两模块交接](../work/mod_research/b_warm_two_bank_handoff.md)、[文件暂存](../work/mod_research/b_warm_staging_handoff.md)和[B本代采样](../work/mod_research/b_warm_profile_capture_handoff.md)。它们仍需合并为本机启动流程，不能直接替换旧脚本的DLL路径执行；合法新档与连续实机加载尚待验收。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。最新交接明确修正了旧profile的固定势力guard遗漏。
 
+## 当前B本地接点与离线测试
+
+新增[持久B所有者](../work/mod_research/b_warm_remote_owner_handoff.md)连接原生bridge与远端预约；仍须已建立的真实本机加载器、规则对象和执行guard，不能单独执行就宣称游戏联机。以下测试不触碰游戏：
+
+```powershell
+py -3 work/mod_research/b_warm_remote_owner_test.py
+py -3 work/mod_research/b_warm_settled_completion_test.py
+py -3 work/mod_research/b_warm_adapter_key_test.py
+```
+
+三者分别覆盖同一owner两次衔接、独立B进程的目标日期协议、本机Windows文件权限。游戏业务/内存/暂停替身范围见对应手册。创建实际连接密钥按[本机密钥手册](../work/mod_research/b_warm_adapter_key_handoff.md)，在仓库外的私人目录操作；不要将密钥、旧电脑PID/claim或历史回执加入Git。统一房间与原生启动入口仍待集成。
+
 ## 远端完成回执与本机规则配置
 
 新增[RemoteCompletion](../work/mod_research/b_warm_remote_completion_handoff.md)和[RemoteRules](../work/mod_research/b_warm_remote_rules_handoff.md)。A持Coordinator，B只需实际控制连接、本机Journal和自己的原生所有者。两端启动器需要另外私下提供同一adapter密钥；当前没有在普通入房请求里发密钥，也没有实现朋友端一键启动。不要把join token、旧运行JSON或诊断ACK当成已加载证明。

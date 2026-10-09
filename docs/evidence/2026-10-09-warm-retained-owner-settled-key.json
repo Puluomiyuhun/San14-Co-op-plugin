@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Retained B owner, explicit target-date correction, local adapter key provisioning",
+  "game_process_access": false,
+  "game_ui_access": false,
+  "steam_save_access": false,
+  "new_game_patch_or_debugger": false,
+  "two_real_games_verified": false,
+  "two_player_ready": false,
+  "retained_owner": {
+    "private_result": "b_warm_remote_owner_runs/20261009-201548-243238/result.json",
+    "sha256": "6af4ec2e7e9ecd3e13aaf684ae813cb39dcef41a0c0b6fe77972bd0c82a10056",
+    "result": "PASS",
+    "tests": 6,
+    "verified_pins": {
+      "sources": 36,
+      "artifacts": 127
+    },
+    "actual_tls": true,
+    "actual_windows_staging": true,
+    "actual_journals": true,
+    "actual_rule_predicates": true,
+    "same_retained_owner": true,
+    "protocol_periods": [
+      1,
+      2,
+      3
+    ],
+    "banks": [
+      0,
+      1
+    ],
+    "retained_rule_generations": 3,
+    "actual_backups": 2,
+    "settled_second_correction": true,
+    "save_load_memory_publication_boundary_are_doubles": true,
+    "both_control_seats_same_test_process": true,
+    "guard_still_external": true
+  },
+  "settled_date": {
+    "private_result": "b_warm_settled_completion_runs/20261009-201141-255559/result.json",
+    "sha256": "42cd893fd285514dd5d07fbba04117fc2b12b93aafe929dd924b385f94879e51",
+    "result": "PASS",
+    "tests": 8,
+    "verified_pins": {
+      "sources": 33,
+      "artifacts": 92
+    },
+    "actual_tls": true,
+    "independent_retained_b_process": true,
+    "bootstrap_before": "old planning date",
+    "ordinary_before": "target planning date",
+    "native_save_load_memory_boundary_are_doubles": true,
+    "invalid_dates_refused_before_load": true
+  },
+  "adapter_key": {
+    "private_result": "b_warm_adapter_key_runs/20261009-201345-022488/result.json",
+    "sha256": "d1758938c7df4e1e863532c26b47665b824e193fb5268eb551c8b91b55a8a551",
+    "result": "PASS",
+    "tests": 6,
+    "verified_pins": {
+      "sources": 2,
+      "artifacts": 1
+    },
+    "actual_windows_acl": true,
+    "actual_cli": true,
+    "explicit_local_import_export_only": true,
+    "remaining_test_secret_files": 0,
+    "key_material_in_evidence": false
+  },
+  "retained_iterations": [
+    "b_warm_remote_owner_runs/20261009-201352-086888/result.json: 5-case precursor retained",
+    "b_warm_adapter_key_runs/20261009-201247-216345/result.json: 5-case precursor retained",
+    "b_warm_adapter_key_runs/20261009-201325-143131/result.json: 6-case precursor before test-output refinement retained"
+  ],
+  "remaining": [
+    "Wire actual local native boundary to retained B owner; explicit narrow no-command successor may reuse audited local boundaries without claiming full exclusion",
+    "Confirm old failed game normal exit; fresh repaired A save and two legal same-game B native loads",
+    "Unified launcher for local paths/version/private key and actual two-PC remote connectivity",
+    "Broad domestic actions/event waits/map cover/reconnect/unlimited banks remain separate work, not added gates for minimal two-load diagnostic"
+  ]
+}
