@@ -8,7 +8,26 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：已接入跨旬严格 mode0，双保存实测候选就绪（本轮离线）
+## 最新实机里程碑：A 同进程跨旬两次自动保存，两份均由 B 连续加载成功
+
+**跨旬两份自动新档已经实际生成并全部读回。不要再列为离线候选或未实测。** A新进程46624从34号张鲁中旬起点运行严格mode0 native-turn：第一份自动Save→原父回调真实Retire/Running→用户不新增命令正常推进一旬、关闭报告→新规划对象/Guard/Sampler重新绑定→第二Controller/Host ReadySecond→第二份自动Save。同一管道完成两次Submit/Copy，两个mailbox均Delivered，原生保存worker/finalizer和文件字节全部校验通过。两份每份52次进入/退出配对、无异常；Parent共1325次配对。最终Stop、七入口恢复mask127、无调试器，下旬张鲁正常地图由用户确认。
+
+**必须保留原总结果与组件成功的区别。** `a_native_turn_start_runs/20261009-233736-417328/result.json`原值仍为`INCOMPLETE_RETAIN_EVIDENCE`，不是完整PASS：85份既有档中84份不变，唯一`autosdexSC00.s14`在自然推进期间更新，恰新增两份预期mp档。两自动Save本身均Complete/error0，`two_native_artifacts=true`且`cleanup_verified=true`，没有Runtime error。检查器有意不把旧档变化静默放行；未对该自动档的具体writer做钩子记录。独立1289项归档审计结果`PASS_TWO_ACTUAL_SAVES_WITH_AUTOSAVE_CHANGE_ARCHIVE_AUDIT`，SHA `06b33d073452991f797417f9fd34708f93163b4cae9f7d48da066f48da9a162c`。用户正常退出且OS确认后，将更新后的auto私有留存，再恢复原auto；85份旧档全部核对一致，两份新档保留，总数87。没有修改原INCOMPLETE或旧claim。
+
+两份实机产物（只保留本机，不进Git）：
+
+- generation1：203-08-11/张鲁，274879字节，SHA `a0b4af76080736c61bf5aa69c5f69e3344a4213385b6ddc7605e178a395963c1`。
+- generation2：203-08-21/张鲁，274974字节，SHA `d5da731799a52c488e15815d66853e68eb7a89c49912acdf722b9c336448773b`。
+
+**B使用的两份都是这次A自动产物，不再借用手动49档。** A正常退出后，新进程13524/birth134360340685474164通过fresh检查、87档备份，复用原stable两bank加载链。首bank原生读gen1成为中旬刘备，次bank读gen2成为下旬刘备；每bank一次FileWrite、旧/新完整双读、真实身份切换/规划返回/退休/Handover/六槽恢复/目标锁释放都通过。结果`b_warm_stable_refresh_diagnostic_runs/20261009-234247-315672/result.json`为`PASS_TWO_WARM_REFRESH_LOADS`，独立413项审计SHA `6e583d1a88dbafe5b44fc88408a02923b5ce3560fd49e53390b5c87202d8d1b8`。用户确认最终下旬刘备正常地图。[本轮实证摘要](evidence/2026-10-09-real-two-auto-save-load.json)。
+
+B第二bank首次采样遇到精确的双样本不一致，已存在的bounded capture在0.125秒内第二次取得完整相等样本；无native调用或写入，随后只执行一次安装/刷新/加载。这是该只读重采分支第一次实际触发的证据，不是重试加载；旧成功run“首采都通过”的事实未改。根最终两次五态快照一致、规则六原入口及无调试器通过，87档仅临时CC03更新为gen2。用户正常退出后恢复原CC03（274880/88dd…），`closed-restore-234521-937299/result.json`确认87份档与B开始前备份完全相同；34未变，两个新auto保留。当前无游戏进程、活动钩子或调试器，无待用户操作。
+
+补充只读旁证：120秒身份观察232次相等样本、9次变化拒绝，采样从本轮8月17日开始，不能声称记录了完整起点。与安装前capture比较，返回五态中的Strategy/User地址确实变化、root/world地址不变，新绑定已适配；相同地址也不证明对象寿命不变。观察最后样本进入用户退出菜单，不将它冒充最终规划，`returned-planning-addresses.json`只选严格五态样本。初始化trace无首错记录，成功依据仍是实际Save/Load报告和字节。
+
+**下一步从双机接线推进，不再重复这几项基础实测。** 本轮是同一台电脑先后两个游戏进程，本地复制自动档；没有真实TLS传网、双方同时在线、双人AI保护与跨旬组合、完整世界逐项相等或连续无限旬。现有远端收档Owner/TLS/规则恢复已有离线代码，但新审查已找到具体接缝：本轮首档是同日开局快照，现FreshSaveBinding却只接受RUNNING时的下一旬末日期；不能把房间起点伪设为前一旬来迁就它。需要显式同日bootstrap阶段，等B真正loaded后才允许A的RequestNext，再把第二档作为下一旬末校正。现本地drive在第一份keep后立即RequestNext，尚未等待远端B。随后把两侧启动对象和本机配置接入，配置真实连接；完整内政、遮罩不追加为该窄测试硬门槛。[三个具体接缝](../work/mod_research/a_native_turn_remote_gap_handoff.md)。
+
+## 上轮构建：已接入跨旬严格 mode0，双保存候选完成离线验证
 
 **没有重做换期框架。** 新`a_native_turn_mode0_owner.cpp`保留原native-turn Owner的Running/Refresh，只增加初始化首错声明并换成已验证trace lifecycle；构建明确链接实机通过的`a_save_planning_mode_input.cpp`和trace Controller。原Runtime/Parent/Gate/Control/typed1–10 exports保持，旧模块未修改。新fixture把初始规划设为真实mode0，新User返回后仍要求0；不是同时接受0/1或写游戏字段。
 

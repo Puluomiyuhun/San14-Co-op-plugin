@@ -1,0 +1,144 @@
+{
+  "description": "Public sanitized milestone; raw game records, native artifacts and saves stay private",
+  "date": "2026-10-09",
+  "records": {
+    "a_live": {
+      "path": "a_native_turn_start_runs/20261009-233736-417328/result.json",
+      "sha256": "a2ee76f9a39b18340e402919334aab52edc6d9abdd48dabe5b564d68b25a9f6b"
+    },
+    "a_audit": {
+      "path": "a_native_turn_start_runs/20261009-233736-417328/independent-audit/result.json",
+      "sha256": "06b33d073452991f797417f9fd34708f93163b4cae9f7d48da066f48da9a162c"
+    },
+    "a_autosave_restore": {
+      "path": "a_native_turn_start_runs/20261009-233736-417328/closed-autosave-restore-234049-972421/result.json",
+      "sha256": "8259a567de3bf5b3bb2f092a5bf1ba3768233c0b45abd335906c94bb0d308d10"
+    },
+    "a_returned_planning": {
+      "path": "a_native_turn_start_runs/20261009-233736-417328/returned-planning-addresses.json",
+      "sha256": "8bbe437ebcaefa437987a8604e384aa5319303d18b70aba38e0b5ec2da8f3e1c"
+    },
+    "a_init_trace": {
+      "path": "a_save_initialize_trace_read_runs/20261009-233923-629531/result.json",
+      "sha256": "f03f782b282dab51f10ec79145e48e4683c2f6db6c507141038bd75ac2d36fe8"
+    },
+    "turn_observer": {
+      "path": "a_turn_identity_runs/20261009-233812-167803/result.json",
+      "sha256": "92eddf51ce961dc1366e07068f4b83b81e01ae6b21c933582bc43901952ef2e0"
+    },
+    "b_source_preparation": {
+      "path": "a_native_turn_artifact_runs/20261009-234121-986588/result.json",
+      "sha256": "2eb6e6ea2a53aa24ddc8410ba9ed4a448dfd4d3dfa52eb07badd8125ca332664"
+    },
+    "b_live": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-234247-315672/result.json",
+      "sha256": "87ddc90b72f214cacbc8fccf148336b189aed1c2b373dba11c8086d3784b0523"
+    },
+    "b_audit": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-234247-315672/independent-audit/audit.json",
+      "sha256": "6e583d1a88dbafe5b44fc88408a02923b5ce3560fd49e53390b5c87202d8d1b8"
+    },
+    "b_final": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-234247-315672/readonly-final-234414-317089/result.json",
+      "sha256": "bfe4ea65cbae04961f07b02b499e0a81737dbe40816fc77408ec9d255b5b51a4"
+    },
+    "b_closed_restore": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-234247-315672/closed-restore-234521-937299/result.json",
+      "sha256": "eef7de0548c6ca338348ea150d87ed429434f710b6c67c96b43516a1d66e0bfe"
+    }
+  },
+  "a": {
+    "pid": 46624,
+    "birth": 134360337722384427,
+    "original_launcher_result": "INCOMPLETE_RETAIN_EVIDENCE",
+    "two_actual_automatic_saves": true,
+    "cleanup_verified": true,
+    "original_result_not_rewritten": true,
+    "artifacts": [
+      {
+        "generation": 1,
+        "size": 274879,
+        "sha256": "a0b4af76080736c61bf5aa69c5f69e3344a4213385b6ddc7605e178a395963c1",
+        "status": 5,
+        "error": 0,
+        "entries": 52,
+        "exits": 52
+      },
+      {
+        "generation": 2,
+        "size": 274974,
+        "sha256": "d5da731799a52c488e15815d66853e68eb7a89c49912acdf722b9c336448773b",
+        "status": 5,
+        "error": 0,
+        "entries": 52,
+        "exits": 52
+      }
+    ],
+    "first_date": [
+      203,
+      8,
+      11
+    ],
+    "second_date": [
+      203,
+      8,
+      21
+    ],
+    "player_force": 12,
+    "human_advanced_one_period": true,
+    "tool_called_game_advance": false,
+    "ready_second_and_true_rebind_observed": true,
+    "existing_files_before": 85,
+    "existing_files_unchanged_before_restore": 84,
+    "changed_existing_file": "autosdexSC00.s14",
+    "new_expected_files": 2,
+    "after_normal_exit_original_85_restored": true,
+    "user_confirmed_normal_final_map": true,
+    "source_of_autosave_write_not_instrumented": true
+  },
+  "b": {
+    "result": "PASS_TWO_WARM_REFRESH_LOADS",
+    "pid": 13524,
+    "birth": 134360340685474164,
+    "both_sources_are_current_a_automatic_artifacts": true,
+    "manual_slot49_used": false,
+    "loaded_dates": [
+      [
+        203,
+        8,
+        11
+      ],
+      [
+        203,
+        8,
+        21
+      ]
+    ],
+    "target_force": 2,
+    "target_ruler": 952,
+    "each_native_write_count": 1,
+    "each_old_and_new_full_read_count": 2,
+    "both_native_retirement_and_handover_verified": true,
+    "both_slots_restored_and_file_leases_released": true,
+    "bank2_readonly_capture_attempts": 2,
+    "bank2_capture_retry_did_not_repeat_load": true,
+    "user_confirmed_final_map": true,
+    "all_87_files_match_backup_after_normal_exit_restore": true
+  },
+  "current": {
+    "game_processes": 0,
+    "active_hooks_or_debuggers": false,
+    "slot34_unchanged": true,
+    "two_new_auto_artifacts_retained": true,
+    "waiting_user": false
+  },
+  "limits": {
+    "one_pc_sequential_game_processes": true,
+    "real_remote_network_test": false,
+    "full_world_equality": false,
+    "two_force_ai_protection_installed_this_run": false,
+    "full_commands_and_input_pause": false,
+    "screen_cover": false,
+    "unlimited_periods": false
+  }
+}
