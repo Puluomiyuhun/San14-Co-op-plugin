@@ -34,7 +34,7 @@ B的最新 `b_reload_cold_bootstrap*` 已将实际Bootstrap、冷等待、原Reg
 | 其他内政命令 | `domestic_reader.py`、`domestic_command_contracts.py` | 交易/移动草稿接严格语义提案与独立证据预检；缺价格/资格/时限不猜测，未接原生执行或房间路由 |
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
-| A 本轮存档 | `a_save_period_ipc*`, `a_save_parent_coordination*`, `a_save_observation_status*` | 同物理Owner跨逻辑期两奖励/两诊断保存已组合；原生队列/清理来源已缩小，一次正常保存的四点观察器已实机记录一次完整Save配对、army任务0次，退出恢复102线程。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
+| A 本轮存档 | `a_save_runtime_start.py`、`a_save_runtime_exports*`、`a_save_runtime_publish*` | 已实际安装并经自然父调度/真实IPC产生一个新文件；最终context验证拒绝，原生读未开始，来源因失败保留待正常退出。尚未得到合格artifact或连续两次保存；全writer/全输入许可仍缺 |
 | B 连续加载 | `b_reload_cold_bootstrap*`, `b_reload_lifecycle_fault*`, `b_reload_nested_*` | 同PE/DLL/Provider的Bootstrap→冷等待→原登记→两代queue已组合2/2，移除构造主动等初始wait，实际yield/resume与原Gate换代通过。构造/文件/引擎业务仍替身，登记后SetEvent有显式诊断切换；真实来源阶段、生产者排他、两合法新档与全故障矩阵仍缺 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |

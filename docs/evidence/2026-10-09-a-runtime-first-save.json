@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-09",
+  "status": "REAL_FILE_CREATED_CHECKPOINT_REJECTED",
+  "tests": {
+    "exports": {
+      "private_run": "a_save_runtime_exports_runs/20261009-123451-722629",
+      "result_sha256": "637055ec123a7960602fa7c243d0cf65dd1c8e1ab8cf8507b58682767adf7425",
+      "result": "PASS",
+      "game_access": false
+    },
+    "scope": {
+      "private_run": "a_save_runtime_exports_scope_runs/20261009-123231-127883",
+      "result_sha256": "65d0f6f2cf1ec29580dace9f1b0bb17c31e6cfb8d514655825f996341cecb194",
+      "result": "PASS",
+      "game_access": false
+    },
+    "publisher": {
+      "private_run": "a_save_runtime_publish_runs/20261009-123624-806483",
+      "result_sha256": "0f47db9abe80109cd09b0e7bc3333bd739b9eb7d435ebfc8aced0c083a0fcaf8",
+      "result": "PASS",
+      "game_access": false
+    },
+    "control": {
+      "private_run": "a_save_runtime_control_test_runs/20261009-120433-515260",
+      "result_sha256": "679fd36ff8bd99e2e74d798d722a5d59a76fe787f3ce60a398ee1bf19145c02c",
+      "result": "PASS",
+      "game_access": false
+    },
+    "bootstrap_encoding": {
+      "private_run": "a_save_runtime_start_test_runs/20261009-123603-415388",
+      "result_sha256": "2a14c63caed83526f37456fe3c866b74fd5002bfb3531aa892082181a8ca6d6d",
+      "result": "PASS",
+      "game_access": false
+    },
+    "layout": {
+      "private_run": "a_save_runtime_layout_runs/20261009-124604-851913",
+      "result_sha256": "6548c4952598d6923df7dbcf5a0dbf0c93d3733331968a68573a375c7f0a8c2a",
+      "result": "PASS_OFFLINE_LAYOUT",
+      "game_access": false
+    },
+    "missed_schedule_reproduction": {
+      "private_run": "a_save_covered_user_runs/20261009-124826-411727",
+      "result_sha256": "fe539280566e71674ee053348e09df435c0647b4c89d48faa1c08cee429f0ae5",
+      "result": "PASS",
+      "game_access": false,
+      "application_result": "FAIL_REPRODUCED"
+    },
+    "successor_integration": {
+      "private_run": "a_save_covered_integration_runs/20261009-125734-923360",
+      "result_sha256": "32bdc51feaf2b8e14692bc2e66815fd6a3ca3f959d7f4b42cba91ff7a7602dd2",
+      "result": "PASS",
+      "game_access": false
+    },
+    "successor_production_abi": {
+      "private_run": "a_save_covered_runtime_runs/20261009-125624-320549",
+      "result_sha256": "d090c9212398430101f80241cecbdc0775e6eb11c039ca806dfd6cef1effe00c",
+      "result": "PASS",
+      "game_access": false
+    },
+    "successor_bootstrap_encoding": {
+      "private_run": "a_save_runtime_start_test_runs/20261009-125741-594485",
+      "result_sha256": "56ff4077ab69e9f085c30c61498fc013256b70b517babd7765def8049c36252f",
+      "result": "PASS",
+      "game_access": false
+    }
+  },
+  "live": {
+    "private_run": "20261009-123703-876595",
+    "result_sha256": "eafef10e926d1e8eab3f6b827bc4da8e73943731ef9091c7ee3fccddfeb16b33",
+    "result": "INCOMPLETE_RETAIN_EVIDENCE",
+    "native_submit_count": 1,
+    "native_bind_count": 1,
+    "native_queue_count": 1,
+    "phase_mask": 31,
+    "worker_joined": true,
+    "file_verified": false,
+    "artifact_delivered": false,
+    "error": 54,
+    "verify_stage": "context",
+    "native_exists_calls": 0,
+    "native_size_calls": 0,
+    "native_read_calls": 0,
+    "upstream_gate_error": "Input",
+    "report_after_rejections": 25,
+    "report_storage_rejections": 1,
+    "storage_binding_error": "Owner",
+    "new_file_bytes": 274879,
+    "new_file_sha256": "a7a8cafea234a9a7717d6d4aedfd89826f9c3c7580a07494cd594f82efb77ece",
+    "originals_unchanged": true,
+    "only_expected_new_file": true,
+    "game_advance": false,
+    "game_load": false,
+    "sources_restored": false,
+    "normal_exit_confirmed": false,
+    "ipc_thread_exited": true,
+    "debugger_detached": true,
+    "host_lease_retained": true,
+    "precise_first_gate_predicate": "not captured",
+    "original_save_count": 83
+  },
+  "boundaries": [
+    "Owned composition reproduces the same error signature; it does not prove live scheduling order.",
+    "File existence is not a completed verified checkpoint.",
+    "Retained hooks require normal process exit; no forced restoration or replay.",
+    "No two-client integration, full-input/writer exclusion, or B consecutive legal loads is claimed."
+  ],
+  "private_diagnostics": {
+    "terminal-file-evidence.json": "c052cadcf51a7c83c838d85c4b3014472f819ee351114c85f59592ccfc656061",
+    "terminal-report-evidence.json": "e4dcfca6c36f3718285562210c84232a0238d8e763337a84347df6336b26faa5",
+    "terminal-gate-evidence.json": "043d1dd78f92756a87ae267ce3e927673ada2a484ebd14d24c2b4f84303103e7",
+    "152-Snapshot-decoded.json": "12aab087ac4e84d1fefb1126ec8445636a2ca19fdee8b5f29e182caf47a07c1a",
+    "precommit-recovery-observation.json": "71a925048ad121ac9df72e0f4573e535159f89435854660d43278a5819c2a5cf"
+  },
+  "successor": {
+    "injected_into_game": false,
+    "production_dll_sha256": "0d5052b5f852a8a573d8bd4c63bbcf452313cfce37e0ad84b398781b4281659f",
+    "owner_source_sha256": "38882de5bdab99b07e3adce5baa9ef4aa2b57624adc82b32b17a2f8cfd3e69e0",
+    "gate_source_sha256": "729792f89b9831a4faff0e39250ddf96877a5acd55564729c17943501a7b8a8f",
+    "cases": [
+      "normal",
+      "foreign",
+      "multi",
+      "wrong-generation",
+      "cursor-drift"
+    ],
+    "cases_passed": 5,
+    "normal_copy_count": 1,
+    "normal_release_count": 1,
+    "negative_artifacts_delivered": 0,
+    "save_business_is_double": true,
+    "covered_native_return_is_double": true,
+    "all_writers_proven": false,
+    "first_failure_diagnostic": true
+  }
+}

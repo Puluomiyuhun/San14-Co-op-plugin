@@ -1,6 +1,6 @@
 # 在另一台电脑接手
 
-原电脑已完成一次正常保存观察并干净退出；这是原电脑证据，不放行另一台机器。83份原存档备份保留，34号未变；细节见[当前交接](HANDOFF.md)。
+原电脑最新自动保存试验已生成新文件，但最终校验失败；停止状态钩子保留，正在按正常退出游戏路径收尾。当前恢复状态以[交接](HANDOFF.md)为准。原存档全部备份且未改，34号未变；本机证据不放行另一台机器。
 
 ## 先建立开发环境
 
@@ -21,7 +21,7 @@ Python 常见依赖：`pefile`、`capstone`、`cryptography`；执行归档机�
 
 ## 本机私有输入
 
-A最新[本机Runtime](../work/mod_research/a_save_local_runtime_handoff.md)已经装配，但构建脚本只编译/链接，不加载DLL，也没有公开启动导出或来源发布器。新的[父调用观察器](../work/mod_research/a_save_parent_live_handoff.md)已在原电脑完成16帧观察；实机命令仍要求新PID、预检和本次测试通过的构建，不可复用旧运行许可。[fresh采样器](../work/mod_research/a_save_local_binding_handoff.md)的`--capture`只读规划/存储绑定，不授予保存许可。新作用域组合只验单期，不是可玩安装包。
+A最新[单次启动入口](../work/mod_research/a_save_runtime_start_handoff.md)已接typed导出、来源发布器和真实IPC，默认仅只读采样；显式实机试验已生成新文件但被收尾校验拒绝。不得在原失败进程重试或清除其claim；先按最新交接完成收尾和针对性修复。实机命令要求新PID、预检和本次测试通过的构建，不可复用旧运行许可。[fresh采样器](../work/mod_research/a_save_local_binding_handoff.md)的`--capture`只读规划/存储绑定，不授予保存许可。这仍不是可玩安装包。
 
 游戏程序及本机私有运行数据不在 Git 中；用户指定的34号测试档是明确例外。实际需要时在 `.local/` 配置本机位置，禁止把原电脑用户目录直接当成自己的目录：
 

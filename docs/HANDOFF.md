@@ -8,7 +8,21 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：A父调用实机观察，修复真实空队列和回调状态，装配本机保存Runtime
+## 最新：A已实际生成新文件，但校验拒绝，仍须完成失败收尾
+
+这次已完成此前缺少的typed DLL启动ABI、来源发布器和单次本机启动入口，并在真实游戏中走完安装→自然父初始化→真实IPC Submit→原生Save。**游戏已生成一份独立新文件，但校验失败，不能称A保存验收通过，更不是双机可玩。**
+
+- 原生证据：bind/queue各1次，阶段0–4完整、worker joined、finalizer returned；回到原张鲁203年8月中旬地图，未推进或读档。所有原存档未变，只新增指定独立文件。原文件完整备份在本机。
+- 失败定位：Driver `Uncertain/error54`。只读提取保留对象发现Verify停在`context`，原生exists/size/read调用均0；serialized storage gate的下层Owner身份检查拒绝，而不是已观察到文件哈希不同。报告侧已有25次AFTER拒绝并被永久撤销，随后storageOwner拒绝。上游Game gate首错为`Input`；具体哪个最早布局条件失配尚未记录，不能把猜测写成已查清。
+- 新工具验证：typed ABI实际导出测试、C++/Python字段布局核对、实际父FINALLY缓存与计数核对；发布器五项自有进程测试通过，包含安装/完整与部分恢复/写失败回滚/活动窗口拒绝。完整生产DLL编译通过。这些测试与上述失败实机分开记账。
+- **针对性修复已完成离线验收**：原组合补入“Save已排队但未入栈的Game回调”和“Save覆盖下的User回调”后，精确复现Gate Input→Owner停止→报告撤销→error54。新Gate只接受同代、本Owner、唯一type0队列中的准确Save对象；新Owner只在准确六态自有Save覆盖路径中改用报告字段检查，继续走真实Driver claim和原生返回/FINALLY。正常流程与外来队列、多队列、错代、报告游标漂移共5项通过；正常只有1次Copy/释放，异常无交付。Save业务与covered早退仍是明确替身，不是新实机通过。新生产DLL及原typed ABI完整构建、字段编码核对通过，未注入游戏。
+- **当前收尾：已停止IPC，IPC线程已退出，发布器已解除调试；停止状态DLL及7处来源仍保留，saveLane和host lease各为1，不能直接撤回或卸载。已请求用户正常关闭游戏，退出尚待核验。不要读档、推进、重投旧请求、清除once claim或强改终态。**
+
+入口：[单次启动与实际失败](../work/mod_research/a_save_runtime_start_handoff.md)、[覆盖User后继](../work/mod_research/a_save_covered_owner_handoff.md)、[typed ABI](../work/mod_research/a_save_runtime_exports_handoff.md)、[来源发布器](../work/mod_research/a_save_runtime_publish_handoff.md)、[分层证据](evidence/2026-10-09-a-runtime-first-save.json)。私有原始运行`a_save_runtime_live_runs/20261009-123703-876595`，文件与原始对象诊断不进入Git。
+
+下一步先核验旧游戏正常退出，再用新进程检查后继的一次真实新档。原启动器复用；新生产ABI目录是本机`a_save_covered_runtime_runs/20261009-125624-320549/abi`，发布器仍是`a_save_runtime_publish_runs/20261009-123624-806483`。这些是来源定位，不是绕过fresh身份与测试检查的许可；不要复用旧PID/claim。新Gate导出首次失败数据，避免把最早原因覆盖成末尾storage错误。一份新档必须同时通过内容校验和收尾才算关闭第一步。随后仍需A第二次保存、B两合法新档连续加载和同一房间的输入/规则/world衔接。
+
+## 上一轮：A父调用实机观察，修复真实空队列和回调状态，装配本机保存Runtime
 
 用户指出多轮进展仍停留在相同缺口，本轮集中到A真实新档。此前模块与离线测试确实增加，但尚未跨过实际保存/连续加载验收线；不要继续用测试数或百分比代表可玩程度。
 
