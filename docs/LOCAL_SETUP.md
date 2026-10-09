@@ -4,6 +4,8 @@
 
 后续离线代码已补准确保存过渡、error54的限定失败退休和[只读首错诊断](../work/mod_research/a_save_failure_diagnostic_handoff.md)。新 `a_save_diagnostic_start.py` 仍是内部单次实机入口，默认只读，使用最新合并构建的内层`abi`目录和配套发布器。不能把新收尾能力追补给已加载旧DLL，也不能省略新进程/原入口/阶段预检；具体构建定位以当前交接为准。
 
+连续加载的首测路线已重审：优先为已有warm实机成功入口补完成退休、六槽恢复和独立二代配置。下文cold组合保留为另一条研究路线；其早期启动/四线程接管条件不是warm首测的统一安装要求。参见[路线说明](../work/mod_research/b_reload_runtime_warm_review.md)。当前仍没有可供朋友直接运行的统一原生安装包。
+
 ## 先建立开发环境
 
 ```powershell

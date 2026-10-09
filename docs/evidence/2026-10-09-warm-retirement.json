@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Warm post-load retirement and shortest-path reassessment; not two-client acceptance",
+  "game_process_metadata_checked": true,
+  "game_window_activation_attempts": 2,
+  "game_window_activation_succeeded": false,
+  "game_ui_input_sent": false,
+  "game_memory_written": false,
+  "new_game_hooks_or_debugger": false,
+  "game_turn_or_load_or_save": false,
+  "remote_network_test": false,
+  "old_failed_process_normal_exit_confirmed": false,
+  "b_warm_retire": {
+    "private_result": "b_warm_retire_runs/20261009-151544-026573/result.json",
+    "sha256": "4963df27b79f37a9fc9347af2d4d06dd44eace6302f71cd6c5be0174280267b6",
+    "result": "PASS",
+    "cases": [
+      {
+        "case": "success-new",
+        "exit": 0,
+        "passed": true,
+        "archive_unchanged": true
+      },
+      {
+        "case": "report-state",
+        "exit": 0,
+        "passed": true,
+        "archive_unchanged": true
+      },
+      {
+        "case": "user-exception",
+        "exit": 0,
+        "passed": true,
+        "archive_unchanged": true
+      },
+      {
+        "case": "stop-during-load",
+        "exit": 0,
+        "passed": true,
+        "archive_unchanged": true
+      },
+      {
+        "case": "restore-conflict",
+        "exit": 0,
+        "passed": true,
+        "archive_unchanged": true
+      }
+    ],
+    "root_verified_pins": {
+      "source_sha256": 66,
+      "binary_sha256": 53,
+      "generated_sha256": 5
+    },
+    "production_dll_compiled": true,
+    "production_dll_sha256": "2d600fb0b70b6ff3786a2fc9d2a9c9d87f48266ccd0a0b2b5a26a2be394ab3e9",
+    "actual_six_physical_bridges": true,
+    "actual_session_receipt_chain_and_hook_set": true,
+    "owned_native_business_and_environment_doubles": true,
+    "production_configure_success_tested": false,
+    "post_complete_seal_and_six_slot_restore_executed_in_owned_process": true,
+    "cached_old_bridge_calls_executed": 6,
+    "late_native_body_calls_each": 1,
+    "business_receipts_and_admission_report_unchanged_after_late_calls": true,
+    "old_world_noaccess_during_late_calls": true,
+    "foreign_slot_preserved_on_restore_conflict": true,
+    "unique_planning_after_boundary_only": true,
+    "missed_busy_boundary_automatic_retry": false,
+    "dll_unload_or_once_reset": false,
+    "new_dynamic_file_profile_or_second_bank_implemented": false,
+    "game_acceptance": false
+  },
+  "a_turn_identity": {
+    "private_result": "a_turn_identity_test_runs/20261009-151333-062355/result.json",
+    "sha256": "85692c0fa48b66df8d807d20e845c9a1e96dcae09c9674495229def56a648fb2",
+    "result": "PASS",
+    "pure_fake_read_tests": 3,
+    "default_help_checked": true,
+    "live_capture_run": false,
+    "native_turn_control_implemented": false,
+    "limitation": "Double reads detect observed churn; equal addresses do not prove object lifetime or no ABA."
+  },
+  "reused_real_evidence": [
+    {
+      "private_result": "checkpoint_complete_live_v2_runs/20261007-163447-239499/result.json",
+      "sha256": "4d5c166ee752463f3c7c40dc90f9b5249f0a683f3f239281bc2d3daf5e3ce1a1"
+    },
+    {
+      "private_result": "lockstep-traces/rng-pairs-live-n/trace.jsonl",
+      "sha256": "694418cbb579ebd7792d3c0100bf0d2a5f2c97509e4eb58ce45cec36d7827cd8"
+    }
+  ],
+  "next": [
+    "Fresh-process A save acceptance with existing pending+abort pair",
+    "A actual cross-frame native turn phase and fresh planning-object binding",
+    "B warm retirement game acceptance, immutable valid-file profiles and independent next bank",
+    "Same-room two-period integration and two-PC connectivity"
+  ],
+  "cold_bootstrap_is_universal_warm_load_prerequisite": false,
+  "first_test_scope": "slot34 A Zhang Lu B Liu Bei, two periods, no new commands",
+  "shared_slot34_sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95"
+}
