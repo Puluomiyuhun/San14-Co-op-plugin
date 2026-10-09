@@ -8,7 +8,25 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：A 实机首错已抓到，修正大地图状态值并完成新构建
+## 最新：A 自动保存→B 实际读回刘备视角已贯通，两次加载通过
+
+**A 自动保存已实际成功，不再列为“未通过”。** 新PID19340/birth134360320586597655在张鲁203-08-11、mode0空闲大地图，通过已核验的严格mode0生产DLL，正常父回调初始化→一次IPC Submit→真实保存worker及finalizer→取回完整新档→停止并撤回七入口。返回`PASS_REAL_SINGLE_FRESH_SAVE`；新档274879字节，SHA `a3de964420d8f0c9f34dcdbd1056dc0e3f355222732b00e3e10bc49742e2eab7`。磁盘新文件与IPC返回/私有副本完全一致，原84份档未改、只新增该测试档。
+
+Driver46次进入/退出全部配对、无异常，intent/flush/bind/queue各1，worker joined/native success/finalizer returned都通过；Server实际Submit/Copy各1，124个协议请求包含轮询，不能写成124条游戏命令。Stop后restore mask127、无调试器，独立只读检查回到原日期张鲁五态；用户确认正常大地图和菜单。终态ParentStopped10与Server退出取消995不代表保存失败。初始化首错DATA未发布，只表示未记录初始化失败，不独立当成功证据。独立归档审计复核439项来源/产物，结果通过。
+
+主记录`a_save_runtime_live_runs/20261009-230910-151040/result.json` SHA `f67cef53280e603fb3487f1533da86df3ad944d40af6f6d5815597bb6222d83c`；审计`independent-audit/result.json` SHA `863debe44b7278833174b9e5b48866f315d9e9977d98528595cdfe4969b90f3f`。[公开证据](evidence/2026-10-09-real-a-fresh-save.json)。新档只保留本机，不提交Git。
+
+**当前只证明一次自动保存。** 实测入口主动Stop且Runtime还固定generation1/首期日期，不能在该成功实例直接再Submit第二期。已存在`a_native_turn_*`原生推进/换期路线，后续应复用并把旧mode1 Inspector升级到本次已实测mode0，保持其Running/Retire/Rebind生命周期；不要从头重做Driver，也不要把现有离线两代测试当实机。全输入暂停、遮罩、完整命令和两机真实网络仍未证明。
+
+**新A档→B真实加载也已通过。** A保存进程正常退出后，新PID27544/birth134360323622198947先只读预检，再执行现有stable两bank入口。第一bank读入本轮A自动档（274879/a3de…），成功成为203-08-11刘备；第二bank读入此前手动49（274975/cbe6…），成功成为203-08-21刘备。两次原生刷新均一次FileWrite、旧/新完整双读、无error，原生加载/身份切换/规划验证/退休/六槽恢复和真实Handover均完成，目标锁均已释放。用户确认最终下旬刘备正常大地图。
+
+记录`b_warm_stable_refresh_diagnostic_runs/20261009-231424-260313/result.json`。 独立382项归档审计通过，`independent-audit/audit.json` SHA `69e16e27ef0d0b3c790b8b401c23623e5e63885d9146814e108f68caa1bdd2e0`，确认第一bank源字节就是A新自动档，两个末端报告/原生刷新/Handover和源档备份均复核。这是同一台电脑先后两个真实游戏进程、本地传递原始字节的Save→Load链；**尚未真实传网，也不是A同进程自动保存了两旬**。第二源仍是旧手动49。没有离线改写档案身份，刘备转换沿原生Title加载阶段执行。[新自动档材料](../work/mod_research/a_save_fresh_artifact_handoff.md)、[下一轮连续保存的具体缺口](../work/mod_research/a_save_repeat_gap_handoff.md)。
+
+根最终两次严格B规划只读样本相等，当前下旬刘备、六处规则入口原值、无调试器。85档只有临时CC03变化为第二测试档，34和新增A证据档都保持。收尾先误用固定张鲁中旬基线的A只读检查，被预期的日期/君主条件拒绝；记录已保留，未发生写入，随后改用正确B最终profile验证通过。用户已正常退出，OS确认无游戏进程；关闭后恢复原CC03（274880/88dd…），85份档与本轮开始备份全部相等，新A证据档保留、34未变。恢复记录`closed-restore-231818-168788/result.json`。驻留bank/helper随进程结束，无活动钩子或调试器；成功/失败claim和全部证据保留，没有卸载、强杀或重试。
+
+下一步复用已有`a_native_turn_*`做严格mode0构建后继，验证同一A进程真实推进一旬后第二次自动保存。远端B接线已离线通过，但真实两电脑的连接配置及执行尚待安排；不要继续把本轮已成功的单次A保存/B读回列为未实现。
+
+## 上轮诊断：A 实机首错已抓到，修正大地图状态值并完成新构建
 
 用户重新启动并读34后，在新PID26948/birth134360312693484013单次执行初始化诊断候选。实际仍未提交保存，但这次RPM首错记录明确到`fresh_inspector/stage46`：`error=0`、`decision=4/StateTransition`，phase2、五状态、空队列、菜单-1，记录中的transition/load/advance均0。Stop后七处原入口全部恢复，无调试器；84份原档全部未改、没有新增。独立归档审计通过；旧Gate首错的NOT_PUBLISHED不能解读为初始化没出错。
 

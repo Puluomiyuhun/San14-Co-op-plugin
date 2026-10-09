@@ -1,0 +1,121 @@
+{
+  "description": "Sanitized summary; raw evidence and save remain private",
+  "date": "2026-10-09",
+  "records": {
+    "live": {
+      "path": "a_save_runtime_live_runs/20261009-230910-151040/result.json",
+      "sha256": "f67cef53280e603fb3487f1533da86df3ad944d40af6f6d5815597bb6222d83c"
+    },
+    "artifact": {
+      "path": "a_save_runtime_live_runs/20261009-230910-151040/artifact.json",
+      "sha256": "42cf228416bf263b916ee60656c93e612c8c828ede33f50b98187d84d2afa02b"
+    },
+    "post_preflight": {
+      "path": "a_save_runtime_live_runs/20261009-230910-151040/post-preflight.json",
+      "sha256": "fb5e43330c9c820087a1eda79d4dbb57494dc30d747ae7bf4628ab538bd5d736"
+    },
+    "independent_audit": {
+      "path": "a_save_runtime_live_runs/20261009-230910-151040/independent-audit/result.json",
+      "sha256": "863debe44b7278833174b9e5b48866f315d9e9977d98528595cdfe4969b90f3f"
+    },
+    "initialization_trace": {
+      "path": "a_save_initialize_trace_read_runs/20261009-230933-536756/result.json",
+      "sha256": "97c142f4d485e69b3260d05a459224caf02ff2b3b49db1266c89b568b1c44f36"
+    },
+    "offline_b_preparation": {
+      "path": "a_save_fresh_artifact_runs/20261009-231156-564728/result.json",
+      "sha256": "5f51bf1c0c0a444eb02c9e7c7ea81610885733394270e22565d31f064e24134c"
+    },
+    "live_b_preparation": {
+      "path": "a_save_fresh_b_live_preparation_runs/20261009-231240-697739/result.json",
+      "sha256": "3312c0c2ca72814dacf92dcdc0fb49823d5a7937cd476cb9e13e612f0ec07202"
+    },
+    "b_live": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-231424-260313/result.json",
+      "sha256": "ae2c6a084a70ce5da17d8ff4140e09db781d8a1f52846cda425efb782efe197a"
+    },
+    "b_final_readonly": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-231424-260313/readonly-final-231618-927098/result.json",
+      "sha256": "a6568a1ed8a2f80283279bc691f76008d3db7057ea9471d637e0b4ab6fba5286"
+    },
+    "closed_restore": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-231424-260313/closed-restore-231818-168788/result.json",
+      "sha256": "510679426e267820f8049fdbf45d45cfa87738cb19161003f2e3e3873b13b5d8"
+    },
+    "b_independent_audit": {
+      "path": "b_warm_stable_refresh_diagnostic_runs/20261009-231424-260313/independent-audit/audit.json",
+      "sha256": "69e16e27ef0d0b3c790b8b401c23623e5e63885d9146814e108f68caa1bdd2e0"
+    }
+  },
+  "real_a_save": {
+    "result": "PASS_REAL_SINGLE_FRESH_SAVE",
+    "pid": 19340,
+    "birth": 134360320586597655,
+    "date": [
+      203,
+      8,
+      11
+    ],
+    "ruler": 666,
+    "force": 12,
+    "file_size": 274879,
+    "file_sha256": "a3de964420d8f0c9f34dcdbd1056dc0e3f355222732b00e3e10bc49742e2eab7",
+    "submitted": 1,
+    "copied": 1,
+    "original_saves_unchanged": 84,
+    "new_files": 1,
+    "native_entries": 46,
+    "native_exits": 46,
+    "abnormal": 0,
+    "worker_joined": true,
+    "native_success": true,
+    "original_sources_restored_mask": 127,
+    "debugger_detached": true,
+    "user_confirmed_normal_map": true,
+    "process_exit_confirmed": true,
+    "init_failure_record": "NOT_PUBLISHED"
+  },
+  "boundary": {
+    "same_process_repeat_save_proven": false,
+    "two_real_clients_proven": false,
+    "advance_performed": false,
+    "full_world_equality_proven": false,
+    "save_readback_by_b_proven": true
+  },
+  "b_preparation": {
+    "all_current_saves_backed_up": 85,
+    "first_source": "fresh A automatic artifact, unchanged bytes",
+    "second_source": "previous manual slot49, already validated separately",
+    "conversion": "existing native Title identity conversion; no binary save rewrite",
+    "status": "PASS_TWO_WARM_REFRESH_LOADS"
+  },
+  "b_actual": {
+    "pid": 27544,
+    "birth": 134360323622198947,
+    "first_source": "new actual A save",
+    "first_loaded_date": [
+      203,
+      8,
+      11
+    ],
+    "first_loaded_ruler": 952,
+    "second_source": "previous manual slot49",
+    "second_loaded_date": [
+      203,
+      8,
+      21
+    ],
+    "second_loaded_ruler": 952,
+    "native_writes_per_bank": 1,
+    "full_old_reads_per_bank": 2,
+    "full_new_reads_per_bank": 2,
+    "both_retired_and_slots_restored": true,
+    "both_target_leases_released": true,
+    "user_confirmed_final_map": true,
+    "real_network_used": false,
+    "current_only_modified_original_file": null,
+    "exit_and_target_restore_pending": false,
+    "process_exit_confirmed": true,
+    "all_85_match_preparation_backup_after_restore": true
+  }
+}
