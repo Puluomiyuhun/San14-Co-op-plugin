@@ -1,5 +1,12 @@
 # 进展记录
 
+## 2026-10-09 — B同进程完整双factory、两档协调器及TLS诊断回执
+
+- 同一host、同六槽两个独立bank真实Install/configure/全部guards成功；实际typed Handover串接，首代真实guard失败拒绝交接，旧迟到桥隔离通过。生产DLL另行完整构建。
+- 新本机协调器连接两bank、当前profile/模块/入口、完整退休验收与第二档备份替换；原生helper6项、双factory2场景、实际文件/租约5项通过。整个远程执行流程未进游戏。
+- 复用真实TLS/Receiver/Journal接B诊断完成ACK到A状态，3项通过；不把存档SHA当世界SHA、不放行Ready。模型跨期与原生业务替身明确保留。无game/Steam/UI访问，精确证据及后续实机和房间接点见[交接](HANDOFF.md)。
+
+
 ## 2026-10-09 — A跨旬启动与B完整factory/单代启动接线
 
 - A显式后继绑定新Runtime/ABI/发布器，接实际IPC心跳、第一artifact、受控下一旬和第二保存。5项接口检查通过，实际推演响应仍替身，整个启动器未进游戏。

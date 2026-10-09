@@ -22,7 +22,13 @@
 - warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
 - [同槽接管后继](../work/mod_research/b_warm_two_bank_handoff.md)在一个自有host中持有固定原函数和同六槽，第一代实际封存/恢复后才准第二个独立DLL接管。跨代不重置Session或once。相应文件暂存与fresh planning采样已分别实现，但仍须由统一启动器在真实退休、无读者和输入边界下衔接；文件已暂存和采样相同都不是原生加载许可。此前profile的固定势力guard遗漏已由后继修复，旧target9 fixture成功不证明那层曾被执行。
 
-## 最新启动接线边界
+## 同进程两档协调与房间回执
+
+最新[完整双factory](../work/mod_research/b_warm_factory_pair_handoff.md)在同一自有进程执行两次实际Install/configure/完整guards；[两档协调器](../work/mod_research/b_warm_coordinator_handoff.md)已经把原生Handover、两个bank、fresh采样与第二次文件备份替换接成单一本机流程。其整个远程执行路径未实机验证，文件检查的native port仍为替身。第一档须先暂存，CLI不接网络房间也不推进游戏。
+
+[WarmRoom](../work/mod_research/b_warm_room_handoff.md)沿既有TLS/接收Journal增加诊断完成ACK，供A显示B本地加载验收情况。它不是原PeriodCoordinator.loaded：文件SHA与canonical world SHA用途不同。正式下一旬还需把同一原生所有者的实际世界观察、规则撤回/重装和回执接入房间；不能用测试complete_model或客端自报替代。受控两档诊断继续不授全世界核验/完整输入排他/房间Ready。
+
+## 上一轮启动接线边界
 
 [A跨旬启动后继](../work/mod_research/a_native_turn_start_handoff.md)已经连接生产Runtime新9/10、原IPC心跳与第二保存请求，运行期间仍由人正常推进。B的[完整factory组合](../work/mod_research/b_warm_factory_handoff.md)补上实际Install/configure与完整guard执行，一代成功不再依赖附件guard替身；游戏业务仍为明确替身。新[B单代启动入口](../work/mod_research/b_warm_start_handoff.md)绑定当前本机profile/Steam/生产DLL，实际完成报告、退休和fresh地图身份共同验收。单代启动不覆盖暂存档，不授权下一代；文件替换、真实native handover和两个完整factory还需持续协调器连接。两端房间Ready和规则跨world重装亦未在这两个启动器内闭环。
 

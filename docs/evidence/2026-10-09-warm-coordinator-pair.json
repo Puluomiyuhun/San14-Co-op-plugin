@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "B complete two-factory ownership, persistent two-file diagnostic coordinator and TLS diagnostic completion",
+  "game_process_access": false,
+  "steam_save_access": false,
+  "game_ui_access": false,
+  "new_game_patch_or_debugger": false,
+  "two_player_ready": false,
+  "native_helper": {
+    "private_result": "b_warm_coordinator_build_runs/20261009-181031-457801/result.json",
+    "result": "PASS",
+    "sha256": "4204df275c981b6c35c6bea01a25e040a0cea04be84e20ff2998079917e3b43a",
+    "cases": 6,
+    "verified_pins": {
+      "sources": 25,
+      "generated": 3,
+      "binaries": 7
+    },
+    "production_dll_sha256": "ba1c3f1ea7ae365be118807c38561bc01cf4765bbdd5b19d0c59c1525420b5e4",
+    "actual_dll_abi": true,
+    "successful_prepare_and_handover_in_separate_owned_pair_host": true,
+    "pair_links_same_native_source_not_helper_dll": true
+  },
+  "full_factory_pair": {
+    "private_result": "b_warm_factory_pair_runs/20261009-181448-912475/result.json",
+    "result": "PASS",
+    "sha256": "c13390840e1fbeaf54fde8822add15ef9c44a75967b8c57ea2da2af73247a990",
+    "cases": 2,
+    "verified_pins": {
+      "sources": 89,
+      "private": 11,
+      "generated": 10,
+      "binaries": 67
+    },
+    "production_dll_sha256": "e9766e073b4a4b63d230c1f7e788d477c4f5ebb7e660a2ed3dcc5b7c8342bf05",
+    "same_process_two_actual_install_configure": true,
+    "same_six_sources": true,
+    "independent_resident_banks": true,
+    "actual_guards_each_bank": true,
+    "guard_checks_per_bank": 57,
+    "storage_validations_per_bank": 72,
+    "typed_handover_executed": true,
+    "early_stopped_repeat_failed_first_refused": true,
+    "old_cached_bridges_transparent": 6,
+    "native_business_and_environment_fixture_mappings": true,
+    "two_legal_game_files": false
+  },
+  "coordinator_files": {
+    "private_result": "b_warm_coordinator_test_runs/20261009-181530-065915/result.json",
+    "result": "PASS",
+    "sha256": "d420ff63be9aca94ca65473056e74157cc2948d7feebe3661827e6ef6df6b706",
+    "cases": 5,
+    "verified_pins": {
+      "sources": 8,
+      "artifacts": 35
+    },
+    "actual_windows_backup_and_atomic_replace": true,
+    "load_abort_holds_actual_read_lease": true,
+    "native_port_is_explicit_double": true,
+    "whole_resident_remote_path_executed": false,
+    "default_help_executed": true
+  },
+  "room_transfer_ack": {
+    "private_result": "b_warm_room_runs/20261009-181123-252515/result.json",
+    "result": "PASS",
+    "sha256": "30a8a1902eb41fa4f8ac79c2c78012fdcea93ce120e5d13aec813603b88aea3b",
+    "cases": 3,
+    "verified_pins": {
+      "sources": 13,
+      "artifacts": 27
+    },
+    "actual_loopback_tls": true,
+    "actual_persistent_journal": true,
+    "actual_guest_ack_to_host_status": true,
+    "native_save_load_are_doubles": true,
+    "between_periods_uses_explicit_old_model": true,
+    "ack_grants_ready": false,
+    "full_world_verified": false
+  },
+  "review_fixes": [
+    "Production bank now selected directly from verified pair build; helper native source closure must match pair",
+    "Post-load file identity check remains inside lease-held abort region",
+    "Warm diagnostic ACK allows an existing local load intent without reusing the download-only admission gate"
+  ],
+  "remaining": [
+    "Fresh-process actual A verified files and same B process two valid native loads",
+    "Connect persistent native owner to room received files and diagnostic completion callbacks",
+    "Actual canonical world observation, rules withdrawal/reinstallation and next-period readiness",
+    "Two-PC local profiles, versions, paths and remote connectivity; input restriction and map cover remain separate"
+  ],
+  "current_recovery": {
+    "old_failed_process_normal_exit_confirmed": false,
+    "current_game_reinspected": false,
+    "new_manual_operation_requested": false,
+    "old_claims_preserved": true
+  }
+}
