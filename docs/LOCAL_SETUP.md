@@ -10,6 +10,8 @@
 
 ## 最新两档诊断入口
 
+收档到加载的本机接点现为[ReceivedApply](../work/mod_research/b_warm_received_apply_handoff.md)。需使用原来常驻的规则/warm对象，不能由网络报文构造所谓原生成功。若受控首测采用[有限契约](../work/mod_research/b_warm_projection_handoff.md)，房间必须从开始就声明准确的CONTRACT，不能在旧检查点中途更换摘要含义。新的联合协议测试仍使用显式原生替身，不是新增可执行游戏安装包。
+
 最新增加[规则与换档本地适配](../work/mod_research/b_warm_rules_bridge_handoff.md)、[owned远程执行检查](../work/mod_research/b_warm_resident_handoff.md)和[部分世界读取](../work/mod_research/b_warm_world_handoff.md)。bridge是供常驻协调器调用的Python接口，没有自动发现游戏或安装命令；world采样器也只接受已有读取器。两项原生组合测试需要原机已固定的私有fixture输入，不能在新电脑复制一份结果JSON来授权执行。公开源码与精确构建依赖见各手册；它们没有新增朋友端一键启动器。
 
 [B两档协调器](../work/mod_research/b_warm_coordinator_handoff.md)已新增，默认help。它使用本轮完整pair的生产bank和同源原生helper，要求fresh PID、本机profile/Steam路径、已暂存第一档及独立第二档；核本机全部构建身份后才有显式执行路径。不可重跑旧单次加载器或删除claim代替第二bank。两次完整factory/原生交接、真实文件事务和TLS房间回执已分层验证，整个新`Resident`流程仍待实机，尚非朋友电脑的一键包。

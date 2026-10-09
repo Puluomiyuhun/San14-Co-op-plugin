@@ -24,6 +24,10 @@
 
 ## 同进程两档协调与房间回执
 
+最新[收档适配](../work/mod_research/b_warm_received_apply_handoff.md)把B本机的实际收档记录、一次性加载意图、既有规则/warm桥和TLS诊断ACK接在一起。固定本期context和原生进程身份；已实际预约的Journal INTENT可交给该调用，但必须与本机持久记录精确匹配。回执丢失不重做加载。
+
+[有限契约后继](../work/mod_research/b_warm_projection_handoff.md)使用明确的两表加日期契约，沿原Journal与`PeriodCoordinator.loaded`推进协议。协议中的`world_sha256`在这个契约下仅代表这份已声明投影，完整世界标志仍为false。它需要可信本机原生完成及当前A/B采样和真实等待边界；诊断ACK或文件SHA单独不能推进。A保存前读取不依赖未来文件SHA；B Receiver从已验证Journal字节重建。正式游戏输入释放仍由外部原生所有者负责。
+
 新增[规则与warm适配](../work/mod_research/b_warm_rules_bridge_handoff.md)复用`WorldLifecycle.replace`：恢复旧规则六入口→真实文件事务→warm加载→实际新世界观察→新模块绑定/发布。输入与执行等待边界仍由可信本机所有者保持，bridge不以房间暂停或JSON代替，也不释放等待或设置Ready。新适配与真实规则发布器组合已验证，但warm加载在该组合中仍是替身；另一路实际远程原生测试不能拼成同一真实游戏联合成功。
 
 [世界观察后继](../work/mod_research/b_warm_world_handoff.md)只比较两张已有精确字段清单的表及日期。所有物理槽均读，包括非活动槽；地址和本地玩家标签不参与共享散列，已审计业务字节不做猜测性屏蔽。结果命名为`partial_sha256`，缺失领域和非原子读取明确保留，不能作为现有更广世界契约的成功回执。其接点是原生保存/加载成功后的诊断，并非新的网络放行权。

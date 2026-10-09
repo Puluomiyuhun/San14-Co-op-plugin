@@ -8,7 +8,21 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：规则跨读档接线完成，补实际远程调用和加载后数据对照
+## 最新：收档接实际加载接口，按明确的数据覆盖范围衔接下一旬
+
+本轮仍不访问游戏、Steam存档或UI，没有新游戏补丁/调试器。旧失败游戏正常退出仍未确认，不重试或清claim，没有新增用户操作要求。首测范围仍是受控、无新命令的两期同步，不能写成双人可玩包。
+
+- **房间收档已接到加载适配。** `b_warm_received_apply.py`将实际TLS接收文件及SQLite记录，接至`WarmRulesBridge`的本地调用，配对本期文件/profile/日期/势力/规则代次和进程PID/birth，最后通过原TLS连接发诊断回执。加载前有持久一次性意图；加载异常、回执丢回复或重建Python对象不会自动重复读档。6项实际TLS组合通过，原生加载和规则桥仍是明确替身。
+- **修正首测的覆盖要求。** 既有`PeriodCoordinator`的`state_contract`及`LocalWorldObservation`只要求声明范围内的摘要；从未要求先逐字段解析整个游戏内存。完整世界核验仍是未完成能力，但不应再被追加为空命令首测的硬门槛。新`b_warm_projection.py`只接受明确的`san14.partial-world.object3001-force52-date.v1`，沿真实Journal预约、完成和`loaded()`进入下一期；不得拿这个有限摘要满足旧的更广契约。
+- **A保存前的采样消除文件依赖。** 新`host_observation`从当前读取器采集已声明的两表与日期，不需要预知本期尚未生成的存档哈希；B收到文件后的对照仍严格绑定新profile及本次原生完成。`receiver_from_journal`直接从B已核验的持久收档重建Receiver，不借用A测试包。
+
+**联合验证已完成。** 同一个真实TLS房间内，两次收档经过`ReceivedApply`、可选数据采样、实际Journal完成和`PeriodCoordinator.loaded`，协议由第1期进入第2期再到第3期，B attachment及epoch每期更新，没有调用`complete_model`。这关闭了此前“只发诊断ACK、测试另行代推”的协议接线缺口。收档适配6项、有限契约6项、联合两期1项场景全部通过，来源/产物哈希均复核一致。保存、原生加载、暂停边界和读取内存仍是明确替身；未在真实游戏中运行这个联合流程。
+
+本轮入口：[收档适配](../work/mod_research/b_warm_received_apply_handoff.md)、[收档测试](../work/mod_research/b_warm_received_apply_test_handoff.md)、[有限契约与跨期](../work/mod_research/b_warm_projection_handoff.md)、[联合房间测试](../work/mod_research/b_warm_joint_handoff.md)。精确结果见[本轮证据](evidence/2026-10-09-warm-received-projection.json)。有限契约进入协议下一期不等于已释放游戏输入，也不授予完整世界/原生可玩权限。
+
+**剩余主线更具体了：** ①fresh游戏验证A修复后的保存及受控下一期新档；②把真实输入/执行等待边界、加载桥、规则撤回重装和房间本地所有者放入同一实机流程，验连续合法档；③补B首次身份转换与后续bank序号衔接；④另一台电脑实际配置和连接。若先正式bootstrap再推进两旬，需要三次加载，现Resident仅两bank；若最小诊断将首次旬末加载兼作身份转换，则可以仍是两次加载，但现rules bridge预设B已是目标势力，需首代专用衔接。不要无条件把“三bank”追加为最小首测要求。
+
+## 上一轮：规则跨读档接线完成，补实际远程调用和加载后数据对照
 
 本轮继续离线开发，没有访问游戏进程、Steam存档或UI，没有新增游戏补丁或调试器。旧失败游戏正常退出仍未确认，不重试、不清claim；没有新增手动操作要求。当前不是双人可玩包。
 
