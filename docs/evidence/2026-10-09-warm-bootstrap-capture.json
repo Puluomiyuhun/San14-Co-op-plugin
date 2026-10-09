@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Explicit first A-view to B-view warm bootstrap followed by retained B-view bank1, and read-only current native rules configuration",
+  "game_process_access": false,
+  "steam_save_access": false,
+  "game_ui_access": false,
+  "new_game_patch_or_debugger": false,
+  "two_player_ready": false,
+  "bootstrap": {
+    "private_result": "b_warm_bootstrap_runs/20261009-190111-161029/result.json",
+    "sha256": "4dcd97fb51bc6f544d939c59256f4884c5c346589b792613d42880c134c2cd07",
+    "result": "PASS",
+    "cases": 6,
+    "verified_pins": {"sources": 21, "artifacts": 65},
+    "actual_windows_backup_replace_and_lease": true,
+    "original_resident_port_and_lifecycle_predicates": true,
+    "source_view_then_target_view": [12, 2, 2],
+    "same_warm_and_rules_lifecycle": true,
+    "warm_bank_indices": [0, 1],
+    "retained_rules_instances": 3,
+    "native_memory_publisher_loader_and_fence_are_doubles": true,
+    "received_bootstrap_uses_actual_receiver_journal": true,
+    "received_control_is_double": true,
+    "first_formal_reservation_explicitly_refused": true,
+    "first_or_second_failure_blocks_replay": true,
+    "formal_bootstrap_protocol_completed": false,
+    "ready_granted": false
+  },
+  "rules_capture": {
+    "private_result": "b_warm_rules_capture_runs/20261009-185955-538998/result.json",
+    "sha256": "768ceb15af7900dacebca7c043e3f6af6891977f096a1e00f6d0e4e0261a1dc4",
+    "result": "PASS",
+    "cases": 5,
+    "verified_pins": {"sources": 23, "artifacts": 2},
+    "actual_room_and_native_reader_interface": true,
+    "memory_is_synthetic": true,
+    "new_world_pointers_read_not_predicted": true,
+    "room_binding_epoch_and_native_generation_epoch_separate": true,
+    "process_room_settings_and_fence_mismatch_refused": true,
+    "native_prepare_seal_or_publication": false,
+    "ready_granted": false
+  },
+  "retained_iterations": [
+    "Bootstrap 185838: two negative-path assertions met incomplete loader-double output; completed the explicit double, production guards unchanged",
+    "Bootstrap 185857: first four-case PASS before second-profile terminal hold and received path",
+    "Bootstrap 190038: test scope used unsupported adapter_contract; corrected fixture contract",
+    "Intermediate runs remain private; final source and output identities are listed above"
+  ],
+  "remaining": [
+    "Production retained prepare_rules factory: actual fresh DLL load, Prepare, Seal, publisher and ResidentPort",
+    "Explicit bootstrap formal journal boundary with truthful source-view pre-load observation",
+    "Actual input/execution fence and real A save/B legal loads in one fresh game lifecycle",
+    "Two-PC supported versions/local paths and actual remote connectivity",
+    "Third bank only if formal initial setup plus two later corrections are required; not imposed on minimum two-load diagnostic"
+  ]
+}

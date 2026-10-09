@@ -24,6 +24,10 @@
 
 ## 同进程两档协调与房间回执
 
+[首次视角后继](../work/mod_research/b_warm_bootstrap_handoff.md)只在第一代允许旧规则source viewer→profile.target；随后交回原WorldLifecycle同viewer约束。它要求旧双人规则已安装，先恢复再加载，绝不在world换址后才试图恢复旧绑定。两代共享warm bank序列与规则生命周期；该模式没有实现第三bank。
+
+[规则捕获适配](../work/mod_research/b_warm_rules_capture_handoff.md)从已绑定GameReader/房间得到新WorldGeneration和当前Config，区分固定房间binding epoch与本地规则代际epoch。准备、封存及发布新规则DLL仍需要生产factory。首次source视角也不能通过假造target视角调用旧Journal：首代Received后继目前只做诊断ACK，正式bootstrap协议边界需明确后继。
+
 最新[收档适配](../work/mod_research/b_warm_received_apply_handoff.md)把B本机的实际收档记录、一次性加载意图、既有规则/warm桥和TLS诊断ACK接在一起。固定本期context和原生进程身份；已实际预约的Journal INTENT可交给该调用，但必须与本机持久记录精确匹配。回执丢失不重做加载。
 
 [有限契约后继](../work/mod_research/b_warm_projection_handoff.md)使用明确的两表加日期契约，沿原Journal与`PeriodCoordinator.loaded`推进协议。协议中的`world_sha256`在这个契约下仅代表这份已声明投影，完整世界标志仍为false。它需要可信本机原生完成及当前A/B采样和真实等待边界；诊断ACK或文件SHA单独不能推进。A保存前读取不依赖未来文件SHA；B Receiver从已验证Journal字节重建。正式游戏输入释放仍由外部原生所有者负责。

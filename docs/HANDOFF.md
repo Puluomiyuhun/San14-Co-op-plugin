@@ -8,7 +8,19 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：收档接实际加载接口，按明确的数据覆盖范围衔接下一旬
+## 最新：首次A视角切B已接同一加载器，补生产读取器到规则配置的接点
+
+本轮没有访问游戏进程、Steam存档或UI，没有新增游戏补丁/调试器，原失败进程正常退出仍未确认。无新手动操作要求，不重试旧进程或清claim。
+
+- **首次身份切换有显式路径。** 新`b_warm_bootstrap.py`从已安装、当前viewer为A的双人规则开始，恢复旧六入口，再由bank0加载并转为B。读取实际新世界后只允许viewer从source变为target，room、人类势力/军团和设置保持一致，安装全新规则模块。下一次复用同一个warm所有者和WorldLifecycle，交给原严格B视角路径使用bank1；旧规则模块、历史和一次性状态均保留。
+- **首代收档不再伪装已是B。** `BootstrapReceivedApply`明确验证首代currentForce与旧规则source viewer一致，随后复用原持久意图、结果配对和诊断ACK。旧正式Journal要求加载前已是B，首代不能满足，因此本后继主动拒绝首代formal reservation。当前首代支持STAGED诊断，不能声称已接上正式两期房间推进。
+- **加载后规则配置有真实读取器适配。** 新`RulesWorldCapture`支持实际Room/CheckpointRoom/WarmRoom，固定PID/birth、映像、两席连接、房间binding epoch和设置；重复读取当前root/world、日期、身份及设置，输出`WorldGeneration`或给ResidentPort的当前Config。native规则代际epoch来自本地request，房间绑定epoch独立保留。它不调用Prepare/Seal/发布器，不能当成规则模块已安装。
+
+验证：首次切换→后续同视角、失败/交接拒绝/错误第二profile、首代收档共6项通过；读取器与房间配置捕获5项通过。前者使用真实Windows文件事务和原ResidentPort/WorldLifecycle检查，但native内存、发布器及加载是明确替身；后者使用实际Room和完整FakeReader内存。没有执行新的实机加载。[本轮证据](evidence/2026-10-09-warm-bootstrap-capture.json)、[首次切换接口及测试](../work/mod_research/b_warm_bootstrap_handoff.md)、[规则只读捕获](../work/mod_research/b_warm_rules_capture_handoff.md)。
+
+**接下来优先补两个具体生产接缝。** ①将现有实机脚本里的规则DLL加载→Prepare→Seal→发布提取成保留所有者的factory，返回真实ResidentPort；目前可复用构造只存在fixture，不能拿本轮capture冒充它。②为首次A视角的真实pre-load观察增加明确的bootstrap Journal/协议接入，不能填成B视角绕过旧检查。之后把这些接口与已完成的房间流程放进fresh游戏，验证A真实保存和B连续合法档，再做两机远程连接。完整输入/执行等待边界及真实运行仍未证明；地图遮罩不在本轮完成范围。
+
+## 上一轮：收档接实际加载接口，按明确的数据覆盖范围衔接下一旬
 
 本轮仍不访问游戏、Steam存档或UI，没有新游戏补丁/调试器。旧失败游戏正常退出仍未确认，不重试或清claim，没有新增用户操作要求。首测范围仍是受控、无新命令的两期同步，不能写成双人可玩包。
 

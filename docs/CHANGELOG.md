@@ -1,5 +1,11 @@
 # 进展记录
 
+## 2026-10-09 — 首次视角切换接同一warm所有者，增加规则配置只读适配
+
+- 新BootstrapRulesBridge先恢复旧A-view规则、bank0加载转B、安装fresh规则，再复用原WorldLifecycle/bank1；6项实际文件与规则检查组合通过，native业务和publisher仍为明确替身。
+- 首代Received后继核实际旧viewer，沿持久intent和ACK；明确拒绝不相容的旧Journal首代formal reservation，未假报B视角。
+- RulesWorldCapture接GameReader与真实房间配置，读新world重建规则Config并保留两种epoch语义；5项fake-memory测试通过。生产Prepare/Seal/ResidentPort factory仍缺，详见[交接](HANDOFF.md)。本轮未访问游戏。
+
 ## 2026-10-09 — TLS收档到加载回执及明确有限契约的两期协议闭环
 
 - ReceivedApply接实际收档/Journal、一次性本地意图、既有规则加载接口及TLS回执；补进程PID/birth配对与已预约INTENT核验。6项组合通过，丢回复不重复读档。

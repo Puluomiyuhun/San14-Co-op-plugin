@@ -10,6 +10,8 @@
 
 ## 最新两档诊断入口
 
+新增[首次视角切换](../work/mod_research/b_warm_bootstrap_handoff.md)和[规则配置捕获](../work/mod_research/b_warm_rules_capture_handoff.md)，均为本地接口而非新的CLI安装器。前者需要已安装的source视角规则与原warm所有者；后者不创建进程读取器、不加载DLL。不要把首次source视角填成target来满足旧Journal，首代formal reservation当前明确拒绝。已有独立测试无须启动游戏，但它们不替代生产规则factory和实机边界。
+
 收档到加载的本机接点现为[ReceivedApply](../work/mod_research/b_warm_received_apply_handoff.md)。需使用原来常驻的规则/warm对象，不能由网络报文构造所谓原生成功。若受控首测采用[有限契约](../work/mod_research/b_warm_projection_handoff.md)，房间必须从开始就声明准确的CONTRACT，不能在旧检查点中途更换摘要含义。新的联合协议测试仍使用显式原生替身，不是新增可执行游戏安装包。
 
 最新增加[规则与换档本地适配](../work/mod_research/b_warm_rules_bridge_handoff.md)、[owned远程执行检查](../work/mod_research/b_warm_resident_handoff.md)和[部分世界读取](../work/mod_research/b_warm_world_handoff.md)。bridge是供常驻协调器调用的Python接口，没有自动发现游戏或安装命令；world采样器也只接受已有读取器。两项原生组合测试需要原机已固定的私有fixture输入，不能在新电脑复制一份结果JSON来授权执行。公开源码与精确构建依赖见各手册；它们没有新增朋友端一键启动器。
