@@ -91,7 +91,11 @@ retire使旧scope/key/cut失效，但没有执行规则撤回或世界替换。
 
 ## 保存请求与加载线程的宿主接线
 
-`a_save_dispatch_mailbox*`把请求、宿主接纳和保存完成分开，兼容已有held IPC执行端口的函数签名。网络线程等待宿主接纳，不直接执行Controller；结果按身份深复制、一次交付，未知结果不重投。实际pipe Server/Root/Stop协调仍待整合；固定native room_epoch也不等于网络每旬更换的timeline epoch。父入口候选已定位CApp实际调度调用，但尚无跨帧固定控制TID/完整子任务收尾证明。
+当前A以[`a_save_local_runtime`](../work/mod_research/a_save_local_runtime_handoff.md)集中装配。真实父调度已观察16帧，核对当前规划边界manager.current为0；原生空队列也可能null/容量0。fresh Sampler每次取得新span，scoped Inspector仅在认证父控制窗口或Game桥接受对应current，不写游戏状态补齐假设。父原始scheduler内部即使持有Parent TLS也不属于控制窗口。
+
+准备与发布顺序是：Prepare同一Owner/Gate/Parent→在可信发布窗口ArmOwner→发布两处Gate inline及一处父call→Gate/Parent Arm→自然父BEFORE初始化Controller/Host→配置真实邮箱IPC。全部生产代码编译链接已通过，尚无typed DLL启动导出、来源发布器或实际保存执行；准确作用域组合只验单期。producer锁仅协调本Runtime，完整输入和相关原生writer顺序仍需在实际保存验收中证明。下一项是独立真实新档，不能以编译产物代替。
+
+`a_save_dispatch_mailbox*`把请求、宿主接纳和保存完成分开，兼容已有held IPC执行端口的函数签名。网络线程等待宿主接纳，不直接执行Controller；结果按身份深复制、一次交付，未知结果不重投。后续Host已经接实际pipe Server/Stop诊断组合；固定native room_epoch不等于网络每旬更换的timeline epoch。父调用本轮16帧保持同一TID且所观察任务尾部配对，但空闲样本不能泛化为所有阶段/全部后台工作的排空证明。
 
 `b_reload_cold_wait*`在固定来源和对象身份下，通过真实线程上下文等待四个初始wait，成对恢复后仅调用一次后续入口。组件要求所有生产者服从可信宿主锁；这一契约尚未在游戏建立，旧Runtime也未接入此组件。不能拿一次扫描到的等待状态代替持续排他，不能重新使用旧RegisterColdPool claim。
 

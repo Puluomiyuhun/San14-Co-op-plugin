@@ -21,6 +21,8 @@ Python 常见依赖：`pefile`、`capstone`、`cryptography`；执行归档机�
 
 ## 本机私有输入
 
+A最新[本机Runtime](../work/mod_research/a_save_local_runtime_handoff.md)已经装配，但构建脚本只编译/链接，不加载DLL，也没有公开启动导出或来源发布器。新的[父调用观察器](../work/mod_research/a_save_parent_live_handoff.md)已在原电脑完成16帧观察；实机命令仍要求新PID、预检和本次测试通过的构建，不可复用旧运行许可。[fresh采样器](../work/mod_research/a_save_local_binding_handoff.md)的`--capture`只读规划/存储绑定，不授予保存许可。新作用域组合只验单期，不是可玩安装包。
+
 游戏程序及本机私有运行数据不在 Git 中；用户指定的34号测试档是明确例外。实际需要时在 `.local/` 配置本机位置，禁止把原电脑用户目录直接当成自己的目录：
 
 - 自己合法安装的 `SAN14PK_SC.exe`；目前核对的文件 SHA256：`42d53bb42c033c6027b6da75e8077f4170f4d684abb0f57483a661225d052025`。其他版本不能直接套入口偏移。

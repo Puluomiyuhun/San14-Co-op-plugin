@@ -1,5 +1,12 @@
 # 进展记录
 
+## 2026-10-09 — A实机父边界与本机Runtime装配
+
+- 集中处理A真实新档入口。实机16帧父调用、80个任务尾部配对，观察器干净退出；未保存/加载/推进，未安装新Runtime。
+- 复现旧Inspector拒绝原生未分配空队列，新增fresh Sampler与同ABI后继；修复父current0/Game自身/User自身的作用域差异，必须认证具体父控制窗口，不能仅凭父TLS放行原函数内部。
+- 父Adapter旧两期组合2/2，新作用域单期组合1/1含三项拒绝检查；本机Runtime全部生产对象编译和DLL链接通过，7条已有import链接警告保留，失败记录未删。
+- 仍缺typed DLL启动ABI、来源发布与实际单次新档。下一项验收锁定实际保存，不把组合编译或更多测试数当作可玩进度。详见[当前交接](HANDOFF.md)和[证据](evidence/2026-10-09-a-native-integration.json)。
+
 ## 2026-10-09 — A实际控制器接管道宿主，B冷启动接连续队列
 
 - A2/2：真实Owner/Gate/Controller/Driver、命名管道、邮箱与固定宿主合成两期诊断保存；已绑定后EOF保留Unknown，由原Driver收尾后在宿主线程释放协作writer锁，不交付、不重投。

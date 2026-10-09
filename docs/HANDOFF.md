@@ -8,7 +8,22 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：A真实保存控制器接管道宿主，B启动接冷等待与两代队列
+## 最新：A父调用实机观察，修复真实空队列和回调状态，装配本机保存Runtime
+
+用户指出多轮进展仍停留在相同缺口，本轮集中到A真实新档。此前模块与离线测试确实增加，但尚未跨过实际保存/连续加载验收线；不要继续用测试数或百分比代表可玩程度。
+
+- **真实游戏观察**：当前张鲁、203年8月中旬，CApp父调度16帧完整配对；每帧5个状态任务，80次创建和80次尾部配对。父边界的manager.current一直为0，所有已观察尾部均done1/yield0；这次空闲样本不是所有writer排空证明。102线程曾布置硬件观察，退出前仍存活的101线程调试寄存器恢复核对，另1线程已退出；事件排空、调试器退出、后检通过。未推进、保存或加载，无待用户操作，本轮未安装保存Runtime。
+- **修复两个实际阻断**：本机命令队列是null/容量0/计数0，冻结旧Inspector会拒绝；新增同ABI后继接受这一个合法空形态，后续分配必须重新采样。另一个问题是父/Game/User回调的current不同，旧fixture一直填User；新增严格作用域认证，只在真实父控制窗口或认证Game桥中接受对应值，不写游戏manager伪装状态。父原函数内部的零状态仍拒绝。
+- **接到同一Runtime**：fresh Sampler、Owner、Gate、ParentAdapter和邮箱/IPC配置已实际装配；明确ArmOwner→发布Gate/Parent来源→ArmPublishedSources→等待自然父回调初始化的顺序。全部生产对象编译、完整DLL链接通过，7条既有dllimport/本地定义链接警告保留。没有DLL导出启动ABI、来源发布器或实际游戏执行，不能称可注入运行包。
+- **有针对性的验证**：旧Inspector拒绝真实空队列的复现及后继检查通过；Sampler真实读取自有内存的正常/失效情形通过；父Adapter两期旧fixture组合2/2；新增正确current作用域下单期组合1/1及三项拒绝检查通过。新的作用域组合只验证单期，不能借旧两期结果声称已跨旬。源码/产物身份已独立核对；编译失败和修正记录保留。
+
+入口：[本机Runtime](../work/mod_research/a_save_local_runtime_handoff.md)、[父Adapter](../work/mod_research/a_save_parent_adapter_handoff.md)、[采样器](../work/mod_research/a_save_local_binding_handoff.md)、[作用域组合](../work/mod_research/a_save_scoped_input_handoff.md)、[实机父观察](../work/mod_research/a_save_parent_live_handoff.md)。[本轮分层证据](evidence/2026-10-09-a-native-integration.json)包含来源身份、实机/fixture/仅编译的边界。共享34号副本未变。
+
+**下一项明确验收：在真实游戏里由新Runtime生成一份独立新档。** 接手先实现typed DLL导出/启动ABI、可信来源发布和本地单次受控保存入口；复用上述代码，不再另建一组外围模型。重做当前进程/来源预检，在实际父初始化完成后通过真实IPC提交唯一新文件名，检查原生保存收尾、文件内容、原档完整性及退出状态。当前admission仅generation1/cut0/固定本机身份实验，协作producer锁不等于全游戏输入或writer排他，不能作为正式房间许可。
+
+一次真实新档通过后，再做正确父作用域中的第二次保存及B两份合法档连续加载；B真实启动阶段、生产者覆盖与整体规则/输入/world切换仍缺。本轮没有继续扩展B。双机四道结果门槛仍未关闭，见[FIRST_TWO_PC_TEST](FIRST_TWO_PC_TEST.md)。
+
+## 上一轮：A真实保存控制器接管道宿主，B启动接冷等待与两代队列
 
 本轮并行开发、交叉审查，全部离线。没有访问游戏、Steam、当前存档或UI，没有实机补丁、调试器或待用户操作。冻结前驱未改；所有新生成profile、日志与产物留在仓库外。
 

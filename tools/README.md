@@ -1,5 +1,7 @@
 # Offline developer check
 
+Current A focus: [local Runtime assembly](../work/mod_research/a_save_local_runtime_handoff.md), [native current-state scope](../work/mod_research/a_save_scoped_input_handoff.md), and [fresh binding sampler](../work/mod_research/a_save_local_binding_handoff.md). The Runtime build compiles production objects and links a DLL; it neither exports a startup ABI nor installs/runs it. Scoped execution covers one diagnostic period. A separate [parent observer](../work/mod_research/a_save_parent_live_handoff.md) captured 16 actual idle frames with verified cleanup. Next acceptance is a real newly produced save, not more diagnostic counts. Older entries below retain historical limitations; use the current [handoff](../docs/HANDOFF.md).
+
 Newest same-runtime queue composition: [Bootstrap and two generations](../work/mod_research/b_reload_bootstrap_queue_runtime_handoff.md). Normal and input-yield owned cases pass; read the macro/service doubles before reproducing. This is not a game installer.
 
 [A native User lifecycle](../work/mod_research/a_save_dispatch_handoff.md) and [cold-start parent audit](../work/mod_research/b_reload_cold_start_handoff.md) run only pinned archive instructions, with explicit modeled services. No real saves or OS startup timing are proved.
