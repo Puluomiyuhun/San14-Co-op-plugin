@@ -1,5 +1,7 @@
 # 在另一台电脑接手
 
+**当前实机结果：** 同一真实游戏进程连续两次原生刷新/加载已通过，最终203-08-21/刘备，用户画面确认。使用新[b_warm_stable_refresh_diagnostic](../work/mod_research/b_warm_stable_refresh_handoff.md)，其原生DLL不变，只补安装前有限只读重采并记录证据。新本机批准bundle路径及SHA见该交接；不得复用本机PID、claim或receipt到其他电脑。下面“尚待两载实测”的说明属于较早阶段，当前以[HANDOFF](HANDOFF.md)为准。
+
 **最新入口：** 原生存储刷新和文件锁顺序已接好，离线两代组合通过；使用[b_warm_refresh_diagnostic](../work/mod_research/b_warm_refresh_python_handoff.md)。新plan要求`profiles,target,sources,initial_target,expected_ruler,steam_paths`，保留旧CC03，两份source独立，不再先物理替换首档。新构建family是`san14.b-warm-refresh-pair.v1`，不能将旧pair的PASS或DLL用于此入口。当前候选定位见[组合交接](../work/mod_research/b_warm_refresh_pair_handoff.md)。
 
 **最新实机收尾：** 上轮首载因原生大小不一致拒绝，用户正常退出后已确认无游戏进程、恢复原CC03，34未改，新49留在本机。本轮未重新访问游戏；下次fresh启动读34，重新采样PID/birth与原入口，按新plan先`--check`再显式执行。不得清claim或向旧失败实例重投。下文旧诊断/暂存/失败实例说明是历史背景，以[当前交接](HANDOFF.md)为准。

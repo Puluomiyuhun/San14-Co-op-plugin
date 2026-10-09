@@ -1,0 +1,158 @@
+{
+  "schema": "san14.real-two-warm-loads.v1",
+  "date": "2026-10-09",
+  "result": "PASS_REAL_SINGLE_GAME_TWO_LOADS",
+  "private_result": "b_warm_stable_refresh_diagnostic_runs\\20261009-220403-678247\\result.json",
+  "result_sha256": "3be79278e3ca829a8a0a96e1408cd41d7127c1b62b4acc0a3ab29a071deb6970",
+  "game_process_access": true,
+  "game_memory_access": true,
+  "steam_save_access": true,
+  "user_visual_confirmation": true,
+  "pid": 37636,
+  "birth": 134360279974184088,
+  "records": [
+    {
+      "bank": 1,
+      "completion_sha256": "4f5e0da4e7bdf57c94d2bd3518e12d1b23070ed0fd090b853eb94f26753981e6",
+      "date": {
+        "year": 203,
+        "month": 8,
+        "day": 11,
+        "period": "中旬"
+      },
+      "player": {
+        "force_id": 2,
+        "ruler_id": 952,
+        "ruler_name": "刘备"
+      },
+      "source_size": 274920,
+      "loaded_size": 274920,
+      "loaded_sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95",
+      "write_attempts": 1,
+      "previous_full_reads": 2,
+      "new_full_reads": 2,
+      "target_lease_released": true,
+      "slots_restored": true,
+      "observations": 116,
+      "sampling_attempt": 1
+    },
+    {
+      "bank": 2,
+      "completion_sha256": "4caef6e62672db4d67323923603dd43822e5548ed27c2a3d4aca797ddcfb4bed",
+      "date": {
+        "year": 203,
+        "month": 8,
+        "day": 21,
+        "period": "下旬"
+      },
+      "player": {
+        "force_id": 2,
+        "ruler_id": 952,
+        "ruler_name": "刘备"
+      },
+      "source_size": 274920,
+      "loaded_size": 274975,
+      "loaded_sha256": "cbe6d0b9cd97ed6053fb797d68193c8bbe74a4118ffdebc83583215c64c51bd0",
+      "write_attempts": 1,
+      "previous_full_reads": 2,
+      "new_full_reads": 2,
+      "target_lease_released": true,
+      "slots_restored": true,
+      "observations": 99,
+      "sampling_attempt": 1
+    }
+  ],
+  "components": {
+    "stable_capture": {
+      "private_result": "b_warm_stable_capture_runs\\20261009-220004-423346\\result.json",
+      "sha256": "d6cb178390febdab93e9f0b9dc67735595e360607c7b51016825e2a88d6ccffd",
+      "verified_counts": {
+        "sources": 6,
+        "private": 0,
+        "generated": 0,
+        "binaries": 0,
+        "artifacts": 9
+      }
+    },
+    "python": {
+      "private_result": "b_warm_stable_refresh_python_runs\\20261009-220120-150754\\result.json",
+      "sha256": "aa56f4e8200725096526c5f47b4013f2f597c75eced87256f896ab571a191fab",
+      "verified_counts": {
+        "sources": 31,
+        "private": 0,
+        "generated": 0,
+        "binaries": 0,
+        "artifacts": 132
+      }
+    },
+    "bundle": {
+      "private_result": "b_warm_stable_refresh_build_runs\\20261009-220219-504303\\result.json",
+      "sha256": "66c42b886ee818da39fe987d79d296e2aab71eac4d7d8d0cff784abe2c69363a",
+      "verified_counts": {
+        "sources": 139,
+        "private": 26,
+        "generated": 9,
+        "binaries": 73,
+        "artifacts": 0
+      }
+    }
+  },
+  "unchanged_native_dll_sha256": "9c6c69e652466b0d392eb3e5e11cb91a2d334187cee84b4f7cf677846cf9df0e",
+  "previous_attempt": {
+    "private_run": "b_warm_refresh_diagnostic_runs/20261009-215610-770741",
+    "pid": 40604,
+    "birth": 134360275701686982,
+    "first_load": "PASS_WARM_LOAD_RETIRED",
+    "second": "Authorized by native handover, then rejected during two-sample planning capture before Install",
+    "first_previous_size": 274880,
+    "first_new_size": 274920,
+    "unknown_differing_capture_field": true,
+    "claim_preserved": true,
+    "normal_exit": true
+  },
+  "postcheck": {
+    "private_result": "b_warm_stable_refresh_diagnostic_runs\\20261009-220403-678247\\readonly-final-220548-213421\\result.json",
+    "sha256": "613f74c8fe5e90423bc1567fd1ba5eed4c6bd80d0dbd2206c762d89a56213efa",
+    "six_slots_original": true,
+    "rules_original": true,
+    "no_debugger": true
+  },
+  "cleanup": {
+    "private_result": "b_warm_stable_refresh_diagnostic_runs\\20261009-220403-678247\\closed-restore-220828-370044\\result.json",
+    "sha256": "d4fabb767d43005df12b734c8259e37a73a0f23106bd420b405df8b57940e76a",
+    "user_normal_exit": true,
+    "game_absent": true,
+    "original_cc03_restored": true,
+    "restored_sha256": "88ddc39fd2fd76c0c4b130bd9a2dad12effa9cfd20a1cb333981d541e8761b8c",
+    "all_84_original_hashes_match": true,
+    "slot34_unchanged": true,
+    "no_active_game_hooks_or_debugger": true,
+    "claims_and_failure_records_preserved": true
+  },
+  "scope": {
+    "real_games": 1,
+    "real_native_loads_in_final_process": 2,
+    "source_second_file": "User manual save49 after one period; internal date now proven by real second load",
+    "both_successful_samples_first_attempt": true,
+    "stable_retry_branch_tested_offline_only": true,
+    "automatic_host_save": false,
+    "remote_network_in_this_run": false,
+    "full_world_verified": false,
+    "room_ready": false,
+    "full_input_exclusion": false,
+    "map_cover_verified": false
+  },
+  "next": [
+    "Validate repaired A automatic save in a separate fresh process lifetime",
+    "Connect refreshed B loader to remote receiving owner, replacing old physical staging/target lock",
+    "Configure two actual PCs and test two controlled empty-order periods"
+  ],
+  "independent_binary_audit": {
+    "private_result": "b_warm_stable_refresh_diagnostic_runs\\20261009-220403-678247\\independent-audit.json",
+    "sha256": "9197f0e41f57e15b231292c09c1dffbff1e42734c75190a7fabda025671686ed",
+    "input_pins": 292,
+    "result": "PASS",
+    "both_bank_final_two_reports_revalidated": true,
+    "typed_handover_terminal_stage": 3
+  }
+}
