@@ -1,0 +1,104 @@
+{
+  "schema": "san14.public-offline-evidence.v1",
+  "date": "2026-10-10",
+  "milestone": "Observed formal completion joins same-day A room and retained B Session",
+  "result": "PASS_OFFLINE_COMPOSITION",
+  "tests_passed": 21,
+  "runs": [
+    {
+      "name": "contract",
+      "run": "observed_completion_contract_runs/20261010-003828-921664/result.json",
+      "result_sha256": "cc6277d2ae1b3bf63bb507257318a42bbd95af29f9fe0d3d548addcb7b2c3478",
+      "tests": 9,
+      "verified": {
+        "sources": 28,
+        "private_inputs": 0,
+        "artifacts": 0
+      }
+    },
+    {
+      "name": "A_provider",
+      "run": "a_observed_boundary_runs/20261010-003644-592578/result.json",
+      "result_sha256": "415a1d8e5191e6a3a4ed2fdf6d5d809d8ab7242c1c8d1bd82952939e145044f7",
+      "tests": 7,
+      "verified": {
+        "sources": 16,
+        "private_inputs": 4,
+        "artifacts": 3
+      }
+    },
+    {
+      "name": "combined_TLS",
+      "run": "b_observed_completion_runs/20261010-003948-526128/result.json",
+      "result_sha256": "114960f9cf85a3d5ab2f3c031f1edec550d115de21b0b0cdd0b03edbc81485cb",
+      "tests": 5,
+      "verified": {
+        "sources": 76,
+        "private_inputs": 0,
+        "artifacts": 71
+      }
+    }
+  ],
+  "root_audit": {
+    "path": "observed_completion_root_audits/20261010-004223-166770/result.json",
+    "sha256": "07bcddd7408b3447fba20253c3eb8e9b34d1ff33af6749f6e9d298853b80c48d"
+  },
+  "sources": {
+    "work/mod_research/observed_completion_contract.py": "22a05679bf2b5543d85ddfacf2e084ef355ef561a0841b5c06d2020594013fac",
+    "work/mod_research/a_observed_room.py": "3547c604105e965d447e2c2de8e8a5fc15ff55a5129ea26f4ef31dc1263021b4",
+    "work/mod_research/a_observed_boundary.py": "08d25b2defc528ea121bb860d0b189b759a626af380f3809df608683c1e3cb9f",
+    "work/mod_research/b_observed_completion.py": "7bff1e1e61e65bc4f00a76cdab0ea52d54e10bacdf9a60c3bacc14bc33dcbf9b",
+    "work/mod_research/observed_completion_contract_test.py": "10a4123bd74a4c50695f9be545d8928c0906ccb30811b3667fa706b2b6f13926",
+    "work/mod_research/a_observed_boundary_test.py": "159a9b540c022df51a5be959d5e622c8dc85d351d816e299af3eb5cb3026de87",
+    "work/mod_research/b_observed_completion_test.py": "c32c8d8f04418ecd1e66e5ce3bce6d26c0047407d3af8b41713665b512d3b41b"
+  },
+  "actual_components": [
+    "ObservedRoom and independent signed observed-completion action/domain",
+    "AObservedBoundary planning, runtime-contract and owned-entry predicates",
+    "RoomTurnControl waits for formal completion then explicit Ready/seal",
+    "One retained B Session, original planning sampler and lifecycle predicates",
+    "Loopback TLS transport and durable SQLite checkpoint journals"
+  ],
+  "explicit_doubles": [
+    "game RAM",
+    "native Save and Load",
+    "native publisher and Runtime Snapshot"
+  ],
+  "verified_sequence": [
+    "submit1",
+    "signed loaded1: same day 203-08-11",
+    "both Ready and seal",
+    "RequestNext",
+    "submit2",
+    "signed loaded2: 203-08-21"
+  ],
+  "negative_cases": [
+    "lost begin reply: zero native loads, terminal retained",
+    "lost complete reply: one completed native load, journal retained, no retry",
+    "pending input rejected before signed begin",
+    "signed false full-fence claim rejected",
+    "wrong date/profile/incarnation and sample replay rejected"
+  ],
+  "game_access": false,
+  "steam_save_access": false,
+  "independent_guest_process": false,
+  "production_session_open_executed": false,
+  "real_two_game_clients": false,
+  "coverage": {
+    "human_no_new_commands": true,
+    "input_exclusion_proven": false,
+    "scheduler_fence_proven": false,
+    "atomic_snapshot": false,
+    "full_world_verified": false,
+    "ready_authorized": false
+  },
+  "remaining": [
+    "Real A/B startup orchestration with approved local builds, retained native owners, fresh-process checks and phase-specific cleanup",
+    "Real two-PC address/TLS/key/version configuration and narrow same-day plus one turn-end live test"
+  ],
+  "notes": [
+    "Raw reports, source archives, private credentials and runtime artifacts remain private.",
+    "Earlier per-component real-game milestones remain valid but do not prove this combined live flow.",
+    "Final combined run executes both current A provider and B planning algorithms; its two TLS seats share one Python process."
+  ]
+}

@@ -1,5 +1,12 @@
 # 进展记录
 
+## 2026-10-10：有限观察正式完成接口与同一 A/B 组合贯通
+
+- 新独立签名合同与 ObservedRoom 明确采用本次空闲观察，不混用旧强 held；A provider 实际检查已安装保存入口、Runtime、当前规划及双读世界投影。
+- GuestCompletion 将保留的同一 B Session 两次原生结果接入正式 begin/complete；同日首档 loaded 不推进日期，Ready/seal 后才允许 RequestNext，下一旬完成再次正式确认。
+- 21/21 离线验证，包含真实 TLS/SQLite 和实际两侧观察算法的同一组合。丢 begin 零加载、丢 complete 保留一次已成功加载并终止，未决输入及虚假完整 fence 拒绝。两席位在同一 Python 进程；原生和 RAM 为替身，未接触游戏。
+- 已关掉有限完成接口缺口；剩两侧实机启动编排与真实网络部署。不是已通过两台游戏，也不提供完整内政或持续输入限制。[验证摘要](evidence/2026-10-10-observed-completion.json)。
+
 ## 2026-10-10：同日开局、A等待控制与B常驻诊断接线
 
 - 新同日bootstrap阶段先传起始档，正式B完成后仍保持原日，双方准备/封口后才允许首次推演。A RoomTurnControl绑定真实scope/封口/epoch，正式完成和Ready分开等待；超时/失败不重投。

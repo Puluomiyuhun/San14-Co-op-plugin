@@ -8,7 +8,21 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新开发：同日开局协议和 A 等待控制已连通真实 TLS 回执
+## 最新开发：有限观察正式回执已接通同一 A/B 离线流程
+
+**上一轮所列“有限边界完成接口”已完成开发及联合离线验证，不再列为未实现。** 本轮三个 agent 分别完成共同签名合同/A Room、A 本机观察器、B 正式回执。没有访问游戏进程、Steam 存档或 UI，没有安排用户操作，也没有两台游戏同时联网。
+
+新增 `observed_completion_contract.py` 使用独立 action/HMAC domain，绑定当前检查点、日期/势力、profile、PID/birth 和递增观察序号。`a_observed_room.py` 明确拒绝旧强完成入口；`a_observed_boundary.py` 检查 A 实际安装的保存入口、Runtime 报告、规划及双读投影；`b_observed_completion.py` 把保留的同一 Session 原生完成交回真实 Room。双方人工不新增命令是条件，全部 `input_exclusion_proven/scheduler_fence_proven/atomic_snapshot` 仍为 false；没有把采样稳定冒充持续持锁。
+
+**同一组合已通过：** 实际新 A provider、RoomTurnControl、同一 B Session、原规划采样、真实 TLS/SQLite 完成 `submit1 → signed loaded1（日期仍为中旬）→ Ready/seal → RequestNext → submit2 → signed loaded2（下旬）`。没有强 held 替身或 model completion 混入这条新流程。丢 begin 回复时零次加载；丢 complete 回复时保留已完成的一次加载、Journal 和终态，不重放。待处理输入、错误身份/日期和虚假 fence 均拒绝。
+
+本轮 9 项合同、7 项 A provider、5 项联合场景，共 **21/21** 通过。根独立复核 28/16/76 份来源集合、4 份归档输入和 3/71 份产物哈希均一致。最终组合 `b_observed_completion_runs/20261010-003948-526128/result.json` SHA `114960f9cf85a3d5ab2f3c031f1edec550d115de21b0b0cdd0b03edbc81485cb`。两 TLS 席位在同一 Python 进程；RAM、原生保存/加载/发布和 Runtime 为替身，生产 `Session.open` 整组安装尚未实机，不是双人联机已经通过。[共同接口与接法](../work/mod_research/observed_completion_handoff.md)、[公开证据](evidence/2026-10-10-observed-completion.json)。
+
+**现在下一步明确剩两类接线：** ① 两侧实际启动编排：A 在已批准的 native-turn 安装/收尾中接真实 Room、channel 和 A Snapshot provider；B 在真实 `Session.open` 后接 GuestCompletion 和两次收档。保留 fresh 进程、构建来源、once-claim 和异常收尾；旧 `a_native_turn_start.py` 仍不是联机启动器。② 两电脑的实际地址/TLS/key 和版本构建配置，再做同日开局＋一次旬末的窄实机测试。不重做已完成的回执协议，不把完整内政和遮罩追加为首测门槛。
+
+当前不等待用户操作。本轮没有安装钩子或调试器；上次用户退出后 87 档恢复事实保留，本轮未重新查询进程或存档。[当前首测清单](FIRST_TWO_PC_TEST.md)。下文保留历史阶段事实，其当时缺口以本节为准。
+
+## 上轮开发：同日开局协议和 A 等待控制已连通真实 TLS 回执
 
 本轮只做离线开发，没有访问游戏进程、Steam存档或UI，没有安排用户操作。上一轮两份A自动档/B连续读回的实机结果和关闭恢复状态仍成立；**这次没有再实测游戏，也没有两台游戏同时联网。**
 
