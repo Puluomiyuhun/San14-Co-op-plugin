@@ -6,7 +6,7 @@
 
 连续加载的首测路线已重审：优先为已有warm实机成功入口补完成退休、六槽恢复和独立二代配置。下文cold组合保留为另一条研究路线；其早期启动/四线程接管条件不是warm首测的统一安装要求。参见[路线说明](../work/mod_research/b_reload_runtime_warm_review.md)。当前仍没有可供朋友直接运行的统一原生安装包。
 
-最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)和[B不可变文件/身份配置](../work/mod_research/b_warm_profile_handoff.md)。两者生产DLL和ABI可构建验证，但不是直接替换旧启动器就能实测的包；B的同六槽第二模块接管、合法新档staging和当前本机配置捕获仍需接线。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。
+最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)、[B同六槽两模块交接](../work/mod_research/b_warm_two_bank_handoff.md)、[文件暂存](../work/mod_research/b_warm_staging_handoff.md)和[B本代采样](../work/mod_research/b_warm_profile_capture_handoff.md)。它们仍需合并为本机启动流程，不能直接替换旧脚本的DLL路径执行；合法新档与连续实机加载尚待验收。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。最新交接明确修正了旧profile的固定势力guard遗漏。
 
 ## 先建立开发环境
 

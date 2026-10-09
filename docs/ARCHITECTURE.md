@@ -20,6 +20,7 @@
 - 长期目标是同一进程常驻、连续多旬。之前一次性成功的读档实验不能证明连续两次及更多次均可工作。
 - 首个连续加载原型优先沿已有实机成功的warm六槽入口扩展：完整加载后封存业务观察、恢复六槽，旧DLL驻留并透明转交迟到调用；下一代使用新模块和独立文件配置。cold Bootstrap是完整Root任务方案的安装条件，不是引擎连续加载本身的必要条件。详见[路线重审](../work/mod_research/b_reload_runtime_warm_review.md)。
 - warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
+- [同槽接管后继](../work/mod_research/b_warm_two_bank_handoff.md)在一个自有host中持有固定原函数和同六槽，第一代实际封存/恢复后才准第二个独立DLL接管。跨代不重置Session或once。相应文件暂存与fresh planning采样已分别实现，但仍须由统一启动器在真实退休、无读者和输入边界下衔接；文件已暂存和采样相同都不是原生加载许可。此前profile的固定势力guard遗漏已由后继修复，旧target9 fixture成功不证明那层曾被执行。
 
 ## 推演结束与下一旬的身份边界
 
@@ -39,7 +40,7 @@ B的最新 `b_reload_cold_bootstrap*` 已将实际Bootstrap、冷等待、原Reg
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
 | A 本轮存档 | `a_save_runtime_start.py`、`a_save_runtime_exports*`、`a_save_runtime_publish*` | 已实际安装并经自然父调度/真实IPC产生一个新文件；最终context验证拒绝，原生读未开始，来源因失败保留待正常退出。尚未得到合格artifact或连续两次保存；全writer/全输入许可仍缺 |
-| B 连续加载 | `b_warm_profile*`, `b_warm_retire*`；另保留 `b_reload_cold_bootstrap*` | 每代不可变文件/日期/身份配置已接warm实际校验链，完成后业务封存、六槽恢复，旧DLL驻留；两配置离线通过。仍缺真实合法档staging/启动器与同六槽独立第二代装配；双DLL配置隔离不等于两次加载 |
+| B 连续加载 | `b_warm_two_bank*`, `b_warm_staging*`, `b_warm_profile_capture*`；前驱`b_warm_profile*`, `b_warm_retire*` | 同进程同六槽两代实际回执链/恢复已组合；暂存和本代采样分别验证。原生业务与环境仍替身，缺统一生产启动器、两份合法新档及连续实机验收 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |
 | 菜单捕获准备 | `reward_menu_handoff_gate*`, `reward_menu_capture.py`, `reward_menu_observation*` | 归档Update确认前原生门禁已能单次领取纯ID并接TLS去重，正常取消/关闭与生产installer/lifetime仍缺。只读观察的自然执行记录仍不能发送 |
