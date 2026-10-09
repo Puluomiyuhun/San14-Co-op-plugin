@@ -1,0 +1,102 @@
+{
+  "schema": "san14.public-offline-evidence.v1",
+  "date": "2026-10-10",
+  "milestone": "Explicit A and B startup, concrete TLS service and phase-specific cleanup",
+  "result": "PASS_OFFLINE_ENTRIES",
+  "tests_passed": 26,
+  "runs": [
+    {
+      "name": "A_entry",
+      "run": "a_observed_start_test_runs/20261010-005820-398729/result.json",
+      "result_sha256": "ea7bc67a8ffc6aabfc9bff8583fa030d8c43cc31a826cda7d92610aae8cca4b4",
+      "tests": 7,
+      "verified": {
+        "sources": 87,
+        "private_inputs": 9,
+        "artifacts": 407
+      }
+    },
+    {
+      "name": "B_entry",
+      "run": "b_observed_start_runs/20261010-010911-672897/result.json",
+      "result_sha256": "c3caee7cf5fa24a9f3a13a530f20d9f615c7c0d8499fc66eb36817c4b15ef485",
+      "tests": 9,
+      "verified": {
+        "sources": 86,
+        "private_inputs": 0,
+        "artifacts": 225
+      }
+    },
+    {
+      "name": "room_service",
+      "run": "observed_room_service_runs/20261010-010833-313540/result.json",
+      "result_sha256": "59d7b4af6f68326e37a487ec418bc9282d3ce43248777a99fe97b25a93bc5800",
+      "tests": 10,
+      "verified": {
+        "sources": 39,
+        "private_inputs": 0,
+        "artifacts": 17
+      }
+    }
+  ],
+  "root_audit": {
+    "path": "observed_start_root_audits/20261010-011121-056593/result.json",
+    "sha256": "f2eb8f5bb926d1d5319eae4b893656d38f796bec45f778b5d1f9be401044998d"
+  },
+  "sources": {
+    "work/mod_research/a_observed_start.py": "b4edb77e54a719c585bb861b9aad6fd3d95609fac146191ca8bea94d25fb9de5",
+    "work/mod_research/a_observed_start_call.py": "e4449143f08d80b98f518ff56314078c52a8aa0a6cdb3e178d05f7a9f60fdc25",
+    "work/mod_research/a_observed_start_test.py": "d8a27d3159c60ad3e909996e05109c88c769252ec4074f1690dd8a86d0c39310",
+    "work/mod_research/b_observed_start.py": "364bcbb7ecc21149ab3a50a05f39c3b4fcab13aabe5a0919ac29c99f93250a9a",
+    "work/mod_research/b_observed_start_test.py": "214c9de22a50653a431ed51cab8554c01c6bea0e37ea1da136782330ffcdd5da",
+    "work/mod_research/observed_host_start.py": "74884dd75fa97f005ad3f1489c4ee782f7d91bd331cc337c8381f2d25e5ebab7",
+    "work/mod_research/observed_room_service.py": "037f66ef4de5c4cffb1510f8978ba94978ec6ad4f56cba933783201d7a6cf764",
+    "work/mod_research/observed_room_service_test.py": "b4e7e7a7e4234a1825c893da28959c69dac8e58a056003cc9b4ae7502c9bb6fd"
+  },
+  "actual_components": [
+    "A successor execute installation/room binding/control and cleanup code branches",
+    "B Runner with retained Session and GuestCompletion, SQLite journals and ResidentPort restoration predicates",
+    "Concrete HostService/GuestLink TLS selection and context exchange",
+    "Two-sided close barrier, fragmented-frame and idle-handler shutdown",
+    "Owned file backup/inventory and actual private-key ACL checks"
+  ],
+  "explicit_doubles": [
+    "game RAM and process/PE environment",
+    "native Save, Load, publisher, Runtime and helper implementations",
+    "B production Session.open native environment",
+    "Selected build lookup and OS call ports in owned tests"
+  ],
+  "game_access": false,
+  "steam_save_access": false,
+  "production_session_open_executed": false,
+  "two_real_game_clients": false,
+  "a_save_entry_hooks": 7,
+  "a_human_AI_rule_hooks_integrated": false,
+  "full_world_verified": false,
+  "input_exclusion_proven": false,
+  "scheduler_fence_proven": false,
+  "original_CC03_restored_while_game_running": false,
+  "negative_cases": [
+    "Unknown remote call remains unknown even when final result logging fails",
+    "Existing TLS observations drained before closing A native interfaces",
+    "Unfinished Running refuses optimistic hook restoration",
+    "Previous-period manifest retained while B waits for the next real offer",
+    "Install-before-session reader failure releases only local read handle",
+    "Source restoration and local-handle closure are separately checked",
+    "Failed B cleanup immediately holds room and revokes readiness/downloads",
+    "B remains connected until A reports its entry returned; missing host finish times out without reloading",
+    "TLS fingerprint mismatch, partial frame and server shutdown with idle guest"
+  ],
+  "earlier_runs_preserved": [
+    "A005345 assertion exception-type mismatch; earlier five-case successes retained",
+    "B005935 Path-only file API mismatch;005959 fixture rules digest mismatch;010322 lazy dependency omitted from source manifest",
+    "Room005542/005720 actual Windows SSL makefile close failure; replaced only in new concrete service",
+    "B010514 eight-case success predates added bilateral close barrier"
+  ],
+  "remaining": [
+    "Actual two-PC network/private-key/build configuration and fresh-process combined entry validation",
+    "A-side human/AI rules coexistence with save/parent hooks for gameplay beyond snapshot diagnostics",
+    "Closed-game restoration of changed original test save files",
+    "Full player-command/event coverage, more than two checkpoints, overlay and package distribution"
+  ]
+}

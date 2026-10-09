@@ -1,5 +1,7 @@
 # 在另一台电脑接手
 
+**最新双侧入口已落地（尚未整组实机）：** A `work/mod_research/observed_host_start.py`、B `work/mod_research/b_observed_start.py`，配置和检查/执行命令见[启动手册](../work/mod_research/observed_start_handoff.md)。A的`--check`只读构建/文件；B的`--check --no-new-commands`还会只读显式游戏进程；两者均不安装，默认help。请先准备本机构建/源码证据、fresh进程、实际网络与独立key，不能把旧CLI或测试替身当此入口。现范围为开局＋一次旬末的同步诊断，A端AI规则尚未合装。
+
 **2026-10-10当前入口：** 先看[HANDOFF](HANDOFF.md)顶部。A跨旬双自动保存、B读回两份自动档的实机均已通过；以下历史“待实测”说明已被这些结果更新。新同日房间协议/控制的离线命令为 `py -3 -X utf8 work/mod_research/a_room_bootstrap_test.py` 和 `py -3 -X utf8 work/mod_research/a_room_native_control_test.py`。前者运行本机TLS与独立测试进程，不访问游戏；两者均不是双机游戏启动命令。不要将fixture的held/原生替身移植到实际启动器。
 
 **本轮新增接线：** 用 [b_warm_refresh_remote_owner](../work/mod_research/b_warm_refresh_remote_owner_handoff.md) 连接stable Resident，旧remote owner仍使用物理暂存，不用于此路线。离线命令为 `py -3 work/mod_research/b_warm_refresh_rules_bridge_test.py` 和 `py -3 work/mod_research/b_warm_refresh_remote_owner_test.py`。这两个入口不访问游戏，不能用测试guard启动真实房间。
