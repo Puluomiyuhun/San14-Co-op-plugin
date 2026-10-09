@@ -4,7 +4,7 @@
 
 - 新PID单次诊断得到真实stage46/StateTransition，保存未提交；七入口恢复、无调试器、84档未改、无新文件。
 - 真实起点mode0与旧检查固定mode1不匹配；新后继只将末尾比较改为严格mode0，保留其它检查且不写游戏状态。后验快照不等同失败瞬间，实际修复仍待新进程验证。
-- baseline0完整一次保存链、mode1/2和真实切换拒绝，共4项自有进程测试通过，生产DLL/typed ABI/launcher核验通过。已请求用户正常退出旧实例，未确认；[证据](evidence/2026-10-09-a-planning-mode.json)。
+- baseline0完整一次保存链、mode1/2和真实切换拒绝，共4项自有进程测试通过，生产DLL/typed ABI/launcher核验通过。旧实例已正常退出，OS无游戏进程且84档退出后再核一致；已请求新启动读34。[证据](evidence/2026-10-09-a-planning-mode.json)。
 
 ## 2026-10-09：A 初始化首错后继完成生产构建和启动器包装
 

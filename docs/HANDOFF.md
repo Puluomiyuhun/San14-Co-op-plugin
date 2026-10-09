@@ -18,7 +18,7 @@
 
 **下一步已有可执行候选，无需再造保存模块。** 原电脑`--build-run`为`..\mod_research\a_save_planning_mode_runs\20261009-230254-218464\candidate\launch`，launch manifest SHA `34171de9d918bf0d00951692f8f5129b35adb3b3c3229e975bd9906723f30cb5`，DLL SHA `ad0bf55dc8a4c8e542c6d3be211779fe84edda8557f744597a654e063c9ee922`；配套publisher仍用`a_save_abort_publish_runs/20261009-135151-357545`。先确认旧PID退出，再让用户启动读34；只读核新PID/birth/版本/原入口/存档，使用`a_save_diagnostic_start.py`单次执行。若失败，先用`a_save_initialize_trace_read.py --observe --run <新run>`读当前DLL的144字节首错再收尾。不能向26948重投、清claim或卸载驻留模块。
 
-当前已请求用户正常退出、先不用重开；最近OS查询仍见PID26948，尚未确认退出。七处改动和调试器已撤回，但模块保留至进程正常结束。本轮没有推进、加载或更改存档。B的两次真实加载和远端收档离线接线维持下节已验证结果；A实机新存档、真正两机串联仍是当前窄测试缺口。
+用户已确认正常退出，OS查询也确认无SAN14PK_SC.exe；驻留模块随进程结束。退出后再次逐份核验84份存档，与本轮收尾清单完全相同。已请用户重新启动并读34，等待新的启动确认；下一轮只用新PID。退出确认记录为原live run的normal-exit-confirmed.json。本轮没有推进、加载或更改存档。B的两次真实加载和远端收档离线接线维持下节已验证结果；A实机新存档、真正两机串联仍是当前窄测试缺口。
 
 ## 上轮：远端收档接入原生刷新；A 自动保存实测停在初始化
 

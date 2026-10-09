@@ -29,6 +29,10 @@
     "launch": {
       "path": "a_save_planning_mode_runs/20261009-230254-218464/candidate/launch/result.json",
       "sha256": "34171de9d918bf0d00951692f8f5129b35adb3b3c3229e975bd9906723f30cb5"
+    },
+    "normal_exit": {
+      "path": "a_save_runtime_live_runs/20261009-225620-723897/normal-exit-confirmed.json",
+      "sha256": "0c9eee3a930dd48d80258d31cb791b898553b698982b1f03c7cd2a840afa325d"
     }
   },
   "actual_game": {
@@ -47,7 +51,8 @@
     "post_failure_cache_mode": 0,
     "post_failure_observation_is_failure_instant": false,
     "normal_exit_requested": true,
-    "normal_exit_confirmed": false
+    "normal_exit_confirmed": true,
+    "exit_inventory_verified": 84
   },
   "change": {
     "frozen_predecessor": "a_save_scoped_input.cpp",
