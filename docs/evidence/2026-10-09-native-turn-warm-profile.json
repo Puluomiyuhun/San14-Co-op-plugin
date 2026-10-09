@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Native-turn control wiring and immutable warm load profiles; offline only",
+  "game_process_access": false,
+  "game_ui_access": false,
+  "steam_save_access": false,
+  "new_game_patch_or_debugger": false,
+  "two_player_ready": false,
+  "a_control": {
+    "private_result": "a_native_turn_runs/20261009-155031-692039/result.json",
+    "sha256": "b2d0eaba0af2adb1a09bff92cd7e2960dc7320c28aa4ff2bf3017f25deea5885",
+    "result": "PASS",
+    "cases": [
+      "normal two saves with original forwarding, absent/replaced states and reports",
+      "Stop while planning states absent"
+    ],
+    "root_verified_sources": 98,
+    "root_verified_binaries": 46,
+    "root_verified_generated": 6,
+    "private_inputs_verified": 3,
+    "actual_runtime_owner_gate_parent_adapter_pipe": true,
+    "real_native_scheduler_body": false,
+    "real_time_simulation": false,
+    "real_serializer": false,
+    "production_date_writer_added": false,
+    "commands_whitelisted_during_running": false,
+    "stop_running_restore_ready": false
+  },
+  "a_production": {
+    "private_result": "a_native_turn_runtime_runs/20261009-155107-507427/result.json",
+    "sha256": "80a8b8c27fade1ebeeeb6d23f3bf9150dfd066c8614b40ce4b6ddcdefd31d2a7",
+    "result": "PASS",
+    "sources_verified": 91,
+    "binaries_verified": 33,
+    "generated_verified": 5,
+    "legacy_exports_1_through_8_executed_in_owned_process": true,
+    "dll_sha256": "473e542dc9512c994077c8187b27357388a41ca80a83685ecb13d593cbeff8b7"
+  },
+  "a_additive_abi": {
+    "private_result": "a_save_repeat_exports_runs/20261009-155221-088761/result.json",
+    "sha256": "2b62da960c7765abecbaf630517279d0408255372861009b8c1b7b32f5fd2e2f",
+    "result": "PASS",
+    "operations": [
+      9,
+      10
+    ],
+    "schema_verified": true,
+    "actual_dll_in_owned_process": true
+  },
+  "b_profiles": {
+    "private_result": "b_warm_profile_runs/20261009-154811-322893/result.json",
+    "sha256": "1fead4fef554b0d58caf09bf28c30d11c9e5e94b38ccca7f7b39e9f6a63f31a5",
+    "result": "PASS",
+    "cases": [
+      "initial profile",
+      "different bytes size before/loaded date and identities",
+      "wrong hash rejected before request CAS",
+      "wrong loaded date rejected before identity CAS"
+    ],
+    "sources_verified": 74,
+    "binary_and_objects_verified": 57,
+    "generated_verified": 5,
+    "production_dll_built": true,
+    "dll_sha256": "0b3ec93697bf4361ba79c4164395315c52576159cac5fe2bf28607f19976d4e2",
+    "actual_physical_bridges_and_receipt_chain": true,
+    "owned_native_business_and_environment_doubles": true,
+    "second_input_is_valid_game_save": false,
+    "two_successes_in_same_process": false,
+    "supported_native_slot": 63,
+    "unknown_native_filenames_supported": false
+  },
+  "b_abi": {
+    "private_result": "b_warm_profile_abi_runs/20261009-154930-357815/result.json",
+    "sha256": "69cac26ace646b4cef780524cec448e93cca80ec829928c38434f165217ebb65",
+    "result": "PASS",
+    "schema_types": 8,
+    "sources_verified": 23,
+    "binaries_verified": 6,
+    "generated_verified": 3,
+    "actual_dll_instances_in_one_owned_process": 2,
+    "independent_config_once_stop": true,
+    "successful_loads": 0,
+    "same_six_slots_handoff_tested": false,
+    "config_ready_is_not_load_success": true
+  },
+  "failed_and_intermediate_runs_preserved": [
+    "a_native_turn_runs/20261009-154507-491437",
+    "a_native_turn_runs/20261009-154818-165119",
+    "b_warm_profile_runs/20261009-154531-382952",
+    "b_warm_profile_runs/20261009-154551-904963",
+    "b_warm_profile_runs/20261009-154639-617747",
+    "b_warm_profile_abi_runs/20261009-154804-229667"
+  ],
+  "remaining": [
+    "Fresh-process verified A save and controlled native turn through second save",
+    "B profile-aware local capture/staging/launcher",
+    "Same-process same-six-slot independent second bank takeover and two valid native loads",
+    "Same-room rules delivery completion and remote-PC integration"
+  ],
+  "shared_slot34_sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95"
+}

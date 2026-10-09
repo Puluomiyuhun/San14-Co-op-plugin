@@ -19,10 +19,11 @@
 - 严格确定性锁步尚未成立。随机种子相同并不足以涵盖执行顺序、视角相关路径、隐藏状态及事件交互。A 权威旬末校正是当前用户接受的首版方案。
 - 长期目标是同一进程常驻、连续多旬。之前一次性成功的读档实验不能证明连续两次及更多次均可工作。
 - 首个连续加载原型优先沿已有实机成功的warm六槽入口扩展：完整加载后封存业务观察、恢复六槽，旧DLL驻留并透明转交迟到调用；下一代使用新模块和独立文件配置。cold Bootstrap是完整Root任务方案的安装条件，不是引擎连续加载本身的必要条件。详见[路线重审](../work/mod_research/b_reload_runtime_warm_review.md)。
+- warm文件配置把读档前日期/当前势力、存档日期/来源势力、目标B势力分开。第二次B可以当前已为刘备，仍读取A视角的文件再经原生初始化恢复刘备；不能沿用第一次张鲁菜单的检查条件。每驻留模块只捕获一次配置，文件hash/size、日期和武将/军团关系继续严格验证。当前原生文件名映射仍限定已验证的槽63，支持不同内容不等于支持任意槽位或任意文件名。
 
 ## 推演结束与下一旬的身份边界
 
-当前A repeat实现存在尚未关闭的控制断点：Retire保留ReadyFence/Gate，却等待被门禁挡住的日期推进。真实控制器必须把原生推演作为独立跨帧阶段，旧命令/保存请求继续拒绝，但允许游戏执行正常推演和普通报告；返回规划后核对新日期并重新取得状态对象，再绑定下一份保存。旧实机记录中User和Strategy均曾离开栈，不能假定下一期仍是同五个实例。[身份采样工具](../work/mod_research/a_turn_identity_handoff.md)只补观测，不实现这一控制器。
+旧A repeat的Retire保留ReadyFence/Gate，却等待被门禁挡住的日期推进。新的[a_native_turn后继](../work/mod_research/a_native_turn_handoff.md)已接独立跨帧Running：旧工具命令/保存请求继续退休，原User/Game透明执行，返回规划后核对日期并fresh绑定状态对象及新Guard。自有组合特意让User/Strategy离栈换址，随后第二份保存完成；真实游戏仍待验。Running目前放行普通菜单，测试必须不新增命令，不能称正式输入白名单。Stop时保持未决推演、不恢复旧对象检查。[身份采样工具](../work/mod_research/a_turn_identity_handoff.md)可伴随未来实机推进补地址观测。
 
 旬初规划身份保持到本旬校正结束。旬末保存日期已经改变，但B尚未加载，下一旬身份还不存在。`checkpoint_planning_save_link.py`显式绑定这两个日期。新 `planning_simulation_boundary*` 在可信同步宿主回调前后核实际原生日期/桥收尾，以同epoch进入旬末；`planning_simulation_session.cpp`保留旬初Scope，只认可该明确边界的有效日期，随后正式退休重绑。`a_save_simulation_ipc*`已在同一自有进程接完整网络Scope、两期诊断保存和真实TLS，下一Scope仅在模型B完成后产生。日期/战斗与保存业务仍替身，没有接真实引擎调度或B加载。
 
@@ -38,7 +39,7 @@ B的最新 `b_reload_cold_bootstrap*` 已将实际Bootstrap、冷等待、原Reg
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
 | A 本轮存档 | `a_save_runtime_start.py`、`a_save_runtime_exports*`、`a_save_runtime_publish*` | 已实际安装并经自然父调度/真实IPC产生一个新文件；最终context验证拒绝，原生读未开始，来源因失败保留待正常退出。尚未得到合格artifact或连续两次保存；全writer/全输入许可仍缺 |
-| B 连续加载 | `b_warm_retire*`；另保留 `b_reload_cold_bootstrap*` | 首测优先已有实机成功的warm入口：补完整加载后业务封存与六槽恢复，旧DLL驻留；仍缺收尾实机验证、新合法档配置和独立二代装配。cold完整Root组合仅为另一方案，其启动门槛不统一施加于warm路线 |
+| B 连续加载 | `b_warm_profile*`, `b_warm_retire*`；另保留 `b_reload_cold_bootstrap*` | 每代不可变文件/日期/身份配置已接warm实际校验链，完成后业务封存、六槽恢复，旧DLL驻留；两配置离线通过。仍缺真实合法档staging/启动器与同六槽独立第二代装配；双DLL配置隔离不等于两次加载 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |
 | 菜单捕获准备 | `reward_menu_handoff_gate*`, `reward_menu_capture.py`, `reward_menu_observation*` | 归档Update确认前原生门禁已能单次领取纯ID并接TLS去重，正常取消/关闭与生产installer/lifetime仍缺。只读观察的自然执行记录仍不能发送 |
