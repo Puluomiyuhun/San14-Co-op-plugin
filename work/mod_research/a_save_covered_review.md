@@ -35,3 +35,5 @@ ASaveCoveredGateFirstFailure只记录第一次Game-before拒绝，能够区分fr
 pending User 已在新 a_save_pending_user_owner.cpp 窄化处理，前驱错误真实复现、后继6/6通过，详见 a_save_pending_user_handoff.md；这关闭上述具体离线缺口，未把CFG许可升级为旧实机根因证明。
 
 独立静态检查根新 a_save_failure_diagnostic.py 与 a_save_diagnostic_start.py：未发现本次范围阻断。诊断只持 query/read/wait 句柄，精确PID/birth/EXE/DLL磁盘hash与内存header在两次DATA读取前后核验；只允许原header或仅ImageBase精确重定位header。stage最后发布且不重置的契约下，双读完全相同的非零stage才给出first failure，零stage报告NOT_PUBLISHED，不等于没有失败。DATA结果不授予恢复许可、不接受存档。新启动器cleanup已单独保留 RemoteCallUnknown.record；RPM诊断失败不会跳过原收尾。这是只读诊断审查，不是对真实保存或abort整体成功的认证。
+
+最终诊断证据以 `a_save_failure_diagnostic_test_runs/20261009-135136-315886` 为准：root已为cleanup未知调用记录的修改重跑10/10，并核5源匹配。135009-489811是保留的中间记录，不能拿它覆盖修改后的启动器。

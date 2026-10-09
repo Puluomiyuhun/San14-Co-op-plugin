@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "scope": "Controlled same-Runtime second-save wiring; not game or two-PC acceptance",
+  "game_process_access": false,
+  "game_ui_input": false,
+  "steam_save_access": false,
+  "exe_disk_read": true,
+  "game_hooks_installed_this_round": false,
+  "remote_network_test": false,
+  "repeat_integration": {
+    "private_result": "a_save_repeat_runs/20261009-143723-860155/result.json",
+    "sha256": "fa4a0337df682421b3b07f3f0ec92a5e04d8ad559734ec8d5398ffda57c62bb6",
+    "result": "PASS",
+    "cases": [
+      "normal two saves",
+      "Stop between repeat observation and Host.BeforeFrame",
+      "missing Adapter AFTER"
+    ],
+    "root_verified_source_entries": 95,
+    "root_verified_binary_entries": 45,
+    "root_verified_generated_entries": 6,
+    "root_verified_private_input_entries": 3,
+    "actual_runtime": true,
+    "actual_pipe": true,
+    "actual_owner_controller_driver_bridges": true,
+    "native_serializer": false,
+    "native_scheduler_body": false,
+    "native_date_advance": false,
+    "b_loaded_proven": false,
+    "full_writer_exclusion": false,
+    "missing_after_preserves_original_host_frame": true,
+    "native_seh_unwind_verified": false
+  },
+  "production_build": {
+    "private_result": "a_save_repeat_runtime_runs/20261009-143818-417144/result.json",
+    "sha256": "b8ff30317a71c2277346b07b76029f45fe8cff612cd94f6cb9ae835d4d1e0b83",
+    "result": "PASS",
+    "production_source_entries": 89,
+    "binary_entries": 32,
+    "generated_entries": 5,
+    "legacy_operations_1_to_8_executed_in_owned_process": true,
+    "dll_sha256": "b559cac87f04b30ca6e7776cc243738a1fa2a9a40f45028aaed4200c7be74275",
+    "game_execution": false
+  },
+  "additive_abi": {
+    "private_result": "a_save_repeat_exports_runs/20261009-143906-534043/result.json",
+    "sha256": "142270de0ed47e7d800a371549228d73510b156ec7d14de1bfc16c4a88ebc46a",
+    "result": "PASS",
+    "operations": [
+      9,
+      10
+    ],
+    "actual_production_dll_execution_in_owned_process": true,
+    "cpp_python_layout_verified": true,
+    "source_entries": 8,
+    "generated_entries": 7,
+    "successful_game_save_tested": false
+  },
+  "restore_publisher": {
+    "private_result": "a_save_repeat_publish_runs/20261009-142815-825524/result.json",
+    "sha256": "ff5136c9ed8a7fb304fec26d1d913d304f43627b7adfad8d1af90cf2bcdde941",
+    "result": "PASS",
+    "cases": 8,
+    "source_entries": 18,
+    "binary_entries": 8,
+    "generated_entries": 1,
+    "strict_restore_ready_value": 1,
+    "actual_owned_debug_transactions": true,
+    "stage_address_fixture_on_success_path": true,
+    "error54_receipt_checks_preserved": true
+  },
+  "b_source_comparison": {
+    "private_result": "b_reload_runtime_source_runs/20261009-141734-550606/result.json",
+    "sha256": "b0e65a594aba2c2d4e90a0610ff040b780bbf5de756f828dbeb3ac13bd2f9746",
+    "result": "PASS_FILE_COMPARISON",
+    "differing_ranges": 6,
+    "overlapping_dir64_relocations": 0,
+    "independent_mapping": {
+      "private_result": "b_reload_runtime_source_runs/20261009-141734-550606/independent-mapping.json",
+      "sha256": "db804770d857c982a252db42d2c61bdb00673e0925bbb76641277db3f10cf635"
+    },
+    "mapping_unit_tests": 3,
+    "pe_entry_memory_availability": "UNOBSERVED",
+    "producer_exclusion": "UNPROVEN",
+    "install_authorized": false
+  },
+  "failed_runs_preserved": [
+    "a_save_repeat_runs/20261009-142618-352575",
+    "a_save_repeat_runs/20261009-142638-126635",
+    "a_save_repeat_runs/20261009-142806-990719",
+    "a_save_repeat_runs/20261009-143522-912602",
+    "a_save_repeat_runs/20261009-143609-274390"
+  ],
+  "remaining": [
+    "Old failed game process normal exit not confirmed; no retry of old DLL/claim",
+    "Fresh A save with verified artifact and restored sources",
+    "Trusted asynchronous native advance and period transitions",
+    "B real cold-start availability and producer exclusion",
+    "B same-process loading of two real new saves",
+    "Unified room, rules, input and complete world validation",
+    "Company/home network and matching native configuration"
+  ],
+  "shared_slot34_sha256": "afd4c6c5f8a30f659ac523b85f522b02b2c03536ed5e55736677ca1927827d95",
+  "new_source_sha256": {
+    "a_save_repeat_contract.py": "9d0e6d77ee860d7fa7ae9da8736febff76aee762365dc33a2fec40873e5c36b2",
+    "a_save_repeat_exports.cpp": "e628f9cd4d2b646a4af29d5352fee524a4784c6118da0480d01d0df61a537b82",
+    "a_save_repeat_exports.h": "98e92f3c2405c64926f26c9eacb2c9439626ed18d331847170caf5cc338782a3",
+    "a_save_repeat_exports_test.cpp": "eb233921e7421461f5f361638ceb8fd224ba340f20374e37ffc499f70ddb3e45",
+    "a_save_repeat_exports_test.py": "55ca3c86075150049f2e4ac434ff0880d71ef5891ba2b760c6698d6144791dbd",
+    "a_save_repeat_fixture.py": "d08e01c0d16a3b731d2e19ab7da9588ea27d1f65df06ac848f9d0bf4c699b7d4",
+    "a_save_repeat_parent.cpp": "96f10f30eeb682179a3a9809a478d0d5fc67a2671f7bb1ce3784dffdeaa9fcdf",
+    "a_save_repeat_parent.h": "89b8e1e29d4c632623d1da90859b0dd43af2908b973049981ffb39a5e47afa77",
+    "a_save_repeat_publish.cpp": "4df56c09de0eb413b3c7823b1276e753dacaecf7009de741b0225fd9cbbfcf13",
+    "a_save_repeat_publish_fixture.cpp": "e6fca67456ea0800205483a4b3cd69dec0a370bd2ea782565ff7e128d6ff096c",
+    "a_save_repeat_publish_test.py": "a6effa18dc3f09cecad18db4064fa27c491c638c89ed5a2fd45b66e607f197fa",
+    "a_save_repeat_runtime.cpp": "c0057159696e75ed2f5a0a6bafbc29121b4536b349cc413aac46001afd1eec19",
+    "a_save_repeat_runtime.h": "c624b8028960139e5fd7809479407d9f4ff7601b7d961fbf8368ab8058e8723c",
+    "a_save_repeat_runtime_build.py": "5a9845091b90f47041c6e1b28ab17fb9eac0851be42629eb5b47e040e0cadc83",
+    "a_save_repeat_test.py": "a948f225d0a7edc2066432c560d2566790d3a0cb2a457a0d2559147a255b5fb5",
+    "b_reload_runtime_source_check.py": "b735e7e4e3938048b1002931db1db3d955cc8719ec5c7f28e022ef923e79c2eb",
+    "b_reload_runtime_source_test.py": "cb6752c67bd4ea0d6ee2af9c9efc6b97be2e12556a7efb0ed267724df2ca63dc"
+  }
+}
