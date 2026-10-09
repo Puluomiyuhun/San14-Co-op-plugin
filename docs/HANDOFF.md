@@ -8,7 +8,26 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：A 自动保存→B 实际读回刘备视角已贯通，两次加载通过
+## 最新：已接入跨旬严格 mode0，双保存实测候选就绪（本轮离线）
+
+**没有重做换期框架。** 新`a_native_turn_mode0_owner.cpp`保留原native-turn Owner的Running/Refresh，只增加初始化首错声明并换成已验证trace lifecycle；构建明确链接实机通过的`a_save_planning_mode_input.cpp`和trace Controller。原Runtime/Parent/Gate/Control/typed1–10 exports保持，旧模块未修改。新fixture把初始规划设为真实mode0，新User返回后仍要求0；不是同时接受0/1或写游戏字段。
+
+**本轮4/4组合、完整生产DLL、真实1–8和9/10 ABI通过。** 正常场景运行真实两期Runtime/Owner/Controller/pipe，在旧User失效、新User返回后完成两次Observe/Submit/Copy/Release，两个packet解码通过；Stop-running只产生第一档并保留Running/drainPending，禁止假称可恢复；mode1/2分别在真实Inspector stage46拒绝且没有Save。游戏世界、业务及存储为替身。根和独立agent复核133来源、43私有输入、13生成项、85产物、20记录全部哈希，检查实际编译单元和现有launcher批准接口。旧Owner保留为生成来源pin，`actual_tu_replacements`明确实际链接新Owner，不伪称旧TU已编译。[新构建手册](../work/mod_research/a_native_turn_mode0_handoff.md)、[公开证据](evidence/2026-10-09-native-turn-mode0.json)。
+
+最终候选`a_native_turn_mode0_runs/20261009-232744-407945/result.json` SHA `3b905485a78bf04e54eaa3031a07c6ef2fc7afebc7a8e60417256310025c0b18`。DLL SHA `1dcd09ec0f592feb410d1039d5a6d52490fec0ae2a40fc43778e56382a28a573`。原电脑可直接用现有`a_native_turn_start.py`，无需新启动器；参数目录必须准确：
+
+- `--build-run ..\mod_research\a_native_turn_mode0_runs\20261009-232744-407945\bundle`，bundle manifest SHA `f5f6e4a91e33508b723315d0417c3702b44783c30cf8b67e624b1bd33b424380`。
+- `--repeat-abi-run ..\mod_research\a_save_repeat_exports_runs\20261009-232821-575477`，实际针对本次DLL。
+- `--publisher-build ..\mod_research\a_save_repeat_publish_runs\20261009-142815-825524`，严格repeat恢复检查，不换回单期publisher。
+- `--launcher-test-run ..\mod_research\a_native_turn_start_test_runs\20261009-172106-322176`，5项既有接口测试来源仍匹配；本轮重新调用原批准检查通过，不声称这5项使用真实游戏。
+
+首轮232440缺trace声明/别名导致编译失败，第二轮232505把fixture Snapshot的void返回当bool导致编译失败；均只修新后继/fixture，记录保留。232600已4/4通过；最终232744仅补Python执行来源和launcher-test批准记录后重跑通过，没有放宽生产检查。
+
+**本轮尚未触碰游戏进程、Steam存档或UI。** 上轮A保存/B读回及85档恢复的实证维持不变。已询问用户配合，并在候选核验后请求启动读34；尚未收到新的读34确认，不自动发现进程并安装。下一次先核fresh PID/birth/EXE/原入口和当前规划，`--capture --pid <新PID>`通过后再`--execute`上述四目录。只有启动器发出`running-await-human`事件后，才通知用户正常推进一旬、关闭普通报告、不新增命令。未知选择停住人工处理；可用`--wait-seconds 1800`，倒计时不会因提问自动暂停。Running中超时/Stop可能必须保留钩子直到正常退出，不能强拆或重投claim。
+
+自然推演可能修改原生自动档。启动器会备份全部现有档、记录变化，不静默允许/恢复；即使两份mp自动档已成功，原档变化仍可能使总结果为INCOMPLETE，应分别陈述实际Save结果、变动与收尾。这轮仍是单机A受控跨旬，不安装双人AI规则，不证明真正两机或无限轮次。完成后更新本节，不要把4项离线组合写成已实测跨旬两档。
+
+## 已完成实机：A 自动保存→B 实际读回刘备视角已贯通，两次加载通过
 
 **A 自动保存已实际成功，不再列为“未通过”。** 新PID19340/birth134360320586597655在张鲁203-08-11、mode0空闲大地图，通过已核验的严格mode0生产DLL，正常父回调初始化→一次IPC Submit→真实保存worker及finalizer→取回完整新档→停止并撤回七入口。返回`PASS_REAL_SINGLE_FRESH_SAVE`；新档274879字节，SHA `a3de964420d8f0c9f34dcdbd1056dc0e3f355222732b00e3e10bc49742e2eab7`。磁盘新文件与IPC返回/私有副本完全一致，原84份档未改、只新增该测试档。
 

@@ -1,0 +1,112 @@
+{
+  "description": "Sanitized offline candidate evidence; private build paths are origin-machine records, not portable install authority",
+  "date": "2026-10-09",
+  "result": "PASS_OFFLINE_NATIVE_TURN_MODE0_READY_FOR_LIVE",
+  "records": {
+    "candidate": {
+      "path": "a_native_turn_mode0_runs/20261009-232744-407945/result.json",
+      "sha256": "3b905485a78bf04e54eaa3031a07c6ef2fc7afebc7a8e60417256310025c0b18"
+    },
+    "bundle": {
+      "path": "a_native_turn_mode0_runs/20261009-232744-407945/bundle/result.json",
+      "sha256": "f5f6e4a91e33508b723315d0417c3702b44783c30cf8b67e624b1bd33b424380"
+    },
+    "repeat_abi": {
+      "path": "a_save_repeat_exports_runs/20261009-232821-575477/result.json",
+      "sha256": "3955ed9ca791e99fea7416df849f0548eccfe7d8974ab412602d659317fef4dd"
+    },
+    "strict_publisher": {
+      "path": "a_save_repeat_publish_runs/20261009-142815-825524/result.json",
+      "sha256": "ff5136c9ed8a7fb304fec26d1d913d304f43627b7adfad8d1af90cf2bcdde941"
+    },
+    "launcher_tests": {
+      "path": "a_native_turn_start_test_runs/20261009-172106-322176/result.json",
+      "sha256": "d761cb95f1c2015eb1368fafe5f642c0a22a31a9cf9e3c7d3c5f593020263d13"
+    }
+  },
+  "production_dll_sha256": "1dcd09ec0f592feb410d1039d5a6d52490fec0ae2a40fc43778e56382a28a573",
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "observations": 2,
+      "submits": 2,
+      "copies": 2,
+      "releases": 2,
+      "cancellation_ms": 0,
+      "scoped_current_positions": true,
+      "unclaimed_zero_rejected": true,
+      "wrong_current_rejected": true,
+      "original_body_zero_rejected": true,
+      "actual_parent_adapter": true,
+      "actual_owner": true,
+      "actual_controller": true,
+      "actual_pipe": true,
+      "native_business_double": true,
+      "game_access": false
+    },
+    {
+      "case": "stop-running",
+      "passed": true,
+      "observations": 1,
+      "submits": 1,
+      "copies": 1,
+      "releases": 1,
+      "cancellation_ms": 0,
+      "scoped_current_positions": true,
+      "unclaimed_zero_rejected": true,
+      "wrong_current_rejected": true,
+      "original_body_zero_rejected": true,
+      "actual_parent_adapter": true,
+      "actual_owner": true,
+      "actual_controller": true,
+      "actual_pipe": true,
+      "native_business_double": true,
+      "game_access": false
+    },
+    {
+      "passed": true,
+      "stage": 46,
+      "decision": 4,
+      "planning_mode": 1,
+      "saves": 0,
+      "case": "mode1"
+    },
+    {
+      "passed": true,
+      "stage": 46,
+      "decision": 4,
+      "planning_mode": 2,
+      "saves": 0,
+      "case": "mode2"
+    }
+  ],
+  "native_business_world_and_storage_doubles": true,
+  "actual_native_game_turn_executed": false,
+  "actual_two_save_game_test_executed": false,
+  "actual_abi_1_to_10_executed": true,
+  "actual_existing_launcher_validation": true,
+  "root_and_sibling_independent_checks": true,
+  "verified_closure_counts": {
+    "sources": 133,
+    "private": 43,
+    "generated": 13,
+    "binaries": 85,
+    "artifacts": 20
+  },
+  "changes": [
+    "native-turn build links the already real-game-tested strict mode-zero inspector",
+    "native-turn Owner retains Running and Refresh; lifecycle include replaced by initialization trace successor",
+    "trace Controller and 144-byte first-failure DATA included"
+  ],
+  "frozen_predecessors_unchanged": true,
+  "new_game_or_steam_access_this_turn": false,
+  "previous_real_milestone_preserved": "single A automatic save and its B readback; second B load used previous manual slot49",
+  "waiting_user": "fresh launch and read34; no advancement until running-await-human event",
+  "limitations": [
+    "two periods only",
+    "full gameplay/network/UI cover not proven",
+    "natural engine autosaves may change original files; final result must report changes",
+    "Running timeout does not authorize forced unhook or replay"
+  ]
+}
