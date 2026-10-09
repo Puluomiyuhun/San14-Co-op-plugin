@@ -1,5 +1,9 @@
 # 在另一台电脑接手
 
+**本轮新增接线：** 用 [b_warm_refresh_remote_owner](../work/mod_research/b_warm_refresh_remote_owner_handoff.md) 连接stable Resident，旧remote owner仍使用物理暂存，不用于此路线。离线命令为 `py -3 work/mod_research/b_warm_refresh_rules_bridge_test.py` 和 `py -3 work/mod_research/b_warm_refresh_remote_owner_test.py`。这两个入口不访问游戏，不能用测试guard启动真实房间。
+
+**A 实测最新状态：** [候选审计](../work/mod_research/a_save_next_handoff.md) 通过后在fresh PID7804执行，实际在提交保存前 `parentError=7` 拒绝；七处入口已恢复，无调试器/新存档，失败claim仍有效。不能按旧“候选可实测”文字向这个进程重投。后续只读诊断和新构建要求见 [HANDOFF](HANDOFF.md)。
+
 **当前实机结果：** 同一真实游戏进程连续两次原生刷新/加载已通过，最终203-08-21/刘备，用户画面确认。使用新[b_warm_stable_refresh_diagnostic](../work/mod_research/b_warm_stable_refresh_handoff.md)，其原生DLL不变，只补安装前有限只读重采并记录证据。新本机批准bundle路径及SHA见该交接；不得复用本机PID、claim或receipt到其他电脑。下面“尚待两载实测”的说明属于较早阶段，当前以[HANDOFF](HANDOFF.md)为准。
 
 **最新入口：** 原生存储刷新和文件锁顺序已接好，离线两代组合通过；使用[b_warm_refresh_diagnostic](../work/mod_research/b_warm_refresh_python_handoff.md)。新plan要求`profiles,target,sources,initial_target,expected_ruler,steam_paths`，保留旧CC03，两份source独立，不再先物理替换首档。新构建family是`san14.b-warm-refresh-pair.v1`，不能将旧pair的PASS或DLL用于此入口。当前候选定位见[组合交接](../work/mod_research/b_warm_refresh_pair_handoff.md)。

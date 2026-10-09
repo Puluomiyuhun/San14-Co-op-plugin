@@ -8,7 +8,19 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：同一真实游戏进程连续加载两档成功，最终203年8月下旬、刘备
+## 最新：远端收档接入原生刷新；A 自动保存实测停在初始化
+
+本轮新增 `b_warm_refresh_remote_owner.py`、对应 ReceivedApply 和两个规则桥。首次 A→B 与下一期 B→B 保留原 Journal/预约/规则恢复与重装/正式回执，文件部分改为独立源及备份交给原生刷新加载器；不再物理替换目标或在整个加载期间持有 Python 目标锁。此 API 与上轮实测通过的 stable Resident 一致。
+
+桥本体 **6/6**、同一远端 owner 两期 TLS 组合 **8/8** 通过；真实 Windows 文件、锁、SQLite、TLS 及规则生命周期检查，游戏内存、原生加载/规则发布、输入 guard 仍为替身。新增反例确认刷新回执不完整不 ACK/完成，第二期目标被改不启动第二次原生加载。最终组合记录 `b_warm_refresh_remote_owner_runs/20261009-223507-234515/result.json`，SHA `1a8874b2ee6a0490862709a75dfdd89c43ae27d236c613bd871ad21c83c2f206`。首次扩展测试错把 `files.Refused` 预期为 ValueError，仅修正测试类型；冻结生产前驱未变。[接线说明](../work/mod_research/b_warm_refresh_remote_owner_handoff.md)。
+
+**A 新候选的实际保存尚未通过，不能继续写成“只差再测”。** 候选完整166文件离线审计和6项测试先通过；用户 fresh 启动读34后，PID7804/birth134360291394815952原入口、张鲁203-08-11、EXE与存储均核对通过。实际安装七处入口后，父回调初始化报 `parentError=7/Initialize`、`hostInitialized=0`；保存尚未提交/入队、未启动IPC、没有生成文件。工具 Stop 后取得 restoreReady，发布器恢复全部七处（mask127）并解除调试器；独立只读 capture 再次通过，84份原档无变化且无新增。保留失败claim/驻留模块，绝不重投同PID。[公开证据](evidence/2026-10-09-refresh-remote-a-initialize.json)。
+
+**已进一步只读定位到 Controller.Initialize。** 根使用精确旧DLL、两个指令引用和同MSVC布局确认Runtime地址，进行两次相等的只读对象快照，未调用导出或写入。其Controller.error=1/Config、initialized=0，因此后续Request/Mailbox/Host尚未执行。完整缓存解码确认所有clean谓词正常；仍不能区分read末尾即时槽位解引用与ClaimController内部检查，不能猜定某个Inspector字段。布局/解码5项与两项反例通过；[具体诊断与证据](../work/mod_research/a_save_parent_failure_handoff.md)。正在新增只记录初始化首个失败分支的后继，不放宽原检查。
+
+用户已被请求正常退出、先不用重开；确认状态以本节收尾补充为准。当前七处入口已恢复且无调试器，驻留模块不卸载、claim不清除。未证明真实两机、完整输入隔离、地图遮罩或全指令覆盖；下节仍为有效的上轮B两次加载实证。
+
+## 上轮实机：同一真实游戏进程连续加载两档成功，最终203年8月下旬、刘备
 
 **关键实机门槛已通过。** 用户正常重启读34后，新PID37636/birth134360279974184088执行两次完整原生刷新和加载：首档203-08-11/张鲁→203-08-11/刘备；第二档加载上轮手动保存的新49，变为203-08-21/刘备。两bank都取得深层`PASS_WARM_LOAD_RETIRED`和刷新报告，两次FileWrite各一次，旧/新原生内容各完整读取两次，目标文件锁都在真实退休后释放，六槽全部恢复；真实Handover完成两代。用户也确认最终画面是下旬刘备大地图。
 

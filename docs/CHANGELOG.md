@@ -1,5 +1,11 @@
 # 进展记录
 
+## 2026-10-09：远端收档改用原生刷新；A 实测初始化失败已撤回并定位
+
+- 新规则桥/Bootstrap/ReceivedApply/RemoteOwner接入已实测Resident接口，取消目标物理替换和跨load Python文件锁，保留两期规则与正式Journal流程。桥6/6、真实本机TLS组合8/8通过；游戏内存/原生加载/guard为替身，不能写成两真实客户端已连通。
+- A候选166文件审计及6项反例通过后进行fresh实测，安装后提交前parentError7拒绝。保存未Submit、未新建档，Stop及全部七处入口恢复通过，调试器解除，84原档未改，独立49项归档审计通过。
+- 不重试旧模块；精确版本的RPM只读对象快照与同MSVC布局把失败进一步缩到Controller.Initialize/Config，完整clean缓存检查正常。即时槽位读尾部或ClaimController仍未区分，继续补一次性首错记录；没有凭错误码放宽检查。[本轮证据](evidence/2026-10-09-refresh-remote-a-initialize.json)。
+
 ## 2026-10-09：两个原生刷新加载在同一真实游戏进程连续完成
 
 - 首个实机尝试已成功切换到刘备并退休，第二代在安装前规划双采样不一致而拒绝；保留完整失败与已消费claim，用户正常重启。

@@ -1,0 +1,98 @@
+{
+  "schema": "san14.public-progress-summary.v1",
+  "date": "2026-10-09",
+  "offline": [
+    {
+      "record": "b_warm_refresh_rules_bridge_runs/20261009-221734-359458/result.json",
+      "sha256": "667923ebc2f30dd0f195e5a6dbdc3164b013dfb80ac56e3d5417a2f25eef0baa",
+      "result": "PASS",
+      "cases": 6
+    },
+    {
+      "record": "b_warm_refresh_remote_owner_runs/20261009-223507-234515/result.json",
+      "sha256": "1a8874b2ee6a0490862709a75dfdd89c43ae27d236c613bd871ad21c83c2f206",
+      "result": "PASS",
+      "cases": 8
+    },
+    {
+      "record": "a_save_next_audit_runs/20261009-221620-345586/result.json",
+      "sha256": "41a40532cdf67ecfc61ff187867e09a30174a153278b1fbc06d1f900edceab0a",
+      "result": "PASS_OFFLINE_A_SINGLE_SAVE_CANDIDATE",
+      "cases": 0
+    },
+    {
+      "record": "a_save_next_audit_test_runs/20261009-221706-411582/result.json",
+      "sha256": "116d78079d9e1bc1c14c84101a7118e4369a3351803d6df22f7e8abb89eb92d9",
+      "result": "PASS",
+      "cases": 6
+    }
+  ],
+  "b_remote": {
+    "successor": "b_warm_refresh_remote_owner.py",
+    "actual_tls": true,
+    "actual_windows_files": true,
+    "actual_journals": true,
+    "actual_lifecycle_predicates": true,
+    "native_calls": false,
+    "game_memory": "explicit_double",
+    "guard": "explicit_double",
+    "physical_staging_forbidden": true,
+    "same_owner_two_periods": true,
+    "ready_granted": false,
+    "real_two_clients": false
+  },
+  "a_live": {
+    "record": "a_save_runtime_live_runs/20261009-222056-638412/result.json",
+    "sha256": "abaf68b217c8f3be785b180a05df27a767cf0238dc1774969420d9f76bf8a9fe",
+    "result": "INCOMPLETE_RETAIN_EVIDENCE",
+    "pid": 7804,
+    "birth": 134360291394815952,
+    "date": [
+      203,
+      8,
+      11
+    ],
+    "force": 12,
+    "ruler": 666,
+    "parent_error": 7,
+    "host_initialized": 0,
+    "save_requests": 0,
+    "save_generations": 0,
+    "save_file_created": false,
+    "cleanup_verified": true,
+    "sources_restored": 7,
+    "debugger_detached": true,
+    "originals_unchanged": true,
+    "old_once_claim_preserved": true,
+    "independent_archive_audit": {
+      "record": "a_save_runtime_live_runs/20261009-222056-638412/independent-audit-20261009-222610-372666/audit.json",
+      "sha256": "9b7f909088697359ec2cd11a6812578f1f037cb1907ae27b8d3432e2b2fd6ab0",
+      "checks": 49
+    }
+  },
+  "boundaries": [
+    "Offline room wiring does not prove real remote game execution.",
+    "A actual save failed before request; not a save success.",
+    "Previous B local two-load real proof remains valid; not repeated this turn.",
+    "Full input exclusion, real two-PC turn loop, full commands and map cover are still incomplete."
+  ],
+  "a_initialization_diagnosis": {
+    "read_record": "a_save_parent_failure_read_runs/20261009-222719-621334/result.json",
+    "sha256": "06662375c24ee1073333cb8cb3b54d4c76980123c874ca299a2899f679635628",
+    "native_calls": 0,
+    "writes": 0,
+    "controller_error": 1,
+    "controller_initialized": false,
+    "clean_predicates_all_true": true,
+    "exact_claim_failure_proven": false,
+    "remaining": [
+      "Controller.read final live pointer dereference or exception",
+      "ClaimController checks"
+    ],
+    "decode_record": "a_save_parent_failure_decode_runs/20261009-223155-186281/result.json",
+    "decode_sha256": "efd2a8c25b87211f2b0e93ae23ca455fe09afc544683888b2621940af6df326f",
+    "layout_test_record": "a_save_parent_failure_test_runs/20261009-222741-089421/result.json",
+    "layout_test_sha256": "3bc90ea62f5cd5ab1b455a2612cc36690cbc3b51a328e6ec5a288d80d451f258",
+    "layout_and_decode_tests": 5
+  }
+}
