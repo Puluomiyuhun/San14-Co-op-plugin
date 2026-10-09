@@ -1,0 +1,110 @@
+{
+  "schema": "san14.warm-refresh-wiring-evidence.v1",
+  "date": "2026-10-09",
+  "result": "PASS_OFFLINE_WIRED_NOT_LIVE",
+  "game_process_access": false,
+  "steam_save_access": false,
+  "ui_access": false,
+  "new_game_hooks": false,
+  "components": {
+    "pair": {
+      "result": "PASS",
+      "private_result": "b_warm_refresh_pair_runs\\20261009-215046-831686\\result.json",
+      "sha256": "2af0e06f5f0823450f3195be5feeae796f36cefc230e0fafa52b6dde0ea88a2d",
+      "verified_counts": {
+        "sources": 132,
+        "private": 23,
+        "generated": 9,
+        "binaries": 72,
+        "artifacts": 25
+      }
+    },
+    "python": {
+      "result": "PASS",
+      "private_result": "b_warm_refresh_python_runs\\20261009-214950-848312\\result.json",
+      "sha256": "7ae9340529c984f30458ca89a85cf2c4136f5f36ccf7d4bbbb1f0b4f5a1a995f",
+      "verified_counts": {
+        "sources": 30,
+        "private": 0,
+        "generated": 0,
+        "binaries": 0,
+        "artifacts": 132
+      }
+    },
+    "abi": {
+      "result": "PASS",
+      "private_result": "b_warm_refresh_abi_runs\\20261009-214400-527781\\result.json",
+      "sha256": "8e490c13b1f3c23cccc5123ec2edb814da9bef171fc5d1da6f444a78743c9815",
+      "verified_counts": {
+        "sources": 13,
+        "private": 0,
+        "generated": 1,
+        "binaries": 0,
+        "artifacts": 5
+      }
+    },
+    "helper": {
+      "result": "PASS",
+      "private_result": "b_warm_coordinator_build_runs\\20261009-181031-457801\\result.json",
+      "sha256": "4204df275c981b6c35c6bea01a25e040a0cea04be84e20ff2998079917e3b43a",
+      "verified_counts": {
+        "sources": 25,
+        "private": 0,
+        "generated": 3,
+        "binaries": 7,
+        "artifacts": 0
+      }
+    }
+  },
+  "production_dll_sha256": "9c6c69e652466b0d392eb3e5e11cb91a2d334187cee84b4f7cf677846cf9df0e",
+  "helper_and_pair_native_sources_match": true,
+  "production_fixture_macros": false,
+  "new_exports_verified": true,
+  "native_cases": {
+    "two_native_refresh_load_retire_generations": true,
+    "actual_target_lease_held_then_released": true,
+    "first_guard_failure_no_handover": true,
+    "late_first_callbacks_during_second": true
+  },
+  "python_tests": 9,
+  "abi": {
+    "Config": 14552,
+    "Report": 304,
+    "Description": 152,
+    "Identity": 20,
+    "offsets": {
+      "warm": 16,
+      "write": 11352,
+      "previousSize": 11400,
+      "previousSha256": 11408,
+      "sourceIdentity": 11440,
+      "previousTargetIdentity": 11460,
+      "targetPath": 11480,
+      "backupPath": 12504,
+      "refreshIntent": 13528
+    },
+    "report_offsets": {
+      "stage": 152,
+      "firstFailure": 216,
+      "attempt": 280,
+      "epoch": 288,
+      "generation": 296
+    }
+  },
+  "scope": {
+    "real": "Production C++ owners, native bridges, attachment guards, storage binding checks, Windows files/leases/intents and native bank handover",
+    "doubles": "Native game business, Steam namespace/cache, window/world graph in owned host; Python native/RAM test ports",
+    "fixture_profile_dates": "Independent dynamic profiles, not two coherent real game periods",
+    "live_two_loads": false,
+    "remote_two_games": false,
+    "full_input_exclusion": false,
+    "map_cover": false
+  },
+  "retained_failures": [
+    {
+      "private_run": "b_warm_refresh_pair_runs/20261009-214757-003522",
+      "reason": "Generated fixture included pair definitions before declarations and duplicated the predecessor definitions; fixed composition placement, no production workaround"
+    }
+  ],
+  "next": "Fresh game load slot34; preserve original CC03; create new two-source plan with initial_target identity; new diagnostic --check then explicit --execute --no-new-commands; no retry of old claims"
+}

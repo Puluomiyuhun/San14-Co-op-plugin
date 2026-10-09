@@ -1,6 +1,8 @@
 # 在另一台电脑接手
 
-**最新实机收尾：** 2026-10-09首个两档诊断在第一档的原生存储大小检查拒绝，尚未完成加载。用户已经正常退出，OS确认没有游戏进程；原CC03已恢复，34未改，新49测试档留在原电脑私有目录。先看[当前交接](HANDOFF.md)及[原生大小审计](../work/mod_research/b_warm_native_size_audit_handoff.md)。不要原样运行旧两档命令，也不要清claim：需要先接通原生存储发布和调整目标文件持锁顺序。下文旧失败实例/待重启说明是历史背景，以当前交接为准。
+**最新入口：** 原生存储刷新和文件锁顺序已接好，离线两代组合通过；使用[b_warm_refresh_diagnostic](../work/mod_research/b_warm_refresh_python_handoff.md)。新plan要求`profiles,target,sources,initial_target,expected_ruler,steam_paths`，保留旧CC03，两份source独立，不再先物理替换首档。新构建family是`san14.b-warm-refresh-pair.v1`，不能将旧pair的PASS或DLL用于此入口。当前候选定位见[组合交接](../work/mod_research/b_warm_refresh_pair_handoff.md)。
+
+**最新实机收尾：** 上轮首载因原生大小不一致拒绝，用户正常退出后已确认无游戏进程、恢复原CC03，34未改，新49留在本机。本轮未重新访问游戏；下次fresh启动读34，重新采样PID/birth与原入口，按新plan先`--check`再显式执行。不得清claim或向旧失败实例重投。下文旧诊断/暂存/失败实例说明是历史背景，以[当前交接](HANDOFF.md)为准。
 
 原电脑最新自动保存试验已生成新文件，但最终校验失败；停止状态钩子保留，正在按正常退出游戏路径收尾。当前恢复状态以[交接](HANDOFF.md)为准。原存档全部备份且未改，34号未变；本机证据不放行另一台机器。
 
@@ -10,7 +12,11 @@
 
 最新离线后继已增加[A跨帧推演/新状态重绑定](../work/mod_research/a_native_turn_handoff.md)、[B同六槽两模块交接](../work/mod_research/b_warm_two_bank_handoff.md)、[文件暂存](../work/mod_research/b_warm_staging_handoff.md)和[B本代采样](../work/mod_research/b_warm_profile_capture_handoff.md)。它们仍需合并为本机启动流程，不能直接替换旧脚本的DLL路径执行；合法新档与连续实机加载尚待验收。`b_warm_profile_contract.py`的profile.ready只表示配置捕获，不代表安装或加载成功。最新交接明确修正了旧profile的固定势力guard遗漏。
 
-## 连续两档的最小实机诊断入口
+## 原生刷新后继的离线验证
+
+`py -3 work/mod_research/b_warm_refresh_test.py`验证Python顺序与报告，`py -3 work/mod_research/b_warm_refresh_abi_test.py`验证MSVC/ctypes布局，`py -3 work/mod_research/b_warm_refresh_pair_test.py`编译生产DLL并运行真实两bank自有宿主。完整组合明确依赖原电脑hash固定的历史fixture与Python测试证据，新电脑不能复制本机PASS来绕过依赖；应重新建立本机编译与运行记录。上述命令不寻找或打开游戏。
+
+## 旧连续两档诊断入口（历史，不用于此次复测）
 
 使用[新窄诊断入口](../work/mod_research/b_warm_pair_diagnostic_handoff.md)而非把旧`--execute`当作无副作用预检。默认只显示help；实际输入齐全时先`--check`，执行另需`--execute --no-new-commands`。参数和严格plan格式见[前检手册](../work/mod_research/b_warm_pair_preflight_handoff.md)。首档须已按备份流程暂存到槽63，第二档真实日期/势力先确认；文件哈希不代替内容验证。
 

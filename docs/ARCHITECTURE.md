@@ -1,5 +1,11 @@
 # 完整联机流程与实现边界
 
+## 最新实现：原生刷新与加载共享同一确认边界
+
+`b_warm_refresh_diagnostic`使用两份独立source和旧CC03身份。Python仅备份旧档并准备私有新档；实际`CommitGameBefore`在原guard/inspect之后调用新Owner，绑定当前Steam v014 FileWrite槽0及原读接口，核旧目标/备份和两次旧原生读取，写持久一次性意图，FileWrite一次并完整双读新内容。此后取得目标deny-write租约，再进入原来的Verify、请求CAS及加载链。`b_warm_refresh_retire_session`只在真实完成、封存、六槽恢复后释放该租约，释放失败令Session失败。第二bank仍须真实Handover，不重用上一代配置。
+
+这条生产接线已编译并在自有宿主执行两代；真实Steam和游戏尚未重测。每次状态采样同时保存RefreshReport，避免原Request失败隐藏更早的存储原因。刷新可能在请求CAS前已写目标，因此Request的Rejected不等于没有文件副作用，不能自动回滚/重试。它仍是无新命令窄诊断，不实现持续玩家输入隔离或屏幕遮罩。下节实机失败是该改动的来源，旧文件暂存顺序保留为历史。[组合与范围](../work/mod_research/b_warm_refresh_pair_handoff.md)。
+
 ## 最新实机约束：磁盘暂存与原生存储视图是两个步骤
 
 2026-10-09两档诊断首载发现：磁盘CC03已是274920字节的新档，原生GetFileSize仍返回274880，因而在FileRead/加载请求CAS之前拒绝。物理文件原子替换和备份成功，不代表游戏的存储接口已观察到新内容。两份一致的原生完整Evidence已离线解码，详见[实机证据](evidence/2026-10-09-warm-native-storage-mismatch.json)。
