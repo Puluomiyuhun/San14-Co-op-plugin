@@ -1,12 +1,36 @@
 # 当前交接：另一台电脑的 AI 从这里开始
 
-更新日期：2026-10-09（Asia/Shanghai）。这一页是当前状态；历史里程碑见 [CHANGELOG](CHANGELOG.md)。
+更新日期：2026-10-10（Asia/Shanghai）。这一页是当前状态；历史里程碑见 [CHANGELOG](CHANGELOG.md)。
 
 ## 用户目标和已接受设计
 
 两台 Windows 电脑各运行自己的三国志14，各自操作一个不同势力，其他势力 AI。A 是权威端；指令按序同步，双方准备后推进，旬末 A 新存档校正 B，B 保持自己的视角。暂时接受本地战斗动画有差异，首版窗口/无边框。不要改成远程桌面或共享同一个游戏窗口。异地两台电脑尚未配置正式连接。
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
+
+## 最新开发：同日开局协议和 A 等待控制已连通真实 TLS 回执
+
+本轮只做离线开发，没有访问游戏进程、Steam存档或UI，没有安排用户操作。上一轮两份A自动档/B连续读回的实机结果和关闭恢复状态仍成立；**这次没有再实测游戏，也没有两台游戏同时联网。**
+
+新增 `a_room_bootstrap_protocol.py` 明确首档同日 `BOOTSTRAP_EXPORT` 阶段；不修改游戏/协议日期，不虚构一次推演。首个正式签名 `loaded` 后检查点代次由1到2、日期仍是中旬；清Ready后双方必须真实准备/封口，才允许第一旬推演。第二档沿原普通旬末协议，要求下一旬。原先的BootstrapJournal仍仅表示首次source→target视角切换，和新的同日开局阶段各司其职。
+
+新增 `a_room_native_control.py` 在原生Prepare前固定真实房间scope/封口/epoch；同一channel两次Submit/Copy，先等B正式loaded，再等双方Ready和封口，再发一次RequestNext。原生Running才通知玩家推进；第二档也须正式完成才返回。等待保持原管道heartbeat；ACK不等于loaded，超时/断线/变化不重投。原生epoch保持本机严格+1，随机wire epoch完整纳入摘要。只有零新命令的两代窄测试，不提供持续输入fence或自动推进。
+
+**联合验证已完成，非只审接口：** `a_room_bootstrap_test.py` 5/5，真实TLS、独立B Python子进程、真实SQLite和签名回执，包含实际新RoomTurnControl完整顺序 `submit1→signed loaded1→Ready/seal→RequestNext→submit2→signed loaded2`。原生保存/加载、游戏内存和强held为明示替身；未调用`run_model/complete_model`代替正式完成。最终运行`a_room_bootstrap_runs/20261010-001421-328274`，SHA `d9c3098cb7cedf6869e7aa96457a26d1b7da6ecd2cba803aa71550c8d7e3b280`，38来源/56产物根独立复核一致。另11项控制正反例通过，含ACK不放行、已loaded未Ready仍等、原生失败、第二回执缺失、旧连接在安装前拒绝及禁止重试。[协议接法](../work/mod_research/a_room_bootstrap_handoff.md)、[A控制接法](../work/mod_research/a_room_native_control_handoff.md)。
+
+**仍不能用现有实机CLI直接启动这条网络链。** `a_native_turn_start.py`仍是上轮本地两保存入口，尚未调用新Room控制；不要把旧命令写成双机启动器。原强RemoteCompletion要求持续held，而当前已实测warm加载只有User/Menu/Game局部边界与短暂停发布事务。无新命令诊断须明确采用有限观察合同，不能把稳定采样塞成`verify_held=lambda:True`。后续先补这个明确完成接口与两侧启动编排，再配置两机地址；完整内政、遮罩及全输入覆盖不追加为首个窄测试门槛。
+
+## 本轮 B 本地常驻接收组合：明确采用有限观察合同
+
+新增 `b_remote_session.py`、`b_remote_session_boundary.py`、`b_remote_session_lifecycle.py`，通过明确 `Session.open` 参数组装实际stable Resident、规则捕获/工厂、同一reader/TLS/私钥和两代规则生命周期；构建/文件来源、fresh进程、原入口及一次性claim仍须核验。原生安装的异常保留Session、factory/publisher/warm对象，不卸载或重置；失败日志自身出错不会吞掉原始异常。
+
+`DiagnosticBoundary`真实调用原完整规划双样本算法；成功只表示本次观察一致，`input_exclusion_proven/scheduler_fence_proven/atomic_snapshot`全部false。明确窄生命周期复用原规则恢复→加载→新世界观察→重装谓词，读档仍使用既有原生refresh接口和退休/Handover。每步之间由本地“不操作”约定约束，不假称一直持有原生锁。
+
+`apply_native`核真实ReceivedCheckpoint/SQLite、文件/profile、期次和本机身份，返回原生完成、两表观察及有限边界记录。它**不调用Journal.complete、不发送正式或诊断ACK、不开放Ready**；最终接入A仍缺有限合同的正式完成接口。测试中用旧强formal driver作外层fixture推进A，不是生产接口已经实现。新`Session.open`只做了安装前拒绝的离线验证，未在游戏成功安装这整组对象，不能把既有实机单模块结果相加当联合实机通过。
+
+8/8离线验证通过：真实TLS/SQLite、原ResidentPort规则转换谓词和完整规划采样算法执行，native加载/发布及RAM为替身。两代保留同一对象组、三代规则历史；未决操作、PID/birth变化、来源漂移、native失败均终止，不发formal完成。最终`b_remote_session_runs/20261010-002233-669985/result.json` SHA `8e5549b9dd7a7444cdb4ae26f681799ce36867f85d25eb5ae8c7e3639f8eed98`，66来源/96产物根独立复核一致。中间8项PASS后还补了对象图绑定、禁用继承旧apply入口和异常对象保留；未沿用旧结果放行新源码，最终已重跑。[B接口与范围](../work/mod_research/b_remote_session_handoff.md)、[本轮摘要](evidence/2026-10-10-room-bootstrap-session.json)。
+
+**下一接手顺序：** 先读A控制及B Session手册，完成两侧同名、明确有限观察语义的正式完成端口（A也需真实本机有限观察，不能用恒True）；再做新同日Room＋B Session的同一联合离线场景；再把A批准的安装/收尾和B `Session.open`接到显式两机配置启动入口。三条现测试合计24项通过，仍不等于这一个联合实机入口存在。首轮精确范围见[双机清单](FIRST_TWO_PC_TEST.md)。当前不等待用户操作，本轮未安装任何游戏钩子或调试器；上轮游戏关闭后的87档恢复记录保留，本轮未重新查询游戏进程或存档。
 
 ## 最新实机里程碑：A 同进程跨旬两次自动保存，两份均由 B 连续加载成功
 

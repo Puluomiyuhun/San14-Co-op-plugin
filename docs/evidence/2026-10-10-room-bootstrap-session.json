@@ -1,0 +1,44 @@
+{
+  "schema": "san14.offline-room-bootstrap-session-milestone.v1",
+  "date": "2026-10-10",
+  "game_access": false,
+  "game_save_files_accessed": false,
+  "two_real_game_clients_tested": false,
+  "user_operation_pending": false,
+  "runs": {
+    "a_control": {
+      "path": "a_room_native_control_runs/20261010-001408-645209/result.json",
+      "sha256": "0f83520a566115e1c36c0f30449e7c7d2e0b4e6183086cb816d97e7c9473f56c",
+      "tests": 11,
+      "source_count": 9,
+      "artifact_count": 0,
+      "result": "PASS"
+    },
+    "a_bootstrap_tls": {
+      "path": "a_room_bootstrap_runs/20261010-001421-328274/result.json",
+      "sha256": "d9c3098cb7cedf6869e7aa96457a26d1b7da6ecd2cba803aa71550c8d7e3b280",
+      "tests": 5,
+      "source_count": 38,
+      "artifact_count": 56,
+      "result": "PASS"
+    },
+    "b_retained_session": {
+      "path": "b_remote_session_runs/20261010-002233-669985/result.json",
+      "sha256": "8e5549b9dd7a7444cdb4ae26f681799ce36867f85d25eb5ae8c7e3639f8eed98",
+      "tests": 8,
+      "source_count": 66,
+      "artifact_count": 96,
+      "result": "PASS",
+      "production_factory_native_executed": false,
+      "diagnostic_formal_completion_implemented": false
+    }
+  },
+  "limits": [
+    "Native Save/Load and game memory are explicit doubles in these tests.",
+    "Existing real-game local two-save/two-load proof is a separate prior milestone.",
+    "Same-day bootstrap has period 1; first actual turn-end snapshot has period 2.",
+    "No live CLI or continuous input fence is claimed.",
+    "B local Session produces observations/completion without Journal.complete or a formal signed room receipt.",
+    "B session test uses the old strong completion driver ONLY as an outer fixture; it is not the new limited-boundary production completion port."
+  ]
+}

@@ -1,5 +1,7 @@
 # 在另一台电脑接手
 
+**2026-10-10当前入口：** 先看[HANDOFF](HANDOFF.md)顶部。A跨旬双自动保存、B读回两份自动档的实机均已通过；以下历史“待实测”说明已被这些结果更新。新同日房间协议/控制的离线命令为 `py -3 -X utf8 work/mod_research/a_room_bootstrap_test.py` 和 `py -3 -X utf8 work/mod_research/a_room_native_control_test.py`。前者运行本机TLS与独立测试进程，不访问游戏；两者均不是双机游戏启动命令。不要将fixture的held/原生替身移植到实际启动器。
+
 **本轮新增接线：** 用 [b_warm_refresh_remote_owner](../work/mod_research/b_warm_refresh_remote_owner_handoff.md) 连接stable Resident，旧remote owner仍使用物理暂存，不用于此路线。离线命令为 `py -3 work/mod_research/b_warm_refresh_rules_bridge_test.py` 和 `py -3 work/mod_research/b_warm_refresh_remote_owner_test.py`。这两个入口不访问游戏，不能用测试guard启动真实房间。
 
 **A 实测最新状态：** [候选审计](../work/mod_research/a_save_next_handoff.md) 通过后在fresh PID7804执行，实际在提交保存前 `parentError=7` 拒绝；七处入口已恢复，无调试器/新存档，失败claim仍有效。不能按旧“候选可实测”文字向这个进程重投。精确只读诊断已将失败缩到Controller.Initialize；新 [初始化首错后继](../work/mod_research/a_save_initialize_trace_handoff.md) 已完成生产编译、6个原生自有场景、实际ABI和10项reader测试。下一构建目录为新run的`launch/`，并非旧固定候选；fresh生命周期及具体路径见 [HANDOFF](HANDOFF.md)。
