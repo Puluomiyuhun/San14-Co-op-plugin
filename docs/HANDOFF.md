@@ -8,7 +8,21 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
-## 最新：A真实管道接邮箱，B冷等待接原注册
+## 最新：A真实保存控制器接管道宿主，B启动接冷等待与两代队列
+
+本轮并行开发、交叉审查，全部离线。没有访问游戏、Steam、当前存档或UI，没有实机补丁、调试器或待用户操作。冻结前驱未改；所有新生成profile、日志与产物留在仓库外。
+
+- **A宿主组合2/2**：真实命名管道和邮箱已接同一Owner/Gate/Controller/Driver。固定宿主在实际Game/User桥FINALLY后封存观察并接纳请求，原User AFTER绑定Save；两期诊断文件完成原存储校验后才Copy/回传，中间实际Retire/Rebind并换Controller。新增Host不安装真实父调用点，保存业务与日期仍是fixture。
+- **A断线收尾**：实际Driver已bind/Queued后，客户端只关闭管道并保持进程存活。网络线程停止邮箱，宿主继续原Save/User回调直到原Driver Complete，才在原宿主线程释放协作writer锁；结果仍Unknown，copies=0，无重投。Stop后并非全输入持续暂停。静态审查另修正“Submit返回false可能已经受理”的误解锁路径；这一具体Gate竞态未动态注入，不混称断线测试覆盖。
+- **B完整启动组合2/2**：同主PE/DLL/Provider实际完成Bootstrap→冷等待→原RegisterColdPool→两代完整queue。唯一Prepare替代旧Initialize，避免重复初始化。构造主动等初始wait已移除；普通与嵌套yield均完成16个Root任务、48次捕获、两次queue pop与四线程FINALLY。真实游戏来源、早期CRT上下文与全部生产者排他仍缺；登记后SetEvent有明确的fixture服务切换。
+
+A早期编译失败和误用旧故障模式造成的报告漂移失败均保留；后者已用新fixture专用收尾序列消除无关干扰，生产Guard未削弱。两个最终组合均正常收尾，自有子进程/服务/worker/helper退出；共享34号副本未变。
+
+入口与复跑：[A宿主](../work/mod_research/a_save_dispatch_host_handoff.md)、[B冷启动队列](../work/mod_research/b_reload_cold_bootstrap_handoff.md)。证据：[A](evidence/2026-10-09-dispatch-host.json)、[B](evidence/2026-10-09-cold-bootstrap-queue.json)。B的6份额外生成profile已由根agent按固定归档独立重建核对，生产Bootstrap除明确准备接点外与冻结前驱一致。
+
+**下一步按实际缺口推进**：A把本地Host接真实CApp父来源并证明稳定线程/任务收尾及相关writer协调；B证明真实启动时机、线程初始上下文和生产者覆盖，随后用两份合法新档验证连续加载。再把规则撤回/重装、输入、world/地图核验及网络回执合进同一运行所有者。当前未执行真实新档生产或加载，也不是双机可玩闭环；四道实机结果门槛仍见[FIRST_TWO_PC_TEST](FIRST_TWO_PC_TEST.md)。
+
+## 上一轮：A真实管道接邮箱，B冷等待接原注册
 
 本轮全部离线，没有访问游戏、Steam、当前存档或UI，没有新增实机补丁、调试器或待用户操作。旧模块保持冻结；未执行真实游戏保存或读档。
 

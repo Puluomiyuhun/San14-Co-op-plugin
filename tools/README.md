@@ -268,3 +268,19 @@ Read [IPC](../work/mod_research/a_save_dispatch_ipc_handoff.md) and
 These are explicit successors; do not link both lifecycle implementations or
 call the old Bootstrap after the new Prepare has already initialized it.
 Neither test opens the game or supplies a production save/load permit.
+
+## Actual save Controller host and cold Bootstrap queue (offline only)
+
+```powershell
+# Owned processes, actual Owner/Controller and pipe; save business doubles.
+py -3 work/mod_research/a_save_dispatch_host_test.py
+# Private archive root must be outside this repository.
+$env:SAN14_PRIVATE_FIXTURE_ROOT = '<private archive folder>'
+py -3 work/mod_research/b_reload_cold_bootstrap_test.py
+```
+
+Read [A host](../work/mod_research/a_save_dispatch_host_handoff.md) and
+[B Bootstrap queue](../work/mod_research/b_reload_cold_bootstrap_handoff.md).
+Both keep generated inputs and artifacts outside the repository. A still has
+the documented original-machine private runtime dependency; B requires pinned
+archive inputs. Neither command opens the game or proves real save/load readiness.

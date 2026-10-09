@@ -23,7 +23,7 @@
 
 旬初规划身份保持到本旬校正结束。旬末保存日期已经改变，但B尚未加载，下一旬身份还不存在。`checkpoint_planning_save_link.py`显式绑定这两个日期。新 `planning_simulation_boundary*` 在可信同步宿主回调前后核实际原生日期/桥收尾，以同epoch进入旬末；`planning_simulation_session.cpp`保留旬初Scope，只认可该明确边界的有效日期，随后正式退休重绑。`a_save_simulation_ipc*`已在同一自有进程接完整网络Scope、两期诊断保存和真实TLS，下一Scope仅在模型B完成后产生。日期/战斗与保存业务仍替身，没有接真实引擎调度或B加载。
 
-B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Arm，替代旧marker证据。验证采用人工准备的自有映像；后继同PE/DLL/Provider实际Bootstrap→四worker→普通无票任务已组合2/2；后续同PE两代queue已组合2/2；真实运行时来源就绪、冷等待时序及连续合法档加载仍待接通。[组合审查](../work/mod_research/b_reload_bootstrap_queue_handoff.md)已明确须保留同PE/DLL/Provider和真实配对临界区；旧私有映像queue不能直接硬拼。
+B的最新 `b_reload_cold_bootstrap*` 已将实际Bootstrap、冷等待、原RegisterColdPool和两代完整queue接进同一主PE/DLL/Provider。Prepare承担唯一初始化，避免旧Bootstrap重复Initialize；普通和yield两条组合通过。测试采用自有映像与诊断文件业务，真实代码可用阶段、早期CRT上下文、生产者排他和连续合法档加载仍待验证。[当前组合](../work/mod_research/b_reload_cold_bootstrap_handoff.md)保留详细替身和服务切换边界。
 
 ## 已知模块与关键缺口
 
@@ -35,7 +35,7 @@ B的新 `b_reload_bootstrap*` 已将导出接实际Initialize/Prepare/Publish/Ar
 | 时间线/暂停 | `timeline_protocol.py` | 协议状态机原型；原生事件全覆盖未完成 |
 | 双人 AI/收入 | `human_rules_activation_v2*`, `human_rules_world_lifecycle*`, `checkpoint_rules_context*` | 固定world实机曾通过；离线六来源换代及真实远端context已接，完整原生load/身份/排他/hold端口仍缺 |
 | A 本轮存档 | `a_save_period_ipc*`, `a_save_parent_coordination*`, `a_save_observation_status*` | 同物理Owner跨逻辑期两奖励/两诊断保存已组合；原生队列/清理来源已缩小，一次正常保存的四点观察器已实机记录一次完整Save配对、army任务0次，退出恢复102线程。新观察器共用DR6归属修复，旧版仅留历史。不能以无重叠或active=0代替排空；未接生产发布/IPC/permit |
-| B 连续加载 | `b_reload_lifecycle_fault*`, `b_reload_lifecycle_queue*`, `b_reload_nested_*` | 启动来源1447B6接四worker与完整两代queue已组合4/4，同一已暖worker、实际yield/resume；构造初始等待/业务仍替身，第二档诊断变体。新Bootstrap实际发布已在人工自有映像验证；同PE四worker与普通任务已组合2/2；同PE两代queue组合2/2已补；真实来源就绪、冷等待协调、持续排他和两真实档仍缺，新可信本地失败闸已组合两代观察器SEH；旧业务异常/外来DR矩阵尚未全量组合 |
+| B 连续加载 | `b_reload_cold_bootstrap*`, `b_reload_lifecycle_fault*`, `b_reload_nested_*` | 同PE/DLL/Provider的Bootstrap→冷等待→原登记→两代queue已组合2/2，移除构造主动等初始wait，实际yield/resume与原Gate换代通过。构造/文件/引擎业务仍替身，登记后SetEvent有显式诊断切换；真实来源阶段、生产者排他、两合法新档与全故障矩阵仍缺 |
 | B 收件确认 | `checkpoint_delivery_control*`, `checkpoint_rules_context*` | 独立B经TLS返回已STAGED的实际字节，A独立receiver确认bytes_received；额外一次全量传输，不创建加载INTENT或Ready |
 | Ready 输入等待 | `planning_input_boundary*`, `planning_period_interlock.cpp`, `reward_ready_flow.py` | 同Owner局部观察已接TLS，新窗口边界覆盖已审计消息；未知消息/设备/后台writer仍缺。同world逻辑期已正式退役重绑；换world/整旬联机及完整输入许可未完成 |
 | 菜单捕获准备 | `reward_menu_handoff_gate*`, `reward_menu_capture.py`, `reward_menu_observation*` | 归档Update确认前原生门禁已能单次领取纯ID并接TLS去重，正常取消/关闭与生产installer/lifetime仍缺。只读观察的自然执行记录仍不能发送 |
@@ -98,3 +98,9 @@ retire使旧scope/key/cut失效，但没有执行规则撤回或世界替换。
 后继 `a_save_dispatch_ipc*` 已将邮箱端口接入真实命名管道Server，并由独立monitor在Submit等待中检测外部shutdown/EOF；monitor只停止邮箱，Server继续保持具体Owner接口与认证/序列/结果检查。构建产物包含生产Server对象，组合测试中的Owner业务另由fixture TU替身提供。wire Stop仍是串行消息，不代替外部取消；析构也可能在生命周期宿主线程调用Owner.Stop。
 
 `b_reload_cold_registration*` 已在实际初始化Bridge内调用原RegisterColdPool，保留真实Owner和原登记检查；新wait后继只接受明确已发布的activation Leave桥。新Prepare已经初始化生命周期，不能随后直接调用会再次Initialize的旧Bootstrap。下一步需明确Bootstrap后继使用同一准备入口，再接同Provider的完整queue；真实生产者锁覆盖仍不是传入一个SRW就完成。
+
+最新 `a_save_dispatch_host*` 把管道邮箱接到实际Owner/Gate/Controller/Driver。BeforeFrame/AfterFrame是受信任的本地宿主边界，固定控制TID，提交前实际Begin/EndObservation；保存期间不重复观察，Driver完成后才Copy。停止后Copy接口拒绝，因此另从原Driver的同代Complete或零bind Cancelled收尾，只释放本宿主协作锁，保留Unknown且不放行下一期。调用Submit之前就标记可能受理，避免后验检查失败误解锁。
+
+Host没有安装CApp/Root钩子，也未证明所有游戏writer参与锁；BeforeFrame返回false只表示本协调器不接纳操作，不能拿它阻止原生调度。原Owner的Stop可能转发User，保留Ready字段不等于全输入持续暂停。已有TLS/网络Scope路径尚未在本次新Host中重新组合；本次真实管道的两期数据仍是32字节诊断业务。
+
+最新B接线已由 `b_reload_cold_bootstrap*` 完成：唯一Prepare与原登记、两代queue共享Provider，消除了上文原登记与旧Bootstrap二次Initialize冲突。SetEvent登记后切换是明确fixture服务，不代表原生引擎已完整接入；真实启动来源与生产者排他仍须单独建立。
