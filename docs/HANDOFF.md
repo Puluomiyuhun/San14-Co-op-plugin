@@ -8,6 +8,20 @@
 
 用户要求每次有实质进展 commit/push 此仓库，并持续维护本交接文档；允许多 agent 并行。没有要求无人值守后台持续运行，也没有设置定时任务。
 
+## 最新开发：按用户要求并行推进 AI 保护、赏赐结果核验和输入限制
+
+**双机实测按用户要求后推，本轮没有访问游戏、Steam、存档或 UI，也不等待用户操作。** 三个 agent 分别开发三条线，主线程接配置入口、交叉审查和证据审计。上次真实游戏退出及87份原档恢复事实保留，本轮未重新查询当前进程，未安装游戏钩子/调试器。
+
+- **A AI 保护已新增组合入口。** `a_protected_start.py` 在原七处保存入口就绪后、首份保存前安装六处人类势力规则；同一 world 跨旬保留规则，正常先恢复六处规则，再 Stop/恢复七处保存入口。`observed_protected_host.py` 将它接到真实 TLS 配置入口，旧入口冻结。自有原生测试实际执行规则 Prepare/Seal、外部发布器和 AI/收入判断，并更换 User/Strategy、将旧页设不可访问；其中 A 七处来源和 Snapshot 为明示替身，未将整个保存 Runtime 与规则合装到游戏。[A配置后继](../work/mod_research/observed_protected_host_handoff.md)。
+- **赏赐补了生产读取与结果核验。** 新 `reward_observed_context` 执行真实 GameReader/资格/资金采样算法，按本机身份与日期绑定。原权威排序、双日志和 TLS 上，执行后核扣金/行动力/忠诚/flags及声明范围的其他字段；重复不重扣，结果未知不重放。自有字节布局与原生业务仍为替身，真实 Runtime Submit/Report 桥、菜单和 UI 尚未接。[赏赐后继](../work/mod_research/reward_observed_handoff.md)。
+- **输入限制分清了本人准备和远端执行。** 新 `player_input_owner` 在实际自有窗口验证已审计输入拦截/ACK；本人 Ready 时实际原赏赐 Owner 仍可接受远端赏赐，保存/加载/事件等待/推演拒绝新执行，并阻止在途赏赐跨入关键阶段。不设置旧 ReadyFence，不争抢 User/Save/AI 槽；但独占 WndProc，不能叠装旧窗口模块。游戏 GUI 引导、完整输入覆盖、报告选择、跨 world 重绑定仍缺。[输入后继](../work/mod_research/player_input_owner_handoff.md)。
+
+**三组件未被冒充一个完整玩法会话。** 当前带保护入口仍为“无新命令、开局快照＋一次旬末”；独立赏赐投影与存档 Room 合同不同，明确拒绝借它放行 Ready/seal。异常进入 HELD 后若无法继续证明规则恢复条件，会保留入口与失败证据，不强拆；网络关闭不等于原生清理成功。新 A CLI 只有实际安装/恢复报告、B 清理通知及网络收尾都通过才报告成功。
+
+本轮 **34/34通过**：AI原生2、保护入口10、配置/TLS入口7、赏赐6、输入9。根独立复核各套83/89/49/18/60来源、43/212/0/0/4私有输入及74/626/18/26/44产物全部一致，也实际调用新旧入口和CLI来源审批检查。测试层次不能相加成两游戏已验证。准确记录和哈希见[本轮公开证据](evidence/2026-10-10-parallel-infrastructure.json)。当前功能和装配缺口已汇总到[三线接法](INFRASTRUCTURE_INTEGRATION.md)及[内政现状](DOMESTIC_SYNC_STATUS.md)。下一步优先补**同 Runtime 的赏赐 typed 提交/报告与唯一 Owner 引用 → 同房间规划周期及队列排空 → 实际窗口初始化和菜单生命周期**；不要求用户逐项复现所有内政。双机地址、TLS 配置和整组实机按用户安排后推。
+
+下文保留历史进展，其当时的“A六处规则尚未组合”等开发缺口以本节为准；组合实机未验证仍成立。
+
 ## 最新开发：A/B 启动与收尾入口已接入，离线验证通过
 
 **两侧入口和收尾已推进到可执行代码，不再仅有接口设计。** A 使用 `observed_host_start.py` 创建真实 TLS 房间，接新 `a_observed_start.py` 的原生安装、Prepare 前 Room 绑定、同一 IPC 两保存、Snapshot provider、正式回执等待和 Stop/恢复；B 使用 `b_observed_start.py` 接实际收档、`Session.open`、同一 GuestCompletion、规则恢复和本机句柄收尾。默认只显示 help，显式执行才安装；原冻结模块不变。[配置/命令与收尾顺序](../work/mod_research/observed_start_handoff.md)。

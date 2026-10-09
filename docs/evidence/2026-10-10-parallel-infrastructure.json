@@ -1,0 +1,115 @@
+{
+  "schema": "san14.parallel-infrastructure-summary.v1",
+  "date": "2026-10-10",
+  "result": "PASS_OFFLINE_COMPONENTS",
+  "total_tests": 34,
+  "game_access": false,
+  "steam_access": false,
+  "two_real_clients_proven": false,
+  "game_hooks_installed_this_round": false,
+  "user_testing_deferred": true,
+  "runs": [
+    {
+      "name": "ai_native",
+      "sha256": "996ad93252e1617aa1fb4209726fffee5db62f27ca3b583262e2e25ba07a4ef7",
+      "tests": 2,
+      "counts": {
+        "sources": 83,
+        "private": 43,
+        "private_inputs": 0,
+        "artifacts": 74
+      },
+      "private_result": "a_protected_native_runs/20261010-013901-796135/result.json",
+      "location": "private-research"
+    },
+    {
+      "name": "ai_entry",
+      "sha256": "e24ef3b8a9e014e8789d20e2840e449138e80ccaa496dbf0b9e48dbd7bd6ab01",
+      "tests": 10,
+      "counts": {
+        "sources": 89,
+        "private": 0,
+        "private_inputs": 212,
+        "artifacts": 626
+      },
+      "private_result": "a_protected_start_test_runs/20261010-014013-306696/result.json",
+      "location": "private-research"
+    },
+    {
+      "name": "protected_cli",
+      "sha256": "6b9d44d94dfbfb7d3eed6f0797562de27eb862ba6089fa1e49f3ad82ded1914d",
+      "tests": 7,
+      "counts": {
+        "sources": 49,
+        "private": 0,
+        "private_inputs": 0,
+        "artifacts": 18
+      },
+      "private_result": "observed_protected_host_runs/20261010-014113-772456/result.json",
+      "location": "private-research"
+    },
+    {
+      "name": "reward",
+      "sha256": "8fd26f888281bfe7f00330a59461faa927a107b246eeeca481afa0049fbfd1a4",
+      "tests": 6,
+      "counts": {
+        "sources": 18,
+        "private": 0,
+        "private_inputs": 0,
+        "artifacts": 26
+      },
+      "private_result": "reward_observed_runs/20261010-013439-940413/result.json",
+      "location": "private-research"
+    },
+    {
+      "name": "input",
+      "sha256": "630ec0439d8642b5d90fb8920ec39b69357f778ddd28b3a654237ac7c0f2c9e0",
+      "tests": 9,
+      "counts": {
+        "sources": 60,
+        "private": 0,
+        "private_inputs": 4,
+        "artifacts": 44
+      },
+      "private_result": "work/mod_research/player_input_owner_runs/20261010-013434-920485/result.json",
+      "location": "checkout-ignored"
+    }
+  ],
+  "root_audit": {
+    "private_result": "parallel_infrastructure_root_audits/20261010-014133-512968/result.json",
+    "sha256": "f6908cbfa29042de035517a8b44572a99d2afb8c5d16bbd382a6378f095b6f00",
+    "result": "PASS"
+  },
+  "evidence_boundaries": {
+    "ai_native": "Actual owned host rules Prepare/Seal, remote native memory, external publisher and AI/income callbacks. Seven A source sites and Snapshot are stand-ins; complete save Runtime is not linked.",
+    "ai_entry": "Actual protected execute lifecycle, TLS, journals, files, and source validation; native RAM/PE/publisher/channel are doubles. Separately verifies ai_native archived evidence.",
+    "protected_cli": "Actual HostService TLS binding and bilateral finish/disconnect. Native lifecycle and two completion markers are explicit doubles.",
+    "reward": "Actual GameReader and original pooled/context algorithms, TLS, ordering and SQLite. RAM/RTTI and native reward business are doubles.",
+    "input": "Actual owned HWND/thread, archived WndProc and retained reward Owner Submit. Native game message/reward business are doubles; GUI bootstrap into game unverified."
+  },
+  "completed": [
+    "A protected callable and configurable network successor",
+    "Production reward field sampling and projected effect validation",
+    "Ready-local-input policy allowing remote rewards; critical phase admission refuses pending rewards"
+  ],
+  "remaining": [
+    "same Runtime typed reward Submit/Report and unique Owner accessor",
+    "shared reward/checkpoint room period and drain/retire control",
+    "game GUI bootstrap, menu preconfirmation/closing lifetime",
+    "complete input paths and report-versus-choice identification",
+    "cross-world reward/input rebinding",
+    "two real simultaneous game clients and full combined native installation"
+  ],
+  "known_constraints": [
+    "no new commands still mandatory for protected snapshot CLI",
+    "finite observations do not prove an atomic world or continuous input fence",
+    "held or unknown rule state may retain all thirteen sources; no forced restoration",
+    "independent reward flow cannot authorize observed Room Ready",
+    "original saves restored only after normal game exit"
+  ],
+  "failure_history": [
+    "Protected CLI first test run 20261010-013513-052909: fixture treated receipt dictionary as list and omitted guest context rendezvous; fixed test doubles, retained run.",
+    "AI native 20261010-013707-703885 compile failure (namespace/warning), protected entry 20261010-013825-838101 failed test import; all retained. Final suites supersede intermediate PASS runs without overwriting them."
+  ],
+  "raw_logs_and_builds_committed": false
+}

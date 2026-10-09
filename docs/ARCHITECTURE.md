@@ -2,6 +2,8 @@
 
 ## 当前主线（2026-10-10）
 
+本轮用户要求暂缓双机实测，先并行补基建。A新增 `a_protected_start`/`observed_protected_host` 接六处规则与七处保存入口的有序安装/恢复；賞赐新增真实读取/结果核验后继；输入新增“本人Ready仍允许远端赏赐、关键阶段拒绝执行”的同Owner窗口策略。三线具体装配与未接缝见[整合说明](INFRASTRUCTURE_INTEGRATION.md)。真实游戏组合、同房间赏赐周期、Runtime提交桥与窗口/菜单引导尚未完成；以下段落为前驱阶段。
+
 最新后继已完成明确有限观察正式完成合同，并接入双侧启动/收尾：A `observed_host_start.py`＋`a_observed_start.py`，B `b_observed_start.py`，共享实际TLS `observed_room_service.py`。A等待B收尾通知再关网络；原生未知结果、回调排空和句柄恢复分别处理。联合测试使用实际协议/Session/Journal/观察算法，原生及RAM仍为替身，新CLI整组实机未跑。A七处保存入口与六处双人AI规则尚未合装，当前限于无新命令存档同步诊断。[启动手册](../work/mod_research/observed_start_handoff.md)。下文为历史阶段，旧缺口以最新HANDOFF为准。
 
 A同进程跨旬两次自动保存、B同进程连续加载这两份实际产物已实机通过，详见[当前交接](HANDOFF.md)。下面按时间保留的“自动保存尚未通过/两载待测”属于旧阶段，不能覆盖新证据。

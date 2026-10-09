@@ -1,5 +1,7 @@
 # 在另一台电脑接手
 
+**最新2026-10-10基建后继：** 用户暂缓双机实测，先做离线开发。A带AI保护入口为 `observed_protected_host.py`，新配置及仅离线测试命令见[该入口手册](../work/mod_research/observed_protected_host_handoff.md)；B入口不变。赏赐结果读取与输入策略是独立组件，尚不能在配置里打开即获得完整玩法，见[三线装配](INFRASTRUCTURE_INTEGRATION.md)。不要据本轮 owned PASS 自行重跑实机安装；当前无待用户操作。
+
 **最新双侧入口已落地（尚未整组实机）：** A `work/mod_research/observed_host_start.py`、B `work/mod_research/b_observed_start.py`，配置和检查/执行命令见[启动手册](../work/mod_research/observed_start_handoff.md)。A的`--check`只读构建/文件；B的`--check --no-new-commands`还会只读显式游戏进程；两者均不安装，默认help。请先准备本机构建/源码证据、fresh进程、实际网络与独立key，不能把旧CLI或测试替身当此入口。现范围为开局＋一次旬末的同步诊断，A端AI规则尚未合装。
 
 **2026-10-10当前入口：** 先看[HANDOFF](HANDOFF.md)顶部。A跨旬双自动保存、B读回两份自动档的实机均已通过；以下历史“待实测”说明已被这些结果更新。新同日房间协议/控制的离线命令为 `py -3 -X utf8 work/mod_research/a_room_bootstrap_test.py` 和 `py -3 -X utf8 work/mod_research/a_room_native_control_test.py`。前者运行本机TLS与独立测试进程，不访问游戏；两者均不是双机游戏启动命令。不要将fixture的held/原生替身移植到实际启动器。
