@@ -143,7 +143,15 @@ class CheckedPort:
         self.sampler,self.native=sampler,native;self.attachment_id=sampler.attachment_id
         self.binding=(sampler.pid,sampler.birth,sampler.epoch,sampler.attachment_id)
         need(native.identity()==self.binding,'Native owner belongs to another local attachment')
-        self.calls=0;self.receipts=[]
+        self.calls=0;self.receipts=[];self.input_lease=None
+
+    def attach_input_lease(self,lease):
+        from player_input_lease_port import InputLease
+        with self.sampler.lock:
+            need(type(lease) is InputLease and self.input_lease is None and self.calls==0,
+                 'Attach exact input lease once before reward execution')
+            lease.verify_binding(self.binding,self.native)
+            self.input_lease=lease
 
     def observe(self):return journal.digest(self.sampler.capture()[1])
     def context(self,force):
@@ -153,7 +161,9 @@ class CheckedPort:
 
     def execute(self,command):
         with self.sampler.lock:
+            ticket=None
             try:
+                if self.input_lease is not None:ticket=self.input_lease.begin(self.binding)
                 need(self.native.identity()==self.binding,'Native owner identity changed')
                 contexts,before=self.sampler.capture();force=command['force_id']
                 need(force in self.sampler.players,'Command force unbound')
@@ -169,5 +179,10 @@ class CheckedPort:
                 result=dict(native_returned=True,args_released=True,owned_slot_cleared=True,effects=effects,
                     source='LOCAL_REWARD_CONTEXT_AND_RESULT_OBSERVATION',input_exclusion_proven=False,
                     native_gameplay_enabled=False,ui_refresh_verified=False)
+                if self.input_lease is not None:self.input_lease.complete(ticket)
                 self.receipts.append(result);return result
-            except BaseException as exc:self.retire(type(exc).__name__+': '+str(exc));raise
+            except BaseException as exc:
+                if self.input_lease is not None:
+                    try:self.input_lease.fail(ticket,exc)
+                    except BaseException as secondary:exc.input_lease_error=repr(secondary)
+                self.retire(type(exc).__name__+': '+str(exc));raise

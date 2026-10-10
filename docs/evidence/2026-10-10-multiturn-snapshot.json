@@ -1,0 +1,81 @@
+{
+  "schema": "san14.public-development-snapshot.v1",
+  "date": "2026-10-10",
+  "preceding_commit": "c5ead23",
+  "scope": "Three-checkpoint diagnostics plus separate two-window reward/input components; not a completed multiplayer gameplay session.",
+  "game_access_this_submission": false,
+  "steam_access_this_submission": false,
+  "two_real_clients_verified": false,
+  "native_sortie_execution_connected": false,
+  "normal_game_menu_connected": false,
+  "unlimited_turns_supported": false,
+  "raw_records_public": false,
+  "records": [
+    {
+      "name": "a_reward_three_exports",
+      "result": "PASS",
+      "cases": 2,
+      "private_record": "a_runtime_reward_three_exports_runs/20261010-174511-010445/result.json",
+      "record_sha256": "4db4f8469e40df93f351d2047c7e26a5654e9634c50a57c8b4c5994bbaa6b36d",
+      "verified_file_hashes": 2396,
+      "coverage": "Native owned host executes new reward exports; production DLL ABI/entry checks; game business substituted."
+    },
+    {
+      "name": "b_chain_rewards",
+      "result": "PASS",
+      "cases": 16,
+      "private_record": "b_chain_reward_runs/20261010-174929-817059/result.json",
+      "record_sha256": "83cbb2042871312cd135a52564a579b6a897663281612eb28b39759959969015",
+      "verified_file_hashes": 532,
+      "coverage": "Actual Python factory, SQLite and observed reward projection; native loader, world and authority substitutes."
+    },
+    {
+      "name": "b_chain_reward_input",
+      "result": "PASS",
+      "cases": 7,
+      "private_record": "b_chain_reward_input_runs/20261010-174929-821047/result.json",
+      "record_sha256": "36e64932fe1dfa706b49f72cd155547e7fdef5f21d0b4c695d36f95a87ec5665",
+      "verified_file_hashes": 529,
+      "coverage": "Two reward/input windows with actual ports/journals; window RPC, native load and authority substitutes."
+    },
+    {
+      "name": "b_chain_input_transition",
+      "result": "PASS",
+      "cases": 8,
+      "private_record": "b_chain_input_transition_runs/20261010-174527-501746/result.json",
+      "record_sha256": "f4be44b8c693973755b49d798a9836811c870f7cba9fd851913ca7f4067d2f01",
+      "verified_file_hashes": 360,
+      "coverage": "Actual TLS and formal three-checkpoint completion; native world/load/rules and window RPC substitutes."
+    },
+    {
+      "name": "sortie_admission",
+      "result": "PASS",
+      "cases": 8,
+      "private_record": "sortie_room_admission_runs/20261010-173752-275753/result.json",
+      "record_sha256": "642739ceca35124205b06f4b50dd344cdb7758095463a021fbc487ec5fb49f10",
+      "verified_file_hashes": 239,
+      "coverage": "Actual TLS, SQLite and pending/Ready barrier; no native sortie execution."
+    }
+  ],
+  "static_review": {
+    "changed_source_files": 261,
+    "new_source_files": 259,
+    "python_ast_checked": 176,
+    "syntax_errors": 0,
+    "source_credentials_review": "No real credentials, private invite material, binary artifacts or full native function dumps identified in new sources.",
+    "preserved_terminal_blank_lines": [
+      "a_observed_three_start_test.py",
+      "a_reward_runtime_mount_test.py",
+      "a_runtime_reward_three_contract.py",
+      "reward_result_observation_events.py"
+    ],
+    "whitespace_exception_reason": "Preserve exact evidence-pinned source bytes; four explicit gitattributes exceptions allow their existing terminal blank line only."
+  },
+  "limitations": [
+    "New A reward production build requires a new approval/publisher integration, then per-period room discovery and mount.",
+    "B reward/input successors are not installed by the old simple/portable runners.",
+    "Sortie admission is a fixed-pilot proposal barrier; generic A/B native execution, complete menu capture and shared reward ordering remain open.",
+    "Private generated profiles, game-image fixtures and historical build dependencies are not distributed with source.",
+    "No result here authorizes loading native modules in a new game process."
+  ]
+}

@@ -6,3 +6,10 @@
 *.s14 binary
 .gitignore text eol=lf
 .gitattributes text eol=lf
+
+# Preserve the exact bytes of these evidence-pinned inputs, including their
+# existing terminal blank line. Continue checking trailing spaces and tabs.
+work/mod_research/a_observed_three_start_test.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+work/mod_research/a_reward_runtime_mount_test.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+work/mod_research/a_runtime_reward_three_contract.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+work/mod_research/reward_result_observation_events.py whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol

@@ -125,7 +125,10 @@ class _Handler(socketserver.BaseRequestHandler):
             greeting=self.server.room.authenticate(read(),connection);player=greeting['player_id']
             write(dict(ok=True,**greeting))
             while not self.server.closing.is_set():
-                write(self.server.room.handle(player,connection,read()))
+                packet=read()
+                # Resolve the current endpoint after waiting for a packet: the
+                # bootstrap owner can mount reward planning while we wait.
+                write(self.server.room.handle(player,connection,packet))
         except (EOFError,OSError):pass
         except (ValueError,TypeError) as exc:
             try:write(dict(ok=False,error=str(exc),applied_to_game=False))
